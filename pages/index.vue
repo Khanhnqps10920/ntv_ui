@@ -8,6 +8,8 @@
     <div class="sm:hidden md:hidden lg:hidden">
       <NaviMobile />
     </div>
+
+    <div>Test code</div>
   </div>
 </template>
 
