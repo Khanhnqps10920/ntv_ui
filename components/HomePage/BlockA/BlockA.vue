@@ -7,13 +7,6 @@
       </div>
       <div class="bg-blue-300 blocka-right">Tin Nhanh, Quảng cáo, Cafe khuyến nông</div>
     </div>
-    <!-- <div class="grid grid-cols-12 gap-4">
-      <div class="col-span-6 xs:col-span-12 bg-yellow-300" style="height: 500px">Tin chính</div>
-      <div class="col-span-6 xs:col-span-12 grid grid-cols-12 gap-4">
-        <div class="col-span-6 xs:col-span-12 bg-yellow-300" style="height: 500px">Tin còn lại</div>
-        <div class="col-span-6 xs:col-span-12 bg-blue-300" style="height: 500px">Tin nhanh, quảng cáo, cafe khuyến nông</div>
-      </div>
-    </div>-->
   </Container1440>
 </template>
 
