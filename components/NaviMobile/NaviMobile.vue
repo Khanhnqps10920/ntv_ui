@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-12 border-gray-200 border-b-2 border-solid items-center">
-    <div class="flex-1">
+    <div class="flex-2">
       <i class="fas fa-bars"></i>
     </div>
     <div class="flex-1 text-center">Logo</div>

@@ -17,4 +17,16 @@ export default {};
   margin-left: auto;
   margin-right: auto;
 }
+@media (max-width: 1018px){
+  .container-max-1640 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 1140px) and (min-width: 1019px) {
+  
+}
+@media (min-width: 1141px) {
+  
+}
 </style>

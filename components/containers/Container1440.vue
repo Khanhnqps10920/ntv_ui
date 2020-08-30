@@ -11,10 +11,16 @@ export default {};
 <style>
 .container-max-1440 {
   max-width: 1440px;
-  width : auto !important;
+  width: auto !important;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (max-width: 1018px) {
+  .container-max-1440 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 </style>

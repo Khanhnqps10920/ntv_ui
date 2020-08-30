@@ -8,8 +8,8 @@
     <div class="sm:hidden md:hidden lg:hidden">
       <NaviMobile />
     </div>
-
-    <div>Test code</div>
+    <BlockA class="mt-10"/>
+    <SocialBlock class="mt-10" />
   </div>
 </template>
 
@@ -18,13 +18,17 @@ import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
+import BlockA from "@/components/HomePage/BlockA/BlockA";
+import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
 
 export default {
   components: {
     NaviInfo,
     SubNavi,
     TagBar,
-    NaviMobile
+    NaviMobile,
+    BlockA,
+    SocialBlock
   }
 };
 </script>
