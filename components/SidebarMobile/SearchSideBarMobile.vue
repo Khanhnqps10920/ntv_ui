@@ -1,41 +1,36 @@
 <template>
-  <div class="search-sidebar" :class="{show: isActive}">
-    <div class="search-sidebar__icon relative">
-      <i class="relative fas fa-times" @click="closeSideBar"></i>
+  <transition name="slide">
+    <div class="search-sidebar">
+      <div class="search-sidebar__icon relative">
+        <i class="relative fas fa-times" @click="$emit('closeSideBar')"></i>
+      </div>
+      <div class="search-sidebar__search relative">
+        <span class="text-xs">Search</span>
+        <input type="text" ref="input" class="search-sidebar__search-input" />
+      </div>
     </div>
-
-    <div class="search-sidebar__search relative">
-      <span class="text-xs">Search</span>
-      <input ref="searchInput" type="text" class="search-sidebar__search-input" />
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 export default {
-  props: {
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
-
-    closeSideBar: {
-      type: Function,
-      default: () => 1,
-    },
-  },
-
-  watch: {
-    isActive() {
-      //   this.$refs.searchInput.focus();
-      this.$nextTick(() => this.$refs.searchInput.focus());
-    },
-  },
+  mounted() {
+    this.$refs.input.focus();
+  }
 };
 </script>
 
 <style scoped>
 /* sidebar */
+.slide-leave {
+  transform: translate3d(0, 0, 0);
+}
+.slide-leave-active {
+  transition: all 3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+}
+.slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translate3d(100%, 0, 0);
+}
 
 .search-sidebar {
   /* position */
@@ -44,30 +39,25 @@ export default {
   top: 0;
   width: 100%;
   min-height: 100%;
-  overflow: hidden;
+  overflow: auto;
   z-index: 1000;
-
   /* background */
   background-image: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
   background-position: center top;
-
-  /* transition */
+  animation: right 0.3s ease-in-out;
   -webkit-transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
   transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-  transform: translate3d(100%, 0, 0);
-  -webkit-transform: translate3d(100%, 0, 0);
-  visibility: hidden;
+  /* transform: translate3d(100%, 0, 0); */
+  /* -webkit-transform: translate3d(100%, 0, 0); */
 }
-
-.search-sidebar.show {
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  visibility: visible;
-}
-
-.search-sidebar::-webkit-scrollbar {
-  display: none;
+@keyframes right {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* before */
@@ -133,13 +123,13 @@ export default {
 .search-sidebar .search-sidebar__search .search-sidebar__search-input {
   color: #fff;
   font-weight: 700;
-  font-size: 1.6rem;
-  height: 2.5rem;
-  line-height: 2.25rem;
+  font-size: 26px;
+  height: 40px;
+  line-height: 36px;
   border: 0;
   background: 0 0;
   outline: 0;
-  margin: 0.5rem 0;
+  margin: 8px 0;
   padding: 0;
   text-align: center;
   width: 100%;

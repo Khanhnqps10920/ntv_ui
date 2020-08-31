@@ -1,27 +1,17 @@
 <template>
   <nav class="mobile-nav flex h-12 items-center px-5">
     <div class="flex-1">
-      <i class="mobile-nav__icons fas fa-bars" @click="openSideBar"></i>
+      <i class="mobile-nav__icons fas fa-bars" @click="$emit('openSideBar')"></i>
     </div>
     <div class="flex-1 text-center">Logo</div>
     <div class="flex-1 text-right">
-      <i class="mobile-nav__icons fas fa-search" @click="openSearchSideBar"></i>
+      <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  props: {
-    openSideBar: {
-      type: Function,
-      default: () => 1,
-    },
-    openSearchSideBar: {
-      type: Function,
-      default: () => 1,
-    },
-  },
 };
 </script>
 

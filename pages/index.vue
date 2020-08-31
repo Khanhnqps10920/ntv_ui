@@ -7,13 +7,11 @@
     </div>
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
-      <NaviMobile :openSideBar="handleOpenSideBar" :openSearchSideBar="handleActiveSearchSideBar" />
-
+      <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
       <!-- sidebar menu -->
-      <SideBarMobile :isActive="sidebarActive" :closeSideBar="handleCloseSideBar" />
-
+      <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       <!-- sidebar search -->
-      <SearchSideBarMobile :isActive="searchActive" :closeSideBar="handleActiveSearchSideBar" />
+      <SearchSideBarMobile v-if="showSearchSideBar" @closeSideBar="showSearchSideBar = false" />
     </div>
 
     <BlockA class="mt-10" />
@@ -31,7 +29,7 @@ import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
-import SearchSideBarMobile from "../components/SidebarMobile/SearchSideBarMobile.vue";
+import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
 import BlockA from "@/components/HomePage/BlockA/BlockA";
 import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
 import BlockB from "@/components/HomePage/BlockB/BlockB";
@@ -48,28 +46,16 @@ export default {
     BlockA,
     SocialBlock,
     BlockB,
-    Footer,
+    Footer
   },
 
   data() {
     return {
-      sidebarActive: false,
-      searchActive: false,
+      showSearchSideBar: false,
+      showSideBar: false
     };
   },
-  methods: {
-    handleCloseSideBar() {
-      this.sidebarActive = false;
-    },
-
-    handleOpenSideBar() {
-      this.sidebarActive = true;
-    },
-
-    handleActiveSearchSideBar() {
-      this.searchActive = !this.searchActive;
-    },
-  },
+  methods: {}
 };
 </script>
 
