@@ -58,20 +58,25 @@ export default {
 
 <style>
 /* sidebar */
+
 .sidebar-mobile {
   /* position */
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  min-height: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow: hidden;
   z-index: 1000;
 
   /* background */
   background-image: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
   background-position: center top;
+
+  /* scroll */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   /* transition */
   transition: width 0.4s ease;
@@ -93,7 +98,7 @@ export default {
   top: 0;
   width: 100%;
   min-height: 100%;
-  overflow: auto;
+  overflow: hidden;
   z-index: 1001;
 
   /* background */
@@ -112,12 +117,13 @@ export default {
 .sidebar-mobile .sidebar-mobile__icon,
 .sidebar-mobile .sidebar-mobile__menu {
   z-index: 1002;
+  overflow: auto;
 }
 
 /* icon */
 .sidebar-mobile__icon {
   text-align: right;
-  padding: 2.5rem 1.25rem;
+  padding: 1rem 1.25rem;
   font-size: 1.5rem;
 
   cursor: pointer;

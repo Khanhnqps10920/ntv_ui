@@ -44,6 +44,8 @@ export default {
   background-image: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
   background-position: center top;
+
+  /* transition */
   -webkit-transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
   transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
   transform: translate3d(100%, 0, 0);
@@ -120,13 +122,13 @@ export default {
 .search-sidebar .search-sidebar__search .search-sidebar__search-input {
   color: #fff;
   font-weight: 700;
-  font-size: 26px;
-  height: 40px;
-  line-height: 36px;
+  font-size: 1.6rem;
+  height: 2.5rem;
+  line-height: 2.25rem;
   border: 0;
   background: 0 0;
   outline: 0;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   padding: 0;
   text-align: center;
   width: 100%;

@@ -70,7 +70,4 @@ export default {
 
 <style>
 /* test code */
-body {
-  height: 2000px;
-}
 </style>
