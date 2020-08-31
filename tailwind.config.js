@@ -16,7 +16,8 @@ module.exports = {
       lg: { 'min': '1141px' },
     },
     inset: {
-      fiftyfive : '55px'
+      fiftyfive: '55px',
+      twelve: "12px,"
     },
     variants: {},
     plugins: []
