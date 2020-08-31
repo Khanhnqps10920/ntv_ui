@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="search-sidebar">
+    <div ref="searchContainer" class="search-sidebar">
       <div class="search-sidebar__icon relative">
         <i class="relative fas fa-times" @click="$emit('closeSideBar')"></i>
       </div>
@@ -16,7 +16,8 @@
 export default {
   mounted() {
     this.$refs.input.focus();
-  }
+    this.$refs.searchContainer.classList.add("show");
+  },
 };
 </script>
 
