@@ -15,6 +15,10 @@
       <!-- sidebar search -->
       <SearchSideBarMobile :isActive="searchActive" :closeSideBar="handleActiveSearchSideBar" />
     </div>
+
+    <BlockA class="mt-10" />
+    <SocialBlock class="mt-10" />
+    <BlockB class="mt-10" />
   </div>
 </template>
 
@@ -25,6 +29,9 @@ import TagBar from "@/components/NaviDesktop/TagBar";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "../components/SidebarMobile/SearchSideBarMobile.vue";
+import BlockA from "@/components/HomePage/BlockA/BlockA";
+import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
+import BlockB from "@/components/HomePage/BlockB/BlockB";
 
 export default {
   components: {
@@ -34,6 +41,9 @@ export default {
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
+    BlockA,
+    SocialBlock,
+    BlockB,
   },
 
   data() {

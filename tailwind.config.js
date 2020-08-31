@@ -10,12 +10,15 @@ module.exports = {
       removeDeprecatedGapUtilities: true,
     },
     screens: {
-      xs: {'max' : '767px'},
+      xs: { 'max': '767px' },
       sm: { 'min': '768px', 'max': '1018px' },
       md: { 'min': '1019px', 'max': '1140px' },
       lg: { 'min': '1141px' },
     },
-  },
-  variants: {},
-  plugins: []
+    inset: {
+      fiftyfive : '55px'
+    },
+    variants: {},
+    plugins: []
+  }
 }
