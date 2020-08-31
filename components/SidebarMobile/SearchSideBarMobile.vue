@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div ref="searchContainer" class="search-sidebar">
+    <div class="search-sidebar" ref="searchContainer">
       <div class="search-sidebar__icon relative">
         <i class="relative fas fa-times" @click="$emit('closeSideBar')"></i>
       </div>
@@ -46,20 +46,20 @@ export default {
   background-image: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
   background-position: center top;
-  animation: right 0.3s ease-in-out;
+  /* animation: right 0.3s ease-in-out;
   -webkit-transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-  transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86); */
   /* transform: translate3d(100%, 0, 0); */
   /* -webkit-transform: translate3d(100%, 0, 0); */
 }
-@keyframes right {
+/* @keyframes right {
   from {
     transform: translate3d(100%, 0, 0);
   }
   to {
     transform: translate3d(0, 0, 0);
   }
-}
+} */
 
 /* before */
 
