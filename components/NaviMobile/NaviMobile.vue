@@ -32,7 +32,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-
+  z-index: 1000;
+  background: white;
   /* other element */
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
