@@ -32,13 +32,33 @@
         </div>
 
         <!-- other post -->
-        <div class="col-span-4 xs:col-span-12">
+        <div class="col-span-4 xs:col-span-12 other-post">
           <BlockItem v-for="(i,index) in 3" :key="index" />
         </div>
       </div>
 
       <!-- ads -->
-      <div class="bg-blue-300 blocka-right">Tin Nhanh, Quảng cáo, Cafe khuyến nông</div>
+      <div class="blocka-right">
+        <div class="blocka-right__section">
+          <h4 class="section-title">Editor Picks</h4>
+          <SideBlockItem />
+        </div>
+
+        <div class="ads">
+          <span class="ads-title">- Advertisement -</span>
+          <a href="#">
+            <img
+              src="https://demo.tagdiv.com/newspaper_pulses_pro/wp-content/uploads/2019/12/corhaz-300.jpg"
+              alt="ads"
+            />
+          </a>
+        </div>
+
+        <div class="blocka-right__section">
+          <h4 class="section-title">Editor Picks</h4>
+          <SideBlockItem v-for="(item,index) in 3" :key="index" />
+        </div>
+      </div>
     </div>
   </Container1440>
 </template>
@@ -46,23 +66,58 @@
 <script>
 import Container1440 from "@/components/containers/Container1440";
 import BlockItem from "../../BlockItem/BlockItem.vue";
+import SideBlockItem from "../../SideBlockItem/SideBlockItem.vue";
 
 export default {
   components: {
     Container1440,
     BlockItem,
+    SideBlockItem,
   },
 };
 </script>
 
 <style scoped>
+/* common style */
 .blocka-right {
-  width: auto;
-  height: 500px;
+  min-width: 200 !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.other-post {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .blocka {
   margin-top: 70px;
+}
+
+.section-title {
+  font-family: "Source Sans Pro", sans-serif;
+
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #4c4084;
+}
+
+.ads .ads-title {
+  display: block;
+  text-align: center;
+  color: #bbb;
+  font-size: 10px;
+  line-height: 21px;
+}
+
+.ads {
+  margin-bottom: 30px;
+}
+
+.ads img {
+  width: 100%;
+  height: auto;
 }
 
 /* main */
@@ -144,17 +199,19 @@ export default {
   }
   /* img */
   .blocka__main .blocka__main--img {
-    height: 600px;
+    height: 550px;
   }
 
   /* title */
   .blocka__main .blocka__main--title {
-    font-size: 32px;
+    font-size: 36x;
   }
 }
 @media (max-width: 1018px) and (min-width: 768px) {
   .blocka-right {
     width: 200px;
+    min-width: 200px;
+
     margin-left: 16px;
   }
 
@@ -171,17 +228,29 @@ export default {
 @media (max-width: 1140px) and (min-width: 1019px) {
   .blocka-right {
     width: 250px;
+    min-width: 250px;
+
     margin-left: 16px;
   }
 
   .blocka__main .blocka__main--img {
     height: 500px;
   }
+
+  .blocka__main .blocka__main--title {
+    font-size: 36px;
+  }
 }
 @media (min-width: 1141px) {
   .blocka-right {
     width: 300px;
+    min-width: 300px;
+
     margin-left: 16px;
+  }
+
+  .blocka__main .blocka__main--title {
+    font-size: 36px;
   }
 }
 </style>
