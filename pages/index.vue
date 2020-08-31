@@ -19,10 +19,13 @@
     <BlockA class="mt-10" />
     <SocialBlock class="mt-10" />
     <BlockB class="mt-10" />
+
+    <Footer />
   </div>
 </template>
 
 <script>
+// components
 import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
@@ -32,6 +35,7 @@ import SearchSideBarMobile from "../components/SidebarMobile/SearchSideBarMobile
 import BlockA from "@/components/HomePage/BlockA/BlockA";
 import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
 import BlockB from "@/components/HomePage/BlockB/BlockB";
+import Footer from "@/components/Footer/Footer.vue";
 
 export default {
   components: {
@@ -44,6 +48,7 @@ export default {
     BlockA,
     SocialBlock,
     BlockB,
+    Footer,
   },
 
   data() {
