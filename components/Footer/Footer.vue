@@ -407,6 +407,12 @@ export default {
   }
 
   .footer__pick-item .footer__pick-item--img img {
+    height: 55%;
+  }
+}
+
+@media (min-width: 1019px) {
+  .footer__pick-item .footer__pick-item--img img {
     height: 65%;
   }
 }
