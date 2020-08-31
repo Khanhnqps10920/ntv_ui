@@ -1,42 +1,40 @@
 <template>
-  <transition name="slide">
-    <div class="sidebar-mobile">
-      <div class="sidebar-mobile__icon relative">
-        <i class="relative fas fa-times" @click="$emit('closeSideBar')"></i>
-      </div>
-
-      <ul class="sidebar-mobile__menu relative">
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Home</nuxt-link>
-        </li>
-
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">News</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Business</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Magazine</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Sport</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Art</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Culture</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Politics</nuxt-link>
-        </li>
-        <li class="sidebar-mobile__menu-item">
-          <nuxt-link to="/">Style</nuxt-link>
-        </li>
-      </ul>
+  <div class="sidebar-mobile">
+    <div class="sidebar-mobile__icon relative">
+      <i class="relative fas fa-times" @click="$emit('closeSideBar')"></i>
     </div>
-  </transition>
+
+    <ul class="sidebar-mobile__menu relative">
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Home</nuxt-link>
+      </li>
+
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">News</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Business</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Magazine</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Sport</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Art</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Culture</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Politics</nuxt-link>
+      </li>
+      <li class="sidebar-mobile__menu-item">
+        <nuxt-link to="/">Style</nuxt-link>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -45,15 +43,6 @@ export default {};
 
 <style>
 /* sidebar */
-.slide-leave {
-  transform: translate3d(0, 0, 0);
-}
-.slide-leave-active{
-  transition: all 3s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-}
-.slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translate3d(-100%, 0, 0);
-}
 
 .sidebar-mobile {
   /* position */
@@ -73,19 +62,6 @@ export default {};
   /* scroll */
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  /* transition */
-  animation: left 0.3s ease-in-out;
-  -webkit-transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-  transition: all 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
-}
-@keyframes left {
-  from {
-    transform: translate3d(-100%, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 .sidebar-mobile.hide {

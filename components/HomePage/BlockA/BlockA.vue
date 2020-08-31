@@ -32,18 +32,21 @@ export default {
 @media (max-width: 1018px) and (min-width: 768px) {
   .blocka-right {
     width: 200px;
+    min-width: 200px;
     margin-left: 16px;
   }
 }
 @media (max-width: 1140px) and (min-width: 1019px) {
   .blocka-right {
     width: 250px;
+    min-width: 250px;
     margin-left: 16px;
   }
 }
 @media (min-width: 1141px) {
   .blocka-right {
     width: 300px;
+    min-width: 300px;
     margin-left: 16px;
   }
 }
