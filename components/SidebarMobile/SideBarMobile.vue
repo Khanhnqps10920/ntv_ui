@@ -33,9 +33,6 @@
       <li class="sidebar-mobile__menu-item">
         <nuxt-link to="/">Style</nuxt-link>
       </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Travel</nuxt-link>
-      </li>
     </ul>
   </div>
 </template>
@@ -90,6 +87,10 @@ export default {
   width: 0;
 }
 
+.sidebar-mobile::-webkit-scrollbar {
+  display: none;
+}
+
 /* sidebar background - position */
 .sidebar-mobile::before {
   content: "";
@@ -117,7 +118,6 @@ export default {
 .sidebar-mobile .sidebar-mobile__icon,
 .sidebar-mobile .sidebar-mobile__menu {
   z-index: 1002;
-  overflow: auto;
 }
 
 /* icon */
@@ -142,6 +142,8 @@ export default {
 /* menu */
 .sidebar-mobile__menu {
   padding: 0 1.25rem;
+  height: 80%;
+  overflow: scroll;
 }
 
 /* menu item */

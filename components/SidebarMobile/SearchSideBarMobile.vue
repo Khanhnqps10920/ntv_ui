@@ -6,7 +6,7 @@
 
     <div class="search-sidebar__search relative">
       <span class="text-xs">Search</span>
-      <input type="text" class="search-sidebar__search-input" />
+      <input ref="searchInput" type="text" class="search-sidebar__search-input" />
     </div>
   </div>
 </template>
@@ -24,6 +24,13 @@ export default {
       default: () => 1,
     },
   },
+
+  watch: {
+    isActive() {
+      //   this.$refs.searchInput.focus();
+      this.$nextTick(() => this.$refs.searchInput.focus());
+    },
+  },
 };
 </script>
 
@@ -37,7 +44,7 @@ export default {
   top: 0;
   width: 100%;
   min-height: 100%;
-  overflow: auto;
+  overflow: hidden;
   z-index: 1000;
 
   /* background */
@@ -57,6 +64,10 @@ export default {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   visibility: visible;
+}
+
+.search-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 /* before */
