@@ -55,7 +55,7 @@
         </div>
 
         <div class="blocka-right__section">
-          <h4 class="section-title">Editor Picks</h4>
+          <h4 class="section-title">Business</h4>
           <SideBlockItem v-for="(item,index) in 3" :key="index" />
         </div>
       </div>
@@ -81,13 +81,9 @@ export default {
 /* common style */
 .blocka-right {
   min-width: 200 !important;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .other-post {
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .blocka {
@@ -206,6 +202,10 @@ export default {
   .blocka__main .blocka__main--title {
     font-size: 36x;
   }
+
+  .section-title {
+    font-size: 17px;
+  }
 }
 @media (max-width: 1018px) and (min-width: 768px) {
   .blocka-right {
@@ -224,6 +224,10 @@ export default {
   .blocka__main .blocka__main--title {
     font-size: 21px;
   }
+
+  .section-title {
+    font-size: 17px;
+  }
 }
 @media (max-width: 1140px) and (min-width: 1019px) {
   .blocka-right {
@@ -240,6 +244,10 @@ export default {
   .blocka__main .blocka__main--title {
     font-size: 36px;
   }
+
+  .section-title {
+    font-size: 19px;
+  }
 }
 @media (min-width: 1141px) {
   .blocka-right {
@@ -251,6 +259,10 @@ export default {
 
   .blocka__main .blocka__main--title {
     font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 19px;
   }
 }
 </style>

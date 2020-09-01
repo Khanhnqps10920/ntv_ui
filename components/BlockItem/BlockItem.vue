@@ -27,7 +27,7 @@ export default {};
 /* block item mobile */
 .block-item {
   padding-bottom: 18px;
-  margin-bottom: 18px;
+  /* margin-bottom: 18px; */
 }
 
 /* category */
@@ -98,14 +98,25 @@ export default {};
   }
 }
 @media (max-width: 1018px) and (min-width: 768px) {
+  .block-item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
   /* title */
   .block-item__title {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   /* img */
   .block-item__img-container {
-    height: 125px;
+    height: 120px;
+  }
+
+  /* author */
+
+  .block-item__date-author {
+    display: none;
   }
 }
 @media (max-width: 1140px) and (min-width: 1019px) {
@@ -113,10 +124,20 @@ export default {};
   .block-item__img-container {
     height: 150px;
   }
+
+  /* title */
+  .block-item__title {
+    font-size: 17px;
+  }
 }
 @media (min-width: 1141px) {
   .block-item__img-container {
     height: 170px;
+  }
+
+  /* title */
+  .block-item__title {
+    font-size: 20px;
   }
 }
 </style>
