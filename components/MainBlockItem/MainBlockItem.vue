@@ -140,6 +140,7 @@ export default {};
   }
 }
 
+/* tablet */
 @media (max-width: 1018px) and (min-width: 768px) {
   .main-item {
     padding-bottom: 10px;
@@ -171,6 +172,8 @@ export default {};
     display: none;
   }
 }
+
+/* desktop */
 @media (max-width: 1140px) and (min-width: 1019px) {
   .main-item .main-item__container {
     align-items: flex-start;

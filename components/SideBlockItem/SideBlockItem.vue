@@ -105,6 +105,7 @@ export default {
 @media (min-width: 768px) {
 }
 
+/* tablet */
 @media (max-width: 1018px) and (min-width: 768px) {
   .side-item {
     margin-bottom: 10px;
@@ -139,6 +140,7 @@ export default {
   }
 }
 
+/* dékstop */
 @media (max-width: 1140px) and (min-width: 1019px) {
   /* title */
   .side-item .side-item__info h3 {
