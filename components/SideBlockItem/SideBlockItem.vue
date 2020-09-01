@@ -107,7 +107,17 @@ export default {
 
 @media (max-width: 1018px) and (min-width: 768px) {
   .side-item {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .side-item.square {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+  }
+
+  .side-item.square .side-item__date {
+    display: none;
   }
 
   .side-item .side-item__info h3 {
@@ -115,9 +125,17 @@ export default {
     line-height: 16px;
   }
 
+  .side-item.square .side-item__info {
+    width: 60%;
+  }
+
+  .side-item.square h3 {
+    line-height: 1;
+  }
+
   .side-item .side-item__img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 }
 
