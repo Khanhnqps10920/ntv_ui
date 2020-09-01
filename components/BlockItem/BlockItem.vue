@@ -94,7 +94,7 @@ export default {};
 
   /* img */
   .block-item__img-container {
-    height: 185px;
+    height: 150x;
   }
 }
 @media (max-width: 1018px) and (min-width: 768px) {
@@ -116,7 +116,7 @@ export default {};
 }
 @media (min-width: 1141px) {
   .block-item__img-container {
-    height: 185px;
+    height: 170px;
   }
 }
 </style>
