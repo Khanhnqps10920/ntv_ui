@@ -44,15 +44,8 @@
           <SideBlockItem />
         </div>
 
-        <div class="ads">
-          <span class="ads-title">- Advertisement -</span>
-          <a href="#">
-            <img
-              src="https://demo.tagdiv.com/newspaper_pulses_pro/wp-content/uploads/2019/12/corhaz-300.jpg"
-              alt="ads"
-            />
-          </a>
-        </div>
+        <!-- ads -->
+        <AdsSide />
 
         <div class="blocka-right__section">
           <h4 class="section-title">Business</h4>
@@ -67,12 +60,14 @@
 import Container1440 from "@/components/containers/Container1440";
 import BlockItem from "../../BlockItem/BlockItem.vue";
 import SideBlockItem from "../../SideBlockItem/SideBlockItem.vue";
+import AdsSide from "../../Advertisement/AdsSide.vue";
 
 export default {
   components: {
     Container1440,
     BlockItem,
     SideBlockItem,
+    AdsSide,
   },
 };
 </script>
@@ -97,23 +92,6 @@ export default {
   font-weight: 900;
   margin-bottom: 16px;
   color: #4c4084;
-}
-
-.ads .ads-title {
-  display: block;
-  text-align: center;
-  color: #bbb;
-  font-size: 10px;
-  line-height: 21px;
-}
-
-.ads {
-  margin-bottom: 30px;
-}
-
-.ads img {
-  width: 100%;
-  height: auto;
 }
 
 /* main */

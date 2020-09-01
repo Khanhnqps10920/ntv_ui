@@ -1,5 +1,5 @@
 <template>
-  <div class="side-item">
+  <div class="side-item" :class="{'noneImg': noneImg, 'border':isBorder, 'square': isSquare }">
     <div class="side-item__info">
       <h3 class="side-item__title">
         <nuxt-link to="/post">Jen Kendall Kicked off American Airlines First Flight</nuxt-link>
@@ -7,14 +7,31 @@
       <p class="side-item__date">December 10, 2019</p>
     </div>
 
-    <div class="side-item__img">
+    <div class="side-item__img" v-if="!noneImg">
       <img src="@/assets/imgs/default.png" alt />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    noneImg: {
+      type: Boolean,
+      default: false,
+    },
+
+    isBorder: {
+      type: Boolean,
+      default: false,
+    },
+
+    isSquare: {
+      type: Boolean,
+      default: false,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -22,7 +39,20 @@ export default {};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 35px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.side-item.border {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.side-item.border:last-child {
+  border: none;
+}
+
+.side-item.noneImg .side-item__info {
+  width: 100%;
 }
 
 .side-item .side-item__info {
@@ -38,7 +68,7 @@ export default {};
 }
 
 .side-item .side-item__info h3 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
   line-height: 20px;
@@ -58,6 +88,14 @@ export default {};
   width: 100%;
   height: 100%;
   border-radius: 50%;
+}
+
+.side-item.square .side-item__img {
+  border-radius: 0;
+}
+
+.side-item.square .side-item__img img {
+  border-radius: 0;
 }
 
 /* responsive */
