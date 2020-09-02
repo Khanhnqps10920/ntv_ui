@@ -12,10 +12,10 @@
           <div class="text-sm mt-1">Saturday, August 29, 2020</div>
         </div>
         <div class="flex-1 text-right self-center">
-          <i class="fab fa-facebook-f mr-3"></i>
-          <i class="fab fa-twitter mr-3"></i>
-          <i class="fab fa-youtube mr-3"></i>
-          <i class="fas fa-search"></i>
+          <nuxt-link to class="hover:text-hovercolor"><i class="fab fa-facebook-f mr-3"></i></nuxt-link>
+          <nuxt-link to class="hover:text-hovercolor"><i class="fab fa-twitter mr-3"></i></nuxt-link>
+          <nuxt-link to class="hover:text-hovercolor"><i class="fab fa-youtube mr-3"></i></nuxt-link>
+          <nuxt-link to class="hover:text-hovercolor"><i class="fas fa-search"></i></nuxt-link>
         </div>
       </div>
     </Container1640>

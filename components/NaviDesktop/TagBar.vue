@@ -2,11 +2,12 @@
   <div
     class="h-16 border-gray-200 border-t-2 border-b-2 border-solid flex justify-center items-center"
   >
-    <div
+    <nuxt-link
+      to
       v-for="(tag, i) in menuTags"
       :key="i"
-      class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans"
-    >{{tag.name}}</div>
+      class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
+    >{{tag.name}}</nuxt-link>
   </div>
 </template>
 
@@ -14,18 +15,14 @@
 export default {
   data() {
     return {
-      menuTags: [
-        { name: "Trang chủ" },
-        { name: "Thời sự" },
-        { name: "Nông nghiệp" },
-        { name: "Thị Trường - Tài Chính" },
-        { name: "Cà phê khuyến nông" },
-        { name: "Kho chuyện" },
-        { name: "Sống xanh" },
-        { name: "Tư vấn" },
-        { name: "Thế giới" }
-      ]
+     
     };
+  },
+  props : {
+    menuTags : {
+      type : Array,
+      required : true
+    }
   }
 };
 </script>

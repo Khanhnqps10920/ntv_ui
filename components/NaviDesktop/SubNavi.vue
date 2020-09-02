@@ -8,7 +8,6 @@
         <nuxt-link to class="mr-5 hover:text-hovercolor">Write for us</nuxt-link>
         <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
         <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>
-        <h1 class=test>background: var(--boo-mint-green);</h1>
       </div>
     </Container1640>
   </div>
@@ -24,7 +23,4 @@ export default {
 </script>
 
 <style scoped>
-.test {
-    color : var(--maincolor)
-}
 </style>

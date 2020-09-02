@@ -1,11 +1,7 @@
 <template>
   <div>
     <!--Navi Desktop-->
-    <div class="xs:hidden">
-      <SubNavi />
-      <NaviInfo />
-      <TagBar class="mt-8" />
-    </div>
+    <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
@@ -23,9 +19,7 @@
   </div>
 </template>
 <script>
-import SubNavi from "@/components/NaviDesktop/SubNavi";
-import NaviInfo from "@/components/NaviDesktop/NaviInfo";
-import TagBar from "@/components/NaviDesktop/TagBar";
+import NaviDesktop from '@/components/NaviDesktop/NaviDesktop'
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
@@ -34,9 +28,7 @@ import Footer from "@/components/Footer/Footer.vue";
 export default {
   components: {
     Footer,
-    NaviInfo,
-    SubNavi,
-    TagBar,
+   NaviDesktop,
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
