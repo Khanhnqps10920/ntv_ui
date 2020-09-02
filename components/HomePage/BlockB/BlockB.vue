@@ -66,8 +66,8 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem,
-  },
+    MainBlockItem
+  }
 };
 </script>
 
@@ -147,9 +147,6 @@ export default {
 /* end main block */
 
 /* block b-right */
-.blockb-right {
-  min-width: 340px;
-}
 
 .blockb-right__block {
   width: auto;
@@ -182,6 +179,9 @@ export default {
 
 /* mobile */
 @media (max-width: 767px) {
+  .blockb-right {
+    width: auto;
+  }
   .main-block {
     margin-top: 45px;
   }
