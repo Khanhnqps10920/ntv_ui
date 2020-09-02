@@ -5,7 +5,7 @@
     </transition>
     <SubNavi />
     <NaviInfo />
-    <TagBar class="mt-8" :menuTags="menuTags"/>
+    <TagBar class="mt-8" :menuTags="menuTags" />
   </div>
 </template>
 
@@ -20,15 +20,15 @@ export default {
     return {
       showMenu: false,
       menuTags: [
-        { name: "Trang chủ" },
-        { name: "Thời sự" },
-        { name: "Nông nghiệp" },
-        { name: "Thị Trường - Tài Chính" },
-        { name: "Cà phê khuyến nông" },
-        { name: "Kho chuyện" },
-        { name: "Sống xanh" },
-        { name: "Tư vấn" },
-        { name: "Thế giới" }
+        { name: "Trang chủ", to: "/" },
+        { name: "Thời sự", to: "/category/thoi-su" },
+        { name: "Nông nghiệp", to: "/category/thoi-su" },
+        { name: "Thị Trường - Tài Chính", to: "/category/thoi-su" },
+        { name: "Cà phê khuyến nông", to: "/category/thoi-su" },
+        { name: "Kho chuyện", to: "/category/thoi-su" },
+        { name: "Sống xanh", to: "/category/thoi-su" },
+        { name: "Tư vấn", to: "/category/thoi-su" },
+        { name: "Thế giới", to: "/category/thoi-su" }
       ]
     };
   },

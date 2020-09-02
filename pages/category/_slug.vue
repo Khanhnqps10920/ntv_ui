@@ -19,8 +19,8 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock,
-  },
+    MainBlock
+  }
 };
 </script>
 
