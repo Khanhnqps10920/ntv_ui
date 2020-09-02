@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="fb-root"></div>
     <!--Navi Desktop-->
     <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
@@ -42,6 +43,7 @@ export default {
       showSideBar: false
     };
   },
+
   head() {
     return {
       script: [
@@ -64,6 +66,13 @@ export default {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
           rel: "stylesheet"
+        },
+        {
+          async: true,
+          defer: true,
+          crossorigin: "anonymous",
+          src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
+          nonce: "Ef8u8iSh"
         }
       ]
     };
