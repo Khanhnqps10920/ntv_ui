@@ -3,7 +3,7 @@
     <div class="main-block flex xs:block mb-5">
       <!-- main block -->
       <div class="main-block__main flex-grow">
-        <MainBlockItem v-for="(item,index) in 5" :key="index" />
+        <MainBlockItem v-for="(item,index) in 8" :key="index" :is1240="true" />
       </div>
 
       <!--  -->
@@ -13,7 +13,7 @@
         <div class="main-block__right-block">
           <h4 class="block-title">Latest News</h4>
 
-          <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
+          <SideBlockItem v-for="(item,index) in 4" :key="index" :isSquare="true" />
         </div>
 
         <AdsSide class="mt-5" />
@@ -61,7 +61,6 @@ export default {
 /* main block right */
 
 .main-block__right {
-  /* max-width: 370px; */
   padding-right: 24px;
   padding-left: 24px;
 }
@@ -84,10 +83,14 @@ export default {
 @media (max-width: 1018px) and (min-width: 768px) {
   .main-block__right {
     min-width: 200px;
+    padding-right: 14px;
+    padding-left: 14px;
   }
 
-  .main-block__right {
-    max-width: 300px;
+  /* main block */
+  .main-block__main {
+    padding-right: 14px;
+    padding-left: 14px;
   }
 }
 
@@ -98,6 +101,13 @@ export default {
 @media (max-width: 1140px) and (min-width: 1019px) {
   .main-block__right {
     max-width: 290px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .main-block__main {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 

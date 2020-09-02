@@ -1,5 +1,5 @@
 <template>
-  <div class="main-item">
+  <div class="main-item" :class="{bigSize: is1240}">
     <div class="main-item__container">
       <div class="main-item__img">
         <nuxt-link class="main-item__category" to="/category">Politics</nuxt-link>
@@ -28,7 +28,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    is1240: {
+      type: Boolean,
+      default: false,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -168,6 +175,27 @@ export default {};
   .main-item__date-author {
     display: none;
   }
+
+  /* big size */
+  .main-item.bigSize .main-item__img {
+    width: 40%;
+  }
+
+  .main-item.bigSize .main-item__info {
+    width: 58%;
+  }
+
+  .main-item.bigSize .main-item__info--title {
+    font-size: 18px;
+  }
+
+  .main-item.main-item.bigSize .main-item__date {
+    font-size: 12px;
+  }
+  .main-item.main-item.bigSize .main-item__date-author {
+    display: inline-block;
+  }
+  /*  */
 }
 
 /* desktop */
@@ -188,5 +216,26 @@ export default {};
   .main-item__date-author {
     display: none;
   }
+
+  /* big size */
+  .main-item.bigSize .main-item__img {
+    width: 40%;
+  }
+
+  .main-item.bigSize .main-item__info {
+    width: 58%;
+  }
+
+  .main-item.bigSize .main-item__info--title {
+    font-size: 18px;
+  }
+
+  .main-item.main-item.bigSize .main-item__date {
+    font-size: 12px;
+  }
+  .main-item.main-item.bigSize .main-item__date-author {
+    display: inline-block;
+  }
+  /*  */
 }
 </style>
