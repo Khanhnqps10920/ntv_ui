@@ -66,8 +66,8 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem,
-  },
+    MainBlockItem
+  }
 };
 </script>
 
@@ -122,7 +122,6 @@ export default {
 }
 
 .main-block__title span {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 24px;
   font-weight: 900;
   color: #4c4084;
@@ -130,7 +129,6 @@ export default {
 }
 
 .main-block__title-sub {
-  font-family: "Roboto", sans-serif;
 
   font-size: 90px;
   text-transform: uppercase;
@@ -147,9 +145,6 @@ export default {
 /* end main block */
 
 /* block b-right */
-.blockb-right {
-  min-width: 340px;
-}
 
 .blockb-right__block {
   width: auto;
@@ -182,6 +177,9 @@ export default {
 
 /* mobile */
 @media (max-width: 767px) {
+  .blockb-right {
+    width: auto;
+  }
   .main-block {
     margin-top: 45px;
   }

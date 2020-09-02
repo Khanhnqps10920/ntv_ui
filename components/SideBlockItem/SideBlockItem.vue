@@ -60,7 +60,6 @@ export default {
 }
 
 .side-item .side-item__date {
-  font-family: Source Sans Pro;
   font-size: 13px;
   line-height: 1;
   font-style: italic;

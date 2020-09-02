@@ -86,8 +86,6 @@ export default {
 }
 
 .section-title {
-  font-family: "Source Sans Pro", sans-serif;
-
   font-size: 24px;
   font-weight: 900;
   margin-bottom: 16px;
