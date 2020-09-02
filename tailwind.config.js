@@ -6,6 +6,12 @@
 */
 module.exports = {
   theme: {
+
+    textColor: theme => ({
+      ...theme('colors'),
+      maincolor: '#027731',
+      hovercolor: '#006428',
+    }),
     future: {
       removeDeprecatedGapUtilities: true,
     },
