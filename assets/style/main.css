@@ -1,4 +1,5 @@
 @import "./reset.css";
+
 :root {
   --maincolor: #027731;
   --hovercolor: #006428;
@@ -9,12 +10,15 @@ body {
 }
 
 .block-title {
+
+
   font-size: 24px;
   font-weight: 900;
   margin-bottom: 16px;
   text-align: left;
   line-height: 31px;
   color: #4c4084;
+
 }
 
 @media (max-width: 1018px) and (min-width: 768px) {
