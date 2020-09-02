@@ -32,7 +32,16 @@ export default {
   data() {
     return {};
   },
-  methods: {}
+  async asyncData(context) {
+    await context.store.dispatch('getPostInCategory').then((res) => {
+      console.log(res)
+    })
+  },
+  // async mounted(){
+  //   await this.$store.dispatch('getPostInCategory').then((res) => {
+  //     console.log(res)
+  //   })
+  // }
 };
 </script>
 
