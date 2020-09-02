@@ -16,27 +16,30 @@
     </div>
     <nuxt />
     <Footer />
+    <ScrollTop />
   </div>
 </template>
 <script>
-import NaviDesktop from '@/components/NaviDesktop/NaviDesktop'
+import NaviDesktop from "@/components/NaviDesktop/NaviDesktop";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
 import Footer from "@/components/Footer/Footer.vue";
+import ScrollTop from "@/components/ScrollTop/ScrollTop";
 
 export default {
   components: {
     Footer,
-   NaviDesktop,
+    NaviDesktop,
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
+    ScrollTop
   },
   data() {
     return {
       showSearchSideBar: false,
-      showSideBar: false,
+      showSideBar: false
     };
   },
   head() {
@@ -44,27 +47,27 @@ export default {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous",
+          crossorigin: "anonymous"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet",
-        },
-      ],
+          rel: "stylesheet"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 
