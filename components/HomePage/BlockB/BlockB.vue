@@ -122,7 +122,6 @@ export default {
 }
 
 .main-block__title span {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 24px;
   font-weight: 900;
   color: #4c4084;
@@ -130,7 +129,6 @@ export default {
 }
 
 .main-block__title-sub {
-  font-family: "Roboto", sans-serif;
 
   font-size: 90px;
   text-transform: uppercase;

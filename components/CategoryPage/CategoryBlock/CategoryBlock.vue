@@ -45,7 +45,6 @@ export default {
 
 .category__title {
   color: #919191;
-  font-family: "Source Sans Pro";
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -53,7 +52,6 @@ export default {
 }
 
 .category__name {
-  font-family: "Gelasio", serif;
   font-size: 36px;
   line-height: 38px;
   font-weight: 700;
@@ -74,7 +72,6 @@ export default {
 
 .category__list .category__list-item a {
   padding: 3px 4px 2px;
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;

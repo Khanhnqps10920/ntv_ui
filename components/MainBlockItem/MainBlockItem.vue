@@ -53,7 +53,6 @@ export default {};
   bottom: 0;
   padding: 3px 4px 2px;
   background-color: #4c4084;
-  font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -85,7 +84,6 @@ export default {};
 
   font-size: 23px;
   font-weight: 700;
-  font-family: "Gelasio", serif;
   margin-bottom: 6px;
   line-height: 22px;
 }
@@ -107,7 +105,6 @@ export default {};
   color: #555555;
   column-count: 1;
   column-gap: 48px;
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
   line-height: 1.3;
 }
