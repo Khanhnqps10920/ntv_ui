@@ -25,7 +25,7 @@
 
 <style scoped>
 .main-height {
-  height : calc(100% + 70px;)
+  height : calc(100% + 70px)
 }
 .block-item__category {
   display: inline-block;

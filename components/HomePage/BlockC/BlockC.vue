@@ -83,6 +83,7 @@ export default {
 @media (max-width: 1018px) and (min-width: 768px) {
   .rest-new {
     margin-top: -50px;
+    height : calc(100% + 50px)
   }
   .main-new {
     margin-top: -50px;
