@@ -4,6 +4,11 @@
     <SocialBlock class="mt-10" />
     <BlockB class="mt-10" />
     <BlockC class="mt-10" />
+    <AdsHomeMiddle />
+    <BlockB class="mt-10" />
+    <AdsHomeMiddle />
+    <BlockC class="mt-10" />
+    <AdsHomeBottom />
   </div>
 </template>
 
@@ -12,13 +17,16 @@ import BlockA from "@/components/HomePage/BlockA/BlockA";
 import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
 import BlockB from "@/components/HomePage/BlockB/BlockB";
 import BlockC from "@/components/HomePage/BlockC/BlockC.vue";
-
+import AdsHomeMiddle from "@/components/Advertisement/AdsHomeMiddle";
+import AdsHomeBottom from "@/components/Advertisement/AdsHomeBottom";
 export default {
   components: {
     BlockA,
     SocialBlock,
     BlockB,
-    BlockC
+    BlockC,
+    AdsHomeMiddle,
+    AdsHomeBottom
   },
 
   data() {
