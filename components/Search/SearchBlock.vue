@@ -15,8 +15,8 @@ import Container1240 from "../containers/Container1240.vue";
 
 export default {
   components: {
-    Container1240,
-  },
+    Container1240
+  }
 };
 </script>
 
@@ -42,6 +42,7 @@ export default {
   color: #000000;
   font-size: 33px;
   font-weight: 600;
+  outline: none;
 
   border-bottom: 0.1px solid #e1e1e1;
   padding: 5px;
