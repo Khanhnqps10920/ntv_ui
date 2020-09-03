@@ -32,17 +32,17 @@ export default {
   data() {
     return {};
   },
-  async asyncData(context) {
-    await context.store.dispatch("getPostInCategory", {
-      urlQuery: { a: 1, b: 2, c: 3 },
-      nextActions: res => {
-        console.log(res);
-      },
-      errorActions: err => {
-        console.log(err);
-      }
-    });
-  }
+  // async asyncData(context) {
+  //   await context.store.dispatch("getPostInCategory", {
+  //     urlQuery: { a: 1, b: 2, c: 3 },
+  //     nextActions: res => {
+  //       console.log(res);
+  //     },
+  //     errorActions: err => {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
 };
 </script>
 
