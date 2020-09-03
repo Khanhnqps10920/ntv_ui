@@ -5,6 +5,9 @@
 ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 */
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
   theme: {
 
     textColor: theme => ({
@@ -12,9 +15,6 @@ module.exports = {
       maincolor: '#027731',
       hovercolor: '#006428',
     }),
-    future: {
-      removeDeprecatedGapUtilities: true,
-    },
     screens: {
       xs: { 'max': '767px' },
       sm: { 'min': '768px', 'max': '1018px' },
