@@ -41,6 +41,78 @@
           <div class="post__main--img">
             <img src="@/assets/imgs/default.png" alt="post-img" />
           </div>
+
+          <!-- content -->
+          <div class="post__main--content grid grid-cols-12 gap-4 relative mt-6">
+            <!-- left side -->
+            <div class="col-span-4 sm:hidden xs:hidden">
+              <div class="post__main--content-side sticky top-fiftyfive">
+                <p class="block-title">
+                  <span>Must Read</span>
+                </p>
+
+                <SideWrapper>
+                  <SideBlockItem v-for="(item,index) in 4" :key="index" :isSquare="true" />
+                </SideWrapper>
+
+                <SideWrapper>
+                  <Author />
+                </SideWrapper>
+              </div>
+            </div>
+
+            <!-- right side -->
+            <div class="col-span-8 xs:col-span-12 sm:col-span-12">
+              <div class="post__main--content-main">
+                <!-- post content -->
+                <div class="post__content">
+                  <p
+                    class="mb-5"
+                    v-for="(item,index) in 15"
+                    :key="index"
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur blanditiis minima deserunt consequuntur nobis voluptatum quas dignissimos quam rerum sit esse beatae iste optio corporis quisquam reiciendis dolore, impedit nulla?</p>
+                </div>
+
+                <div class="post__share">
+                  <ShareFacebook />
+                </div>
+
+                <div class="post__other mt-5">
+                  <div class="post__other-previous">
+                    <span class="block">Previous article</span>
+                    <nuxt-link to="/post">Successful entrepreneurs recognize when to move on</nuxt-link>
+                  </div>
+                  <div class="post__other-next">
+                    <span class="block">Next article</span>
+                    <nuxt-link to="/post">We asked the best: male influencers talk pricing</nuxt-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ads main -->
+            <div class="col-span-12">
+              <SideWrapper>
+                <AdsMain />
+              </SideWrapper>
+            </div>
+
+            <!-- comment / side section -->
+            <div class="col-span-4 xs:col-span-12">
+              <p class="block-title">
+                <span>More Article</span>
+              </p>
+
+              <SideWrapper>
+                <SideBlockItem v-for="(item,index) in 3" :key="index" :isSquare="true" />
+              </SideWrapper>
+            </div>
+
+            <div class="comment-block col-span-8 xs:col-span-12">
+              <h3 class="comment-block__title">Leave A reply</h3>
+              <CommentForm />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -68,6 +140,9 @@ import AdsSide from "../Advertisement/AdsSide.vue";
 import SideWrapper from "../SideWrapper/SideWrapper.vue";
 import SideBlockItem from "../SideBlockItem/SideBlockItem.vue";
 import ShareFacebook from "@/components/SocialShareButton/ShareFacebook.vue";
+import Author from "../Author/Author.vue";
+import AdsMain from "../Advertisement/AdsMain.vue";
+import CommentForm from "../Form/CommentForm.vue";
 
 export default {
   components: {
@@ -76,6 +151,9 @@ export default {
     SideWrapper,
     SideBlockItem,
     ShareFacebook,
+    Author,
+    AdsMain,
+    CommentForm,
   },
 };
 </script>
@@ -154,6 +232,54 @@ export default {
 }
 
 /*  */
+
+/* other post */
+
+.post__other {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post__other div {
+  width: 45%;
+}
+
+.post__other-previous {
+  text-align: left;
+}
+
+.post__other-next {
+  text-align: right;
+}
+
+.post__other span {
+  font-size: 14px;
+  color: #c1c1c1;
+  margin-bottom: 7px;
+}
+
+.post__other a {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #222;
+}
+
+.post__other a:hover {
+  color: var(--hovercolor);
+}
+
+/* comment-block */
+
+.comment-block__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  margin-top: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #111;
+}
 
 /* responsice  */
 
