@@ -89,7 +89,7 @@ export default {
   font-size: 24px;
   font-weight: 900;
   margin-bottom: 16px;
-  color: #4c4084;
+  color: var(--maincolor);
 }
 
 /* main */
@@ -100,7 +100,7 @@ export default {
 .blocka__main .blocka__main--category {
   display: inline-block;
   padding: 3px 4px 2px;
-  background-color: #4c4084;
+  background-color: var(--maincolor);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -117,7 +117,7 @@ export default {
 }
 
 .blocka__main .blocka__main--title a:hover {
-  color: #4c4084;
+  color: var(--hovercolor);
 }
 
 /* date */

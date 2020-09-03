@@ -35,7 +35,7 @@ export default {};
 .block-item__category {
   display: inline-block;
   padding: 3px 4px 2px;
-  background-color: #4c4084;
+  background-color: var(--maincolor);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -73,7 +73,7 @@ export default {};
 }
 
 .block-item__title a:hover {
-  color: #4c4084;
+  color: var(--hovercolor);
 }
 
 /* date  */

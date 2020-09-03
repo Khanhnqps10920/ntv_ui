@@ -1,9 +1,11 @@
 <template>
   <Container1640 class="wrapper">
     <div class="mb-6">
-      <div class="title-bar bg-purple-900">
+      <div class="title-bar" style="background:var(--maincolor)">
         <Container1440>
-          <h1 class="text-white text-6xl sm:text-3xl sm:mt-3 xs:text-4xl xs:mt-3 font-extrabold font-sans mt-5">MUST READ</h1>
+          <h1
+            class="text-white text-6xl sm:text-3xl sm:mt-3 xs:text-4xl xs:mt-3 font-extrabold font-sans mt-5"
+          >MUST READ</h1>
           <p
             class="text-white mt-4 sm:mt-2 sm:text-sm xs:mt-2 xs:text-sm"
           >Everything you need to know about the re-reboot of your favourite childhood flick.</p>
@@ -14,7 +16,7 @@
     <Container1440 class="wrapper1440">
       <div class="grid grid-cols-12 gap-4">
         <!--Main News-->
-        <MainItem class="main-new"/>
+        <MainItem class="main-new" />
         <!--Rest News-->
         <div class="xs:col-span-12 sm:col-span-6 col-span-7 rest-new">
           <div class="grid grid-cols-12 gap-4">
@@ -48,8 +50,8 @@ export default {
     Container1640,
     Container1440,
     BlockItem,
-    MainItem
-  }
+    MainItem,
+  },
 };
 </script>
 <style scoped>
@@ -83,7 +85,7 @@ export default {
 @media (max-width: 1018px) and (min-width: 768px) {
   .rest-new {
     margin-top: -50px;
-    height : calc(100% + 50px)
+    height: calc(100% + 50px);
   }
   .main-new {
     margin-top: -50px;

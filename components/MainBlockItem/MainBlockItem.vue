@@ -59,7 +59,7 @@ export default {
   position: absolute;
   bottom: 0;
   padding: 3px 4px 2px;
-  background-color: #4c4084;
+  background-color: var(--maincolor);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -96,7 +96,7 @@ export default {
 }
 
 .main-item__info .main-item__info--title a:hover {
-  color: #4c4084;
+  color: var(--hovercolor);
 }
 
 .main-item__info .main-item__date {

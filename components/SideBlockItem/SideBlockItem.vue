@@ -74,7 +74,7 @@ export default {
 }
 
 .side-item .side-item__info h3 a:hover {
-  color: #4c4084;
+  color: var(--hovercolor);
 }
 
 .side-item .side-item__img {

@@ -25,12 +25,12 @@
 
 <style scoped>
 .main-height {
-  height : calc(100% + 70px)
+  height: calc(100% + 70px);
 }
 .block-item__category {
   display: inline-block;
   padding: 3px 4px 2px;
-  background-color: #4c4084;
+  background-color: var(--maincolor);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -67,7 +67,7 @@
 }
 
 .block-item__title a:hover {
-  color: #4c4084;
+  color: var(--hovercolor);
 }
 
 /* date  */

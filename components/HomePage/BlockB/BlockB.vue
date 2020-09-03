@@ -66,8 +66,8 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem
-  }
+    MainBlockItem,
+  },
 };
 </script>
 
@@ -97,7 +97,7 @@ export default {
 }
 
 .blockb .blockb__button:hover {
-  background: #4c4084;
+  background: var(--hovercolor);
 }
 
 /* end */
@@ -124,12 +124,11 @@ export default {
 .main-block__title span {
   font-size: 24px;
   font-weight: 900;
-  color: #4c4084;
+  color: var(--maincolor);
   margin-left: 12px;
 }
 
 .main-block__title-sub {
-
   font-size: 90px;
   text-transform: uppercase;
   position: absolute;

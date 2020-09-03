@@ -109,6 +109,14 @@
             </div>
 
             <div class="comment-block col-span-8 xs:col-span-12">
+              <CommentItem>
+                <CommentChildren></CommentChildren>
+              </CommentItem>
+
+              <CommentItem>
+                <CommentChildren></CommentChildren>
+              </CommentItem>
+
               <h3 class="comment-block__title">Leave A reply</h3>
               <CommentForm />
             </div>
@@ -143,6 +151,8 @@ import ShareFacebook from "@/components/SocialShareButton/ShareFacebook.vue";
 import Author from "../Author/Author.vue";
 import AdsMain from "../Advertisement/AdsMain.vue";
 import CommentForm from "../Form/CommentForm.vue";
+import CommentItem from "../Comment/CommentItem.vue";
+import CommentChildren from "../Comment/CommentChildren.vue";
 
 export default {
   components: {
@@ -154,6 +164,8 @@ export default {
     Author,
     AdsMain,
     CommentForm,
+    CommentItem,
+    CommentChildren,
   },
 };
 </script>
@@ -221,7 +233,7 @@ export default {
 
 .post__main--img {
   width: 100%;
-  height: 800px;
+  height: auto;
 }
 
 .post__main--img img {
