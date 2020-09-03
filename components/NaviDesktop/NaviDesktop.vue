@@ -23,7 +23,7 @@ export default {
         { name: "Trang chủ", to: "/" },
         { name: "Thời sự", to: "/category/thoi-su" },
         { name: "Nông nghiệp", to: "/category/thoi-su" },
-        { name: "Thị Trường - Tài Chính", to: "/category/thoi-su" },
+        { name: "Thị Trường-Tài Chính", to: "/category/thoi-su" },
         { name: "Cà phê khuyến nông", to: "/category/thoi-su" },
         { name: "Kho chuyện", to: "/category/thoi-su" },
         { name: "Sống xanh", to: "/category/thoi-su" },
