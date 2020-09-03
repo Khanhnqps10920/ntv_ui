@@ -59,15 +59,16 @@ export default {};
   color: #444;
   line-height: 21px;
   font-size: 15px;
+  outline: none;
 }
 .comment-form__area:focus,
 .comment-form__input:focus {
-  border: 1px solid rgb(225, 225, 225) !important;
+  border: 1.5px solid rgb(225, 225, 225);
 }
 
 .comment-form__area:active,
 .comment-form__input:active {
-  border: 1px solid rgb(225, 225, 225);
+  border: 1.5px solid rgb(225, 225, 225);
 }
 
 .comment-form__inputs {

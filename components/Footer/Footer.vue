@@ -173,7 +173,7 @@ export default {
 }
 
 .footer__link:hover {
-  color: #febe2b;
+  color: var(--hovercolor);
 }
 
 /* before */
@@ -194,7 +194,7 @@ export default {
   margin-top: 0;
   margin-bottom: 16px;
   line-height: 31px;
-  color: #febe2b;
+  color: var(--maincolor);
   font-weight: 900;
 }
 

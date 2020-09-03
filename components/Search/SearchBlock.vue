@@ -15,8 +15,8 @@ import Container1240 from "../containers/Container1240.vue";
 
 export default {
   components: {
-    Container1240
-  }
+    Container1240,
+  },
 };
 </script>
 
@@ -49,6 +49,10 @@ export default {
 
   padding-right: 30px;
   width: 100%;
+}
+
+.search__input input:focus {
+  border-color: #b0b0b0 !important;
 }
 
 .search__input i {
