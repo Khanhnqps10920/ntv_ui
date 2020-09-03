@@ -29,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/request.js' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -64,6 +65,6 @@ export default {
     }
   },
   env: {
-    baseAPI: 'https://api-boo.bazic.vn/',
+    baseAPI: 'https://api-boo.bazic.vn',
   },
 }

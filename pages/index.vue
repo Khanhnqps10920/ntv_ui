@@ -33,15 +33,16 @@ export default {
     return {};
   },
   async asyncData(context) {
-    await context.store.dispatch('getPostInCategory').then((res) => {
-      console.log(res)
-    })
-  },
-  // async mounted(){
-  //   await this.$store.dispatch('getPostInCategory').then((res) => {
-  //     console.log(res)
-  //   })
-  // }
+    await context.store.dispatch("getPostInCategory", {
+      urlQuery: { a: 1, b: 2, c: 3 },
+      nextActions: res => {
+        console.log(res);
+      },
+      errorActions: err => {
+        console.log(err);
+      }
+    });
+  }
 };
 </script>
 

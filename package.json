@@ -11,10 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "https": "^1.0.0",
+    "lodash": "^4.17.20",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@mdi/js": "^5.5.55",
