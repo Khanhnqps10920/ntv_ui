@@ -6,13 +6,13 @@
           <!-- <Logo /> -->
           <div>
             <nuxt-link
-              to
+              to="/"
               class="logo block md:text-2xl lg:text-2xl uppercase font-sans mr-5"
             >Pulses pro</nuxt-link>
           </div>
           <div class="flex">
             <nuxt-link
-              to
+              :to="tag.to"
               v-for="(tag,i) in menuTags"
               :key="i"
               class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"

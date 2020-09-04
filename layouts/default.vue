@@ -55,28 +55,27 @@ export default {
   async created() {
     // await this.fetchCategories();
   },
+  // async mounted() {
+  //   // categories
+  //   const categoriesData = await this.$store.dispatch("getCategory", {
+  //     nextActions: (res) => {
+  //       const payload = [];
+  //       for (const key in res.result) {
+  //         const category = {
+  //           ...res.result[key],
+  //         };
 
-  async mounted() {
-    // categories
-    const categoriesData = await this.$store.dispatch("getCategory", {
-      nextActions: (res) => {
-        const payload = [];
-        for (const key in res.result) {
-          const category = {
-            ...res.result[key],
-          };
+  //         payload.push(category);
+  //       }
 
-          payload.push(category);
-        }
+  //       this.$store.commit("SET_CATEGORIES", payload);
+  //     },
 
-        this.$store.commit("SET_CATEGORIES", payload);
-      },
-
-      errorActions: () => {
-        console.log("Fetch category fail");
-      },
-    });
-  },
+  //     errorActions: () => {
+  //       console.log("Fetch category fail");
+  //     },
+  //   });
+  // },
 
   head() {
     return {

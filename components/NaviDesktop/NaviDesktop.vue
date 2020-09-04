@@ -5,7 +5,7 @@
     </transition>
     <SubNavi />
     <NaviInfo />
-    <TagBar class="mt-8" :menuTags="categories ? categoriesDefault : menuTags" />
+    <TagBar class="mt-8" :menuTags="menuTags" />
   </div>
 </template>
 
@@ -25,13 +25,13 @@ export default {
       menuTags: [
         { name: "Trang chủ", to: "/" },
         { name: "Thời sự", to: "/category/thoi-su" },
-        { name: "Nông nghiệp", to: "/category/thoi-su" },
-        { name: "Thị Trường-Tài Chính", to: "/category/thoi-su" },
-        { name: "Cà phê khuyến nông", to: "/category/thoi-su" },
-        { name: "Kho chuyện", to: "/category/thoi-su" },
-        { name: "Sống xanh", to: "/category/thoi-su" },
-        { name: "Tư vấn", to: "/category/thoi-su" },
-        { name: "Thế giới", to: "/category/thoi-su" },
+        { name: "Nông nghiệp", to: "/category/nong-nghiep" },
+        { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
+        { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
+        { name: "Kho chuyện", to: "/category/kh-chuyen" },
+        { name: "Sống xanh", to: "/category/song-xanh" },
+        { name: "Tư vấn", to: "/category/tu-van" },
+        { name: "Thế giới", to: "/category/the-gioi" },
       ],
     };
   },
@@ -42,11 +42,6 @@ export default {
     MenuBarDesktop,
   },
   computed: {
-    ...mapState(["categories"]),
-
-    categoriesDefault() {
-      return this.categories.filter((category) => !category.parent_id);
-    },
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
