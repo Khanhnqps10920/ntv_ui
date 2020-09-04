@@ -53,6 +53,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: "http://192.168.1.218:8080/quan8-frontend/public",
+    header: "Content-Type: application/json"
   },
   /*
   ** Build configuration
@@ -65,6 +67,8 @@ export default {
     }
   },
   env: {
-    baseAPI: 'https://api-boo.bazic.vn',
+    // baseAPI: 'https://api-boo.bazic.vn',
+
+    BASE_URL: "http://192.168.1.218:8080/quan8-frontend/",
   },
 }

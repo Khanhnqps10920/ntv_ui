@@ -41,3 +41,10 @@ import state from './state';
 // export const setAuth = (state, hasAuth = false) => {
 //     state.isAuth = hasAuth
 // }
+
+
+// categories 
+
+export const SET_CATEGORIES = (state, payload) => {
+  state.categories = payload;
+}

@@ -5,11 +5,14 @@
     </transition>
     <SubNavi />
     <NaviInfo />
-    <TagBar class="mt-8" :menuTags="menuTags" />
+    <TagBar class="mt-8" :menuTags="categories ? categoriesDefault : menuTags" />
   </div>
 </template>
 
 <script>
+// libs
+import { mapState } from "vuex";
+
 const OFFSET = 240;
 import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
@@ -28,15 +31,22 @@ export default {
         { name: "Kho chuyện", to: "/category/thoi-su" },
         { name: "Sống xanh", to: "/category/thoi-su" },
         { name: "Tư vấn", to: "/category/thoi-su" },
-        { name: "Thế giới", to: "/category/thoi-su" }
-      ]
+        { name: "Thế giới", to: "/category/thoi-su" },
+      ],
     };
   },
   components: {
     SubNavi,
     NaviInfo,
     TagBar,
-    MenuBarDesktop
+    MenuBarDesktop,
+  },
+  computed: {
+    ...mapState(["categories"]),
+
+    categoriesDefault() {
+      return this.categories.filter((category) => !category.parent_id);
+    },
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -54,8 +64,12 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    }
-  }
+    },
+  },
+
+  created() {
+    console.log(this.categoriesDefault, "default");
+  },
 };
 </script>
 <style scoped>

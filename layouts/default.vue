@@ -21,6 +21,10 @@
   </div>
 </template>
 <script>
+// libs
+// import { mapActions } from "vuex";
+
+// components
 import NaviDesktop from "@/components/NaviDesktop/NaviDesktop";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
@@ -42,6 +46,36 @@ export default {
       showSearchSideBar: false,
       showSideBar: false,
     };
+  },
+
+  methods: {
+    // ...mapActions(["getCategory"]),
+  },
+
+  async created() {
+    // await this.fetchCategories();
+  },
+
+  async mounted() {
+    // categories
+    const categoriesData = await this.$store.dispatch("getCategory", {
+      nextActions: (res) => {
+        const payload = [];
+        for (const key in res.result) {
+          const category = {
+            ...res.result[key],
+          };
+
+          payload.push(category);
+        }
+
+        this.$store.commit("SET_CATEGORIES", payload);
+      },
+
+      errorActions: () => {
+        console.log("Fetch category fail");
+      },
+    });
   },
 
   head() {

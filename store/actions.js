@@ -1,6 +1,7 @@
-import { get, isEmpty } from 'lodash'
+import { get, isEmpty, forIn } from 'lodash'
 
 export function makeRequestAction({ commit, ...rest }, payload) {
+  console.log(payload, "payload");
   // if (!process.client) return;
   try {
     const { nextActions, errorActions, ...data } = get(payload, 'data', {}) || {};
@@ -14,7 +15,7 @@ export function makeRequestAction({ commit, ...rest }, payload) {
         // commit('updateMessages', { payload: responseData, action: get(payload, 'action', '') });
         // Check if module code is existed
         // request false has code
-        const status = get(responseData, 'Status', null);
+        const status = get(responseData, 'status', null);
         if (status === false && typeof errorActions === 'function') {
           errorActions(responseData);
         }
@@ -53,11 +54,24 @@ export function getPostInCategory({ dispatch }, data) {
 }
 
 //API lấy cái nội dung HomePage
-export function getHomeContent(payload) {
+export function getHomeContent(data) {
   return axios({
     url: `${process.env.baseAPI}/public/get_index_json`,
     method: 'GET',
-    data: payload
+    data
   })
+}
+
+
+
+// get categories
+
+
+export function getCategory({ dispatch }, data) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}public/get_categories_json`,
+    method: 'GET',
+    data
+  });
 }
 

@@ -3,7 +3,7 @@
     class="h-16 border-gray-200 border-t-2 border-b-2 border-solid flex justify-center items-center"
   >
     <nuxt-link
-      :to="tag.to"
+      :to="tag.path"
       v-for="(tag, i) in menuTags"
       :key="i"
       class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
@@ -14,16 +14,14 @@
 <script>
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
-  props : {
-    menuTags : {
-      type : Array,
-      required : true
-    }
-  }
+  props: {
+    menuTags: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
 
