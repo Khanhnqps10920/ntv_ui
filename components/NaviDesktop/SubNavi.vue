@@ -6,8 +6,8 @@
         <nuxt-link to class="mr-5 hover:text-hovercolor">About</nuxt-link>
         <nuxt-link to class="mr-5 hover:text-hovercolor">Events</nuxt-link>
         <nuxt-link to class="mr-5 hover:text-hovercolor">Write for us</nuxt-link>
-        <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
-        <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>
+        <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
+        <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>-->
       </div>
     </Container1640>
   </div>
@@ -17,8 +17,8 @@
 import Container1640 from "@/components/containers/Container1640";
 export default {
   components: {
-    Container1640
-  }
+    Container1640,
+  },
 };
 </script>
 

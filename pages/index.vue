@@ -26,12 +26,16 @@ export default {
     BlockB,
     BlockC,
     AdsHomeMiddle,
-    AdsHomeBottom
+    AdsHomeBottom,
   },
 
   data() {
     return {};
   },
+
+  computed: {},
+
+  created() {},
   // async asyncData(context) {
   //   await context.store.dispatch("getPostInCategory", {
   //     urlQuery: { a: 1, b: 2, c: 3 },

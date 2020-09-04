@@ -1,12 +1,25 @@
-import { get, isEmpty } from 'lodash'
+import {
+  get,
+  isEmpty
+} from 'lodash'
 
-export function makeRequestAction({ commit, ...rest }, payload) {
+export function makeRequestAction({
+  commit,
+  ...rest
+}, payload) {
   // if (!process.client) return;
   try {
-    const { nextActions, errorActions, ...data } = get(payload, 'data', {}) || {};
+    const {
+      nextActions,
+      errorActions,
+      ...data
+    } = get(payload, 'data', {}) || {};
     // commit('clearMessages');
     // make request API
-    return this._vm.$request.makeRequestAPI({ ...payload, data }).then(response => {
+    return this._vm.$request.makeRequestAPI({
+      ...payload,
+      data
+    }).then(response => {
       if (response && response.data) {
         // udpate state functions
         const responseData = get(response, 'data', null);
@@ -44,7 +57,10 @@ export function makeRequestAction({ commit, ...rest }, payload) {
 }
 
 //API Danh sách theo danh mục
-export function getPostInCategory({ dispatch }, data) {
+export function getPostInCategory({
+  dispatch
+}, data) {
+  console.log(data, 'data');
   return dispatch('makeRequestAction', {
     url: `${process.env.baseAPI}/v1/search/init`,
     method: 'GET',
@@ -60,4 +76,3 @@ export function getHomeContent(payload) {
     data: payload
   })
 }
-
