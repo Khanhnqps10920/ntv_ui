@@ -14,10 +14,10 @@
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+            <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">December 10, 2019</span>
+          <span class="main-item__date-time">Ngày 10 tháng 9, 2020</span>
         </div>
         <div
           class="main-item__text"

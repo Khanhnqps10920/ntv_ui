@@ -17,7 +17,7 @@
                 <nuxt-link to="/author">Emilio Montes</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">December 10, 2019</span>
+              <span class="post__main--info-time ml-6">Ngày 10 tháng 9, 2020</span>
 
               <div class="post__main--info-icon ml-6">
                 <i class="far fa-comment-alt"></i>

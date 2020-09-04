@@ -11,10 +11,10 @@
     </h3>
     <div class="block-item__date">
       <span class="block-item__date-author">
-        <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+        <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">December 10, 2019</span>
+      <span class="block-item__date-time">Ngày 10 tháng 9, 2020</span>
     </div>
   </div>
 </template>

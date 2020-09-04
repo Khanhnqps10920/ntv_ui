@@ -15,10 +15,10 @@
 
             <div class="blocka__main--date">
               <span class="blocka__main--date-author">
-                <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+                <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">December 10, 2019</span>
+              <span class="blocka__main-date-time">Ngày 10 tháng 9, 2020</span>
             </div>
 
             <div class="blocka__main--img">

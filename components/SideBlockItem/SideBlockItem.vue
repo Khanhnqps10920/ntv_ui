@@ -4,7 +4,7 @@
       <h3 class="side-item__title">
         <nuxt-link to="/post">Thời trang style đạm chất Việt Boo.vn liên tục cho ra sản phẩm mới</nuxt-link>
       </h3>
-      <p class="side-item__date">December 10, 2019</p>
+      <p class="side-item__date">Ngày 10 tháng 9, 2020</p>
     </div>
 
     <div class="side-item__img" v-if="!noneImg">
