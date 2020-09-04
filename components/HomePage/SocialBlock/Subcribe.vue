@@ -3,7 +3,7 @@
     <div
       class="text-2xl sm:text-base md:text-lg font-bold"
       style="color : var(--maincolor)"
-    >Subcribe to our new letter</div>
+    >Đăng ký nhận tin hot</div>
     <div
       class="mt-4 mb-6 italic xs:text-xs sm:text-sm"
     >To be updated with all the latest news, offers and special announcements.</div>

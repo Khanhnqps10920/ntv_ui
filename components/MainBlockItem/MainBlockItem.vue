@@ -10,7 +10,7 @@
 
       <div class="main-item__info">
         <h3 class="main-item__info--title">
-          <nuxt-link to="/post">Customer Engagement Marketing: A New Strategy for the Economy</nuxt-link>
+          <nuxt-link to="/post">Mỹ và Trung Quốc căng thẳng cực độ, Mỹ cấm các developer sử dụng Vuejs của Trung Quốc</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">

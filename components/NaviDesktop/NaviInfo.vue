@@ -4,12 +4,12 @@
       <div class="flex mt-8">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">14.9</span>
-          <span>VietNam</span>
+          <span class="font-bold">35.5&#186;C</span>
+          <span>Việt Nam</span>
         </div>
         <div class="flex-1 text-center">
           <Logo />
-          <div class="text-sm mt-1">Saturday, August 29, 2020</div>
+          <div class="text-sm mt-1">Thứ 7, 29 tháng 8, 2020</div>
         </div>
         <div class="flex-1 text-right self-center">
           <nuxt-link to class="hover:text-hovercolor">

@@ -8,7 +8,7 @@
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link to="/post">Fake engagement is only half the problem</nuxt-link>
+        <nuxt-link to="/post">Việt Nam nêu các vấn đề của nông nghiệp tại Hội nghị FAO khu vực</nuxt-link>
       </h3>
 
       <div class="block-item__date">

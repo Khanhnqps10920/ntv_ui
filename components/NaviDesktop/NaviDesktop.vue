@@ -28,7 +28,7 @@ export default {
         { name: "Nông nghiệp", to: "/category/nong-nghiep" },
         { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
         { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
-        { name: "Kho chuyện", to: "/category/kh-chuyen" },
+        { name: "Kho chuyện", to: "/category/kho-chuyen" },
         { name: "Sống xanh", to: "/category/song-xanh" },
         { name: "Tư vấn", to: "/category/tu-van" },
         { name: "Thế giới", to: "/category/the-gioi" },
