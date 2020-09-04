@@ -48,7 +48,7 @@
             <div class="col-span-4 sm:hidden xs:hidden">
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
-                  <span>Must Read</span>
+                  <span>Tin Nóng</span>
                 </p>
 
                 <SideWrapper>
