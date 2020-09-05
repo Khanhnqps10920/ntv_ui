@@ -40,15 +40,15 @@ export default {
   height: 30px;
   text-align: center;
   line-height: 30px;
-  background: #f5f5f5;
-  color: #444;
+  background: var(--maincolor);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   border-radius: 2px;
   display: none;
 }
 
 .back_to_top:hover {
-  background: #e9ebec;
+  background: var(--hovercolor);
 }
 
 .back_to_top-show {

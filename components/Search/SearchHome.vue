@@ -2,15 +2,30 @@
   <div class="search-home">
     <div class="search-home__content">
       <div class="search-home__wrapper">
-        <input type="text" />
-        <button>Search</button>
+        <input
+          type="text"
+          ref="search"
+          v-model="keyword"
+          @keypress.enter="[$router.push(`/search/${keyword}`), $emit('closeSearch')]"
+          @keydown.esc="$emit('closeSearch')"
+        />
+        <button @click="[$router.push(`/search/${keyword}`), $emit('closeSearch')]">Search</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      keyword: ""
+    };
+  },
+  mounted() {
+    this.$refs.search.focus();
+  }
+};
 </script>
 
 <style scoped>
