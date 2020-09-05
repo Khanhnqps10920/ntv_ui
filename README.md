@@ -1,8 +1,13 @@
-# webtintuc
+# Nong thon viet website project
 
-> My sensational Nuxt.js project
+> Countryside's Website Information VietNam
 
-## Build Setup
+##  Front end Technology
+Languages : HTML,CSS,Javascript
+Framework : Nuxt.js (v2.14.4)
+CSS framework : Tailwindcss (v1.0.0)
+
+### Build Setup
 
 ```bash
 # install dependencies
@@ -18,5 +23,5 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
+Commands and Deployment : https://nuxtjs.org/guide/commands/
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
