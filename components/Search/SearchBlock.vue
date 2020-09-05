@@ -1,10 +1,10 @@
 <template>
   <Container1240>
     <div class="search">
-      <p class="search__title">SHOWING RESULTS FOR:</p>
+      <p class="search__title">Kết quả tìm kiếm:</p>
       <div class="search__input relative">
-        <input type="text" />
-        <i class="fas fa-search absolute"></i>
+        <input type="text" v-model="keyword" @keypress.enter="$router.push(`/search/${keyword}`)"  @keydown.esc="keyword = ''"/>
+        <i class="fas fa-search absolute" @click="$router.push(`/search/${keyword}`) "></i>
       </div>
     </div>
   </Container1240>
@@ -14,6 +14,14 @@
 import Container1240 from "../containers/Container1240.vue";
 
 export default {
+  data() {
+    return {
+      keyword : ''
+    }
+  },
+  created() {
+    this.keyword = this.$route.params.search
+  },
   components: {
     Container1240,
   },

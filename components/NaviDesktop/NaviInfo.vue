@@ -26,10 +26,11 @@
           </nuxt-link>
         </div>
         <transition name="fade-top" appear v-if="searchActive">
-          <SearchHome />
+          <SearchHome @closeSearch="searchActive = false" />
         </transition>
       </div>
     </Container1640>
+    <div class="overlay" v-if="searchActive" @click="searchActive = false"></div>
   </div>
 </template>
 
@@ -40,18 +41,27 @@ import SearchHome from "../Search/SearchHome.vue";
 export default {
   data() {
     return {
-      searchActive: false,
+      searchActive: false
     };
   },
   components: {
     Container1640,
     Logo,
-    SearchHome,
-  },
+    SearchHome
+  }
 };
 </script>
 
 <style scoped>
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+}
 .fade-top-enter-active {
   animation: fade-top 0.5s;
 }

@@ -6,7 +6,14 @@
       </div>
       <div class="search-sidebar__search relative">
         <span class="text-xs">Search</span>
-        <input type="text" ref="input" class="search-sidebar__search-input" />
+        <input
+          type="text"
+          ref="input"
+          v-model="keyword"
+          class="search-sidebar__search-input"
+          @keydown.esc="$emit('closeSideBar')"
+          @keypress.enter="[$router.push(`/search/${keyword}`), $emit('closeSideBar')]"
+        />
       </div>
     </div>
   </transition>
@@ -14,10 +21,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      keyword : ''
+    }
+  },
   mounted() {
     this.$refs.input.focus();
     this.$refs.searchContainer.classList.add("show");
-  },
+  }
 };
 </script>
 
@@ -60,12 +72,12 @@ export default {
   z-index: 1001;
 
   /* background */
-  background: rgba(76, 64, 132, 0.9);
+  background: rgba(181, 184, 35, 0.301);
   opacity: 0.98;
   background: linear-gradient(
     to bottom,
-    rgba(76, 64, 132, 0.9) 0%,
-    rgba(28, 24, 51, 0.9) 100%
+    rgba(131, 132, 64, 0.24) 0%,
+    rgba(51, 51, 24, 0.185) 100%
   );
 }
 
@@ -90,7 +102,7 @@ export default {
 }
 
 .search-sidebar__icon i:hover {
-  color: #febe2b;
+  color: var(--hovercolor);
   cursor: pointer;
 }
 

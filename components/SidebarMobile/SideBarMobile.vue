@@ -5,40 +5,22 @@
     </div>
 
     <ul class="sidebar-mobile__menu relative">
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Home</nuxt-link>
-      </li>
-
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">News</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Business</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Magazine</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Sport</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Art</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Culture</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Politics</nuxt-link>
-      </li>
-      <li class="sidebar-mobile__menu-item">
-        <nuxt-link to="/">Style</nuxt-link>
+      <li class="sidebar-mobile__menu-item" v-for="(tag,i) in menuTags" :key="i"  @click="$emit('closeSideBar')" >
+        <nuxt-link :to="tag.to">{{tag.name}}</nuxt-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props : {
+    menuTags : {
+      type : Array,
+      required : true
+    }
+  }
+};
 </script>
 
 <style>
@@ -88,12 +70,12 @@ export default {};
   z-index: 1001;
 
   /* background */
-  background: rgba(76, 64, 132, 0.9);
+  background: rgba(181, 184, 35, 0.301);
   opacity: 0.98;
   background: linear-gradient(
     to bottom,
-    rgba(76, 64, 132, 0.9) 0%,
-    rgba(28, 24, 51, 0.9) 100%
+    rgba(131, 132, 64, 0.24) 0%,
+    rgba(51, 51, 24, 0.185) 100%
   );
 
   /* transition */
@@ -120,7 +102,7 @@ export default {};
 }
 
 .sidebar-mobile__icon i:hover {
-  color: #febe2b;
+  color: var(--hovercolor);
   cursor: pointer;
 }
 
@@ -144,7 +126,7 @@ export default {};
   font-weight: 700;
 }
 
-.sidebar-mobile__menu .sidebar-mobile__menu-item:first-child a {
-  color: #febe2b;
+.sidebar-mobile__menu .sidebar-mobile__menu-item a:hover {
+  color: var(--hovercolor);
 }
 </style>
