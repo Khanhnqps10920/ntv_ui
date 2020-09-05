@@ -96,3 +96,33 @@ export function getCategory({
   })
 
 }
+
+// get weather api
+
+// export function getCurrentWeather({
+//   dispatch
+// }, data) {
+//   return dispatch('makeRequestAction', {
+//     url: "http://api.openweathermap.org/data/2.5/weather?id=1566083&appid=060d473d45f1d22478455e48f344f211",
+//     method: "GET",
+//     data
+//   })
+// }
+
+
+export async function getCurrentWeather({
+  commit
+}) {
+  try {
+    const weatherData = await this.$axios.get(
+      "http://api.openweathermap.org/data/2.5/weather?id=1566083&appid=060d473d45f1d22478455e48f344f211"
+    );
+
+    if (weatherData.status === 200) {
+      console.log(weatherData.data, "data");
+      commit("SET_WEATHER", weatherData.data);
+    } else return;
+  } catch (error) {
+    console.log(e);
+  }
+}

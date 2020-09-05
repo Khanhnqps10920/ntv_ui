@@ -35,6 +35,8 @@ export default {
     return {};
   },
 
+  async created() {},
+
   // async asyncData(context) {
   //   await context.store.dispatch("getPostInCategory", {
   //     urlQuery: { a: 1, b: 2, c: 3 },

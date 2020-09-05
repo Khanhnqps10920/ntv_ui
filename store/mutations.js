@@ -48,3 +48,9 @@ import state from './state';
 export const SET_CATEGORIES = (state, payload) => {
   state.categories = payload;
 }
+
+// weather
+
+export const SET_WEATHER = (state, payload) => {
+  state.weather = payload
+}

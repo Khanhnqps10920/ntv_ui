@@ -4,9 +4,14 @@
       <div class="flex mt-8">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">35.5&#186;C</span>
+          <span class="font-bold">{{weatherCelsius}} &#186;C</span>
           <span>Việt Nam</span>
+
+          <i class="fas fa-coins ml-5"></i>
+          <span class="font-bold">Gold (USDXAU): {{metals ? metals.rates.XAU : ""}}</span>
+          <span>USD</span>
         </div>
+
         <div class="flex-1 text-center">
           <Logo />
           <div class="text-sm mt-1">Thứ 7, 29 tháng 8, 2020</div>
@@ -35,20 +40,42 @@
 </template>
 
 <script>
+// libs
+import { mapState } from "vuex";
+
 import Logo from "@/components/NaviDesktop/Logo";
 import Container1640 from "@/components/containers/Container1640";
 import SearchHome from "../Search/SearchHome.vue";
 export default {
   data() {
     return {
-      searchActive: false
+      searchActive: false,
+      metals: null,
     };
   },
   components: {
     Container1640,
     Logo,
-    SearchHome
-  }
+    SearchHome,
+  },
+
+  computed: {
+    ...mapState(["weather"]),
+
+    weatherCelsius() {
+      return this.weather.main ? this.weather.main.temp - 273.15 : null;
+    },
+  },
+
+  async created() {
+    // default data
+    const data = await this.$axios.get(
+      "https://www.metals-api.com/api/latest?access_key=76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1"
+    );
+    console.log(data, "metal");
+
+    this.metals = data.data;
+  },
 };
 </script>
 
