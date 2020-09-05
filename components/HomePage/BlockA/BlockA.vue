@@ -5,18 +5,20 @@
         <!-- main post -->
         <div class="col-span-8 xs:col-span-12">
           <div class="blocka__main">
-            <nuxt-link to="/news" class="blocka__main--category">News</nuxt-link>
+            <nuxt-link to="/category/thoi-su" class="blocka__main--category">Thời sự</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link to="/page">Customer Engagement Marketing: A New Strategy for the Economy</nuxt-link>
+              <nuxt-link
+                to="/post"
+              >Mỹ và Trung Quốc căng thẳng cực độ, Mỹ cấm các developer sử dụng Vue.js</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
               <span class="blocka__main--date-author">
-                <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+                <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">December 10, 2019</span>
+              <span class="blocka__main-date-time">Ngày 10 tháng 9, 2020</span>
             </div>
 
             <div class="blocka__main--img">
@@ -27,7 +29,7 @@
 
             <div
               class="blocka__main-description"
-            >The main thing that you have to remember on this journey is just be nice to everyone and always smile. Refreshingly, what was expected of her...</div>
+            >Vậy là cậu con trai cưng tên Ú nhà Duy Mạnh - Quỳnh Anh đã chào đời, cả hai cũng chính thức lên chức ông bố bà mẹ trẻ rồi!</div>
           </div>
         </div>
 
@@ -40,7 +42,7 @@
       <!-- ads -->
       <div class="blocka-right">
         <div class="blocka-right__section">
-          <h4 class="section-title">Editor Picks</h4>
+          <h4 class="section-title">Tin nhanh</h4>
           <SideBlockItem />
         </div>
 
@@ -48,7 +50,7 @@
         <AdsSide />
 
         <div class="blocka-right__section">
-          <h4 class="section-title">Business</h4>
+          <h4 class="section-title">Thị trường - tài chính</h4>
           <SideBlockItem v-for="(item,index) in 3" :key="index" />
         </div>
       </div>
@@ -67,8 +69,8 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide,
-  },
+    AdsSide
+  }
 };
 </script>
 

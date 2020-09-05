@@ -17,7 +17,7 @@
                 <nuxt-link to="/author">Emilio Montes</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">December 10, 2019</span>
+              <span class="post__main--info-time ml-6">Ngày 10 tháng 9, 2020</span>
 
               <div class="post__main--info-icon ml-6">
                 <i class="far fa-comment-alt"></i>
@@ -48,7 +48,7 @@
             <div class="col-span-4 sm:hidden xs:hidden">
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
-                  <span>Must Read</span>
+                  <span>Tin Nóng</span>
                 </p>
 
                 <SideWrapper>

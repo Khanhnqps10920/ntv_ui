@@ -1,5 +1,8 @@
 export default () => ({
 
-  test: 'test vuex store'
+  test: 'test vuex store',
+  // categories
+
+  categories: []
 
 })

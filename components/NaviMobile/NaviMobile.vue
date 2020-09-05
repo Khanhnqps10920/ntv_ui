@@ -3,7 +3,7 @@
     <div class="flex-1">
       <i class="mobile-nav__icons fas fa-bars" @click="$emit('openSideBar')"></i>
     </div>
-    <div class="flex-1 text-center">Logo</div>
+    <div class="flex-1 text-center font-extrabold uppercase font-sans">Nông Thôn Việt</div>
     <div class="flex-1 text-right">
       <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>
     </div>

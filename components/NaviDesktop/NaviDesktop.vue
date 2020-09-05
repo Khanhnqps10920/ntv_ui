@@ -10,6 +10,9 @@
 </template>
 
 <script>
+// libs
+import { mapState } from "vuex";
+
 const OFFSET = 240;
 import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
@@ -22,21 +25,23 @@ export default {
       menuTags: [
         { name: "Trang chủ", to: "/" },
         { name: "Thời sự", to: "/category/thoi-su" },
-        { name: "Nông nghiệp", to: "/category/thoi-su" },
-        { name: "Thị Trường-Tài Chính", to: "/category/thoi-su" },
-        { name: "Cà phê khuyến nông", to: "/category/thoi-su" },
-        { name: "Kho chuyện", to: "/category/thoi-su" },
-        { name: "Sống xanh", to: "/category/thoi-su" },
-        { name: "Tư vấn", to: "/category/thoi-su" },
-        { name: "Thế giới", to: "/category/thoi-su" }
-      ]
+        { name: "Nông nghiệp", to: "/category/nong-nghiep" },
+        { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
+        { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
+        { name: "Kho chuyện", to: "/category/kho-chuyen" },
+        { name: "Sống xanh", to: "/category/song-xanh" },
+        { name: "Tư vấn", to: "/category/tu-van" },
+        { name: "Thế giới", to: "/category/the-gioi" },
+      ],
     };
   },
   components: {
     SubNavi,
     NaviInfo,
     TagBar,
-    MenuBarDesktop
+    MenuBarDesktop,
+  },
+  computed: {
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -54,8 +59,12 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    }
-  }
+    },
+  },
+
+  created() {
+    console.log(this.categoriesDefault, "default");
+  },
 };
 </script>
 <style scoped>

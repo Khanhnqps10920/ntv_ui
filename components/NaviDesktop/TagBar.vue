@@ -14,15 +14,15 @@
 <script>
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
-  props : {
-    menuTags : {
-      type : Array,
-      required : true
-    }
+  props: {
+    menuTags: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods : {
   }
 };
 </script>

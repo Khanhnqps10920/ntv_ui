@@ -4,23 +4,23 @@
       <div class="category__wrapper">
         <p class="category__title">Category</p>
 
-        <h1 class="category__name">Sport</h1>
+        <h1 class="category__name my-4">{{cateName}}</h1>
 
         <ul class="category__list">
           <li class="category__list-item">
-            <nuxt-link to="/category">Business</nuxt-link>
+            <nuxt-link to="/category/thoi-su">Thời sự</nuxt-link>
           </li>
 
           <li class="category__list-item">
-            <nuxt-link to="/category">Magazine</nuxt-link>
+            <nuxt-link to="/category/nong-nghiep">Nông nghiệp</nuxt-link>
           </li>
 
           <li class="category__list-item">
-            <nuxt-link to="/category">News</nuxt-link>
+            <nuxt-link to="/category/song-xanh">Sống xanh</nuxt-link>
           </li>
 
           <li class="category__list-item">
-            <nuxt-link to="/category">Sport</nuxt-link>
+            <nuxt-link to="/category/the-gioi">Thế giới</nuxt-link>
           </li>
         </ul>
       </div>
@@ -33,8 +33,13 @@ import Container1440 from "../../containers/Container1440.vue";
 
 export default {
   components: {
-    Container1440,
+    Container1440
   },
+  props: {
+    cateName: {
+      type: String
+    }
+  }
 };
 </script>
 

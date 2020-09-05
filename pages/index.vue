@@ -19,6 +19,8 @@ import BlockB from "@/components/HomePage/BlockB/BlockB";
 import BlockC from "@/components/HomePage/BlockC/BlockC.vue";
 import AdsHomeMiddle from "@/components/Advertisement/AdsHomeMiddle";
 import AdsHomeBottom from "@/components/Advertisement/AdsHomeBottom";
+
+// import axios from "axios";
 export default {
   components: {
     BlockA,
@@ -33,9 +35,6 @@ export default {
     return {};
   },
 
-  computed: {},
-
-  created() {},
   // async asyncData(context) {
   //   await context.store.dispatch("getPostInCategory", {
   //     urlQuery: { a: 1, b: 2, c: 3 },
@@ -47,6 +46,8 @@ export default {
   //     }
   //   });
   // }
+
+  // test api
 };
 </script>
 

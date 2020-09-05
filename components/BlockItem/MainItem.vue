@@ -8,15 +8,15 @@
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link to="/post">Fake engagement is only half the problem</nuxt-link>
+        <nuxt-link to="/post">Việt Nam nêu các vấn đề của nông nghiệp tại Hội nghị FAO khu vực</nuxt-link>
       </h3>
 
       <div class="block-item__date">
         <span class="block-item__date-author">
-          <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+          <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
           <span>-</span>
         </span>
-        <span class="block-item__date-time">December 10, 2019</span>
+        <span class="block-item__date-time">Ngày 10 tháng 9, 2020</span>
       </div>
     </div>
   </div>

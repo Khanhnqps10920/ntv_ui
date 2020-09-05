@@ -8,7 +8,7 @@
         <SideBlockItem v-for="(item,index) in 5" :key="index" :noneImg="true" :isBorder="true" />
 
         <div class="blockb__button">
-          <nuxt-link to="/magazine">View All News</nuxt-link>
+          <nuxt-link to="/magazine">Xem tất cả</nuxt-link>
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -33,7 +33,7 @@
           <SideBlockItem v-for="(item,index) in 3" :key="index" :isSquare="true" />
 
           <div class="blockb__button small">
-            <nuxt-link to="/magazine">View All News</nuxt-link>
+            <nuxt-link to="/magazine">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>
@@ -45,7 +45,7 @@
           <SideBlockItem v-for="(item,index) in 2" :key="index" :isSquare="true" />
 
           <div class="blockb__button small">
-            <nuxt-link to="/magazine">View All News</nuxt-link>
+            <nuxt-link to="/magazine">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>

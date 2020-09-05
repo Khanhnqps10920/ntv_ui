@@ -10,14 +10,14 @@
 
       <div class="main-item__info">
         <h3 class="main-item__info--title">
-          <nuxt-link to="/post">Customer Engagement Marketing: A New Strategy for the Economy</nuxt-link>
+          <nuxt-link to="/post">Mỹ và Trung Quốc căng thẳng cực độ, Mỹ cấm các developer sử dụng Vuejs của Trung Quốc</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">Emilio Khanh</nuxt-link>
+            <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">December 10, 2019</span>
+          <span class="main-item__date-time">Ngày 10 tháng 9, 2020</span>
         </div>
         <div
           class="main-item__text"

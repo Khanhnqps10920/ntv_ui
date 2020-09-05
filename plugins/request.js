@@ -9,7 +9,11 @@ const makeRequestAPI = ({ url, method, data, headers, hasAuth = false } = {}) =>
   if (!url) return false;
 
   const { urlQuery = {}, urlRegex = {}, ...rest } = data;
-  url = objectToUrlRegex(url, urlRegex);
+  // url = objectToUrlRegex(url, urlRegex);
+
+
+  console.log(url, 'URL in request');
+
 
   const headerFormData = {
     'Content-Type': 'multipart/form-data'
