@@ -138,3 +138,28 @@ export function getCurrentGoldRate({
 //     console.log(e);
 //   }
 // }
+
+
+// custom fetch gold api 
+
+export async function getGoldRates({ commit }) {
+
+  try {
+    const priceData = await this.$axios.get(
+      "https://www.goldapi.io/api/XAU/USD",
+      {
+        headers: {
+          "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(priceData.data);
+
+    commit("SET_GOLD_RATES", priceData.data);
+
+  } catch (e) {
+    console.log(e)
+  }
+
+}
