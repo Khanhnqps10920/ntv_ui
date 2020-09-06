@@ -66,30 +66,32 @@ export default {
   async created() {
     // await this.fetchCategories();
   },
-  // async mounted() {
-  //   // categories
-  //   const categoriesData = await this.$store.dispatch("getCategory", {
-  //     nextActions: (res) => {
-  //       const payload = [];
-  //       for (const key in res.result) {
-  //         const category = {
-  //           ...res.result[key],
-  //         };
-
-  //         payload.push(category);
-  //       }
-
-  //       this.$store.commit("SET_CATEGORIES", payload);
-  //     },
-
-  //     errorActions: () => {
-  //       console.log("Fetch category fail");
-  //     },
-  //   });
-  // },
 
   async mounted() {
-    await this.$store.dispatch("getCurrentWeather");
+    // get weather
+    await this.$store
+      .dispatch("getCurrentWeather", {
+        urlQuery: {
+          id: "1566083",
+          appid: "060d473d45f1d22478455e48f344f211",
+        },
+      })
+      .then((res) => {
+        this.$store.commit("SET_WEATHER", res.data);
+      });
+
+    // get gold rates
+
+    await this.$store
+      .dispatch("getCurrentGoldRate", {
+        urlQuery: {
+          access_key:
+            "76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1",
+        },
+      })
+      .then((res) => {
+        this.$store.commit("SET_GOLD_RATES", res.data);
+      });
   },
 
   head() {

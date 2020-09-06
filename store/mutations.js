@@ -54,3 +54,8 @@ export const SET_CATEGORIES = (state, payload) => {
 export const SET_WEATHER = (state, payload) => {
   state.weather = payload
 }
+
+// set gold
+export const SET_GOLD_RATES = (state, payload) => {
+  state.goldRates = payload
+}

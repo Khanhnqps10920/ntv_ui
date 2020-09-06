@@ -5,6 +5,8 @@ export default () => ({
 
   categories: [],
 
-  weather: {}
+  weather: {},
+
+  goldRates: null
 
 })

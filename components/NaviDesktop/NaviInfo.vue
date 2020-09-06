@@ -7,8 +7,12 @@
           <span class="font-bold">{{weatherCelsius}} &#186;C</span>
           <span>Việt Nam</span>
 
-          <i class="fas fa-coins ml-5"></i>
-          <span class="font-bold">Gold (USDXAU): {{metals ? metals.rates.XAU : ""}}</span>
+          <a href="https://goldprice.org/" target="_blank">
+            <i class="fas fa-coins ml-5"></i>
+          </a>
+          <span
+            class="font-bold"
+          >Gold (USDXAU): {{goldRates && goldRates.rates ? goldRates.rates.XAU : "1,933.52"}}</span>
           <span>USD</span>
         </div>
 
@@ -60,7 +64,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["weather"]),
+    ...mapState(["weather", "goldRates"]),
 
     weatherCelsius() {
       return this.weather.main ? this.weather.main.temp - 273.15 : null;
@@ -69,12 +73,11 @@ export default {
 
   async created() {
     // default data
-    const data = await this.$axios.get(
-      "https://www.metals-api.com/api/latest?access_key=76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1"
-    );
-    console.log(data, "metal");
-
-    this.metals = data.data;
+    // const data = await this.$axios.get(
+    //   "https://www.metals-api.com/api/latest?access_key=76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1"
+    // );
+    // console.log(data, "metal");
+    // this.metals = data.data;
   },
 };
 </script>
