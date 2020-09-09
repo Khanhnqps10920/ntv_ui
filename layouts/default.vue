@@ -80,7 +80,8 @@ export default {
         .then((res) => {
           this.$store.commit("SET_WEATHER", res.data);
         });
-
+      // 
+      console.log('test')
       // get gold rates
 
       await this.$store.dispatch("getGoldRates");
