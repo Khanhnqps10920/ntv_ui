@@ -8,7 +8,6 @@ export function makeRequestAction({
   commit,
   ...rest
 }, payload) {
-  console.log(payload, "payload");
 
 
   // if (!process.client) return;
@@ -90,7 +89,7 @@ export function getCategory({
   dispatch
 }, data) {
   return dispatch('makeRequestAction', {
-    url: `${process.env.BASE_URL}public/get_categories_json`,
+    url: `${process.env.BASE_URL}/get_categories_json`,
     method: 'GET',
     data
   })
@@ -154,7 +153,6 @@ export async function getGoldRates({ commit }) {
         },
       }
     );
-    console.log(priceData.data);
 
     commit("SET_GOLD_RATES", priceData.data);
 

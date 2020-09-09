@@ -12,6 +12,10 @@
           </div>
           <div class="flex">
             <nuxt-link
+              to="/"
+              class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
+            >Trang Chủ</nuxt-link>
+            <nuxt-link
               :to="tag.to"
               v-for="(tag,i) in menuTags"
               :key="i"
@@ -29,14 +33,14 @@ import Container1640 from "@/components/containers/Container1640";
 // import Logo from "@/components/NaviDesktop/Logo"
 export default {
   components: {
-    Container1640
+    Container1640,
     // Logo,
   },
   props: {
     menuTags: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>

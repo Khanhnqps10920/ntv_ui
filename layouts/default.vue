@@ -2,13 +2,13 @@
   <div>
     <div id="fb-root"></div>
     <!--Navi Desktop-->
-    <NaviDesktop :menuTags="menuTags" />
+    <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
       <!-- sidebar menu -->
       <transition name="slide-left">
-        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" :menuTags="menuTags" />
+        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">
@@ -45,17 +45,6 @@ export default {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-      menuTags: [
-        { name: "Trang chủ", to: "/" },
-        { name: "Thời sự", to: "/category/thoi-su" },
-        { name: "Nông nghiệp", to: "/category/nong-nghiep" },
-        { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
-        { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
-        { name: "Kho chuyện", to: "/category/kho-chuyen" },
-        { name: "Sống xanh", to: "/category/song-xanh" },
-        { name: "Tư vấn", to: "/category/tu-van" },
-        { name: "Thế giới", to: "/category/the-gioi" },
-      ],
     };
   },
 
@@ -63,9 +52,7 @@ export default {
     // ...mapActions(["getCategory"]),
   },
 
-  async created() {
-    // await this.fetchCategories();
-  },
+  async created() {},
 
   async mounted() {
     try {
@@ -80,11 +67,30 @@ export default {
         .then((res) => {
           this.$store.commit("SET_WEATHER", res.data);
         });
-      // 
-      console.log('test')
-      // get gold rates
 
+      // get gold rates
       await this.$store.dispatch("getGoldRates");
+
+      // get categories
+
+      await this.$store
+        .dispatch("getCategory")
+        .then((res) => {
+          const categories = [];
+
+          for (const key in res.data.result) {
+            const category = {
+              to: `/category/${res.data.result[key].code}`,
+              ...res.data.result[key],
+            };
+
+            categories.push(category);
+          }
+          this.$store.commit("SET_CATEGORIES", categories);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     } catch (e) {
       console.log(e);
     }
