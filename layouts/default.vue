@@ -2,13 +2,13 @@
   <div>
     <div id="fb-root"></div>
     <!--Navi Desktop-->
-    <NaviDesktop :menuTags="menuTags" />
+    <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
       <!-- sidebar menu -->
       <transition name="slide-left">
-        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" :menuTags="menuTags" />
+        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">
@@ -45,17 +45,6 @@ export default {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-      menuTags: [
-        { name: "Trang chủ", to: "/" },
-        { name: "Thời sự", to: "/category/thoi-su" },
-        { name: "Nông nghiệp", to: "/category/nong-nghiep" },
-        { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
-        { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
-        { name: "Kho chuyện", to: "/category/kho-chuyen" },
-        { name: "Sống xanh", to: "/category/song-xanh" },
-        { name: "Tư vấn", to: "/category/tu-van" },
-        { name: "Thế giới", to: "/category/the-gioi" },
-      ],
     };
   },
 
@@ -63,41 +52,76 @@ export default {
     // ...mapActions(["getCategory"]),
   },
 
-  async created() {
-    // await this.fetchCategories();
-  },
+  async created() {},
 
   async mounted() {
-    // get categories
+    try {
+      // get weather
+      await this.$store
+        .dispatch("getCurrentWeather", {
+          urlQuery: {
+            id: "1566083",
+            appid: "060d473d45f1d22478455e48f344f211",
+          },
+        })
+        .then((res) => {
+          this.$store.commit("SET_WEATHER", res.data);
+        });
 
-    await this.$store.dispatch("getCategory").then((res) => {
-      console.log(res.data, "category");
-    });
+      // get gold rates
+      await this.$store.dispatch("getGoldRates");
 
-    // get weather
-    await this.$store
-      .dispatch("getCurrentWeather", {
-        urlQuery: {
-          id: "1566083",
-          appid: "060d473d45f1d22478455e48f344f211",
-        },
-      })
-      .then((res) => {
-        this.$store.commit("SET_WEATHER", res.data);
-      });
+      // get categories
 
-    // get gold rates
+      await this.$store
+        .dispatch("getCategory")
+        .then((res) => {
+          const categories = [];
+          const childrens = [];
 
-    await this.$store
-      .dispatch("getCurrentGoldRate", {
-        urlQuery: {
-          access_key:
-            "76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1",
-        },
-      })
-      .then((res) => {
-        this.$store.commit("SET_GOLD_RATES", res.data);
-      });
+          // create array category
+          for (const key in res.data.result) {
+            if (!res.data.result[key].parent_id) {
+              // check if parent
+              const category = {
+                to: `/category/${res.data.result[key].code}`,
+                ...res.data.result[key],
+              };
+
+              categories.push(category);
+            } else {
+              // check if children
+              const children = {
+                to: `/category/${res.data.result[key].code}`,
+                ...res.data.result[key],
+              };
+
+              childrens.push(children);
+            }
+          }
+
+          // map children to parent
+          const categoryList = categories.map((category) => {
+            const childrenArr = [];
+            for (const children of childrens) {
+              if (children.parent_id === category._id)
+                childrenArr.push(children);
+            }
+
+            return {
+              ...category,
+              childrenArr,
+            };
+          });
+
+          this.$store.commit("SET_CATEGORIES", categoryList);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   },
 
   head() {

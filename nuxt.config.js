@@ -79,6 +79,7 @@ export default {
   env: {
     // baseAPI: 'https://api-boo.bazic.vn',
 
-    BASE_URL: "http://192.168.1.218:8080/nongthonviet-frontend/",
+    BASE_URL: "http://192.168.1.218:8080/nongthonviet-frontend/public",
+
   },
 }

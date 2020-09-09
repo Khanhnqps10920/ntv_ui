@@ -12,7 +12,6 @@ const makeRequestAPI = ({ url, method, data, headers, hasAuth = false } = {}) =>
   // url = objectToUrlRegex(url, urlRegex);
 
 
-  console.log(url, 'URL in request');
 
 
   const headerFormData = {

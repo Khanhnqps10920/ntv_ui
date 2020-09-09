@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <Container1640>
-      <div class="flex mt-8">
+      <div class="flex mt-8 text-xs">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
           <span class="font-bold">{{weatherCelsius}} &#186;C</span>
@@ -12,7 +12,7 @@
           </a>
           <span
             class="font-bold"
-          >Gold (USDXAU): {{goldRates && goldRates.rates ? goldRates.rates.XAU : "1,933.52"}}</span>
+          >Gold: {{goldRates && goldRates.price ? goldRates.price : "1,933.52"}}</span>
           <span>USD</span>
         </div>
 
@@ -71,14 +71,7 @@ export default {
     },
   },
 
-  async created() {
-    // default data
-    // const data = await this.$axios.get(
-    //   "https://www.metals-api.com/api/latest?access_key=76vsvb18u2nl7f626ztx80hhv3dastak3wcvgmwza8d7qi6q79csvddf8ai1"
-    // );
-    // console.log(data, "metal");
-    // this.metals = data.data;
-  },
+  async created() {},
 };
 </script>
 

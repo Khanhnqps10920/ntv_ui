@@ -8,7 +8,6 @@ export function makeRequestAction({
   commit,
   ...rest
 }, payload) {
-  console.log(payload, "payload");
 
 
   // if (!process.client) return;
@@ -90,7 +89,7 @@ export function getCategory({
   dispatch
 }, data) {
   return dispatch('makeRequestAction', {
-    url: `${process.env.BASE_URL}public/get_categories_json`,
+    url: `${process.env.BASE_URL}/get_categories_json`,
     method: 'GET',
     data
   })
@@ -138,3 +137,27 @@ export function getCurrentGoldRate({
 //     console.log(e);
 //   }
 // }
+
+
+// custom fetch gold api 
+
+export async function getGoldRates({ commit }) {
+
+  try {
+    const priceData = await this.$axios.get(
+      "https://www.goldapi.io/api/XAU/USD",
+      {
+        headers: {
+          "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    commit("SET_GOLD_RATES", priceData.data);
+
+  } catch (e) {
+    console.log(e)
+  }
+
+}
