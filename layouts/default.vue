@@ -68,6 +68,12 @@ export default {
   },
 
   async mounted() {
+    // get categories
+
+    await this.$store.dispatch("getCategory").then((res) => {
+      console.log(res.data, "category");
+    });
+
     // get weather
     await this.$store
       .dispatch("getCurrentWeather", {
