@@ -5,14 +5,22 @@
     <nuxt-link
       to="/"
       class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
-    >Trang Chủ</nuxt-link>
+    >
+      <!--to do : have subs cate ? emit onHover : emit closeHover-->
+      <span @mouseover="$emit('onHover')">
+        Hover
+        <i class="fas fa-angle-down"></i>
+      </span>
+    </nuxt-link>
 
     <nuxt-link
       :to="tag.to"
       v-for="(tag, i) in menuTags"
       :key="i"
       class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
-    >{{tag.name}}</nuxt-link>
+    >
+      <span @mouseover="$emit('onLeaveHovered')">{{tag.name}}</span>
+    </nuxt-link>
   </div>
 </template>
 
@@ -24,10 +32,11 @@ export default {
   props: {
     menuTags: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
-  methods: {},
+  methods: {
+  }
 };
 </script>
 

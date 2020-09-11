@@ -5,7 +5,15 @@
     </transition>
     <SubNavi />
     <NaviInfo />
-    <TagBar class="mt-8" :menuTags="categories" />
+    <div @mouseleave="toggleHoverModal = false" class="relative z-10">
+      <TagBar
+        class="mt-8"
+        :menuTags="categories"
+        @onHover="toggleHoverModal = true"
+        @onLeaveHovered="toggleHoverModal = false"
+      />
+      <HoverModal v-if="toggleHoverModal" class="absolute z-10"/>
+    </div>
   </div>
 </template>
 
@@ -18,10 +26,12 @@ import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
+import HoverModal from "@/components/NaviDesktop/HoverModal";
 export default {
   data() {
     return {
       showMenu: false,
+      toggleHoverModal: false
     };
   },
   props: {},
@@ -30,9 +40,10 @@ export default {
     NaviInfo,
     TagBar,
     MenuBarDesktop,
+    HoverModal
   },
   computed: {
-    ...mapState(["categories"]),
+    ...mapState(["categories"])
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -50,8 +61,8 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
