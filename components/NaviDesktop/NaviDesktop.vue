@@ -1,11 +1,11 @@
 <template>
   <div class="xs:hidden">
     <transition name="fade-slide">
-      <MenuBarDesktop v-if="showMenu" :menuTags="menuTags" />
+      <MenuBarDesktop v-if="showMenu" :menuTags="categories" />
     </transition>
     <SubNavi />
     <NaviInfo />
-    <TagBar class="mt-8" :menuTags="menuTags" />
+    <TagBar class="mt-8" :menuTags="categories" />
   </div>
 </template>
 
@@ -24,12 +24,7 @@ export default {
       showMenu: false,
     };
   },
-  props : {
-    menuTags : {
-      type : Array,
-      required : true
-    }
-  },
+  props: {},
   components: {
     SubNavi,
     NaviInfo,
@@ -37,6 +32,7 @@ export default {
     MenuBarDesktop,
   },
   computed: {
+    ...mapState(["categories"]),
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -55,10 +51,6 @@ export default {
         this.showMenu = true;
       }
     },
-  },
-
-  created() {
-    console.log(this.categoriesDefault, "default");
   },
 };
 </script>

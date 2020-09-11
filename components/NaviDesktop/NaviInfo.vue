@@ -1,12 +1,21 @@
 <template>
   <div class="relative">
     <Container1640>
-      <div class="flex mt-8">
+      <div class="flex mt-8 text-xs">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">35.5&#186;C</span>
+          <span class="font-bold">{{weatherCelsius}} &#186;C</span>
           <span>Việt Nam</span>
+
+          <a href="https://goldprice.org/" target="_blank">
+            <i class="fas fa-coins ml-5"></i>
+          </a>
+          <span
+            class="font-bold"
+          >Gold: {{goldRates && goldRates.price ? goldRates.price : "1,933.52"}}</span>
+          <span>USD</span>
         </div>
+
         <div class="flex-1 text-center">
           <Logo />
           <div class="text-sm mt-1">Thứ 7, 29 tháng 8, 2020</div>
@@ -35,20 +44,34 @@
 </template>
 
 <script>
+// libs
+import { mapState } from "vuex";
+
 import Logo from "@/components/NaviDesktop/Logo";
 import Container1640 from "@/components/containers/Container1640";
 import SearchHome from "../Search/SearchHome.vue";
 export default {
   data() {
     return {
-      searchActive: false
+      searchActive: false,
+      metals: null,
     };
   },
   components: {
     Container1640,
     Logo,
-    SearchHome
-  }
+    SearchHome,
+  },
+
+  computed: {
+    ...mapState(["weather", "goldRates"]),
+
+    weatherCelsius() {
+      return this.weather.main ? this.weather.main.temp - 273.15 : null;
+    },
+  },
+
+  async created() {},
 };
 </script>
 

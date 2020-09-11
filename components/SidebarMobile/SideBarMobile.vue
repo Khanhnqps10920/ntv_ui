@@ -5,7 +5,16 @@
     </div>
 
     <ul class="sidebar-mobile__menu relative">
-      <li class="sidebar-mobile__menu-item" v-for="(tag,i) in menuTags" :key="i"  @click="$emit('closeSideBar')" >
+      <li class="sidebar-mobile__menu-item" @click="$emit('closeSideBar')">
+        <nuxt-link to="/">Trang Chủ</nuxt-link>
+      </li>
+
+      <li
+        class="sidebar-mobile__menu-item"
+        v-for="(tag,i) in categories"
+        :key="i"
+        @click="$emit('closeSideBar')"
+      >
         <nuxt-link :to="tag.to">{{tag.name}}</nuxt-link>
       </li>
     </ul>
@@ -13,13 +22,14 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  props : {
-    menuTags : {
-      type : Array,
-      required : true
-    }
-  }
+  props: {},
+
+  computed: {
+    ...mapState(["categories"]),
+  },
 };
 </script>
 
@@ -34,8 +44,7 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 1000;
-
+  z-index: 2000;
   /* background */
   background-image: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
@@ -110,7 +119,7 @@ export default {
 .sidebar-mobile__menu {
   padding: 0 1.25rem;
   height: 80%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 /* menu item */

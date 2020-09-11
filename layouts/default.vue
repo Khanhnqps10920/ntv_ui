@@ -2,13 +2,13 @@
   <div>
     <div id="fb-root"></div>
     <!--Navi Desktop-->
-    <NaviDesktop :menuTags="menuTags"/>
+    <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
       <!-- sidebar menu -->
       <transition name="slide-left">
-        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" :menuTags="menuTags"/>
+        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">
@@ -39,23 +39,12 @@ export default {
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
-    ScrollTop
+    ScrollTop,
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-      menuTags: [
-        { name: "Trang chủ", to: "/" },
-        { name: "Thời sự", to: "/category/thoi-su" },
-        { name: "Nông nghiệp", to: "/category/nong-nghiep" },
-        { name: "Thị Trường-Tài Chính", to: "/category/thi-truong-tai-chinh" },
-        { name: "Cà phê khuyến nông", to: "/category/ca-phe-khuyen-nong" },
-        { name: "Kho chuyện", to: "/category/kho-chuyen" },
-        { name: "Sống xanh", to: "/category/song-xanh" },
-        { name: "Tư vấn", to: "/category/tu-van" },
-        { name: "Thế giới", to: "/category/the-gioi" }
-      ]
     };
   },
 
@@ -63,64 +52,111 @@ export default {
     // ...mapActions(["getCategory"]),
   },
 
-  async created() {
-    // await this.fetchCategories();
+  async created() {},
+
+  async mounted() {
+    try {
+      // get weather
+      await this.$store
+        .dispatch("getCurrentWeather", {
+          urlQuery: {
+            id: "1566083",
+            appid: "060d473d45f1d22478455e48f344f211",
+          },
+        })
+        .then((res) => {
+          this.$store.commit("SET_WEATHER", res.data);
+        });
+
+      // get gold rates
+      await this.$store.dispatch("getGoldRates");
+
+      // get categories
+
+      await this.$store
+        .dispatch("getCategory")
+        .then((res) => {
+          const categories = [];
+          const childrens = [];
+
+          // create array category
+          for (const key in res.data.result) {
+            if (!res.data.result[key].parent_id) {
+              // check if parent
+              const category = {
+                to: `/category/${res.data.result[key].code}`,
+                ...res.data.result[key],
+              };
+
+              categories.push(category);
+            } else {
+              // check if children
+              const children = {
+                to: `/category/${res.data.result[key].code}`,
+                ...res.data.result[key],
+              };
+
+              childrens.push(children);
+            }
+          }
+
+          // map children to parent
+          const categoryList = categories.map((category) => {
+            const childrenArr = [];
+            for (const children of childrens) {
+              if (children.parent_id === category._id)
+                childrenArr.push(children);
+            }
+
+            return {
+              ...category,
+              childrenArr,
+            };
+          });
+
+          this.$store.commit("SET_CATEGORIES", categoryList);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   },
-  // async mounted() {
-  //   // categories
-  //   const categoriesData = await this.$store.dispatch("getCategory", {
-  //     nextActions: (res) => {
-  //       const payload = [];
-  //       for (const key in res.result) {
-  //         const category = {
-  //           ...res.result[key],
-  //         };
-
-  //         payload.push(category);
-  //       }
-
-  //       this.$store.commit("SET_CATEGORIES", payload);
-  //     },
-
-  //     errorActions: () => {
-  //       console.log("Fetch category fail");
-  //     },
-  //   });
-  // },
 
   head() {
     return {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous"
+          crossorigin: "anonymous",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           async: true,
           defer: true,
           crossorigin: "anonymous",
           src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
-          nonce: "Ef8u8iSh"
-        }
-      ]
+          nonce: "Ef8u8iSh",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
