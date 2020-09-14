@@ -114,6 +114,7 @@ export default {
             };
           });
 
+          console.log(categoryList);
           this.$store.commit("SET_CATEGORIES", categoryList);
         })
         .catch((e) => {
