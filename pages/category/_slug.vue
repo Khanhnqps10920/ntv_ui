@@ -4,11 +4,13 @@
 
     <CategoryBlock class="mt-5" :cateName="cateName" />
 
-    <MainBlock class="mt-10" />
+    <MainBlock class="mt-10" :itemList="posts.result.posts" />
   </div>
 </template>
 
 <script>
+import data from "@/assets/data/data.json";
+
 import { mapGetters } from "vuex";
 
 // components
@@ -32,6 +34,16 @@ export default {
     cateName() {
       return this.category ? this.category.name.toUpperCase() : "Category";
     },
+  },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+
+  created() {
+    // posts
+    this.posts = data.postByCategories;
   },
 };
 </script>

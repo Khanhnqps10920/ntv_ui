@@ -1,11 +1,8 @@
 {
-
   "postByCategories": {
     "status": "1",
     "result": {
-      "posts": [
-
-        {
+      "posts": [{
           "id": "1",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
@@ -41,7 +38,6 @@
           "alias": "ngan-chan-banh-ban"
         },
 
-
         {
           "id": "4",
           "name": "ĐBSCL trữ nước ngọt để tránh hạn",
@@ -54,7 +50,6 @@
           "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
         },
 
-
         {
           "id": "5",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
@@ -66,8 +61,6 @@
           "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
           "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
         }
-
-
       ]
     },
 
@@ -82,9 +75,6 @@
     "page": "1",
     "totalPage": "5"
   },
-
-
-
 
   "categories": {
     "status": 0,
@@ -228,7 +218,8 @@
             "name": "Hoa Lan",
             "alias": "hoa-lan",
             "parentId": "5"
-          }, {
+          },
+          {
             "id": "53",
             "name": "Con tôm",
             "alias": "con-tom",
@@ -241,39 +232,39 @@
             "parentId": "5"
           }
         ]
-      }, {
+      },
+      {
         "id": "6",
         "name": "Gương mặt",
         "alias": "guong-mat",
         "parentId": 0,
         "subs": [{
-          "id": "61",
-          "name": "Nhân vật",
-          "alias": "nhan-vat",
-          "parentId": "6"
-        }, {
-          "id": "62",
-          "name": "Thương hiệu",
-          "alias": "thuong-hieu",
-          "parentId": "6"
-        }, {
-          "id": "63",
-          "name": "Cảm hứng",
-          "alias": "cam-hung",
-          "parentId": "6"
-        }]
+            "id": "61",
+            "name": "Nhân vật",
+            "alias": "nhan-vat",
+            "parentId": "6"
+          },
+          {
+            "id": "62",
+            "name": "Thương hiệu",
+            "alias": "thuong-hieu",
+            "parentId": "6"
+          },
+          {
+            "id": "63",
+            "name": "Cảm hứng",
+            "alias": "cam-hung",
+            "parentId": "6"
+          }
+        ]
       }
     ]
   },
 
-
-
   "postByTag": {
     "status": "1",
     "result": {
-      "posts": [
-
-        {
+      "posts": [{
           "id": "1",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
@@ -309,7 +300,6 @@
           "alias": "ngan-chan-banh-ban"
         },
 
-
         {
           "id": "4",
           "name": "ĐBSCL trữ nước ngọt để tránh hạn",
@@ -322,7 +312,6 @@
           "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
         },
 
-
         {
           "id": "5",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
@@ -334,21 +323,16 @@
           "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
           "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
         }
-
-
       ]
     },
     "page": "1",
     "totalPage": "5"
   },
-
 
   "search": {
     "status": "1",
     "result": {
-      "posts": [
-
-        {
+      "posts": [{
           "id": "1",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
@@ -384,7 +368,6 @@
           "alias": "ngan-chan-banh-ban"
         },
 
-
         {
           "id": "4",
           "name": "ĐBSCL trữ nước ngọt để tránh hạn",
@@ -397,7 +380,6 @@
           "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
         },
 
-
         {
           "id": "5",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
@@ -409,14 +391,11 @@
           "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
           "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
         }
-
-
       ]
     },
     "page": "1",
     "totalPage": "5"
   },
-
 
   "postDetail": {
     "status": 1,
@@ -458,13 +437,10 @@
     }
   },
 
-
   "relatedPost": {
     "status": "1",
     "result": {
-      "posts": [
-
-        {
+      "posts": [{
           "id": "1",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
@@ -500,7 +476,6 @@
           "alias": "ngan-chan-banh-ban"
         },
 
-
         {
           "id": "4",
           "name": "ĐBSCL trữ nước ngọt để tránh hạn",
@@ -513,7 +488,6 @@
           "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
         },
 
-
         {
           "id": "5",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
@@ -525,8 +499,6 @@
           "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
           "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
         }
-
-
       ]
     }
   },
@@ -534,9 +506,7 @@
   "getDynamicList": {
     "status": "1",
     "result": {
-      "posts": [
-
-        {
+      "posts": [{
           "id": "1",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
@@ -572,7 +542,6 @@
           "alias": "ngan-chan-banh-ban"
         },
 
-
         {
           "id": "4",
           "name": "ĐBSCL trữ nước ngọt để tránh hạn",
@@ -585,7 +554,6 @@
           "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
         },
 
-
         {
           "id": "5",
           "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
@@ -597,8 +565,6 @@
           "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
           "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
         }
-
-
       ]
     }
   }

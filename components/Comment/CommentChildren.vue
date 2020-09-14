@@ -8,13 +8,13 @@
 
     <div class="comment__info">
       <div class="comment__info--wrapper">
-        <p class="comment__info--name">User Name</p>
+        <p class="comment__info--name">{{ item.name }}</p>
 
         <p class="comment__info--time">September 3, 2020 At 3:08 am</p>
       </div>
       <div class="comment__info--content">
         <em>Your comment is waiting morderation</em>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, sint.</p>
+        <p>{{ item.content }}</p>
       </div>
       <a href="#" class="comment__info--reply">Reply</a>
     </div>
@@ -22,7 +22,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>
