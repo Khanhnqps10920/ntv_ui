@@ -2,26 +2,24 @@
   <div class="main-item" :class="{bigSize: is1240}">
     <div class="main-item__container">
       <div class="main-item__img">
-        <nuxt-link class="main-item__category" to="/category">Politics</nuxt-link>
+        <nuxt-link class="main-item__category" to="/category">{{item.catName}}</nuxt-link>
         <nuxt-link to="/post" class="main-item__img-wrapper">
-          <img src="@/assets/imgs/default.png" alt="post-img" />
+          <img :src="item.image" alt="post-img" />
         </nuxt-link>
       </div>
 
       <div class="main-item__info">
         <h3 class="main-item__info--title">
-          <nuxt-link to="/post">Mỹ và Trung Quốc căng thẳng cực độ, Mỹ cấm các developer sử dụng Vuejs của Trung Quốc</nuxt-link>
+          <nuxt-link to="/post">{{item.name}}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+            <nuxt-link to="/author">{{item.author}}</nuxt-link>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">Ngày 10 tháng 9, 2020</span>
+          <span class="main-item__date-time">{{item.date}}</span>
         </div>
-        <div
-          class="main-item__text"
-        >The main thing that you have to remember on this journey is just be nice to everyone and always smile. Refreshingly,...</div>
+        <div class="main-item__text">{{ item.description }}</div>
       </div>
     </div>
   </div>
@@ -33,6 +31,13 @@ export default {
     is1240: {
       type: Boolean,
       default: false,
+    },
+
+    item: {
+      type: Object,
+      default: () => {
+        return {};
+      },
     },
   },
 };

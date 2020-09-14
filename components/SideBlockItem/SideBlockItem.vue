@@ -2,13 +2,13 @@
   <div class="side-item" :class="{'noneImg': noneImg, 'border':isBorder, 'square': isSquare }">
     <div class="side-item__info">
       <h3 class="side-item__title">
-        <nuxt-link to="/post">Thời trang style đạm chất Việt Boo.vn liên tục cho ra sản phẩm mới</nuxt-link>
+        <nuxt-link to="/post">{{ item.name }}</nuxt-link>
       </h3>
-      <p class="side-item__date">Ngày 10 tháng 9, 2020</p>
+      <p class="side-item__date">{{ item.date }}</p>
     </div>
 
     <div class="side-item__img" v-if="!noneImg">
-      <img src="@/assets/imgs/default.png" alt />
+      <img :src="item.image" alt />
     </div>
   </div>
 </template>
@@ -29,6 +29,13 @@ export default {
     isSquare: {
       type: Boolean,
       default: false,
+    },
+
+    item: {
+      type: Object,
+      default: () => {
+        return {};
+      },
     },
   },
 };

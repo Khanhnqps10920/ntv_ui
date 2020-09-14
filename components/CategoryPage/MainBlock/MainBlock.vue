@@ -3,7 +3,7 @@
     <div class="main-block flex xs:block mb-5">
       <!-- main block -->
       <div class="main-block__main flex-grow">
-        <MainBlockItem v-for="(item,index) in 8" :key="index" :is1240="true" />
+        <MainBlockItem v-for="(item,index) in itemList" :key="index" :item="item" :is1240="true" />
       </div>
 
       <!--  -->
@@ -13,7 +13,12 @@
         <div class="main-block__right-block">
           <h4 class="block-title">Latest News</h4>
 
-          <SideBlockItem v-for="(item,index) in 4" :key="index" :isSquare="true" />
+          <SideBlockItem
+            v-for="(item,index) in itemList"
+            :key="index"
+            :item="item"
+            :isSquare="true"
+          />
         </div>
 
         <AdsSide class="mt-5" />
@@ -37,6 +42,13 @@ export default {
     SideBlockItem,
     MainBlockItem,
     AdsSide,
+  },
+
+  props: {
+    itemList: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PostPage from "../components/PostPage/PostPage.vue";
+import PostPage from "@/components/PostPage/PostPage.vue";
 
 export default {
   components: {

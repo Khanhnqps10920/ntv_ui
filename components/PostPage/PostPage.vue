@@ -5,28 +5,31 @@
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
         <div class="post__main">
           <div class="post__main--category mb-5">
-            <nuxt-link to="/category">Magazine</nuxt-link>
+            <nuxt-link
+              v-for="cate in post.result.subcates"
+              :key="cate.id"
+              :to="`/category/${cate.alias}`"
+            >{{ cate.name }}</nuxt-link>
           </div>
-          <h1 class="post__main--title">Jen Kendall Kicked off American Airlines First Flight</h1>
+          <h1 class="post__main--title">{{ post.result.name }}</h1>
 
           <div class="post__main--info my-5">
             <!-- info -->
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
                 <span>By</span>
-                <nuxt-link to="/author">Emilio Montes</nuxt-link>
+                <nuxt-link to="/author">{{ post.result.author }}</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">Ngày 10 tháng 9, 2020</span>
+              <span class="post__main--info-time ml-6">{{ post.result.date }}</span>
 
               <div class="post__main--info-icon ml-6">
                 <i class="far fa-comment-alt"></i>
-                <span>0</span>
+                <span>{{ post.result.commentCount }}</span>
               </div>
-
               <div class="post__main--info-icon ml-6">
                 <i class="fas fa-eye"></i>
-                <span>0</span>
+                <span>{{ post.result.viewCount }}</span>
               </div>
             </div>
 
@@ -37,9 +40,8 @@
               </div>
             </div>
           </div>
-
           <div class="post__main--img">
-            <img src="@/assets/imgs/default.png" alt="post-img" />
+            <img :src="post.result.meta.image" alt="post-img" />
           </div>
 
           <!-- content -->
@@ -52,7 +54,12 @@
                 </p>
 
                 <SideWrapper>
-                  <SideBlockItem v-for="(item,index) in 4" :key="index" :isSquare="true" />
+                  <SideBlockItem
+                    v-for="(item,index) in hot.result.posts"
+                    :item="item"
+                    :key="index"
+                    :isSquare="true"
+                  />
                 </SideWrapper>
 
                 <SideWrapper>
@@ -65,13 +72,7 @@
             <div class="col-span-8 xs:col-span-12 sm:col-span-12">
               <div class="post__main--content-main">
                 <!-- post content -->
-                <div class="post__content">
-                  <p
-                    class="mb-5"
-                    v-for="(item,index) in 15"
-                    :key="index"
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur blanditiis minima deserunt consequuntur nobis voluptatum quas dignissimos quam rerum sit esse beatae iste optio corporis quisquam reiciendis dolore, impedit nulla?</p>
-                </div>
+                <div class="post__content mb-5" v-html=" post.result.postContent"></div>
 
                 <div class="post__share">
                   <ShareFacebook />
@@ -100,21 +101,26 @@
             <!-- comment / side section -->
             <div class="col-span-4 xs:col-span-12">
               <p class="block-title">
-                <span>More Article</span>
+                <span>Các tin khác</span>
               </p>
 
               <SideWrapper>
-                <SideBlockItem v-for="(item,index) in 3" :key="index" :isSquare="true" />
+                <SideBlockItem
+                  v-for="(item,index) in otherPost.result.posts"
+                  :item="item"
+                  :key="index"
+                  :isSquare="true"
+                />
               </SideWrapper>
             </div>
 
             <div class="comment-block col-span-8 xs:col-span-12">
-              <CommentItem>
-                <CommentChildren></CommentChildren>
-              </CommentItem>
-
-              <CommentItem>
-                <CommentChildren></CommentChildren>
+              <CommentItem
+                v-for="comment in post.result.comments"
+                :key="comment.id"
+                :item="comment"
+              >
+                <CommentChildren v-for="rep in comment.reply" :key="rep.id" :item="rep"></CommentChildren>
               </CommentItem>
 
               <h3 class="comment-block__title">Leave A reply</h3>
@@ -130,11 +136,16 @@
           <AdsSide />
 
           <p class="block-title">
-            <span>Latest article</span>
+            <span>Tin mới</span>
           </p>
 
           <SideWrapper>
-            <SideBlockItem v-for="(item,index) in 4" :key="index" :isSquare="true" />
+            <SideBlockItem
+              v-for="(item,index) in latest.result.posts"
+              :key="index"
+              :item="item"
+              :isSquare="true"
+            />
           </SideWrapper>
         </div>
       </div>
@@ -143,6 +154,9 @@
 </template>
 
 <script>
+// data
+import data from "../../assets/data/data.json";
+
 import Container1440 from "../containers/Container1440.vue";
 import AdsSide from "../Advertisement/AdsSide.vue";
 import SideWrapper from "../SideWrapper/SideWrapper.vue";
@@ -166,6 +180,25 @@ export default {
     CommentForm,
     CommentItem,
     CommentChildren,
+  },
+  data() {
+    return {
+      post: null,
+      latest: [],
+      otherPost: [],
+      hot: [],
+    };
+  },
+
+  created() {
+    // post detail
+    this.post = data.postDetail;
+    // latest
+    this.latest = data.getDynamicList;
+    // other
+    this.otherPost = data.getDynamicList;
+    // hot
+    this.hot = data.getDynamicList;
   },
 };
 </script>
