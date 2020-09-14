@@ -1,9 +1,10 @@
 export default () => ({
-
-  test: 'test vuex store',
+  
   // categories
-
   categories: [],
+  
+  // default posts on menu
+  defaultPostOnMenu : null,
 
   weather: {},
 

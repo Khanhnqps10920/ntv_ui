@@ -21,16 +21,13 @@
   </div>
 </template>
 <script>
-// libs
-// import { mapActions } from "vuex";
-
-// components
 import NaviDesktop from "@/components/NaviDesktop/NaviDesktop";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
+import { categories, postByCategories } from "@/assets/data/data.json"; //fake data
 
 export default {
   components: {
@@ -39,90 +36,54 @@ export default {
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
-    ScrollTop,
+    ScrollTop
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
+      menuList: []
     };
   },
 
-  methods: {
-    // ...mapActions(["getCategory"]),
-  },
+  methods: {},
 
   async created() {},
 
   async mounted() {
-    try {
-      // get weather
-      await this.$store
-        .dispatch("getCurrentWeather", {
-          urlQuery: {
-            id: "1566083",
-            appid: "060d473d45f1d22478455e48f344f211",
-          },
-        })
-        .then((res) => {
-          this.$store.commit("SET_WEATHER", res.data);
-        });
-
-      // get gold rates
-      await this.$store.dispatch("getGoldRates");
-
-      // get categories
-
-      await this.$store
-        .dispatch("getCategory")
-        .then((res) => {
-          const categories = [];
-          const childrens = [];
-
-          // create array category
-          for (const key in res.data.result) {
-            if (!res.data.result[key].parent_id) {
-              // check if parent
-              const category = {
-                to: `/category/${res.data.result[key].code}`,
-                ...res.data.result[key],
-              };
-
-              categories.push(category);
-            } else {
-              // check if children
-              const children = {
-                to: `/category/${res.data.result[key].code}`,
-                ...res.data.result[key],
-              };
-
-              childrens.push(children);
-            }
-          }
-
-          // map children to parent
-          const categoryList = categories.map((category) => {
-            const childrenArr = [];
-            for (const children of childrens) {
-              if (children.parent_id === category._id)
-                childrenArr.push(children);
-            }
-
-            return {
-              ...category,
-              childrenArr,
-            };
-          });
-
-          console.log(categoryList);
-          this.$store.commit("SET_CATEGORIES", categoryList);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
+    // get weather
+    await this.$store
+      .dispatch("getCurrentWeather", {
+        urlQuery: {
+          id: "1566083",
+          appid: "060d473d45f1d22478455e48f344f211"
+        }
+      })
+      .then(res => {
+        this.$store.commit("SET_WEATHER", res.data);
+      });
+    // get gold rates
+    this.$store.dispatch("getGoldRates");
+    // get categories
+    //to do API category
+    this.categoriesData = categories.result;
+    this.$store.commit("SET_CATEGORIES", this.categoriesData);
+    // get default posts for category have children
+    const cates = this.$store.getters.getCategory;
+    for (let i = 0; i < cates.length; i++) {
+      if (cates[i].subs.length) {
+        //Call API and return default posts and some logics
+        // console.log(cates[i].name)
+      }
     }
+    const defaultPosts = {
+      "1": postByCategories.result.posts,
+      "3": postByCategories.result.posts,
+      "4": postByCategories.result.posts,
+      "5": postByCategories.result.posts,
+      "6": postByCategories.result.posts
+    };
+    this.$store.commit("SET_DEFAULTPOSTSONMENU", defaultPosts);
   },
 
   head() {
@@ -130,34 +91,34 @@ export default {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous",
+          crossorigin: "anonymous"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
         {
           async: true,
           defer: true,
           crossorigin: "anonymous",
           src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
-          nonce: "Ef8u8iSh",
-        },
-      ],
+          nonce: "Ef8u8iSh"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

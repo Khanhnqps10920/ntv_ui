@@ -87,7 +87,7 @@
 
 
   "categories": {
-    "status": 0,
+    "status": 1,
     "result": [{
         "id": "1",
         "name": "Thời sự",

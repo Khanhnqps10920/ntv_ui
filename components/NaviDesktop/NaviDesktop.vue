@@ -1,7 +1,12 @@
 <template>
   <div class="xs:hidden">
     <transition name="fade-slide">
-      <MenuBarDesktop v-if="showMenu" :menuTags="categories" />
+      <MenuBarDesktop
+        v-if="showMenu"
+        :menuTags="categories"
+        @onHover="onHover"
+        @onLeaveHovered="toggleHoverModal = false"
+      />
     </transition>
     <SubNavi />
     <NaviInfo />
@@ -9,18 +14,15 @@
       <TagBar
         class="mt-8"
         :menuTags="categories"
-        @onHover="toggleHoverModal = true"
+        @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
       />
-      <HoverModal v-if="toggleHoverModal" class="absolute z-10"/>
+      <HoverModal v-if="toggleHoverModal" :subs="subs" :currentPosts="currentPosts" class="absolute z-10" />
     </div>
   </div>
 </template>
 
 <script>
-// libs
-import { mapState } from "vuex";
-
 const OFFSET = 240;
 import SubNavi from "@/components/NaviDesktop/SubNavi";
 import NaviInfo from "@/components/NaviDesktop/NaviInfo";
@@ -31,10 +33,16 @@ export default {
   data() {
     return {
       showMenu: false,
-      toggleHoverModal: false
+      toggleHoverModal: false,
+      subs: "",
+      currentPosts : []
     };
   },
-  props: {},
+  computed: {
+    categories() {
+      return this.$store.getters.getCategory;
+    }
+  },
   components: {
     SubNavi,
     NaviInfo,
@@ -42,9 +50,7 @@ export default {
     MenuBarDesktop,
     HoverModal
   },
-  computed: {
-    ...mapState(["categories"])
-  },
+
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
@@ -54,6 +60,14 @@ export default {
     document.head.appendChild(viewportMeta);
   },
   methods: {
+    onHover(subs, id) {
+      this.toggleHoverModal = true;
+      this.subs = subs;
+      // find default posts follow cate
+      const key = String(id)
+      const defaultPosts = this.$store.getters.getDefaultPostOnMenu
+      this.currentPosts = defaultPosts[key]
+    },
     onScroll() {
       if (window.pageYOffset < OFFSET) {
         this.showMenu = false;

@@ -59,3 +59,9 @@ export const SET_WEATHER = (state, payload) => {
 export const SET_GOLD_RATES = (state, payload) => {
   state.goldRates = payload
 }
+
+// Set default posts on menu
+
+export const SET_DEFAULTPOSTSONMENU = (state, payload) => {
+  state.defaultPostOnMenu = payload
+}

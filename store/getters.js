@@ -1,4 +1,7 @@
-export const getCategory = state => categorySlug => {
-  const category = state.categories.find(category => category.code === categorySlug);
-  return category;
+export const getCategory = state => {
+  return state.categories
+}
+
+export const getDefaultPostOnMenu = state => {
+  return state.defaultPostOnMenu
 }

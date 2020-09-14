@@ -3,10 +3,12 @@
     <div class="flex" style="min-height : 200px;">
       <div style="min-width : 180px" class="border-gray-200 border-r-2 border-solid text-right p-4">
         <ul class="mt-2">
-          <li class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer">SubCate 1</li>
-          <li class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer">SubCateABC</li>
-          <li class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer">Subs</li>
-          <li class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer">SubTest</li>
+          <li
+            v-for="(sub,i) in subs"
+            :key="i"
+            @click="$router.push(`/category/${sub.alias}`)"
+            class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer"
+          >{{sub.name}}</li>
         </ul>
       </div>
       <div class="flex-grow ml-4 mt-4">
@@ -33,6 +35,14 @@ export default {
   components: {
     Container1640,
     BlockItem
+  },
+  props: {
+    subs: {
+      type: Array
+    },
+    currentPosts: {
+      type: Array
+    }
   }
 };
 </script>
