@@ -13,6 +13,8 @@
 </template>
 
 <script>
+// import data from "../assets/data/data.json";
+
 import BlockA from "@/components/HomePage/BlockA/BlockA";
 import SocialBlock from "@/components/HomePage/SocialBlock/SocialBlock";
 import BlockB from "@/components/HomePage/BlockB/BlockB";
