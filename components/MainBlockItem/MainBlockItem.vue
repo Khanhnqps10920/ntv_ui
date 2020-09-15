@@ -3,18 +3,18 @@
     <div class="main-item__container">
       <div class="main-item__img">
         <nuxt-link class="main-item__category" to="/category">{{item.catName}}</nuxt-link>
-        <nuxt-link to="/post" class="main-item__img-wrapper">
+        <nuxt-link :to="`/post/${item.alias}-id=${item.id}`" class="main-item__img-wrapper">
           <img :src="item.image" alt="post-img" />
         </nuxt-link>
       </div>
 
       <div class="main-item__info">
         <h3 class="main-item__info--title">
-          <nuxt-link to="/post">{{item.name}}</nuxt-link>
+          <nuxt-link :to="`/post/${item.alias}-id=${item.id}`">{{item.title}}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">{{item.author}}</nuxt-link>
+            <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
             <span>-</span>
           </span>
           <span class="main-item__date-time">{{item.date}}</span>
@@ -30,16 +30,16 @@ export default {
   props: {
     is1240: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     item: {
       type: Object,
       default: () => {
         return {};
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

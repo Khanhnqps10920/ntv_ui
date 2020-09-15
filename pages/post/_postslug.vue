@@ -6,30 +6,30 @@
         <div class="post__main">
           <div class="post__main--category mb-5">
             <nuxt-link
-              v-for="cate in post.result.subcates"
+              v-for="cate in postTest.result.subcates"
               :key="cate.id"
               :to="`/category/${cate.alias}`"
             >{{ cate.name }}</nuxt-link>
           </div>
-          <h1 class="post__main--title">{{ post.result.name }}</h1>
+          <h1 class="post__main--title">{{ post.title }}</h1>
 
           <div class="post__main--info my-5">
             <!-- info -->
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
                 <span>By</span>
-                <nuxt-link to="/author">{{ post.result.author }}</nuxt-link>
+                <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">{{ post.result.date }}</span>
+              <span class="post__main--info-time ml-6">14-9-2020</span>
 
               <div class="post__main--info-icon ml-6">
                 <i class="far fa-comment-alt"></i>
-                <span>{{ post.result.commentCount }}</span>
+                <span>0</span>
               </div>
               <div class="post__main--info-icon ml-6">
                 <i class="fas fa-eye"></i>
-                <span>{{ post.result.viewCount }}</span>
+                <span>{{ post.viewCount }}</span>
               </div>
             </div>
 
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="post__main--img">
-            <img :src="post.result.meta.image" alt="post-img" />
+            <img :src="post.meta.image" alt="post-img" />
           </div>
 
           <!-- content -->
@@ -73,35 +73,7 @@
               <div class="post__main--content-main">
                 <!-- post content -->
                 <div class="post__content mb-5">
-                  <p>
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
-                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
-                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
-                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
-                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
-                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
-                  </p>
-
-                  <p class="mt-3">
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
-                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
-                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
-                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
-                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
-                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
-                  </p>
-
-                  <p class="mt-3">
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
-                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
-                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
-                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
-                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
-                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
-                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
-                  </p>
+                  <div v-html="post.postContent"></div>
                 </div>
 
                 <div class="post__share">
@@ -146,7 +118,7 @@
 
             <div class="comment-block col-span-8 xs:col-span-12">
               <CommentItem
-                v-for="comment in post.result.comments"
+                v-for="comment in postTest.result.comments"
                 :key="comment.id"
                 :item="comment"
               >
@@ -208,20 +180,20 @@ export default {
     AdsMain,
     CommentForm,
     CommentItem,
-    CommentChildren,
+    CommentChildren
   },
   data() {
     return {
-      post: null,
+      postTest: null,
       latest: [],
       otherPost: [],
-      hot: [],
+      hot: []
     };
   },
 
   created() {
     // post detail
-    this.post = data.postDetail;
+    this.postTest = data.postDetail;
     // latest
     this.latest = data.getDynamicList;
     // other
@@ -229,6 +201,16 @@ export default {
     // hot
     this.hot = data.getDynamicList;
   },
+  async asyncData(context) {
+    const id = context.route.params.postslug.slice(
+      context.route.params.postslug.indexOf("=") + 1
+    );
+    const postContent = await context.store.dispatch('getPostContent', id)
+    const post = postContent.data.result
+    return {
+      post
+    }
+  }
 };
 </script>
 

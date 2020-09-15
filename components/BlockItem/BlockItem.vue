@@ -5,18 +5,18 @@
         :to="`/category/${post.cateAlias}`"
         class="block-item__category absolute"
       >{{post.cateName}}</nuxt-link>
-      <nuxt-link to="/post" class="block-item__img">
+      <nuxt-link :to="'/post/' + post.alias + `-id=${post.id}`" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <h5 class="block-item__title">
       <nuxt-link
-        :to="'/post/' + post.alias"
-      >{{post.description.length > 50 ? post.description.substr(0,50) + '...' : post.description}}</nuxt-link>
+        :to="'/post/' + post.alias + `-id=${post.id}`"
+      >{{post.description.length > 50 ? post.description.substr(0,65) + '...' : post.description}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
-        <nuxt-link to="/">{{post.author}}</nuxt-link>
+        <nuxt-link to="/">Nguyễn Tâm</nuxt-link>
         <span>-</span>
       </span>
       <span class="block-item__date-time">{{post.date}}</span>
@@ -43,12 +43,12 @@ export default {
           cateId: "1",
           description:
             "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi"
         };
-      },
+      }
       // required : true
-    },
-  },
+    }
+  }
 };
 </script>
 

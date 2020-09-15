@@ -93,12 +93,12 @@ export default {
       // this.currentPosts = defaultPosts[key].slice(0, 4);
 
       //dispatch call api post list theo cates
-      this.allPosts = postByCategories.result.posts;
+      this.allPosts = this.$store.getters.setPostMenuDesktop;
     },
     hoverSub() {
       //dispatch call api post list theo cates
       this.allPosts = postByCategories.result.posts;
-      this.n = 4
+      this.n = 4;
     },
     onScroll() {
       if (window.pageYOffset < OFFSET) {

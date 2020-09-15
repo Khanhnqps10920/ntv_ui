@@ -8,9 +8,7 @@
             <nuxt-link to="/category/thoi-su" class="blocka__main--category">Thời sự</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link
-                to="/post"
-              >Mỹ và Trung Quốc căng thẳng cực độ, Mỹ cấm các developer sử dụng Vue.js</nuxt-link>
+              <nuxt-link :to="`/post/${posts[0].alias}-id=${posts[0].id}`">{{posts[0].title}}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -18,24 +16,22 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">Ngày 10 tháng 9, 2020</span>
+              <span class="blocka__main-date-time">{{posts[0].date}}</span>
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link to="post">
-                <img src="@/assets/imgs/postimg.jpg" alt="post-img" />
+              <nuxt-link :to="`/post/${posts[0].alias}-id=${posts[0].id}`">
+                <img :src="posts[0].image" alt="post-img" />
               </nuxt-link>
             </div>
 
-            <div
-              class="blocka__main-description"
-            >Vậy là cậu con trai cưng tên Ú nhà Duy Mạnh - Quỳnh Anh đã chào đời, cả hai cũng chính thức lên chức ông bố bà mẹ trẻ rồi!</div>
+            <div class="blocka__main-description">{{posts[0].description}}</div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem v-for="(i,index) in 3" :key="index" />
+          <BlockItem v-for="(i,index) in posts.slice(1)" :key="index" :post="i" />
         </div>
       </div>
 
@@ -70,6 +66,12 @@ export default {
     BlockItem,
     SideBlockItem,
     AdsSide
+  },
+  props: {
+    posts: {
+      type: Array,
+      required: true
+    }
   }
 };
 </script>

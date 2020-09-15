@@ -68,6 +68,11 @@ export default {
     //to do API category
     this.categoriesData = categories.result;
     this.$store.commit("SET_CATEGORIES", this.categoriesData);
+
+    const temp = await this.$store.dispatch("getDataHomePage")
+    const postOnHomePage = temp.data.result
+    this.$store.commit('setPostMenuDesktop', postOnHomePage)
+  
     // get default posts for category have children
     // const cates = this.$store.getters.getCategory;
     // for (let i = 0; i < cates.length; i++) {

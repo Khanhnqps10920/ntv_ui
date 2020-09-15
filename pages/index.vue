@@ -1,8 +1,8 @@
 <template>
   <div>
-    <BlockA class="mt-10" />
+    <BlockA class="mt-10" :posts="blockANews" />
     <SocialBlock class="mt-10" />
-    <BlockB class="mt-10" />
+    <BlockB class="mt-10" :posts="blockBNews"/>
     <BlockC class="mt-10" />
     <AdsHomeMiddle />
     <BlockB class="mt-10" />
@@ -30,28 +30,22 @@ export default {
     BlockB,
     BlockC,
     AdsHomeMiddle,
-    AdsHomeBottom,
+    AdsHomeBottom
   },
-
-  data() {
-    return {};
-  },
-
-  async created() {},
-
-  // async asyncData(context) {
-  //   await context.store.dispatch("getPostInCategory", {
-  //     urlQuery: { a: 1, b: 2, c: 3 },
-  //     nextActions: res => {
-  //       console.log(res);
-  //     },
-  //     errorActions: err => {
-  //       console.log(err);
-  //     }
-  //   });
-  // }
-
-  // test api
+  async asyncData(context) {
+    const data = await context.store.dispatch("getMainNew");
+    const post = data.data.result;
+    const temp = await context.store.dispatch("getDataHomePage")
+    const postOnHomePage = temp.data.result
+    const blockANews = postOnHomePage.slice(0, 4);
+    const blockBNews = postOnHomePage.slice(4);
+    context.store.commit('setPostMenuDesktop', postOnHomePage)
+    return {
+      post,
+      blockANews,
+      blockBNews
+    };
+  }
 };
 </script>
 

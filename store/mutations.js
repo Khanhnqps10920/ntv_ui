@@ -65,3 +65,7 @@ export const SET_GOLD_RATES = (state, payload) => {
 export const SET_DEFAULTPOSTSONMENU = (state, payload) => {
   state.defaultPostOnMenu = payload
 }
+
+export const setPostMenuDesktop = (state, payload) => {
+  state.postMenuDesktop = payload
+}

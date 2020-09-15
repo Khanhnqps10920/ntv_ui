@@ -8,6 +8,8 @@ export default () => ({
 
   weather: {},
 
-  goldRates: null
+  goldRates: null,
+
+  postMenuDesktop : []
 
 })

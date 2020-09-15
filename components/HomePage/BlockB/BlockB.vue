@@ -4,11 +4,18 @@
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
         <h4 class="block-title">Magazine</h4>
-
-        <SideBlockItem v-for="(item,index) in 5" :key="index" :noneImg="true" :isBorder="true" />
+        <div @click="toMagazine">
+          <SideBlockItem
+            style="pointer-events: none"
+            v-for="(item,index) in 5"
+            :key="index"
+            :noneImg="true"
+            :isBorder="true"
+          />
+        </div>
 
         <div class="blockb__button">
-          <nuxt-link to="/magazine">Xem tất cả</nuxt-link>
+          <a href="http://magazine.nongthonviet.com.vn/" @click="toMagazine">Xem tất cả</a>
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -17,11 +24,11 @@
       <div class="flex-grow main-block">
         <div class="mx-4 xs:mx-0">
           <h4 class="main-block__title">
-            <span>Politics</span>
-            <div class="main-block__title-sub">Latest</div>
+            <span>Tin Tức</span>
+            <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
-          <MainBlockItem v-for="(item,index) in items.result.posts" :item="item" :key="index" />
+          <MainBlockItem v-for="(item,index) in posts" :item="item" :key="index" />
         </div>
       </div>
 
@@ -67,17 +74,26 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem,
+    MainBlockItem
   },
   data() {
     return {
-      items: null,
+      items: null
     };
   },
-
-  created() {
-    this.items = data.getDynamicList;
+  props: {
+    posts: {
+      type: Array
+    }
   },
+  methods: {
+    toMagazine() {
+      window.location.href = "http://magazine.nongthonviet.com.vn/";
+    }
+  }
+  // created() {
+  //   this.items = data.getDynamicList;
+  // },
 };
 </script>
 

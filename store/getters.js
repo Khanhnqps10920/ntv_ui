@@ -5,3 +5,7 @@ export const getCategory = state => {
 export const getDefaultPostOnMenu = state => {
   return state.defaultPostOnMenu
 }
+
+export const setPostMenuDesktop = state => {
+  return state.postMenuDesktop
+}
