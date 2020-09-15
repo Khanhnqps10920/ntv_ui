@@ -31,7 +31,7 @@ export default {};
 }
 
 .pagination__items-item {
-  padding: 10px 15px;
+  padding: 10px 14px;
   background: white;
   margin-right: 8px;
   color: #666;
