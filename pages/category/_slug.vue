@@ -2,7 +2,7 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="cateName" />
+    <CategoryBlock class="mt-5" :cateName="category" />
 
     <MainBlock class="mt-10" :itemList="posts.result.posts" />
   </div>
@@ -28,7 +28,7 @@ export default {
   computed: {
     ...mapGetters(["getCategory"]),
     category() {
-      return this.getCategory(this.$route.params.slug);
+      return this.$route.params.slug.toUpperCase();
     },
 
     cateName() {

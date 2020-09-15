@@ -4,6 +4,7 @@
       <!-- main block -->
       <div class="main-block__main flex-grow">
         <MainBlockItem v-for="(item,index) in itemList" :key="index" :item="item" :is1240="true" />
+        <Pagination />
       </div>
 
       <!--  -->
@@ -35,6 +36,7 @@ import SideBlockItem from "../../SideBlockItem/SideBlockItem.vue";
 import Container1240 from "../../containers/Container1240.vue";
 import AdsSide from "../../Advertisement/AdsSide.vue";
 import MainBlockItem from "../../MainBlockItem/MainBlockItem.vue";
+import Pagination from "../../Pagination/Pagination.vue";
 
 export default {
   components: {
@@ -42,6 +44,7 @@ export default {
     SideBlockItem,
     MainBlockItem,
     AdsSide,
+    Pagination,
   },
 
   props: {
