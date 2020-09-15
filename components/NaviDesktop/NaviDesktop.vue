@@ -6,7 +6,6 @@
         :menuTags="categories"
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
-        :currentPosts="currentPosts"
       />
     </transition>
     <SubNavi />
@@ -22,7 +21,10 @@
         v-if="toggleHoverModal"
         :subs="subs"
         :currentPosts="currentPosts"
-        class="absolute z-10"
+        @hoverSub="hoverSub"
+        class="absolute z-20"
+        @next="next"
+        @prev="prev"
       />
     </div>
   </div>
@@ -35,18 +37,24 @@ import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
+import { postByCategories } from "@/assets/data/data.json"; //fake data
+
 export default {
   data() {
     return {
       showMenu: false,
       toggleHoverModal: false,
       subs: "",
-      currentPosts : []
+      allPosts: [],
+      n: 4
     };
   },
   computed: {
     categories() {
       return this.$store.getters.getCategory;
+    },
+    currentPosts() {
+      return this.allPosts.slice(this.n - 4, this.n);
     }
   },
   components: {
@@ -66,14 +74,31 @@ export default {
     document.head.appendChild(viewportMeta);
   },
   methods: {
+    next() {
+      if (this.n < this.allPosts.length) {
+        this.n += 4;
+      }
+    },
+    prev() {
+      if (this.n > 4) {
+        this.n -= 4;
+      }
+    },
     onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
       // find default posts follow cate
-      const key = String(id);
-      const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
-      this.currentPosts = defaultPosts[key];
-      console.log(this.currentPosts);
+      // const key = String(id);
+      // const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
+      // this.currentPosts = defaultPosts[key].slice(0, 4);
+
+      //dispatch call api post list theo cates
+      this.allPosts = postByCategories.result.posts;
+    },
+    hoverSub() {
+      //dispatch call api post list theo cates
+      this.allPosts = postByCategories.result.posts;
+      this.n = 4
     },
     onScroll() {
       if (window.pageYOffset < OFFSET) {

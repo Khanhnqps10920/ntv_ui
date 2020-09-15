@@ -35,8 +35,17 @@
         v-if="toggleHoverModal"
         :subs="subs"
         :currentPosts="currentPosts"
-        class="absolute z-10"
+        @hoverSub="hoverSub"
+        class="absolute z-20"
+        @next="next"
+        @prev="prev"
       />
+      <!-- <HoverModal
+        v-if="toggleHoverModal"
+        :subs="subs"
+        :currentPosts="currentPosts"
+        class="absolute z-10"
+      />-->
     </div>
   </div>
 </template>
@@ -44,11 +53,15 @@
 <script>
 import Container1640 from "@/components/containers/Container1640";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
+import { postByCategories } from "@/assets/data/data.json"; //fake data
+
 export default {
   data() {
     return {
       subs: [],
       toggleHoverModal: false,
+      allPosts: [],
+      n: 4
     };
   },
   components: {
@@ -59,26 +72,37 @@ export default {
     menuTags: {
       type: Array,
       required: true
-    },
-    currentPosts: {
-      type: Array
     }
   },
   computed: {
     cateTags() {
       return this.menuTags;
+    },
+    currentPosts() {
+      return this.allPosts.slice(this.n - 4, this.n);
     }
   },
   methods: {
+    next() {
+      if (this.n < this.allPosts.length) {
+        this.n += 4;
+      }
+    },
+    prev() {
+      if (this.n > 4) {
+        this.n -= 4;
+      }
+    },
+    hoverSub() {
+      //dispatch call api post list theo cates
+      this.allPosts = postByCategories.result.posts;
+      this.n = 4
+    },
     onHoverTag(subs, id) {
       if (subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
-        // find default posts follow cate
-        const key = String(id);
-        const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
-        this.currentPosts = defaultPosts[key];
-        console.log(key);
+        this.allPosts = postByCategories.result.posts;
       } else {
         this.toggleHoverModal = false;
       }

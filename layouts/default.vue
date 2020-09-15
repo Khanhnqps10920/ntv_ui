@@ -69,21 +69,21 @@ export default {
     this.categoriesData = categories.result;
     this.$store.commit("SET_CATEGORIES", this.categoriesData);
     // get default posts for category have children
-    const cates = this.$store.getters.getCategory;
-    for (let i = 0; i < cates.length; i++) {
-      if (cates[i].subs.length) {
-        //Call API and return default posts and some logics
-        // console.log(cates[i].name)
-      }
-    }
-    const defaultPosts = {
-      "1": postByCategories.result.posts,
-      "3": postByCategories.result.posts,
-      "4": postByCategories.result.posts,
-      "5": postByCategories.result.posts,
-      "6": postByCategories.result.posts
-    };
-    this.$store.commit("SET_DEFAULTPOSTSONMENU", defaultPosts);
+    // const cates = this.$store.getters.getCategory;
+    // for (let i = 0; i < cates.length; i++) {
+    //   if (cates[i].subs.length) {
+    //     //Call API and return default posts and some logics
+    //     // console.log(cates[i].name)
+    //   }
+    // }
+    // const defaultPosts = {
+    //   "1": postByCategories.result.posts,
+    //   "3": postByCategories.result.posts,
+    //   "4": postByCategories.result.posts,
+    //   "5": postByCategories.result.posts,
+    //   "6": postByCategories.result.posts
+    // };
+    // this.$store.commit("SET_DEFAULTPOSTSONMENU", defaultPosts);
   },
 
   head() {
