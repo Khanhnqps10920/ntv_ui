@@ -11,7 +11,7 @@
         :key="i"
         @click="$emit('closeSideBar')"
       >
-        <nuxt-link :to="tag.alias">{{tag.name}}</nuxt-link>
+        <nuxt-link :to="`/category/${tag.alias}`">{{tag.name}}</nuxt-link>
       </li>
     </ul>
   </div>
