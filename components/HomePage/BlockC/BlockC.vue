@@ -8,7 +8,7 @@
           >Tin Nóng</h1>
           <p
             class="text-white mt-4 sm:mt-2 sm:text-sm xs:mt-2 xs:text-sm"
-          >Binz chia tay Châu Bùi, thả thính Chi Pu vì CHi Pu cũng rất xinh đẹp</p>
+          >Việt Nam Nêu Các Vấn Đề Của Nông Nghiệp Tại Hội Nghị FAO Khu Vực</p>
         </Container1440>
       </div>
     </div>

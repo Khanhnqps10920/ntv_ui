@@ -11,7 +11,7 @@
     </div>
     <h5 class="block-item__title">
       <nuxt-link
-        :to="post.alias"
+        :to="'/post/' + post.alias"
       >{{post.description.length > 50 ? post.description.substr(0,50) + '...' : post.description}}</nuxt-link>
     </h5>
     <div class="block-item__date">
