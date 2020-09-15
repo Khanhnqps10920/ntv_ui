@@ -10,7 +10,9 @@
       </nuxt-link>
     </div>
     <h5 class="block-item__title">
-      <nuxt-link :to="post.alias">{{post.description}}</nuxt-link>
+      <nuxt-link
+        :to="post.alias"
+      >{{post.description.length > 50 ? post.description.substr(0,50) + '...' : post.description}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
@@ -41,11 +43,11 @@ export default {
           cateId: "1",
           description:
             "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi"
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
         };
-      }
+      },
       // required : true
-    }
+    },
   },
 };
 </script>
@@ -97,6 +99,8 @@ export default {
   font-weight: 700;
   text-transform: capitalize;
   margin-bottom: 6px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .block-item__title a:hover {

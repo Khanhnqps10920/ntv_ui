@@ -21,7 +21,7 @@
             <div class="main-block__title-sub">Latest</div>
           </h4>
 
-          <MainBlockItem v-for="(item,index) in 5" :key="index" />
+          <MainBlockItem v-for="(item,index) in items.result.posts" :item="item" :key="index" />
         </div>
       </div>
 
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import data from "../../../assets/data/data.json";
 // components
 import Container1440 from "@/components/containers/Container1440";
 import SideBlockItem from "../../SideBlockItem/SideBlockItem.vue";
@@ -67,6 +68,15 @@ export default {
     SideBlockItem,
     AdsSide,
     MainBlockItem,
+  },
+  data() {
+    return {
+      items: null,
+    };
+  },
+
+  created() {
+    this.items = data.getDynamicList;
   },
 };
 </script>
