@@ -26,7 +26,6 @@ export default {
     MainBlock
   },
   asyncData() {
-    console.log(postByCategories)
     return {
       postByCategories
     };
