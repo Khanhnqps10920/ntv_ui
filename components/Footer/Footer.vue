@@ -5,7 +5,7 @@
         <!-- logo -->
         <div class="footer__logo footer__container-item">
           <!-- logo -->
-          <nuxt-link to="/">LOGO</nuxt-link>
+          <nuxt-link to="/">Nông nghiệp 365</nuxt-link>
 
           <!-- description -->
           <p class="footer__logo--description">Trang tin tức về nông nghiệp</p>
@@ -47,21 +47,21 @@
         <div class="footer__about footer__container-item">
           <h4 class="footer__block-title">Về chúng tôi</h4>
           <ul class="footer__about-sections">
-            <li>
-              <a href="#" class="footer__link">Advertise</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">About</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">Event</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">Write for us</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">In the press</a>
-            </li>
+<!--            <li>-->
+<!--              <a href="#" class="footer__link">Advertise</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#" class="footer__link">About</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#" class="footer__link">Event</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#" class="footer__link">Write for us</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#" class="footer__link">In the press</a>-->
+<!--            </li>-->
           </ul>
         </div>
 
@@ -111,7 +111,7 @@
 
         <!-- picks -->
         <div class="footer__pick footer__container-item">
-          <h4 class="footer__block-title">Editor Picks</h4>
+          <h4 class="footer__block-title">Các bài tuyển chọn</h4>
 
           <ul class="footer__pick-list">
             <li class="footer__pick-item">

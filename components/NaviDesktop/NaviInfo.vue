@@ -12,13 +12,13 @@
           </a>
           <span
             class="font-bold"
-          >Gold: {{goldRates && goldRates.price ? goldRates.price : "1,933.52"}}</span>
-          <span>USD</span>
+          >Giá vàng: {{goldRates && goldRates.price ? goldRates.price : "$1,933.52"}}</span>
+          <span></span>
         </div>
 
         <div class="flex-1 text-center">
           <Logo />
-          <div class="text-sm mt-1">Thứ 7, 29 tháng 8, 2020</div>
+          <div class="text-sm mt-1">Thứ Tư, 16 tháng 9, 2020</div>
         </div>
         <div class="flex-1 text-right self-center">
           <nuxt-link to class="hover:text-hovercolor">
