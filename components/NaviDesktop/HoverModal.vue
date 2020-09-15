@@ -1,6 +1,6 @@
 <template>
   <Container1640 class="border-gray-200 border-b-2 border-solid bg-white min-w-full">
-    <div class="flex" style="height : 400px;">
+    <div class="flex" style="min-height : 380px">
       <div style="min-width : 180px" class="border-gray-200 border-r-2 border-solid text-right p-4">
         <ul class="mt-2">
           <li
