@@ -72,7 +72,37 @@
             <div class="col-span-8 xs:col-span-12 sm:col-span-12">
               <div class="post__main--content-main">
                 <!-- post content -->
-                <div class="post__content mb-5" v-html=" post.result.postContent"></div>
+                <div class="post__content mb-5">
+                  <p>
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
+                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
+                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
+                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
+                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
+                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
+                  </p>
+
+                  <p class="mt-3">
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
+                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
+                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
+                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
+                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
+                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
+                  </p>
+
+                  <p class="mt-3">
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cho biết, lúc 17 giờ chiều nay, tâm áp thấp nhiệt đới ở vào khoảng 12,8 độ vĩ bắc và 119,9 độ kinh đông.
+                    Vùng gần tâm áp thấp nhiệt đới, sức gió mạnh nhất ở cấp 6, tức là từ 40 -50 km/giờ, giật cấp 8. Dự báo trong 24 giờ tới, áp thấp nhiệt đới di chuyển theo hướng tây tây bắc, mỗi giờ đi được khoảng 15 km, và có khả năng mạnh lên thành bão.
+                    Dựu báo đến 17 giờ ngày mai, 16.9, tâm bão cách quần đảo Hoàng Sa khoảng 700 km về phía đông nam; sức gió mạnh nhất vùng gần tâm bão mạnh cấp 8, tức là từ 60 -75 km/giờ, giật cấp 10.
+                    Trung tâm Dự báo khí tượng thủy văn quốc gia cảnh báo, trong 24 giờ tới, vùng biển nguy hiểm trên Biển Đông với gió mạnh cấp 6, giật cấp 8 trở lên là từ phía bắc vĩ tuyến 10,0 độ vĩ bắc và phía đông kinh tuyến 115,0 độ kinh đông.
+                    Theo đó, toàn bộ tàu thuyền hoạt động trong vùng nguy hiểm đều có nguy cơ cao chịu tác động của gió mạnh và lốc xoáy.
+                    Do ảnh hưởng của áp thấp nhiệt đới sau mạnh lên thành bão nên vùng biển phía Đông của khu vực giữa Biển Đông có gió mạnh cấp 6 - 7, sau tăng lên cấp 8, giật cấp 10, biển động mạnh.
+                    Dự báo trong 24 - 48 giờ tiếp theo, bão di chuyển theo hướng tây tây bắc, mỗi giờ đi được 15 - 20 km, và có khả năng mạnh lên cấp 9, giật cấp 11.
+                  </p>
+                </div>
 
                 <div class="post__share">
                   <ShareFacebook />
@@ -80,12 +110,12 @@
 
                 <div class="post__other mt-5">
                   <div class="post__other-previous">
-                    <span class="block">Previous article</span>
-                    <nuxt-link to="/post">Successful entrepreneurs recognize when to move on</nuxt-link>
+                    <span class="block">Bài viết trước</span>
+                    <nuxt-link to="/post">Dòng vốn FDI - những câu hỏi chưa lời đáp</nuxt-link>
                   </div>
                   <div class="post__other-next">
-                    <span class="block">Next article</span>
-                    <nuxt-link to="/post">We asked the best: male influencers talk pricing</nuxt-link>
+                    <span class="block">Bài viết tiếp theo</span>
+                    <nuxt-link to="/post">Áp thấp nhiệt đới giật cấp 8 vào Biển Đông</nuxt-link>
                   </div>
                 </div>
               </div>
@@ -178,14 +208,14 @@ export default {
     AdsMain,
     CommentForm,
     CommentItem,
-    CommentChildren
+    CommentChildren,
   },
   data() {
     return {
       post: null,
       latest: [],
       otherPost: [],
-      hot: []
+      hot: [],
     };
   },
 
@@ -198,7 +228,7 @@ export default {
     this.otherPost = data.getDynamicList;
     // hot
     this.hot = data.getDynamicList;
-  }
+  },
 };
 </script>
 

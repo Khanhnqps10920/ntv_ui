@@ -8,7 +8,7 @@
           <nuxt-link to="/">LOGO</nuxt-link>
 
           <!-- description -->
-          <p class="footer__logo--description">Trang tin tức</p>
+          <p class="footer__logo--description">Trang tin tức về nông nghiệp</p>
 
           <!-- socials -->
           <ul class="footer__logo--socials">
@@ -45,7 +45,7 @@
 
         <!-- about  -->
         <div class="footer__about footer__container-item">
-          <h4 class="footer__block-title">About Us</h4>
+          <h4 class="footer__block-title">Về chúng tôi</h4>
           <ul class="footer__about-sections">
             <li>
               <a href="#" class="footer__link">Advertise</a>
