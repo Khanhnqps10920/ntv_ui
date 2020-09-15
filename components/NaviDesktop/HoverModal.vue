@@ -13,7 +13,7 @@
       </div>
       <div class="flex-grow ml-4 mt-4">
         <div class="flex justify-center items-center">
-          <BlockItem v-for="n in 4" :key="n" class="p-2" />
+          <BlockItem v-for="(post, i) in currentPosts" :post="post" :key="i" class="p-2" />
         </div>
         <div class="pl-2 pb-4">
           <i

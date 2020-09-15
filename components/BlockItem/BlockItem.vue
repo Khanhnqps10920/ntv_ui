@@ -1,26 +1,53 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link to="/category/nong-nghiep" class="block-item__category absolute">Nông nghiệp</nuxt-link>
+      <nuxt-link
+        :to="`/category/${post.cateAlias}`"
+        class="block-item__category absolute"
+      >{{post.cateName}}</nuxt-link>
       <nuxt-link to="/post" class="block-item__img">
-        <img src="@/assets/imgs/postimg.jpg" alt="post-img" />
+        <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
-    <h3 class="block-item__title">
-      <nuxt-link to="/post">Việt Nam nêu các vấn đề của nông nghiệp tại Hội nghị FAO khu vực</nuxt-link>
-    </h3>
+    <h5 class="block-item__title">
+      <nuxt-link :to="post.alias">{{post.description}}</nuxt-link>
+    </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
-        <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+        <nuxt-link to="/">{{post.author}}</nuxt-link>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">Ngày 10 tháng 9, 2020</span>
+      <span class="block-item__date-time">{{post.date}}</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    post: {
+      type: Object,
+      default: () => {
+        return {
+          id: "5",
+          name:
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi"
+        };
+      }
+      // required : true
+    }
+  },
+};
 </script>
 
 <style scoped>

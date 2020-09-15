@@ -6,6 +6,7 @@
         :menuTags="categories"
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
+        :currentPosts="currentPosts"
       />
     </transition>
     <SubNavi />
@@ -17,7 +18,12 @@
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
       />
-      <HoverModal v-if="toggleHoverModal" :subs="subs" :currentPosts="currentPosts" class="absolute z-10" />
+      <HoverModal
+        v-if="toggleHoverModal"
+        :subs="subs"
+        :currentPosts="currentPosts"
+        class="absolute z-10"
+      />
     </div>
   </div>
 </template>
@@ -64,9 +70,10 @@ export default {
       this.toggleHoverModal = true;
       this.subs = subs;
       // find default posts follow cate
-      const key = String(id)
-      const defaultPosts = this.$store.getters.getDefaultPostOnMenu
-      this.currentPosts = defaultPosts[key]
+      const key = String(id);
+      const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
+      this.currentPosts = defaultPosts[key];
+      console.log(this.currentPosts);
     },
     onScroll() {
       if (window.pageYOffset < OFFSET) {

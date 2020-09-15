@@ -21,7 +21,7 @@
               :key="i"
               class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
             >
-              <span @mouseover="onHoverTag(tag.subs)">
+              <span @mouseover="onHoverTag(tag.subs, tag.id)">
                 {{tag.name}}
                 <span v-if="tag.subs.length">
                   <i class="fas fa-angle-down"></i>
@@ -31,7 +31,12 @@
           </div>
         </div>
       </Container1640>
-      <HoverModal v-if="toggleHoverModal" :subs="subs" class="absolute z-10" />
+      <HoverModal
+        v-if="toggleHoverModal"
+        :subs="subs"
+        :currentPosts="currentPosts"
+        class="absolute z-10"
+      />
     </div>
   </div>
 </template>
@@ -43,7 +48,7 @@ export default {
   data() {
     return {
       subs: [],
-      toggleHoverModal: false
+      toggleHoverModal: false,
     };
   },
   components: {
@@ -54,6 +59,9 @@ export default {
     menuTags: {
       type: Array,
       required: true
+    },
+    currentPosts: {
+      type: Array
     }
   },
   computed: {
@@ -62,10 +70,15 @@ export default {
     }
   },
   methods: {
-    onHoverTag(subs) {
+    onHoverTag(subs, id) {
       if (subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
+        // find default posts follow cate
+        const key = String(id);
+        const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
+        this.currentPosts = defaultPosts[key];
+        console.log(key);
       } else {
         this.toggleHoverModal = false;
       }
