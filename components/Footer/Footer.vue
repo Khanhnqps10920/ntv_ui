@@ -8,9 +8,7 @@
           <nuxt-link to="/">LOGO</nuxt-link>
 
           <!-- description -->
-          <p
-            class="footer__logo--description"
-          >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, atque?</p>
+          <p class="footer__logo--description">Trang tin tức</p>
 
           <!-- socials -->
           <ul class="footer__logo--socials">
@@ -69,44 +67,44 @@
 
         <!-- popuplar category -->
         <div class="footer__category footer__container-item">
-          <h4 class="footer__block-title">Popular Category</h4>
+          <h4 class="footer__block-title">Các chuyên mục</h4>
 
           <ul class="footer__category-list">
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>culture</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Thời sự</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>Politics</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Tạp chí</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>Travel</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Nông nghiệp</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>style</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Khám phá</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>arts</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Nông sản việt</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
             <li class="footer__category-list-item">
-              <a href="#" class="footer__link">
-                <span>sports</span>
+              <nuxt-link to="/category/thoi-su" class="footer__link">
+                <span>Gương mặt</span>
                 <span class="item-quantity">(6)</span>
-              </a>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -118,27 +116,32 @@
           <ul class="footer__pick-list">
             <li class="footer__pick-item">
               <div class="footer__pick-item--information">
-                <a
-                  href="#"
+                <nuxt-link
+                  to="/post"
                   class="footer__pick-item--information-title footer__link"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, ea.</a>
-                <p class="footer__pick-item--information-time">December 10, 2020</p>
+                >Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư</nuxt-link>
+                <p class="footer__pick-item--information-time">14-09-2020</p>
               </div>
               <div class="footer__pick-item--img">
-                <img src="@/assets/imgs/default.png" alt="pick-img" />
+                <img
+                  src="http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg"
+                  alt="pick-img"
+                />
               </div>
             </li>
-
             <li class="footer__pick-item">
               <div class="footer__pick-item--information">
-                <a
-                  href="#"
+                <nuxt-link
+                  to="/post"
                   class="footer__pick-item--information-title footer__link"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, ea.</a>
-                <p class="footer__pick-item--information-time">December 10, 2020</p>
+                >Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư</nuxt-link>
+                <p class="footer__pick-item--information-time">14-09-2020</p>
               </div>
               <div class="footer__pick-item--img">
-                <img src="@/assets/imgs/default.png" alt="pick-img" />
+                <img
+                  src="http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg"
+                  alt="pick-img"
+                />
               </div>
             </li>
           </ul>
