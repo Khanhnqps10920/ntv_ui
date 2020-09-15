@@ -1,5 +1,5 @@
 /*
-Danh sách danh mục (tối đa 3 cấp)
+Danh sách danh mục (tối đa 2 cấp)
 Method : GET
 {baseURL}/categorylist
 */
@@ -35,7 +35,7 @@ let data = {
 /*
 Danh sách post list theo danh mục
 Method : GET
-{BaseURl}/postlist?category=id&page=1
+{BaseURl}/postlist?category=categoryalias&page=1
 Lấy tất cả bài viết của nó và con của nó
 rule sort mới nhất
 */
@@ -218,7 +218,7 @@ data = {
 /*()
 API page policy page content
 Method : GET
-{BaseURL}/policies?id=abc
+{BaseURL}/policies?alias=abc
 */
 data = {
   status: 1,

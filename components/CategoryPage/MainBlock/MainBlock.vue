@@ -6,8 +6,6 @@
         <MainBlockItem v-for="(item,index) in itemList" :key="index" :item="item" :is1240="true" />
       </div>
 
-      <!--  -->
-
       <!-- right block -->
       <div class="main-block__right sticky top-fiftyfive xs:static xs:mt-5">
         <div class="main-block__right-block">
@@ -43,7 +41,9 @@ export default {
     MainBlockItem,
     AdsSide,
   },
-
+  created(){
+    console.log(this.itemList)
+  },
   props: {
     itemList: {
       type: Array,

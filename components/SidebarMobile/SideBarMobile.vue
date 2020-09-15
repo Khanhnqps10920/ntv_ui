@@ -5,31 +5,26 @@
     </div>
 
     <ul class="sidebar-mobile__menu relative">
-      <li class="sidebar-mobile__menu-item" @click="$emit('closeSideBar')">
-        <nuxt-link to="/">Trang Chủ</nuxt-link>
-      </li>
-
       <li
         class="sidebar-mobile__menu-item"
         v-for="(tag,i) in categories"
         :key="i"
         @click="$emit('closeSideBar')"
       >
-        <nuxt-link :to="tag.to">{{tag.name}}</nuxt-link>
+        <nuxt-link :to="tag.alias">{{tag.name}}</nuxt-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   props: {},
-
   computed: {
-    ...mapState(["categories"]),
-  },
+    categories() {
+      return this.$store.getters.getCategory;
+    }
+  }
 };
 </script>
 
