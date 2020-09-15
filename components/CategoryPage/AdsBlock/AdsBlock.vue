@@ -41,7 +41,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 800;
+  z-index: 1;
   opacity: 0.5;
 
   background: url("https://demo.tagdiv.com/newspaper_pulses_pro/wp-content/uploads/2020/01/xxx_bg_dots_xxx.jpg");
@@ -54,7 +54,7 @@ export default {
   margin-top: 25px;
   margin-bottom: 40px;
   position: relative;
-  z-index: 801;
+  z-index: 2;
   padding-right: 24px;
   padding-left: 24px;
 }
