@@ -31,10 +31,10 @@ export default {
     const data = await context.store.dispatch("getPostListByCate", id);
     const posts = data.data.result
     console.log(posts)
-    // const cateName = data.data.cateName
+    const cateName = data.data.cateName
     return {
       posts,
-      // cateName
+      cateName
     };
   },
   data() {
