@@ -6,7 +6,7 @@
       "posts": [
         {
           "id": "1",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -18,7 +18,7 @@
         },
         {
           "id": "2",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -30,7 +30,7 @@
         },
         {
           "id": "3",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -42,7 +42,7 @@
         },
         {
           "id": "4",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -54,7 +54,7 @@
         },
         {
           "id": "5",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -66,7 +66,7 @@
         },
         {
           "id": "6",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -78,7 +78,7 @@
         },
         {
           "id": "7",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -90,7 +90,7 @@
         },
         {
           "id": "8",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -102,7 +102,7 @@
         },
         {
           "id": "9",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -322,7 +322,7 @@
       "posts": [
         {
           "id": "1",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -334,7 +334,7 @@
         },
         {
           "id": "2",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -346,7 +346,7 @@
         },
         {
           "id": "3",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -358,7 +358,7 @@
         },
         {
           "id": "4",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -370,7 +370,7 @@
         },
         {
           "id": "5",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -391,7 +391,7 @@
       "posts": [
         {
           "id": "1",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -403,7 +403,7 @@
         },
         {
           "id": "2",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -415,7 +415,7 @@
         },
         {
           "id": "3",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -427,7 +427,7 @@
         },
         {
           "id": "4",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -439,7 +439,7 @@
         },
         {
           "id": "5",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -458,7 +458,7 @@
     "status": 1,
     "result": {
       "id": "1",
-      "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+      "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
       "date": "14-09-2020",
       "author": "Khánh",
       "viewCount": 900,
@@ -470,7 +470,7 @@
       "subcates": [
         {
           "id": "12",
-          "name": "Tin tức",
+          "title": "Tin tức",
           "alias": "tin-tuc"
         }
       ],
@@ -507,7 +507,7 @@
       "posts": [
         {
           "id": "1",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -519,7 +519,7 @@
         },
         {
           "id": "2",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+         "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -531,7 +531,7 @@
         },
         {
           "id": "3",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+         "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -543,7 +543,7 @@
         },
         {
           "id": "4",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+         "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -555,7 +555,7 @@
         },
         {
           "id": "5",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -574,7 +574,7 @@
       "posts": [
         {
           "id": "1",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -586,7 +586,7 @@
         },
         {
           "id": "2",
-          "name": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+         "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -598,7 +598,7 @@
         },
         {
           "id": "3",
-          "name": "Ngăn chặn bánh bẩn tuồn ra thị trường",
+         "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
           "date": "14-09-2020",
           "author": "khánh",
@@ -610,7 +610,7 @@
         },
         {
           "id": "4",
-          "name": "ĐBSCL trữ nước ngọt để tránh hạn",
+         "title": "ĐBSCL trữ nước ngọt để tránh hạn",
           "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
           "date": "14-09-2020",
           "author": "khánh",
@@ -622,7 +622,7 @@
         },
         {
           "id": "5",
-          "name": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
           "date": "14-09-2020",
           "author": "khánh",

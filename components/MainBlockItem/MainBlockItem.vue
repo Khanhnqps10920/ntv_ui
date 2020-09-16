@@ -39,6 +39,9 @@ export default {
         return {};
       }
     }
+  },
+  created() {
+    console.log(this.item)
   }
 };
 </script>
@@ -141,11 +144,11 @@ export default {
   }
 
   .main-item .main-item__text {
-    display: none;
+    /* display: none; */
   }
 
   .main-item__date-author {
-    display: none;
+    /* display: none; */
   }
 }
 
@@ -174,11 +177,11 @@ export default {
   }
 
   .main-item .main-item__text {
-    display: none;
+    /* display: none; */
   }
 
   .main-item__date-author {
-    display: none;
+    /* display: none; */
   }
 
   /* big size */
@@ -215,11 +218,11 @@ export default {
   }
 
   .main-item .main-item__text {
-    display: none;
+    /* display: none; */
   }
 
   .main-item__date-author {
-    display: none;
+    /* display: none; */
   }
 
   /* big size */

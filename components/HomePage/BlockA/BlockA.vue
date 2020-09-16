@@ -47,7 +47,7 @@
 
         <div class="blocka-right__section">
           <h4 class="section-title">Thị trường - tài chính</h4>
-          <SideBlockItem v-for="(item,index) in 3" :key="index" />
+          <SideBlockItem v-for="(item,index) in posts" :item="item" :key="index" />
         </div>
       </div>
     </div>

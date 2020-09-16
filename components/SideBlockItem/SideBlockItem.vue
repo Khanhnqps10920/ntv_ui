@@ -2,7 +2,7 @@
   <div class="side-item" :class="{'noneImg': noneImg, 'border':isBorder, 'square': isSquare }">
     <div class="side-item__info">
       <h3 class="side-item__title">
-        <nuxt-link to="/post">{{ item.name }}</nuxt-link>
+        <nuxt-link :to="`/post/${item.alias}-id=${item.id}`">{{ item.title }}</nuxt-link>
       </h3>
       <p class="side-item__date">{{ item.date }}</p>
     </div>
@@ -18,40 +18,35 @@ export default {
   props: {
     noneImg: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     isBorder: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     isSquare: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     item: {
       type: Object,
       default: () => {
         return {
-          id: "5",
-          name:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          id: "914131",
+          alias: "tai-sao-chung-ta-nen-bat-dau-bua-sang-voi-gung-765295",
           image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          date: "14-09-2020",
-          author: "khánh",
-          cateName: "Thời sự",
-          cateAlias: "thoi-su",
-          cateId: "1",
+            "http://nongthonviet.com.vn//dataimages/202009//original/images1470024_gung_2.jpg",
+          title: "Tại sao chúng ta nên bắt đầu bữa sáng với gừng?",
+          date: "12:55 | 15/09/2020",
           description:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
+            "Ăn hoặc uống nước gừng vào buổi sáng sẽ mang lại những lợi ích sức khỏe không ngờ, từ việc giúp giảm cân, nuôi dưỡng một làn da mịn màng đến tăng cường hệ miễn dịch…"
         };
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

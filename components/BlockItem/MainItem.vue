@@ -2,13 +2,15 @@
   <div class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height">
     <div class="bg-blue-300 h-auto relative flex-grow">
       <nuxt-link to="/category" class="block-item__category absolute">Business</nuxt-link>
-      <nuxt-link to="/post" class="block-item__img">
-        <img src="@/assets/imgs/postimg.jpg" alt="post-img" />
+      <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="block-item__img">
+        <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link to="/post">Việt Nam nêu các vấn đề của nông nghiệp tại Hội nghị FAO khu vực</nuxt-link>
+        <nuxt-link
+          :to="`/post/${post.alias}-id=${post.id}`"
+        >{{post.title}}</nuxt-link>
       </h3>
 
       <div class="block-item__date">
@@ -16,11 +18,33 @@
           <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
           <span>-</span>
         </span>
-        <span class="block-item__date-time">Ngày 10 tháng 9, 2020</span>
+        <span class="block-item__date-time">{{post.date}}</span>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    post: {
+      type: Object,
+      default: () => {
+        return {
+          id: "913993",
+          alias: "khong-de-mat-thuong-hieu-hat-dieu-binh-phuoc-765154",
+          image:
+            "http://nongthonviet.com.vn//dataimages/202009//original/images1469795_hat_dieu.jpg",
+          title: 'Không để mất thương hiệu "hạt điều Bình Phước"',
+          date: "16:00 | 11/09/2020",
+          description:
+            "Hội Điều Bình Phước khẳng định những sản phẩm rao bán trên mạng xã hội trong thời gian gần đây không phải là hạt điều có nguồn gốc Bình Phước mà là hạt điều nhập khẩu vụ cũ đã kém chất lượng."
+        };
+      }
+    }
+  }
+};
+</script>
  
 
 <style scoped>

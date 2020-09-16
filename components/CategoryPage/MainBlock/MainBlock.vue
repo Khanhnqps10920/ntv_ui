@@ -44,9 +44,6 @@ export default {
     AdsSide,
     Pagination,
   },
-  created(){
-    console.log(this.itemList)
-  },
   props: {
     itemList: {
       type: Array,
