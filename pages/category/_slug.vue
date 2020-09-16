@@ -2,9 +2,9 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="postByCategories.category" />
+    <CategoryBlock class="mt-5" :cateName="cateName"/>
 
-    <MainBlock class="mt-10" :itemList="postByCategories.result.posts" />
+    <MainBlock class="mt-10" :itemList="posts" />
   </div>
 </template>
 
@@ -17,27 +17,29 @@ import { mapGetters } from "vuex";
 import AdsBlock from "../../components/CategoryPage/AdsBlock/AdsBlock.vue";
 import CategoryBlock from "../../components/CategoryPage/CategoryBlock/CategoryBlock.vue";
 import MainBlock from "../../components/CategoryPage/MainBlock/MainBlock.vue";
-import { postByCategories } from "@/assets/data/data.json";
 
 export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock,
+    MainBlock
   },
-  asyncData() {
+  async asyncData(context) {
+    const id = context.route.params.slug.slice(
+      context.route.params.slug.indexOf("=") + 1
+    );
+    const data = await context.store.dispatch("getPostListByCate", id);
+    const posts = data.data.result
+    console.log(posts)
+    // const cateName = data.data.cateName
     return {
-      postByCategories,
+      posts,
+      // cateName
     };
-  },
-  computed: {
-    cateName() {
-      return this.category ? this.category.name.toUpperCase() : "Category";
-    },
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
 

@@ -142,6 +142,21 @@ export function getPostContent({ dispatch },id) {
   })
 }
 
+export function getPostListByCate({ dispatch },id) {
+  return dispatch('makeRequestAction', {
+    url: `https://glados.boo.vn/v1/api/portal/category/${id}`,
+    method: "GET",
+  })
+}
+
+
+// export function getCategories({ dispatch }) {
+//   return dispatch('makeRequestAction', {
+//     url: `https://glados.boo.vn/v1/api/portal/news/${id}`,
+//     method: "GET",
+//   })
+// }
+
 
 // export async function getCurrentWeather({
 //   commit

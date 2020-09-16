@@ -6,7 +6,7 @@
           <li
             v-for="(sub,i) in subs"
             :key="i"
-            @click="$router.push(`/category/${sub.alias}`)"
+            @click="$router.push(`/category/${sub.alias}-id=${sub.id}`)"
             @mouseover="onHoverSub(sub.id)"
             class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer"
           >{{sub.name}}</li>

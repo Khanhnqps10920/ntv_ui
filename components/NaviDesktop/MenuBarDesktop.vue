@@ -16,7 +16,7 @@
           </div>
           <div class="flex">
             <nuxt-link
-              :to="'/category/' + tag.alias"
+              :to="`/category/${tag.alias}-id=${tag.id}`"
               v-for="(tag,i) in cateTags"
               :key="i"
               class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
@@ -61,18 +61,18 @@ export default {
       subs: [],
       toggleHoverModal: false,
       allPosts: [],
-      n: 4,
+      n: 4
     };
   },
   components: {
     Container1640,
-    HoverModal,
+    HoverModal
   },
   props: {
     menuTags: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     cateTags() {
@@ -80,7 +80,7 @@ export default {
     },
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    },
+    }
   },
   methods: {
     next() {
@@ -106,7 +106,7 @@ export default {
       } else {
         this.toggleHoverModal = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
