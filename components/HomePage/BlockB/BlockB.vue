@@ -28,7 +28,7 @@
             <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
-          <MainBlockItem v-for="(item,index) in posts" :item="item" :key="index" />
+          <MainBlockItem v-for="(item,index) in 5" :key="index" />
         </div>
       </div>
 
@@ -74,26 +74,23 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem
+    MainBlockItem,
   },
   data() {
     return {
-      items: null
+      items: null,
     };
   },
   props: {
     posts: {
-      type: Array
-    }
+      type: Array,
+    },
   },
   methods: {
     toMagazine() {
       window.location.href = "http://magazine.nongthonviet.com.vn/";
-    }
-  }
-  // created() {
-  //   this.items = data.getDynamicList;
-  // },
+    },
+  },
 };
 </script>
 

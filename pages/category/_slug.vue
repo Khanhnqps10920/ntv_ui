@@ -2,9 +2,9 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="cateName"/>
+    <CategoryBlock class="mt-5" :cateName="cateName" />
 
-    <MainBlock class="mt-10" :itemList="posts" />
+    <MainBlock class="mt-10" />
   </div>
 </template>
 
@@ -22,24 +22,16 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock
+    MainBlock,
   },
   async asyncData(context) {
     const id = context.route.params.slug.slice(
       context.route.params.slug.indexOf("=") + 1
     );
-    const data = await context.store.dispatch("getPostListByCate", id);
-    const posts = data.data.result
-    console.log(posts)
-    const cateName = data.data.cateName
-    return {
-      posts,
-      cateName
-    };
   },
   data() {
     return {};
-  }
+  },
 };
 </script>
 

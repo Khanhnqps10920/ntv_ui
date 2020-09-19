@@ -30,19 +30,30 @@ export default {
   props: {
     is1240: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     item: {
       type: Object,
       default: () => {
-        return {};
-      }
-    }
+        return {
+          id: "5",
+          name:
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
+        };
+      },
+    },
   },
-  created() {
-    console.log(this.item)
-  }
 };
 </script>
 

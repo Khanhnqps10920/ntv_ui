@@ -12,12 +12,7 @@
         <div class="main-block__right-block">
           <h4 class="block-title">Latest News</h4>
 
-          <SideBlockItem
-            v-for="(item,index) in itemList"
-            :key="index"
-            :item="item"
-            :isSquare="true"
-          />
+          <SideBlockItem v-for="(item,index) in 8" :key="index" :isSquare="true" />
         </div>
 
         <AdsSide class="mt-5" />
@@ -47,7 +42,133 @@ export default {
   props: {
     itemList: {
       type: Array,
-      default: () => [],
+      default: () => [
+        {
+          id: "1",
+          title:
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
+        },
+        {
+          id: "2",
+          title:
+            "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "them-mot-benh-nhi",
+        },
+        {
+          id: "3",
+          title: "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "ngan-chan-banh-ban",
+        },
+        {
+          id: "4",
+          title: "ĐBSCL trữ nước ngọt để tránh hạn",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+          alias: "dbscl-tru-nuoc-ngot-de-tranh-han",
+        },
+        {
+          id: "5",
+          title:
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description: "test 1",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
+        },
+        {
+          id: "6",
+          title:
+            "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description: "test2",
+          alias: "them-mot-benh-nhi",
+        },
+        {
+          id: "7",
+          title: "Ngăn chặn bánh bẩn tuồn ra thị trường",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description: "test 3",
+          alias: "ngan-chan-banh-ban",
+        },
+        {
+          id: "8",
+          title: "ĐBSCL trữ nước ngọt để tránh hạn",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description: "test 4",
+          alias: "dbscl-tru-nuoc-ngot-de-tranh-han",
+        },
+        {
+          id: "9",
+          title: "ĐBSCL trữ nước ngọt để tránh hạn",
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
+          date: "14-09-2020",
+          author: "khánh",
+          cateName: "Thời sự",
+          cateAlias: "thoi-su",
+          cateId: "1",
+          description: "test 4",
+          alias: "dbscl-tru-nuoc-ngot-de-tranh-han",
+        },
+      ],
     },
   },
 };
@@ -94,7 +215,7 @@ export default {
 
 @media (max-width: 1018px) and (min-width: 768px) {
   .main-block__right {
-    min-width: 200px;
+    min-width: 250px;
     padding-right: 14px;
     padding-left: 14px;
   }
@@ -112,6 +233,7 @@ export default {
 
 @media (max-width: 1140px) and (min-width: 1019px) {
   .main-block__right {
+    min-width: 250px;
     max-width: 290px;
     padding-right: 20px;
     padding-left: 20px;
@@ -125,6 +247,7 @@ export default {
 
 @media (min-width: 1141px) {
   .main-block__right {
+    min-width: 350px;
     max-width: 370px;
   }
 }

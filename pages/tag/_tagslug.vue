@@ -7,13 +7,12 @@
       <h1>{{ slug }}</h1>
     </div>
 
-    <MainBlock class="mt-10" :itemList="tagItems.result.posts" />
+    <MainBlock class="mt-10" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import data from "@/assets/data/data.json";
 
 // components
 import AdsBlock from "../../components/CategoryPage/AdsBlock/AdsBlock.vue";
@@ -36,15 +35,10 @@ export default {
     },
   },
   data() {
-    return {
-      tagItems: [],
-    };
+    return {};
   },
 
-  created() {
-    //   get data slug
-    this.tagItems = data.postByTag;
-  },
+  created() {},
 };
 </script>
 

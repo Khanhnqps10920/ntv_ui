@@ -54,12 +54,7 @@
                 </p>
 
                 <SideWrapper>
-                  <SideBlockItem
-                    v-for="(item,index) in hot.result.posts"
-                    :item="item"
-                    :key="index"
-                    :isSquare="true"
-                  />
+                  <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
                 </SideWrapper>
 
                 <SideWrapper>
@@ -107,12 +102,7 @@
               </p>
 
               <SideWrapper>
-                <SideBlockItem
-                  v-for="(item,index) in otherPost.result.posts"
-                  :item="item"
-                  :key="index"
-                  :isSquare="true"
-                />
+                <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
               </SideWrapper>
             </div>
 
@@ -142,12 +132,7 @@
           </p>
 
           <SideWrapper>
-            <SideBlockItem
-              v-for="(item,index) in latest.result.posts"
-              :key="index"
-              :item="item"
-              :isSquare="true"
-            />
+            <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
           </SideWrapper>
         </div>
       </div>
@@ -180,37 +165,74 @@ export default {
     AdsMain,
     CommentForm,
     CommentItem,
-    CommentChildren
+    CommentChildren,
   },
   data() {
     return {
       postTest: null,
-      latest: [],
-      otherPost: [],
-      hot: []
+
+      post: {
+        id: "1",
+        title:
+          "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+        date: "14-09-2020",
+        author: "Khánh",
+        viewCount: 900,
+        commentCount: 10,
+        meta: {
+          image:
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          description:
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
+        },
+        subcates: [
+          {
+            id: "12",
+            title: "Tin tức",
+            alias: "tin-tuc",
+          },
+        ],
+        postContent:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        tagList: [
+          {
+            id: "tagId",
+            name: "Theme",
+            alias: "theme",
+          },
+        ],
+        comments: [
+          {
+            name: "Tâm",
+            email: "abd@gmail.com",
+            content: "text comment ne",
+            id: 123,
+            reply: [
+              {
+                name: "Huy",
+                email: "abd@gmail.com",
+                content: "text reply comment ne",
+                id: 123,
+                reply: [],
+              },
+            ],
+          },
+        ],
+      },
     };
   },
 
-  created() {
-    // post detail
-    this.postTest = data.postDetail;
-    // latest
-    this.latest = data.getDynamicList;
-    // other
-    this.otherPost = data.getDynamicList;
-    // hot
-    this.hot = data.getDynamicList;
-  },
+  created() {},
   async asyncData(context) {
     const id = context.route.params.postslug.slice(
       context.route.params.postslug.indexOf("=") + 1
     );
-    const postContent = await context.store.dispatch('getPostContent', id)
-    const post = postContent.data.result
-    return {
-      post
-    }
-  }
+    // const postContent = await context.store.dispatch("getPostContent", id);
+    // const post = postContent.data.result;
+    // return {
+    //   post,
+    // };
+  },
 };
 </script>
 

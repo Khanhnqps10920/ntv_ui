@@ -8,7 +8,7 @@
             <nuxt-link to="/category/thoi-su" class="blocka__main--category">Thời sự</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link :to="`/post/${posts[0].alias}-id=${posts[0].id}`">{{posts[0].title}}</nuxt-link>
+              <nuxt-link to="/post/">Default title</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -16,22 +16,27 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">{{posts[0].date}}</span>
+              <span class="blocka__main-date-time">19-9-2020</span>
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link :to="`/post/${posts[0].alias}-id=${posts[0].id}`">
-                <img :src="posts[0].image" alt="post-img" />
+              <nuxt-link to="/post/dsdsds">
+                <img
+                  src="http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png"
+                  alt="post-img"
+                />
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description">{{posts[0].description}}</div>
+            <div
+              class="blocka__main-description"
+            >hủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....</div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem v-for="(i,index) in posts.slice(1)" :key="index" :post="i" />
+          <BlockItem v-for="(i,index) in 3" :key="index" />
         </div>
       </div>
 
@@ -47,7 +52,7 @@
 
         <div class="blocka-right__section">
           <h4 class="section-title">Thị trường - tài chính</h4>
-          <SideBlockItem v-for="(item,index) in posts" :item="item" :key="index" />
+          <SideBlockItem v-for="(item,index) in 3" :key="index" />
         </div>
       </div>
     </div>
@@ -65,14 +70,9 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide
+    AdsSide,
   },
-  props: {
-    posts: {
-      type: Array,
-      required: true
-    }
-  }
+  props: {},
 };
 </script>
 

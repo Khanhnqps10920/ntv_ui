@@ -18,17 +18,17 @@ export default {
   props: {
     noneImg: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     isBorder: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     isSquare: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     item: {
@@ -40,13 +40,13 @@ export default {
           image:
             "http://nongthonviet.com.vn//dataimages/202009//original/images1470024_gung_2.jpg",
           title: "Tại sao chúng ta nên bắt đầu bữa sáng với gừng?",
-          date: "12:55 | 15/09/2020",
+          date: "15/09/2020",
           description:
-            "Ăn hoặc uống nước gừng vào buổi sáng sẽ mang lại những lợi ích sức khỏe không ngờ, từ việc giúp giảm cân, nuôi dưỡng một làn da mịn màng đến tăng cường hệ miễn dịch…"
+            "Ăn hoặc uống nước gừng vào buổi sáng sẽ mang lại những lợi ích sức khỏe không ngờ, từ việc giúp giảm cân, nuôi dưỡng một làn da mịn màng đến tăng cường hệ miễn dịch…",
         };
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 
@@ -69,6 +69,7 @@ export default {
 
 .side-item.noneImg .side-item__info {
   width: 100%;
+  margin-right: 0;
 }
 
 .side-item .side-item__info {
@@ -101,12 +102,17 @@ export default {
 
 .side-item .side-item__img img {
   width: 100%;
+  object-fit: cover;
+
   height: 100%;
   border-radius: 50%;
 }
 
 .side-item.square .side-item__img {
   border-radius: 0;
+  /* width: 25%;
+  height: auto;
+  align-self: stretch; */
 }
 
 .side-item.square .side-item__img img {
