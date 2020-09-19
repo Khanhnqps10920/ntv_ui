@@ -6,10 +6,10 @@
         <div class="post__main">
           <div class="post__main--category mb-5">
             <nuxt-link
-              v-for="cate in postTest.result.subcates"
+              v-for="cate in post.subcates"
               :key="cate.id"
               :to="`/category/${cate.alias}`"
-            >{{ cate.name }}</nuxt-link>
+            >{{ cate.title }}</nuxt-link>
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
 
@@ -107,11 +107,7 @@
             </div>
 
             <div class="comment-block col-span-8 xs:col-span-12">
-              <CommentItem
-                v-for="comment in postTest.result.comments"
-                :key="comment.id"
-                :item="comment"
-              >
+              <CommentItem v-for="comment in post.comments" :key="comment.id" :item="comment">
                 <CommentChildren v-for="rep in comment.reply" :key="rep.id" :item="rep"></CommentChildren>
               </CommentItem>
 
@@ -142,7 +138,6 @@
 
 <script>
 // data
-import data from "@/assets/data/data.json";
 import Container1440 from "@/components/containers/Container1440.vue";
 import AdsSide from "@/components/Advertisement/AdsSide.vue";
 import SideWrapper from "@/components/SideWrapper/SideWrapper.vue";

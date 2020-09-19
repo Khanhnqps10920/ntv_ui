@@ -3,7 +3,7 @@
     <transition name="fade-slide">
       <MenuBarDesktop
         v-if="showMenu"
-        :menuTags="categories"
+        :menuTags="menuTags"
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
       />
@@ -13,7 +13,7 @@
     <div @mouseleave="toggleHoverModal = false" class="relative z-10">
       <TagBar
         class="mt-8"
-        :menuTags="categories"
+        :menuTags="menuTags"
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
       />
@@ -37,7 +37,7 @@ import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
-import { postByCategories } from "@/assets/data/data.json"; //fake data
+import { postByCategories, categories } from "@/assets/data/data.json"; //fake data
 
 export default {
   data() {
@@ -46,23 +46,24 @@ export default {
       toggleHoverModal: false,
       subs: "",
       allPosts: [],
-      n: 4
+      n: 4,
+      menuTags: [],
     };
   },
   computed: {
-    categories() {
-      return this.$store.getters.getCategory;
-    },
+    // categories() {
+    //   return this.$store.getters.getCategory;
+    // },
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    }
+    },
   },
   components: {
     SubNavi,
     NaviInfo,
     TagBar,
     MenuBarDesktop,
-    HoverModal
+    HoverModal,
   },
 
   mounted() {
@@ -93,10 +94,12 @@ export default {
       // this.currentPosts = defaultPosts[key].slice(0, 4);
 
       //dispatch call api post list theo cates
-      this.allPosts = this.$store.getters.setPostMenuDesktop;
+      // this.allPosts = this.$store.getters.setPostMenuDesktop;
+      this.allPosts = postByCategories.result.posts;
     },
     hoverSub() {
       //dispatch call api post list theo cates
+
       this.allPosts = postByCategories.result.posts;
       this.n = 4;
     },
@@ -107,8 +110,12 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    }
-  }
+    },
+  },
+
+  created() {
+    this.menuTags = categories.result;
+  },
 };
 </script>
 <style scoped>

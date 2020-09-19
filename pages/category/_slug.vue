@@ -2,7 +2,7 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="cateName" />
+    <CategoryBlock class="mt-5" :cateName="'Category'" />
 
     <MainBlock class="mt-10" />
   </div>
@@ -25,9 +25,9 @@ export default {
     MainBlock,
   },
   async asyncData(context) {
-    const id = context.route.params.slug.slice(
-      context.route.params.slug.indexOf("=") + 1
-    );
+    // const id = context.route.params.slug.slice(
+    //   context.route.params.slug.indexOf("=") + 1
+    // );
   },
   data() {
     return {};

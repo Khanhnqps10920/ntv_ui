@@ -64,7 +64,6 @@ export default {
       });
     // get gold rates
     this.$store.dispatch("getGoldRates");
-    // get categories
   },
 
   head() {
