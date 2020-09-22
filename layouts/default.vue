@@ -1,6 +1,8 @@
 <template>
   <div>
     <div id="fb-root"></div>
+    <!-- Auth -->
+    <Auth />
     <!--Navi Desktop-->
     <NaviDesktop />
     <div class="sm:hidden md:hidden lg:hidden">
@@ -28,6 +30,7 @@ import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
 import { categories, postByCategories } from "@/assets/data/data.json"; //fake data
+import Auth from "@/components/Auth/Auth.vue";
 
 export default {
   components: {
@@ -37,6 +40,7 @@ export default {
     SideBarMobile,
     SearchSideBarMobile,
     ScrollTop,
+    Auth,
   },
   data() {
     return {

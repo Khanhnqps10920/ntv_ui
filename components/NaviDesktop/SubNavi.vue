@@ -1,14 +1,17 @@
 <template>
   <div class="bg-black">
     <Container1640>
-      <div class="flex items-center text-xs text-white h-8">
-        <nuxt-link to class="mr-5 hover:text-hovercolor">Advertise</nuxt-link>
-        <nuxt-link to class="mr-5 hover:text-hovercolor">About</nuxt-link>
-        <nuxt-link to class="mr-5 hover:text-hovercolor">Events</nuxt-link>
-        <nuxt-link to class="mr-5 hover:text-hovercolor">Write for us</nuxt-link>
-        <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
-        <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>-->
-        <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
+      <div class="flex text-white text-xs h-8 items-center justify-between">
+        <div class="flex items-center">
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Advertise</nuxt-link>
+          <nuxt-link to class="mr-5 hover:text-hovercolor">About</nuxt-link>
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Events</nuxt-link>
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Write for us</nuxt-link>
+          <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
+          <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>-->
+          <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
+        </div>
+        <a href="#" class="hover:text-hovercolor">Sign in / join</a>
       </div>
     </Container1640>
   </div>

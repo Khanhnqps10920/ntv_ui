@@ -21,10 +21,22 @@
 export default {
   props: {},
   computed: {
-    categories() {
-      return this.$store.getters.getCategory;
-    }
-  }
+    // categories() {
+    //   return this.$store.getters.getCategory;
+    // }
+  },
+
+  data() {
+    return {
+      categories: [
+        { name: "Thời sự", id: 1, alias: "thoi-su" },
+        { name: "Tạp chí", id: 2, alias: "thoi-su" },
+        { name: "Nông nghiệp", id: 3, alias: "thoi-su" },
+        { name: "Khám phá", id: 4, alias: "thoi-su" },
+        { name: "Nông nghiệp việt", id: 5, alias: "thoi-su" },
+      ],
+    };
+  },
 };
 </script>
 
