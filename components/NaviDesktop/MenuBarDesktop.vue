@@ -17,13 +17,13 @@
           <div class="flex">
             <nuxt-link
               :to="`/category/${tag.alias}-id=${tag.id}`"
-              v-for="(tag,i) in cateTags"
+              v-for="(tag,i) in menuTags"
               :key="i"
               class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
             >
-              <span @mouseover="onHoverTag(tag.subs, tag.id)">
+              <span @mouseover="onHoverTag(tag.subCates, tag.id)">
                 {{tag.name}}
-                <span v-if="tag.subs.length">
+                <span v-if="tag.subCates.length">
                   <i class="fas fa-angle-down"></i>
                 </span>
               </span>
@@ -40,12 +40,6 @@
         @next="next"
         @prev="prev"
       />
-      <!-- <HoverModal
-        v-if="toggleHoverModal"
-        :subs="subs"
-        :currentPosts="currentPosts"
-        class="absolute z-10"
-      />-->
     </div>
   </div>
 </template>
@@ -53,7 +47,7 @@
 <script>
 import Container1640 from "@/components/containers/Container1640";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
-import { postByCategories } from "@/assets/data/data.json"; //fake data
+import { postByCategories } from "@/assets/data/data.json"; //fake data (1)
 
 export default {
   data() {
@@ -75,9 +69,6 @@ export default {
     }
   },
   computed: {
-    cateTags() {
-      return this.menuTags;
-    },
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
     }
@@ -93,16 +84,31 @@ export default {
         this.n -= 4;
       }
     },
-    hoverSub() {
-      //dispatch call api post list theo cates
-      this.allPosts = postByCategories.result.posts;
+    hoverSub(id) {
+      /* (2)
+      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+          id,
+          nextActions : (res) => {
+            this.allPosts = res.data.result
+          }
+      })
+      */
+      this.allPosts = postByCategories.result.posts; //(1)
       this.n = 4;
     },
-    onHoverTag(subs, id) {
-      if (subs.length) {
+    async onHoverTag(subs, id) {
+      if (subs && subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
-        this.allPosts = postByCategories.result.posts;
+        this.allPosts = postByCategories.result.posts; //(1) 
+        /* (2)
+        this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+          id,
+          nextActions : (res) => {
+            this.allPosts = res.data.result
+          }
+        })
+        */
       } else {
         this.toggleHoverModal = false;
       }

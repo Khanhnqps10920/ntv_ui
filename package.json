@@ -16,6 +16,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "https": "^1.0.0",
     "lodash": "^4.17.20",
+    "moment": "^2.28.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

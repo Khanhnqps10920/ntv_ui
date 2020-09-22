@@ -17,26 +17,19 @@ export function makeRequestAction({
       errorActions,
       ...data
     } = get(payload, 'data', {}) || {};
-    // commit('clearMessages');
-    // make request API
     return this._vm.$request.makeRequestAPI({
       ...payload,
       data
     }).then(response => {
       if (response && response.data) {
-        // udpate state functions
         const responseData = get(response, 'data', null);
-        // commit('updateViews', responseData);
-        // commit('updateMessages', { payload: responseData, action: get(payload, 'action', '') });
-        // Check if module code is existed
-        // request false has code
         const status = get(responseData, 'status', null);
-        if (status === false && typeof errorActions === 'function') {
+        if (status === 0 && typeof errorActions === 'function') {
           errorActions(responseData);
         }
 
         // normal request
-        if (status === true && typeof nextActions === 'function') {
+        if (status === 1 && typeof nextActions === 'function') {
           nextActions(responseData);
         }
       }
@@ -82,18 +75,32 @@ export function getHomeContent(data) {
 
 
 
-// get categories
-
-
-export function getCategory({
+// getcategories *
+export function getCategories({
   dispatch
-}, data) {
+}) {
   return dispatch('makeRequestAction', {
-    url: `${process.env.BASE_URL}/get_categories_json`,
+    url: `${process.env.BASE_URL}/public/category`,
+    method: 'GET',
+  })
+}
+
+//getTopHotNewsByCategory *
+export function getTopHotNewsByCategory({ dispatch }, {id, ...data} ) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/hotNews/${id}`,
     method: 'GET',
     data
   })
+}
 
+//getDetailCategory *
+export function getDetailCategory({ dispatch }, {id, ...data} ) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/category/${id}`,
+    method: 'GET',
+    data
+  })
 }
 
 // get weather api
@@ -135,14 +142,14 @@ export function getDataHomePage({ dispatch }) {
   })
 }
 
-export function getPostContent({ dispatch },id) {
+export function getPostContent({ dispatch }, id) {
   return dispatch('makeRequestAction', {
     url: `https://glados.boo.vn/v1/api/portal/news/${id}`,
     method: "GET",
   })
 }
 
-export function getPostListByCate({ dispatch },id) {
+export function getPostListByCate({ dispatch }, id) {
   return dispatch('makeRequestAction', {
     url: `https://glados.boo.vn/v1/api/portal/category/${id}`,
     method: "GET",

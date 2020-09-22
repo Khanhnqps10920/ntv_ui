@@ -4,13 +4,13 @@
   >
     <nuxt-link
       :to="`/category/${tag.alias}-id=${tag.id}`"
-      v-for="(tag, i) in cateTags"
+      v-for="(tag, i) in menuTags"
       :key="i"
       class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
     >
-      <span @mouseover="onHoverTag(tag.subs, tag.id)">
+      <span @mouseover="onHoverTag(tag.subCates, tag.id)">
         {{tag.name}}
-        <span v-if="tag.subs.length">
+        <span v-if="tag.subCates.length">
           <i class="fas fa-angle-down"></i>
         </span>
       </span>
@@ -29,14 +29,9 @@ export default {
       required: true
     }
   },
-  computed: {
-    cateTags() {
-      return this.menuTags;
-    }
-  },
   methods: {
     onHoverTag(subs, id) {
-      if (subs.length) {
+      if (subs && subs.length) {
         this.$emit("onHover", subs, id);
       } else {
         this.$emit("onLeaveHovered");

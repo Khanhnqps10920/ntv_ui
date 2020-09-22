@@ -1,10 +1,7 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link
-        :to="`/category/${post.cateAlias}`"
-        class="block-item__category absolute"
-      >{{post.cateName}}</nuxt-link>
+      <nuxt-link :to="`/category/${cateAlias}`" class="block-item__category absolute">{{cateName}}</nuxt-link>
       <nuxt-link :to="'/post/' + post.alias + `-id=${post.id}`" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
@@ -12,42 +9,58 @@
     <h5 class="block-item__title">
       <nuxt-link
         :to="'/post/' + post.alias + `-id=${post.id}`"
-      >{{post.description.length > 50 ? post.description.substr(0,65) + '...' : post.description}}</nuxt-link>
+      >{{post.excerpt | titleShort(70)}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
         <nuxt-link to="/">Nguyễn Tâm</nuxt-link>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">{{post.date}}</span>
+      <span class="block-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      cateAlias: "",
+      cateName: ""
+    };
+  },
   props: {
     post: {
       type: Object,
       default: () => {
         return {
           id: "5",
-          name:
+          title:
             "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
           image:
             "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          date: "14-09-2020",
-          author: "khánh",
-          cateName: "Thời sự",
-          cateAlias: "thoi-su",
-          cateId: "1",
-          description:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi"
+          publishedDate: 1600280653,
+          authorId: "1",
+          categoryId: "2",
+          excerpt:
+            "Thủ yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         };
       }
       // required : true
     }
+  },
+  async mounted() {
+    //Get CateInfo (2)
+    // const data = await this.$store.dispatch('getDetailCategory', {
+    //   id : this.post.categoryId,
+    //   nextActions : (res) => {
+    //     this.cateAlias = res.result.name;
+    //     this.cateName = res.result.alias
+    //   }
+    // })
+    this.cateAlias = "thoi-su"; //(1)
+    this.cateName = "Thời sự"; //(1)
   }
 };
 </script>

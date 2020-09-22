@@ -1,116 +1,107 @@
 {
   "postByCategories": {
     "status": "1",
-    "category" : "Thời sự",
+    "category": "Thời sự",
     "result": {
       "posts": [
         {
           "id": "1",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "2",
-          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "3",
-          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "ngan-chan-banh-ban"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "4",
-          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "5",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "test 1",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "6",
-          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "test2",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "7",
-          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "test 3",
-          "alias": "ngan-chan-banh-ban"
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "8",
-          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "test 4",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "9",
-          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "test 4",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         }
       ]
     },
@@ -133,8 +124,8 @@
         "id": "1",
         "name": "Thời sự",
         "alias": "thoi-su",
-        "parentId": 0,
-        "subs": [
+        "parentId": "-",
+        "subCates": [
           {
             "id": "11",
             "name": "Tin tức",
@@ -189,15 +180,15 @@
         "id": "2",
         "name": "Tạp chí",
         "alias": "tap-chi",
-        "parentId": 0,
-        "subs": []
+        "parentId": "-",
+        "subCates": []
       },
       {
         "id": "3",
         "name": "Nông nghiệp",
         "alias": "nong-nghiep",
         "parentId": 0,
-        "subs": [
+        "subCates": [
           {
             "id": "31",
             "name": "Nông nghiệp công nghệ cao",
@@ -222,8 +213,8 @@
         "id": "4",
         "name": "Khám phá",
         "alias": "kham-pha",
-        "parentId": 0,
-        "subs": [
+        "parentId": "-",
+        "subCates": [
           {
             "id": "41",
             "name": "Du lịch xanh",
@@ -260,8 +251,8 @@
         "id": "5",
         "name": "Nông sản việt",
         "alias": "nong-san-viet",
-        "parentId": 0,
-        "subs": [
+        "parentId": "-",
+        "subCates": [
           {
             "id": "51",
             "name": "Bánh dân gian",
@@ -292,8 +283,8 @@
         "id": "6",
         "name": "Gương mặt",
         "alias": "guong-mat",
-        "parentId": 0,
-        "subs": [
+        "parentId": "-",
+        "subCates": [
           {
             "id": "61",
             "name": "Nhân vật",
@@ -316,9 +307,6 @@
       }
     ]
   },
-
-
-  
   "postByTag": {
     "status": "1",
     "result": {
@@ -326,62 +314,101 @@
         {
           "id": "1",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "2",
-          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "3",
-          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "ngan-chan-banh-ban"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "4",
-          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "5",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "6",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "7",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "8",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "9",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         }
       ]
     },
@@ -395,62 +422,101 @@
         {
           "id": "1",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "2",
-          "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "3",
-          "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "ngan-chan-banh-ban"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "4",
-          "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "5",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "6",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "7",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "8",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "9",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         }
       ]
     },
@@ -511,62 +577,101 @@
         {
           "id": "1",
           "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "2",
-         "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "3",
-         "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "ngan-chan-banh-ban"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "4",
-         "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "5",
-         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "6",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "7",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "8",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "9",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         }
       ]
     }
@@ -577,63 +682,102 @@
       "posts": [
         {
           "id": "1",
-         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "2",
-         "title": "Thêm một bệnh nhi ung thư được ghép tế bào gốc tự thân thành công",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470044_119473384_3576771489000835_6568052006031374559_n.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "them-mot-benh-nhi"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "3",
-         "title": "Ngăn chặn bánh bẩn tuồn ra thị trường",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470016_1.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "ngan-chan-banh-ban"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "4",
-         "title": "ĐBSCL trữ nước ngọt để tránh hạn",
-          "image": "http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "dbscl-tru-nuoc-ngot-de-tranh-han"
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         },
         {
           "id": "5",
-         "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
           "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          "date": "14-09-2020",
-          "author": "khánh",
-          "cateName": "Thời sự",
-          "cateAlias": "thoi-su",
-          "cateId": "1",
-          "description": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          "alias": "chuan-bi-cho-cach-ly-10000-nguoi"
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "6",
+          "title": "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image": "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt": "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "7",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "8",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
+        },
+        {
+          "id": "9",
+          "title":
+            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
+          "alias": "chuan-bi-cho-cach-ly-10000-nguoi",
+          "image":
+            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
+          "publishedDate": 1600280653,
+          "authorId": "1",
+          "categoryId": "1",
+          "excerpt":
+            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
         }
       ]
     }

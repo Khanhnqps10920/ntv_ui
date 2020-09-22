@@ -1,19 +1,14 @@
 <template>
   <div class="xs:hidden">
     <transition name="fade-slide">
-      <MenuBarDesktop
-        v-if="showMenu"
-        :menuTags="menuTags"
-        @onHover="onHover"
-        @onLeaveHovered="toggleHoverModal = false"
-      />
+      <MenuBarDesktop v-if="showMenu" :menuTags="categories" />
     </transition>
     <SubNavi />
     <NaviInfo />
     <div @mouseleave="toggleHoverModal = false" class="relative z-10">
       <TagBar
         class="mt-8"
-        :menuTags="menuTags"
+        :menuTags="categories"
         @onHover="onHover"
         @onLeaveHovered="toggleHoverModal = false"
       />
@@ -37,9 +32,16 @@ import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
-import { postByCategories, categories } from "@/assets/data/data.json"; //fake data
+import { postByCategories } from "@/assets/data/data.json"; //fake data (1) , replace with (2)
+
 
 export default {
+  props : {
+    categories : {
+      type : Array,
+      required : true
+    }
+  },
   data() {
     return {
       showMenu: false,
@@ -47,13 +49,9 @@ export default {
       subs: "",
       allPosts: [],
       n: 4,
-      menuTags: [],
     };
   },
   computed: {
-    // categories() {
-    //   return this.$store.getters.getCategory;
-    // },
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
     },
@@ -85,22 +83,32 @@ export default {
         this.n -= 4;
       }
     },
-    onHover(subs, id) {
+    async onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
-      // find default posts follow cate
-      // const key = String(id);
-      // const defaultPosts = this.$store.getters.getDefaultPostOnMenu;
-      // this.currentPosts = defaultPosts[key].slice(0, 4);
 
-      //dispatch call api post list theo cates
-      // this.allPosts = this.$store.getters.setPostMenuDesktop;
-      this.allPosts = postByCategories.result.posts;
+      this.allPosts = postByCategories.result.posts; //(1)
+      /* (2)
+      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+        id,
+        nextActions : (res) => {
+          this.allPosts = res.data.result
+        }
+      })
+      */
     },
-    hoverSub() {
+    hoverSub(id) {
       //dispatch call api post list theo cates
 
-      this.allPosts = postByCategories.result.posts;
+      this.allPosts = postByCategories.result.posts; //(1)
+      /* (2)
+      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+        id,
+        nextActions : (res) => {
+          this.allPosts = res.data.result
+        }
+      })
+      */
       this.n = 4;
     },
     onScroll() {
@@ -111,10 +119,6 @@ export default {
         this.showMenu = true;
       }
     },
-  },
-
-  created() {
-    this.menuTags = categories.result;
   },
 };
 </script>

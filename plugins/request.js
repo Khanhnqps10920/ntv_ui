@@ -11,9 +11,6 @@ const makeRequestAPI = ({ url, method, data, headers, hasAuth = false } = {}) =>
   const { urlQuery = {}, urlRegex = {}, ...rest } = data;
   // url = objectToUrlRegex(url, urlRegex);
 
-
-
-
   const headerFormData = {
     'Content-Type': 'multipart/form-data'
   };

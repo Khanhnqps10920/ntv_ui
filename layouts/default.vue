@@ -2,7 +2,7 @@
   <div>
     <div id="fb-root"></div>
     <!--Navi Desktop-->
-    <NaviDesktop />
+    <NaviDesktop :categories="categories"/>
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
@@ -27,7 +27,7 @@ import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
-import { categories, postByCategories } from "@/assets/data/data.json"; //fake data
+import { categories, postByCategories } from "@/assets/data/data.json"; //fake data (1) , replace with (2)
 
 export default {
   components: {
@@ -36,13 +36,13 @@ export default {
     NaviMobile,
     SideBarMobile,
     SearchSideBarMobile,
-    ScrollTop,
+    ScrollTop
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-      menuList: [],
+      categories : []
     };
   },
 
@@ -56,14 +56,25 @@ export default {
       .dispatch("getCurrentWeather", {
         urlQuery: {
           id: "1566083",
-          appid: "060d473d45f1d22478455e48f344f211",
-        },
+          appid: "060d473d45f1d22478455e48f344f211"
+        }
       })
-      .then((res) => {
+      .then(res => {
         this.$store.commit("SET_WEATHER", res.data);
       });
     // get gold rates
     this.$store.dispatch("getGoldRates");
+
+
+    //get categories list
+    /* (2)
+    this.$store.dispatch("getCategories", {
+      nextActions: (res) => {
+        this.categories = res.data.result
+      }
+    });
+    */
+    this.categories = categories.result //(1)
   },
 
   head() {
@@ -71,34 +82,34 @@ export default {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous",
+          crossorigin: "anonymous"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet",
+          rel: "stylesheet"
         },
         {
           async: true,
           defer: true,
           crossorigin: "anonymous",
           src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
-          nonce: "Ef8u8iSh",
-        },
-      ],
+          nonce: "Ef8u8iSh"
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

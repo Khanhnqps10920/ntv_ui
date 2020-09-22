@@ -46,10 +46,12 @@ export default {
   },
   props: {
     subs: {
-      type: Array
+      type: Array,
+      required : true
     },
     currentPosts: {
-      type: Array
+      type: Array,
+      required : true
     }
   },
   data() {
