@@ -2,7 +2,9 @@
   <div>
     <div id="fb-root"></div>
     <!-- Auth -->
-    <Auth />
+    <Auth>
+      <component :is="authComponent"></component>
+    </Auth>
     <!--Navi Desktop-->
     <NaviDesktop :categories="categories" />
     <div class="sm:hidden md:hidden lg:hidden">
@@ -31,6 +33,8 @@ import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
 import { categories, postByCategories } from "@/assets/data/data.json"; //fake data (1)
 import Auth from "@/components/Auth/Auth.vue";
+import Login from "../components/Auth/Login.vue";
+import Register from "../components/Auth/Register.vue";
 
 export default {
   components: {
@@ -40,13 +44,24 @@ export default {
     SideBarMobile,
     SearchSideBarMobile,
     ScrollTop,
+<<<<<<< HEAD
     Auth
+=======
+    Auth,
+    Login,
+    Register,
+>>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
+<<<<<<< HEAD
       categories: []
+=======
+      categories: [],
+      authComponent: "Login",
+>>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
     };
   },
 
@@ -60,10 +75,10 @@ export default {
       .dispatch("getCurrentWeather", {
         urlQuery: {
           id: "1566083",
-          appid: "060d473d45f1d22478455e48f344f211"
-        }
+          appid: "060d473d45f1d22478455e48f344f211",
+        },
       })
-      .then(res => {
+      .then((res) => {
         this.$store.commit("SET_WEATHER", res.data);
       });
     // get gold rates
@@ -77,9 +92,13 @@ export default {
       }
     });
     */
+<<<<<<< HEAD
     setTimeout(() => {
       this.categories = categories.result; 
     }, 2000); //(1)
+=======
+    this.categories = categories.result; //(1)
+>>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
   },
 
   head() {
@@ -87,34 +106,34 @@ export default {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous"
+          crossorigin: "anonymous",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           async: true,
           defer: true,
           crossorigin: "anonymous",
           src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
-          nonce: "Ef8u8iSh"
-        }
-      ]
+          nonce: "Ef8u8iSh",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

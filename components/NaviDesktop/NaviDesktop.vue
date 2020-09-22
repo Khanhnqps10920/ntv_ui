@@ -5,7 +5,7 @@
     </transition>
     <SubNavi />
     <NaviInfo />
-    <div @mouseleave="toggleHoverModal = false" class="relative z-10">
+    <div @mouseleave="toggleHoverModal = false" class="relative">
       <TagBar
         class="mt-8"
         :menuTags="categories"
@@ -34,13 +34,12 @@ import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
 import { postByCategories } from "@/assets/data/data.json"; //fake data (1) , replace with (2)
 
-
 export default {
-  props : {
-    categories : {
-      type : Array,
-      required : true
-    }
+  props: {
+    categories: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
