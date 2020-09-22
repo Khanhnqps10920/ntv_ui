@@ -44,24 +44,16 @@ export default {
     SideBarMobile,
     SearchSideBarMobile,
     ScrollTop,
-<<<<<<< HEAD
-    Auth
-=======
     Auth,
     Login,
     Register,
->>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-<<<<<<< HEAD
-      categories: []
-=======
       categories: [],
       authComponent: "Login",
->>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
     };
   },
 
@@ -92,13 +84,9 @@ export default {
       }
     });
     */
-<<<<<<< HEAD
     setTimeout(() => {
       this.categories = categories.result; 
     }, 2000); //(1)
-=======
-    this.categories = categories.result; //(1)
->>>>>>> 5c499d2612614dee1830bd8d27e37b0224d6f7d9
   },
 
   head() {
