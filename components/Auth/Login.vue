@@ -13,6 +13,11 @@
         <input name="username" type="text" />
         <label for="username">Your user name</label>
       </div>
+
+      <button class="form-btn">Log in</button>
+      <a class="form-link" href="#">Forgot your password? Get help</a>
+
+      <a class="form-link" href="#">Dont have an account? Register</a>
     </form>
   </div>
 </template>

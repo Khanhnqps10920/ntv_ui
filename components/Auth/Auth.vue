@@ -16,7 +16,7 @@ export default {};
 <style scoped>
 .auth {
   z-index: 2000;
-  /* display: none; */
+  display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 50px; /* Location of the box */
