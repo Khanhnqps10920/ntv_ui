@@ -4,7 +4,7 @@
     <!-- Auth -->
     <Auth />
     <!--Navi Desktop-->
-    <NaviDesktop :categories="categories"/>
+    <NaviDesktop :categories="categories" />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
@@ -40,13 +40,13 @@ export default {
     SideBarMobile,
     SearchSideBarMobile,
     ScrollTop,
-    Auth,
+    Auth
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
-      categories : []
+      categories: []
     };
   },
 
@@ -69,7 +69,6 @@ export default {
     // get gold rates
     this.$store.dispatch("getGoldRates");
 
-
     //get categories list
     /* (2)
     this.$store.dispatch("getCategories", {
@@ -78,7 +77,9 @@ export default {
       }
     });
     */
-    this.categories = categories.result //(1)
+    setTimeout(() => {
+      this.categories = categories.result; 
+    }, 2000); //(1)
   },
 
   head() {
