@@ -2,24 +2,24 @@
   <div class="main-item" :class="{bigSize: is1240}">
     <div class="main-item__container">
       <div class="main-item__img">
-        <nuxt-link class="main-item__category" to="/category">{{item.catName}}</nuxt-link>
-        <nuxt-link :to="`/post/${item.alias}-id=${item.id}`" class="main-item__img-wrapper">
-          <img :src="item.image" alt="post-img" />
+        <nuxt-link class="main-item__category" to="/category">{{"CateName"}}</nuxt-link>
+        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="main-item__img-wrapper">
+          <img :src="post.image" alt="post-img" />
         </nuxt-link>
       </div>
 
       <div class="main-item__info">
         <h3 class="main-item__info--title">
-          <nuxt-link :to="`/post/${item.alias}-id=${item.id}`">{{item.title}}</nuxt-link>
+          <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{post.title}}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
             <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">{{item.date}}</span>
+          <span class="main-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
         </div>
-        <div class="main-item__text">{{ item.description }}</div>
+        <div class="main-item__text">{{ post.excerpt | titleShort(1000) }}</div>
       </div>
     </div>
   </div>
@@ -30,30 +30,14 @@ export default {
   props: {
     is1240: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
-    item: {
+    post: {
       type: Object,
-      default: () => {
-        return {
-          id: "5",
-          name:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          date: "14-09-2020",
-          author: "khánh",
-          cateName: "Thời sự",
-          cateAlias: "thoi-su",
-          cateId: "1",
-          description:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-        };
-      },
-    },
-  },
+      required : true
+    }
+  }
 };
 </script>
 

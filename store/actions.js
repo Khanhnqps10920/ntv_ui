@@ -104,7 +104,15 @@ export function getDetailCategory({ dispatch }, {id, ...data} ) {
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({ dispatch }, {...data} ) {
+export function getTopNewsInHomepage({ dispatch }) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/homepage`,
+    method: 'GET',
+  })
+}
+
+//getLatestNewsCategory
+export function getLatestNewsCategory({ dispatch }, {...data} ) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/homepage`,
     method: 'GET',

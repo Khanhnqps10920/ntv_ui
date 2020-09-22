@@ -22,7 +22,7 @@
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link to="/post/dsdsds">
+              <nuxt-link :to="`/post/${mainNew.alias}`">
                 <img
                   src="http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png"
                   alt="post-img"
@@ -73,19 +73,19 @@ export default {
     AdsSide
   },
   props: {
-    TopNews: {
+    News: {
       type: Array,
       required: true
     }
   },
   computed: {
     mainNew() {
-      return this.TopNews[0];
+      return this.News[0];
     },
     mainNewCate() {
       /* (2)
       return this.$store.dispatch('getDetailCategory', {
-        id : this.TopNews[0].id,
+        id : this.News[0].id,
         nextActions : (res) => {
           return res.data
         }
@@ -100,7 +100,7 @@ export default {
       }; //(1)
     },
     restNew() {
-      return this.TopNews.slice(1, 4);
+      return this.News.slice(1, 4);
     }
   }
 };

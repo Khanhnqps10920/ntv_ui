@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 
-Vue.filter('titleShort', function (str, length = 65) {
+Vue.filter('titleShort', function (str, length = 1000) {
   if (typeof str === 'string') {
     const truncate = (str, max, suffix) => str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`;
     return truncate(str, length, '...');

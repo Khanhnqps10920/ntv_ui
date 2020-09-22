@@ -28,7 +28,7 @@
             <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
-          <MainBlockItem v-for="(item,index) in 5" :key="index" />
+          <MainBlockItem v-for="(post,index) in News" :key="index" :post="post" />
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default {
     };
   },
   props: {
-    posts: {
+    News: {
       type: Array,
     },
   },
