@@ -103,6 +103,15 @@ export function getDetailCategory({ dispatch }, {id, ...data} ) {
   })
 }
 
+//getTopNewsInHomepage *
+export function getTopNewsInHomepage({ dispatch }, {...data} ) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/homepage`,
+    method: 'GET',
+    data
+  })
+}
+
 // get weather api
 
 export function getCurrentWeather({

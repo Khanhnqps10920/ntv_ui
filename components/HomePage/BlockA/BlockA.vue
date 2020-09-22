@@ -5,10 +5,10 @@
         <!-- main post -->
         <div class="col-span-8 xs:col-span-12">
           <div class="blocka__main">
-            <nuxt-link to="/category/thoi-su" class="blocka__main--category">Thời sự</nuxt-link>
+            <nuxt-link :to="`/category/${mainNewCate.alias}`" class="blocka__main--category">{{mainNewCate.name}}</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link to="/post/">Default title</nuxt-link>
+              <nuxt-link to="/post/">{{mainNew.title}}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -16,7 +16,9 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">19-9-2020</span>
+              <span
+                class="blocka__main-date-time"
+              >{{mainNew.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
             </div>
 
             <div class="blocka__main--img">
@@ -28,15 +30,13 @@
               </nuxt-link>
             </div>
 
-            <div
-              class="blocka__main-description"
-            >hủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....</div>
+            <div class="blocka__main-description">{{mainNew.excerpt | titleShort(300)}}</div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem v-for="(i,index) in 3" :key="index" />
+          <BlockItem v-for="(post,index) in restNew" :key="index" :post="post" />
         </div>
       </div>
 
@@ -70,9 +70,39 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide,
+    AdsSide
   },
-  props: {},
+  props: {
+    TopNews: {
+      type: Array,
+      required: true
+    }
+  },
+  computed: {
+    mainNew() {
+      return this.TopNews[0];
+    },
+    mainNewCate() {
+      /* (2)
+      return this.$store.dispatch('getDetailCategory', {
+        id : this.TopNews[0].id,
+        nextActions : (res) => {
+          return res.data
+        }
+      })
+      */
+      return {
+        id: "2",
+        name: "Tạp chí",
+        alias: "tap-chi",
+        parentId: "-",
+        subCates: []
+      }; //(1)
+    },
+    restNew() {
+      return this.TopNews.slice(1, 4);
+    }
+  }
 };
 </script>
 
