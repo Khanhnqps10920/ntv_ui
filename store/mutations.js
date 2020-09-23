@@ -42,6 +42,13 @@ import state from './state';
 //     state.isAuth = hasAuth
 // }
 
+// active signin modal
+
+export const setActiveSignin = (state, payload) => {
+  state.signinModal = payload;
+}
+
+
 
 // categories 
 

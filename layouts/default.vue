@@ -2,7 +2,7 @@
   <div>
     <div id="fb-root"></div>
     <!-- Auth -->
-    <Auth>
+    <Auth v-if="signinModal">
       <component :is="authComponent"></component>
     </Auth>
     <!--Navi Desktop-->
@@ -25,6 +25,9 @@
   </div>
 </template>
 <script>
+// libs
+import { mapState } from "vuex";
+
 import NaviDesktop from "@/components/NaviDesktop/NaviDesktop";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
@@ -33,8 +36,9 @@ import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
 import { categories, postByCategories } from "@/assets/data/data.json"; //fake data (1)
 import Auth from "@/components/Auth/Auth.vue";
-import Login from "../components/Auth/Login.vue";
-import Register from "../components/Auth/Register.vue";
+import Login from "@/components/Auth/Login.vue";
+import Register from "@/components/Auth/Register.vue";
+import Forgot from "@/components/Auth/Forgot.vue";
 
 export default {
   components: {
@@ -47,14 +51,19 @@ export default {
     Auth,
     Login,
     Register,
+    Forgot,
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
       categories: [],
-      authComponent: "Login",
+      authComponent: "Forgot",
     };
+  },
+
+  computed: {
+    ...mapState(["signinModal"]),
   },
 
   methods: {},
@@ -85,7 +94,7 @@ export default {
     });
     */
     setTimeout(() => {
-      this.categories = categories.result; 
+      this.categories = categories.result;
     }, 2000); //(1)
   },
 
