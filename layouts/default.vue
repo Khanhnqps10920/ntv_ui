@@ -58,7 +58,7 @@ export default {
       showSearchSideBar: false,
       showSideBar: false,
       categories: [],
-      authComponent: "Forgot",
+      authComponent: "Login",
     };
   },
 
