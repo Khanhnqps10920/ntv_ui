@@ -10,14 +10,20 @@
       </div>
 
       <button class="form-btn">SEND MY PASSWORD</button>
-      <a class="form-link" href="#">A password will be e-mailed to you</a>
-      <a class="form-link" href="#">Back to login</a>
+      <p @click="login" class="form-link">A password will be e-mailed to you</p>
+      <p @click="login" class="form-link">Back to login</p>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    login: {
+      type: Function,
+    },
+  },
+};
 </script>
 
 <style>

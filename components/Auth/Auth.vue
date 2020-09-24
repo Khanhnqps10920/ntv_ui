@@ -1,8 +1,11 @@
 <template>
-  <div class="auth" @click="handleCloseModal">
+  <div ref="content" class="auth" @click="handleCloseModal">
     <div class="auth__content">
-      <i class="close fas fa-times cursor-pointer" @click="setActiveSignin(false)"></i>
-      <div class="auth__content-slot" ref="content">
+      <i
+        class="close fas fa-times cursor-pointer"
+        @click="setActiveSignin(false)"
+      ></i>
+      <div class="auth__content-slot">
         <slot></slot>
       </div>
     </div>
@@ -17,7 +20,7 @@ export default {
     ...mapMutations(["setActiveSignin"]),
 
     handleCloseModal(e) {
-      if (e.target !== this.$refs.content) {
+      if (e.target === this.$refs.content) {
         this.setActiveSignin(false);
       }
     },

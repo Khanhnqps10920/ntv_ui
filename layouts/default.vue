@@ -3,20 +3,26 @@
     <div id="fb-root"></div>
     <!-- Auth -->
     <Auth v-if="signinModal">
-      <component :is="authComponent"></component>
+      <component :is="authComponent" v-bind="authProps"></component>
     </Auth>
     <!--Navi Desktop-->
     <NaviDesktop :categories="categories" />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
-      <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
+      <NaviMobile
+        @openSideBar="showSideBar = true"
+        @openSearchSideBar="showSearchSideBar = true"
+      />
       <!-- sidebar menu -->
       <transition name="slide-left">
         <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">
-        <SearchSideBarMobile v-if="showSearchSideBar" @closeSideBar="showSearchSideBar = false" />
+        <SearchSideBarMobile
+          v-if="showSearchSideBar"
+          @closeSideBar="showSearchSideBar = false"
+        />
       </transition>
     </div>
     <nuxt />
@@ -64,6 +70,39 @@ export default {
 
   computed: {
     ...mapState(["signinModal"]),
+    authProps() {
+      const vm = this;
+
+      // login props
+      if (this.authComponent === "Login") {
+        return {
+          forgot: () => {
+            vm.authComponent = "Forgot";
+          },
+
+          register: () => {
+            vm.authComponent = "Register";
+          },
+        };
+      }
+      // register props
+      if (this.authComponent === "Register") {
+        return {
+          login: () => {
+            vm.authComponent = "Login";
+          },
+        };
+      }
+
+      // forgot props
+      if (this.authComponent === "Forgot") {
+        return {
+          login: () => {
+            vm.authComponent = "Login";
+          },
+        };
+      }
+    },
   },
 
   methods: {},

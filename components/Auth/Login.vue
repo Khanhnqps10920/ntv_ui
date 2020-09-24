@@ -15,15 +15,23 @@
       </div>
 
       <button class="form-btn">Log in</button>
-      <a class="form-link" href="#">Forgot your password? Get help</a>
-
-      <a class="form-link" href="#">Dont have an account? Register</a>
+      <p @click="forgot" class="form-link">Forgot your password? Get help</p>
+      <p @click="register" class="form-link">Dont have an account? Register</p>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    forgot: {
+      type: Function,
+    },
+    register: {
+      type: Function,
+    },
+  },
+};
 </script>
 
 <style>

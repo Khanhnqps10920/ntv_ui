@@ -20,13 +20,21 @@
       </div>
 
       <button class="form-btn">Sign up</button>
-      <a class="form-link" href="#">Already have an account? Back to login</a>
+      <p @click="login" class="form-link">
+        Already have an account? Back to login
+      </p>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    login: {
+      type: Function,
+    },
+  },
+};
 </script>
 
 <style>
