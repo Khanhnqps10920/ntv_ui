@@ -57,25 +57,25 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("../../assets/imgs/sidebar-background.jpg");
+  background: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-position: center;
 }
 
-/* .auth .auth__content::before {
+.auth .auth__content::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
 
-  opacity: 0.5;
-  z-index: 20001;
+  opacity: 0.9;
+  z-index: 1;
   background: linear-gradient(
-    to bottom,
-    rgba(131, 132, 64, 0.24) 0%,
-    rgba(51, 51, 24, 0.185) 100%
+    45deg,
+    rgba(1, 3, 2, 0.9) 0%,
+    rgba(95, 94, 95, 0.9) 100%
   );
-} */
+}
 
 .auth__content .close {
   position: absolute;
