@@ -34,7 +34,7 @@ export default {
   /* display: none; */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 50px; /* Location of the box */
+  /* padding-top: 50px; */
   padding-right: 8px;
   padding-left: 8px;
   left: 0;
@@ -50,11 +50,13 @@ export default {
 .auth .auth__content {
   max-width: 500px;
   min-height: 500px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   vertical-align: top;
   position: relative;
   z-index: 2000;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: url("../../assets/imgs/sidebar-background.jpg");
   background-size: cover;
   background-position: center;

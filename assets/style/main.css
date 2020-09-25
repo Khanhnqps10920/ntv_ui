@@ -57,14 +57,12 @@ body {
   width: 100%;
 }
 
-.auth-form .form-input input:focus~label,
-.auth-form .form-input input:valid~label {
+.auth-form .form-input input:focus ~ label,
+.auth-form .form-input input:valid ~ label {
   top: -18px;
   font-size: 11px;
   opacity: 0.6;
 }
-
-
 
 .auth-form .form-input label {
   position: absolute;
@@ -72,7 +70,6 @@ body {
   text-transform: uppercase;
   transition: all 0.2s ease;
   pointer-events: none;
-
 }
 
 .auth-form .form-btn {
@@ -87,12 +84,12 @@ body {
   font-size: 13px;
   font-weight: 600;
   color: #000;
-  -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .2);
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
   border: 0;
   border-radius: 0;
-  -webkit-transition: background-color .2s ease !important;
-  transition: background-color .2s ease !important;
+  -webkit-transition: background-color 0.2s ease !important;
+  transition: background-color 0.2s ease !important;
 }
 
 .auth-form .form-btn:hover {
@@ -102,9 +99,13 @@ body {
 
 .auth-form .form-link {
   display: block;
-  margin-top: 6px;
-  font-size: 11px;
+  margin-top: 8px;
+  font-size: 15px;
   cursor: pointer;
+}
+
+.auth-form .form-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 1018px) and (min-width: 768px) {
