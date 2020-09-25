@@ -1,15 +1,17 @@
 export default () => ({
-  
+
   // categories
   categories: [],
-  
+
   // default posts on menu
-  defaultPostOnMenu : null,
+  defaultPostOnMenu: null,
 
   weather: {},
 
   goldRates: null,
 
-  postMenuDesktop : []
+  postMenuDesktop: [],
+
+  signinModal: false
 
 })

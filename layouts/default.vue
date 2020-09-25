@@ -2,21 +2,27 @@
   <div>
     <div id="fb-root"></div>
     <!-- Auth -->
-    <Auth>
-      <component :is="authComponent"></component>
+    <Auth v-if="signinModal">
+      <component :is="authComponent" v-bind="authProps"></component>
     </Auth>
     <!--Navi Desktop-->
     <NaviDesktop :categories="categories" />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
-      <NaviMobile @openSideBar="showSideBar = true" @openSearchSideBar="showSearchSideBar = true" />
+      <NaviMobile
+        @openSideBar="showSideBar = true"
+        @openSearchSideBar="showSearchSideBar = true"
+      />
       <!-- sidebar menu -->
       <transition name="slide-left">
         <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">
-        <SearchSideBarMobile v-if="showSearchSideBar" @closeSideBar="showSearchSideBar = false" />
+        <SearchSideBarMobile
+          v-if="showSearchSideBar"
+          @closeSideBar="showSearchSideBar = false"
+        />
       </transition>
     </div>
     <nuxt />
@@ -25,6 +31,9 @@
   </div>
 </template>
 <script>
+// libs
+import { mapState } from "vuex";
+
 import NaviDesktop from "@/components/NaviDesktop/NaviDesktop";
 import NaviMobile from "@/components/NaviMobile/NaviMobile";
 import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
@@ -33,8 +42,9 @@ import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
 import { categories, postByCategories } from "@/assets/data/data.json"; //fake data (1)
 import Auth from "@/components/Auth/Auth.vue";
-import Login from "../components/Auth/Login.vue";
-import Register from "../components/Auth/Register.vue";
+import Login from "@/components/Auth/Login.vue";
+import Register from "@/components/Auth/Register.vue";
+import Forgot from "@/components/Auth/Forgot.vue";
 
 export default {
   components: {
@@ -47,6 +57,7 @@ export default {
     Auth,
     Login,
     Register,
+    Forgot,
   },
   data() {
     return {
@@ -55,6 +66,43 @@ export default {
       categories: [],
       authComponent: "Login",
     };
+  },
+
+  computed: {
+    ...mapState(["signinModal"]),
+    authProps() {
+      const vm = this;
+
+      // login props
+      if (this.authComponent === "Login") {
+        return {
+          forgot: () => {
+            vm.authComponent = "Forgot";
+          },
+
+          register: () => {
+            vm.authComponent = "Register";
+          },
+        };
+      }
+      // register props
+      if (this.authComponent === "Register") {
+        return {
+          login: () => {
+            vm.authComponent = "Login";
+          },
+        };
+      }
+
+      // forgot props
+      if (this.authComponent === "Forgot") {
+        return {
+          login: () => {
+            vm.authComponent = "Login";
+          },
+        };
+      }
+    },
   },
 
   methods: {},
@@ -85,7 +133,7 @@ export default {
     });
     */
     setTimeout(() => {
-      this.categories = categories.result; 
+      this.categories = categories.result;
     }, 2000); //(1)
   },
 

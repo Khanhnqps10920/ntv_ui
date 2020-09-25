@@ -1,7 +1,10 @@
 <template>
-  <div class="auth">
+  <div ref="content" class="auth" @click="handleCloseModal">
     <div class="auth__content">
-      <i class="close fas fa-times"></i>
+      <i
+        class="close fas fa-times cursor-pointer"
+        @click="setActiveSignin(false)"
+      ></i>
       <div class="auth__content-slot">
         <slot></slot>
       </div>
@@ -10,13 +13,25 @@
 </template>
 
 <script>
-export default {};
+import { mapMutations } from "vuex";
+
+export default {
+  methods: {
+    ...mapMutations(["setActiveSignin"]),
+
+    handleCloseModal(e) {
+      if (e.target === this.$refs.content) {
+        this.setActiveSignin(false);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
 .auth {
   z-index: 2000;
-  display: none;
+  /* display: none; */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 50px; /* Location of the box */

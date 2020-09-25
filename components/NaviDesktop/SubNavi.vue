@@ -11,17 +11,27 @@
           <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>-->
           <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
         </div>
-        <a href="#" class="hover:text-hovercolor">Sign in / join</a>
+        <a @click="activeSigninModal" class="hover:text-hovercolor cursor-pointer">Sign in / join</a>
       </div>
     </Container1640>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 import Container1640 from "@/components/containers/Container1640";
 export default {
   components: {
     Container1640,
+  },
+  methods: {
+    ...mapMutations(["setActiveSignin"]),
+
+    activeSigninModal(e) {
+      e.preventDefault();
+      this.setActiveSignin(true);
+    },
   },
 };
 </script>
