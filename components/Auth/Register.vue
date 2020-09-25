@@ -5,17 +5,22 @@
 
     <form action class="auth-form">
       <div class="form-input">
-        <input name="username" type="text" />
-        <label for="username">Your user name</label>
+        <input name="email" type="text" value required />
+        <label for="email">Your Email</label>
       </div>
 
       <div class="form-input">
-        <input name="password" type="password" />
-        <label for="password">Your password</label>
+        <input name="username" type="text" value required />
+        <label for="username">Your Username</label>
       </div>
 
       <div class="form-input">
-        <input name="cfpassword" type="password" />
+        <input name="password" type="password" value required />
+        <label for="password">Your Password</label>
+      </div>
+
+      <div class="form-input">
+        <input name="cfpassword" type="password" value required />
         <label for="cfpassword">Confirm Password</label>
       </div>
 

@@ -5,12 +5,12 @@
 
     <form action class="auth-form">
       <div class="form-input">
-        <input name="email" type="email" />
-        <label for="username">Your Email</label>
+        <input name="email" type="text" value required />
+        <label for="username">Your UserName</label>
       </div>
 
       <div class="form-input">
-        <input name="password" type="password" />
+        <input name="password" type="password" value required />
         <label for="password">Your Password</label>
       </div>
 

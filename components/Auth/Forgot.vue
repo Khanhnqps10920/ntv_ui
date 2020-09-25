@@ -5,7 +5,7 @@
 
     <form action class="auth-form">
       <div class="form-input">
-        <input name="email" type="email" />
+        <input name="email" type="text" value required />
         <label for="email">Email</label>
       </div>
 

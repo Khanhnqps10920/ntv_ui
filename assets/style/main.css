@@ -57,11 +57,14 @@ body {
   width: 100%;
 }
 
-.auth-form .form-input input:focus~label {
+.auth-form .form-input input:focus~label,
+.auth-form .form-input input:valid~label {
   top: -18px;
   font-size: 11px;
   opacity: 0.6;
 }
+
+
 
 .auth-form .form-input label {
   position: absolute;
