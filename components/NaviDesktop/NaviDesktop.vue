@@ -38,8 +38,8 @@ export default {
   props: {
     categories: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
@@ -47,20 +47,20 @@ export default {
       toggleHoverModal: false,
       subs: "",
       allPosts: [],
-      n: 4,
+      n: 4
     };
   },
   computed: {
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    },
+    }
   },
   components: {
     SubNavi,
     NaviInfo,
     TagBar,
     MenuBarDesktop,
-    HoverModal,
+    HoverModal
   },
 
   mounted() {
@@ -86,7 +86,9 @@ export default {
       this.toggleHoverModal = true;
       this.subs = subs;
 
-      this.allPosts = postByCategories.result.posts; //(1)
+      setTimeout(() => {
+        this.allPosts = postByCategories.result.posts; //(1)
+      }, 2000);
       /* (2)
       this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
         id,
@@ -99,7 +101,9 @@ export default {
     hoverSub(id) {
       //dispatch call api post list theo cates
 
-      this.allPosts = postByCategories.result.posts; //(1)
+      setTimeout(() => {
+        this.allPosts = postByCategories.result.posts; //(1)
+      }, 2000);
       /* (2)
       this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
         id,
@@ -117,8 +121,8 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
