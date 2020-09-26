@@ -1,7 +1,7 @@
 <template>
   <div class="auth-form-wrapper">
-    <h3 class="auth-form__title">PASSWORD RECOVERY</h3>
-    <p class="auth-form__panel">Recover your password</p>
+    <h3 class="auth-form__title">KHÔI PHỤC MẬT KHẨU</h3>
+    <p class="auth-form__panel">Khôi phục mật khẩu</p>
 
     <form action class="auth-form">
       <div class="form-input">
@@ -9,9 +9,12 @@
         <label for="email">Email</label>
       </div>
 
-      <button class="form-btn">SEND MY PASSWORD</button>
-      <p @click="login" class="form-link">A password will be e-mailed to you</p>
-      <p @click="login" class="form-link">Back to login</p>
+      <p class="text-left text-xs cursor-pointer hover:underline">
+        Mật Khẩu Sẽ Được Gửi Cho Bạn Qua Email
+      </p>
+
+      <button class="form-btn">GỬI LẠI MẬT KHẨU</button>
+      <p @click="login" class="form-link">Trở Lại Đăng Nhập</p>
     </form>
   </div>
 </template>

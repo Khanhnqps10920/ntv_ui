@@ -34,7 +34,7 @@ export default {
   /* display: none; */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 50px; /* Location of the box */
+  /* padding-top: 50px; */
   padding-right: 8px;
   padding-left: 8px;
   left: 0;
@@ -50,30 +50,32 @@ export default {
 .auth .auth__content {
   max-width: 500px;
   min-height: 500px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   vertical-align: top;
   position: relative;
   z-index: 2000;
-
-  background: url("../../assets/imgs/sidebar-background.jpg");
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-position: center;
 }
 
-/* .auth .auth__content::before {
+.auth .auth__content::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
 
-  opacity: 0.5;
-  z-index: 20001;
+  opacity: 0.9;
+  z-index: 1;
   background: linear-gradient(
-    to bottom,
-    rgba(131, 132, 64, 0.24) 0%,
-    rgba(51, 51, 24, 0.185) 100%
+    45deg,
+    rgba(1, 3, 2, 0.9) 0%,
+    rgba(95, 94, 95, 0.9) 100%
   );
-} */
+}
 
 .auth__content .close {
   position: absolute;

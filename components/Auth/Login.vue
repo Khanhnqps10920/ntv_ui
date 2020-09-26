@@ -1,22 +1,27 @@
 <template>
   <div class="auth-form-wrapper">
-    <h3 class="auth-form__title">SIGN IN</h3>
-    <p class="auth-form__panel">Welcome! Log into your account</p>
+    <h3 class="auth-form__title">ĐĂNG NHẬP</h3>
+    <p class="auth-form__panel">Xin chào! Đăng nhập tài khoản của bạn</p>
 
     <form action class="auth-form">
       <div class="form-input">
         <input name="email" type="text" value required />
-        <label for="username">Your UserName</label>
+        <label for="username">Email</label>
       </div>
 
       <div class="form-input">
         <input name="password" type="password" value required />
-        <label for="password">Your Password</label>
+        <label for="password">Mật Khẩu</label>
       </div>
+      <p
+        @click="forgot"
+        class="text-left text-xs cursor-pointer hover:underline"
+      >
+        Quên mật khẩu?
+      </p>
 
-      <button class="form-btn">Log in</button>
-      <p @click="forgot" class="form-link">Forgot your password? Get help</p>
-      <p @click="register" class="form-link">Dont have an account? Register</p>
+      <button class="form-btn">Đăng Nhập</button>
+      <p @click="register" class="form-link">Chưa có tài khoản? Đăng ký</p>
     </form>
   </div>
 </template>
