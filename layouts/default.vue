@@ -116,7 +116,7 @@ export default {
         this.$store.commit("SET_WEATHER", res.data);
       });
     // get gold rates
-    this.$store.dispatch("getGoldRates");
+    // this.$store.dispatch("getGoldRates");
 
     //get categories list
     this.$store.dispatch("getCategories", {

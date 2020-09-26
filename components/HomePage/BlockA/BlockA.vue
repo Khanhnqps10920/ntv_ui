@@ -11,7 +11,7 @@
             >{{mainNewCate.name}}</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link to="/post/">{{mainNew.title}}</nuxt-link>
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{mainNew.title}}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -25,7 +25,7 @@
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link :to="`/post/${mainNew.alias}`">
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">
                 <img
                   :src="mainNew.image"
                   alt="post-img"
