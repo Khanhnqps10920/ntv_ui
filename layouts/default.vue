@@ -126,14 +126,14 @@ export default {
     });
   },
 
-  async created() {
-    const user = await this.$store.dispatch("login", {
-      email: "khuetech01@gmail.com",
-      password: "hahaha"
-    });
+  // async created() {
+  //   const user = await this.$store.dispatch("login", {
+  //     email: "khuetech01@gmail.com",
+  //     password: "hahaha"
+  //   });
 
-    console.log(user);
-  },
+  //   console.log(user);
+  // },
 
   head() {
     return {

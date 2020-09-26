@@ -3,7 +3,7 @@
     <div class="main-block flex xs:block mb-5">
       <!-- main block -->
       <div class="main-block__main flex-grow">
-        <MainBlockItem v-for="(item,index) in itemList" :key="index" :item="item" :is1240="true" />
+        <MainBlockItem  v-for="(post,index) in posts" :key="index" :post="post" :is1240="true" />
         <Pagination />
       </div>
 
@@ -40,7 +40,7 @@ export default {
     Pagination,
   },
   props: {
-    itemList: {
+    posts: {
       type: Array,
       default: () => [
         {

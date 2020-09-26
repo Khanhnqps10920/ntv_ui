@@ -1,7 +1,7 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link :to="`/category/${cateAlias}`" class="block-item__category absolute">{{cateName}}</nuxt-link>
+      <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
       <nuxt-link :to="'/post/' + post.alias + `-id=${post.id}`" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
@@ -25,8 +25,7 @@
 export default {
   data() {
     return {
-      cateAlias: "",
-      cateName: ""
+      cateInfo: {},
     };
   },
   props: {
@@ -40,8 +39,7 @@ export default {
     const data = await this.$store.dispatch('getDetailCategory', {
       id : this.post.categoryId,
       nextActions : (res) => {
-        this.cateAlias = res.result.alias;
-        this.cateName = res.result.name
+        this.cateInfo = res.result;
       }
     })
   }

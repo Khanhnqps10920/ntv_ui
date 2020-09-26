@@ -2,9 +2,9 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="'Category'" />
+    <CategoryBlock class="mt-5" :cateName="meta.category.name"  :subCates="meta.category.subCates" />
 
-    <MainBlock class="mt-10" />
+    <MainBlock class="mt-10" :posts="posts"/>
   </div>
 </template>
 
@@ -25,9 +25,17 @@ export default {
     MainBlock,
   },
   async asyncData(context) {
-    // const id = context.route.params.slug.slice(
-    //   context.route.params.slug.indexOf("=") + 1
-    // );
+    const id = context.route.params.slug.slice(
+      context.route.params.slug.indexOf("=") + 1
+    );
+    const data = await context.store.dispatch('getNewsInCategoryPage', {
+      id : id
+    })
+    console.log(data.data.result)
+    return {
+      posts : data.data.result,
+      meta : data.data.meta
+    }
   },
   data() {
     return {};

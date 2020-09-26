@@ -2,7 +2,10 @@
   <div class="main-item" :class="{bigSize: is1240}">
     <div class="main-item__container">
       <div class="main-item__img">
-        <nuxt-link class="main-item__category" :to="`/category/${cateAlias}`">{{cateName}}</nuxt-link>
+        <nuxt-link
+          class="main-item__category"
+          :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`"
+        >{{cateInfo.name}}</nuxt-link>
         <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="main-item__img-wrapper">
           <img :src="post.image" alt="post-img" />
         </nuxt-link>
@@ -29,9 +32,8 @@
 export default {
   data() {
     return {
-      cateName : '',
-      cateAlias : ''
-    }
+      cateInfo: {}
+    };
   },
   props: {
     is1240: {
@@ -46,11 +48,10 @@ export default {
   },
   async mounted() {
     //Get CateInfo (2)
-    const data = await this.$store.dispatch("getDetailCategory", {
+    await this.$store.dispatch("getDetailCategory", {
       id: this.post.categoryId,
       nextActions: res => {
-        this.cateAlias = res.result.alias;
-        this.cateName = res.result.name;
+        this.cateInfo = res.result;
       }
     });
   }

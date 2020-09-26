@@ -52,29 +52,6 @@ export function makeRequestAction({
   }
 }
 
-//API Danh sách theo danh mục
-export function getPostInCategory({
-  dispatch
-}, data) {
-  console.log(data, 'data');
-  return dispatch('makeRequestAction', {
-    url: `${process.env.baseAPI}/v1/search/init`,
-    method: 'GET',
-    data,
-  });
-}
-
-//API lấy cái nội dung HomePage
-export function getHomeContent(data) {
-  return axios({
-    url: `${process.env.baseAPI}/public/get_index_json`,
-    method: 'GET',
-    data
-  })
-}
-
-
-
 // getcategories *
 export function getCategories({
   dispatch
@@ -141,6 +118,35 @@ export function getLatestNewsCategory({
     data
   })
 }
+
+//getNewsInCategoryPage *
+// export function getNewsInCategoryPage({
+//   dispatch
+// }, {
+//   id,
+//   ...data
+// }) {
+//   return dispatch('makeRequestAction', {
+//     url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
+//     method: 'GET',
+//     data
+//   })
+// }
+
+export function getNewsInCategoryPage({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
+    method: 'GET',
+    data
+  })
+}
+
+/*===================*/
 
 // get weather api
 

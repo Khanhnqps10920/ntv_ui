@@ -6,7 +6,7 @@
         <div class="col-span-8 xs:col-span-12">
           <div class="blocka__main">
             <nuxt-link
-              :to="`/category/${mainNewCate.alias}`"
+              :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
               class="blocka__main--category"
             >{{mainNewCate.name}}</nuxt-link>
 
