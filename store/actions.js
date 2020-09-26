@@ -78,10 +78,11 @@ export function getHomeContent(data) {
 // getcategories *
 export function getCategories({
   dispatch
-}) {
+},{...data}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/category`,
     method: 'GET',
+    data
   })
 }
 
