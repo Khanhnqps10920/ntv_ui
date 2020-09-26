@@ -40,8 +40,8 @@ export default {
     const data = await this.$store.dispatch('getDetailCategory', {
       id : this.post.categoryId,
       nextActions : (res) => {
-        this.cateAlias = res.result.name;
-        this.cateName = res.result.alias
+        this.cateAlias = res.result.alias;
+        this.cateName = res.result.name
       }
     })
   }

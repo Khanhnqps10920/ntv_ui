@@ -27,7 +27,7 @@
             <div class="blocka__main--img">
               <nuxt-link :to="`/post/${mainNew.alias}`">
                 <img
-                  src="http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png"
+                  :src="mainNew.image"
                   alt="post-img"
                 />
               </nuxt-link>
