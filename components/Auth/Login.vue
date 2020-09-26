@@ -4,14 +4,36 @@
     <p class="auth-form__panel">Xin chào! Đăng nhập tài khoản của bạn</p>
 
     <form action class="auth-form">
-      <div class="form-input">
-        <input name="email" type="text" value required />
+      <div class="form-input" :class="{ error: $v.email.$error }">
+        <input
+          name="email"
+          type="text"
+          v-model="$v.email.$model"
+          value
+          required
+        />
         <label for="username">Email</label>
+
+        <div v-if="!$v.email.email" class="error">
+          Bạn phải nhập email hợp lệ
+        </div>
+        <div v-if="!$v.email.required" class="error">
+          Email không được để trống
+        </div>
       </div>
 
-      <div class="form-input">
-        <input name="password" type="password" value required />
+      <div class="form-input" :class="{ error: $v.password.$error }">
+        <input
+          name="password"
+          type="password"
+          v-model="$v.password.$model"
+          value
+          required
+        />
         <label for="password">Mật Khẩu</label>
+        <div v-if="!$v.password.required" class="error">
+          Mật khẩu không được để trống
+        </div>
       </div>
       <p
         @click="forgot"
@@ -27,6 +49,8 @@
 </template>
 
 <script>
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
   props: {
     forgot: {
@@ -34,6 +58,23 @@ export default {
     },
     register: {
       type: Function,
+    },
+  },
+  data() {
+    return {
+      email: null,
+      password: null,
+    };
+  },
+
+  validations: {
+    email: {
+      email,
+      required,
+    },
+
+    password: {
+      required,
     },
   },
 };

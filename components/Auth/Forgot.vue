@@ -4,9 +4,22 @@
     <p class="auth-form__panel">Khôi phục mật khẩu</p>
 
     <form action class="auth-form">
-      <div class="form-input">
-        <input name="email" type="text" value required />
+      <div class="form-input" :class="{ error: $v.email.$error }">
+        <input
+          name="email"
+          v-model.trim="$v.email.$model"
+          type="text"
+          value
+          required
+        />
         <label for="email">Email</label>
+
+        <div v-if="!$v.email.email" class="error">
+          Bạn phải nhập email hợp lệ
+        </div>
+        <div v-if="!$v.email.required" class="error">
+          Email không được để trống
+        </div>
       </div>
 
       <p class="text-left text-xs cursor-pointer hover:underline">
@@ -20,10 +33,23 @@
 </template>
 
 <script>
+import { email, required } from "vuelidate/lib/validators";
+
 export default {
   props: {
     login: {
       type: Function,
+    },
+  },
+  data() {
+    return {
+      email: null,
+    };
+  },
+  validations: {
+    email: {
+      email,
+      required,
     },
   },
 };
