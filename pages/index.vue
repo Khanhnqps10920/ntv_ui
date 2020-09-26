@@ -30,257 +30,38 @@ export default {
     AdsHomeMiddle,
     AdsHomeBottom
   },
-  async asyncData(context, callback) {
+  async asyncData(context) {
     // get TopNewsInHomepage
-    // const NewsInHomepage = await context.store.dispatch("getTopNewsInHomepage"); //(2)
-    // const NewsBlockB = await context.store.dispatch("getLatestNewsCategory",{
-    //   id : 'tintucId',
-    // }) //(2)
-    //(1)
-    setTimeout(() => {
-      callback(null, {
-        TopNews: [
-          {
-            id: "1",
-            title:
-              "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-            alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-            image:
-              "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-            publishedDate: 1600280653,
-            authorId: "1",
-            categoryId: "1",
-            excerpt:
-              "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-          },
-          {
-            id: "2",
-            title:
-              "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-            alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-            image:
-              "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-            publishedDate: 1600280653,
-            authorId: "1",
-            categoryId: "1",
-            excerpt:
-              "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-          },
-          {
-            id: "3",
-            title:
-              "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-            alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-            image:
-              "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-            publishedDate: 1600280653,
-            authorId: "1",
-            categoryId: "1",
-            excerpt:
-              "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-          },
-          {
-            id: "4",
-            title:
-              "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-            alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-            image:
-              "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-            publishedDate: 1600280653,
-            authorId: "1",
-            categoryId: "1",
-            excerpt:
-              "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-          }
-        ],
-        NewsBlockB : [
-        {
-          id: "1",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "2",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "3",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "4",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "5",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "6",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "7",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "8",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "9",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        }
-      ],
-        NewsBlockC : [
-        {
-          id: "1",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "2",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "3",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "4",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        },
-        {
-          id: "5",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "1",
-          excerpt:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        }
-      ]
-      });
-    }, 2000);
+    let TopNews = [];
+    let NewsBlockB = [];
+    let NewsBlockC = [];
+    await context.store.dispatch("getTopNewsInHomepage", {
+      nextActions: res => {
+        TopNews = [...res.result];
+      }
+    });
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f"
+      },
+      nextActions: res => {
+        NewsBlockB  = [...res.result]
+      } //change ID follow admin for Block B
+    });
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f",
+      },
+      nextActions: res => {
+        NewsBlockC = [...res.result]
+      }
+      //change ID follow admin for Block C
+    });
+    return {
+      TopNews,
+      NewsBlockB,
+      NewsBlockC
+    }
   }
 };
 </script>

@@ -93,14 +93,19 @@ export default {
           }
       })
       */
-      this.allPosts = postByCategories.result.posts; //(1)
+      setTimeout(() => {
+        this.allPosts = postByCategories.result.posts; //(1)
+      }, 2000);
+
       this.n = 4;
     },
     async onHoverTag(subs, id) {
       if (subs && subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
-        this.allPosts = postByCategories.result.posts; //(1) 
+        setTimeout(() => {
+          this.allPosts = postByCategories.result.posts; //(1)
+        }, 2000);
         /* (2)
         this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
           id,

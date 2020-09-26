@@ -32,14 +32,13 @@ import NaviInfo from "@/components/NaviDesktop/NaviInfo";
 import TagBar from "@/components/NaviDesktop/TagBar";
 import MenuBarDesktop from "@/components/NaviDesktop/MenuBarDesktop";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
-import { postByCategories } from "@/assets/data/data.json"; //fake data (1) , replace with (2)
 
 export default {
   props: {
     categories: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
@@ -47,20 +46,20 @@ export default {
       toggleHoverModal: false,
       subs: "",
       allPosts: [],
-      n: 4,
+      n: 4
     };
   },
   computed: {
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    },
+    }
   },
   components: {
     SubNavi,
     NaviInfo,
     TagBar,
     MenuBarDesktop,
-    HoverModal,
+    HoverModal
   },
 
   mounted() {
@@ -86,28 +85,29 @@ export default {
       this.toggleHoverModal = true;
       this.subs = subs;
 
-      this.allPosts = postByCategories.result.posts; //(1)
-      /* (2)
+      // setTimeout(() => {
+      //   this.allPosts = postByCategories.result.posts; //(1)
+      // }, 2000);
       this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
         id,
         nextActions : (res) => {
-          this.allPosts = res.data.result
+          console.log(res.result)
+          this.allPosts = res.result
         }
       })
-      */
     },
-    hoverSub(id) {
+    async hoverSub(id) {
       //dispatch call api post list theo cates
 
-      this.allPosts = postByCategories.result.posts; //(1)
-      /* (2)
+      // setTimeout(() => {
+      //   this.allPosts = postByCategories.result.posts; //(1)
+      // }, 2000);
       this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
         id,
         nextActions : (res) => {
-          this.allPosts = res.data.result
+          this.allPosts = res.result
         }
       })
-      */
       this.n = 4;
     },
     onScroll() {
@@ -117,8 +117,8 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

@@ -78,10 +78,11 @@ export function getHomeContent(data) {
 // getcategories *
 export function getCategories({
   dispatch
-}) {
+},{...data}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/category`,
     method: 'GET',
+    data
   })
 }
 
@@ -104,17 +105,18 @@ export function getDetailCategory({ dispatch }, {id, ...data} ) {
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({ dispatch }) {
+export function getTopNewsInHomepage({ dispatch },{...data}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/homepage`,
     method: 'GET',
+    data
   })
 }
 
-//getLatestNewsCategory
+//getLatestNewsCategory *
 export function getLatestNewsCategory({ dispatch }, {...data} ) {
   return dispatch('makeRequestAction', {
-    url: `${process.env.BASE_URL}/public/homepage`,
+    url: `${process.env.BASE_URL}/public/hotNews`,
     method: 'GET',
     data
   })

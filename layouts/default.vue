@@ -40,7 +40,6 @@ import SideBarMobile from "@/components/SidebarMobile/SideBarMobile.vue";
 import SearchSideBarMobile from "@/components/SidebarMobile/SearchSideBarMobile.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollTop from "@/components/ScrollTop/ScrollTop";
-import { categories, postByCategories } from "@/assets/data/data.json"; //fake data (1)
 import Auth from "@/components/Auth/Auth.vue";
 import Login from "@/components/Auth/Login.vue";
 import Register from "@/components/Auth/Register.vue";
@@ -104,11 +103,6 @@ export default {
       }
     },
   },
-
-  methods: {},
-
-  async created() {},
-
   async mounted() {
     // get weather
     await this.$store
@@ -125,16 +119,11 @@ export default {
     this.$store.dispatch("getGoldRates");
 
     //get categories list
-    /* (2)
     this.$store.dispatch("getCategories", {
       nextActions: (res) => {
-        this.categories = res.data.result
+        this.categories = res.result
       }
     });
-    */
-    setTimeout(() => {
-      this.categories = categories.result;
-    }, 2000); //(1)
   },
 
   head() {
