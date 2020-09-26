@@ -42,7 +42,7 @@ export default {
     });
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f"
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
       },
       nextActions: res => {
         NewsBlockB  = [...res.result]
@@ -50,7 +50,7 @@ export default {
     });
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f",
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
       },
       nextActions: res => {
         NewsBlockC = [...res.result]

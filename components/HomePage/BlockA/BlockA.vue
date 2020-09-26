@@ -5,7 +5,10 @@
         <!-- main post -->
         <div class="col-span-8 xs:col-span-12">
           <div class="blocka__main">
-            <nuxt-link :to="`/category/${mainNewCate.alias}`" class="blocka__main--category">{{mainNewCate.name}}</nuxt-link>
+            <nuxt-link
+              :to="`/category/${mainNewCate.alias}`"
+              class="blocka__main--category"
+            >{{mainNewCate.name}}</nuxt-link>
 
             <h3 class="blocka__main--title">
               <nuxt-link to="/post/">{{mainNew.title}}</nuxt-link>
@@ -72,32 +75,26 @@ export default {
     SideBlockItem,
     AdsSide
   },
+  data() {
+    return {
+      mainNewCate : {}
+    }
+  },
   props: {
     News: {
       type: Array,
       required: true
     }
   },
+  async mounted() {
+    const data = await this.$store.dispatch("getDetailCategory", {
+      id: this.News[0].categoryId
+    });
+    this.mainNewCate = data.data.result;
+  },
   computed: {
     mainNew() {
       return this.News[0];
-    },
-    mainNewCate() {
-      /* (2)
-      return this.$store.dispatch('getDetailCategory', {
-        id : this.News[0].id,
-        nextActions : (res) => {
-          return res.data
-        }
-      })
-      */
-      return {
-        id: "2",
-        name: "Tạp chí",
-        alias: "tap-chi",
-        parentId: "-",
-        subCates: []
-      }; //(1)
     },
     restNew() {
       return this.News.slice(1, 4);

@@ -32,35 +32,18 @@ export default {
   props: {
     post: {
       type: Object,
-      default: () => {
-        return {
-          id: "5",
-          title:
-            "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-          alias: "chuan-bi-cho-cach-ly-10000-nguoi",
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          publishedDate: 1600280653,
-          authorId: "1",
-          categoryId: "2",
-          excerpt:
-            "Thủ yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước...."
-        };
-      }
-      // required : true
+      required : true
     }
   },
   async mounted() {
     //Get CateInfo (2)
-    // const data = await this.$store.dispatch('getDetailCategory', {
-    //   id : this.post.categoryId,
-    //   nextActions : (res) => {
-    //     this.cateAlias = res.result.name;
-    //     this.cateName = res.result.alias
-    //   }
-    // })
-    this.cateAlias = "thoi-su"; //(1)
-    this.cateName = "Thời sự"; //(1)
+    const data = await this.$store.dispatch('getDetailCategory', {
+      id : this.post.categoryId,
+      nextActions : (res) => {
+        this.cateAlias = res.result.name;
+        this.cateName = res.result.alias
+      }
+    })
   }
 };
 </script>
