@@ -29,7 +29,7 @@ export default {
     },
     subCates : {
       type : Array,
-      default : () => {[]}
+      default : () => []
     }
   }
 };

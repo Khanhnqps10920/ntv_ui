@@ -118,21 +118,7 @@ export function getLatestNewsCategory({
     data
   })
 }
-
-//getNewsInCategoryPage *
-// export function getNewsInCategoryPage({
-//   dispatch
-// }, {
-//   id,
-//   ...data
-// }) {
-//   return dispatch('makeRequestAction', {
-//     url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
-//     method: 'GET',
-//     data
-//   })
-// }
-
+// getNewsInCategoryPage *
 export function getNewsInCategoryPage({
   dispatch
 }, {
@@ -141,6 +127,21 @@ export function getNewsInCategoryPage({
 }) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
+    method: 'GET',
+    data
+  })
+}
+
+
+//  getDetailNew *
+export function getDetailNew({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/news/${id}`,
     method: 'GET',
     data
   })

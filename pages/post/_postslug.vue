@@ -4,12 +4,12 @@
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
         <div class="post__main">
-          <div class="post__main--category mb-5">
+          <div class="post__main--category mb-5"  v-if="post.subCates && post.subCates.length">
             <nuxt-link
-              v-for="cate in post.subcates"
+              v-for="cate in post.subCates"
               :key="cate.id"
-              :to="`/category/${cate.alias}`"
-            >{{ cate.title }}</nuxt-link>
+              :to="`/category/${cate.alias}-id=${cate.id}`"
+            >{{ cate.name }}</nuxt-link>
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
 
@@ -17,17 +17,17 @@
             <!-- info -->
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
-                <span>By</span>
+                <span>Tác giả</span>
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">14-9-2020</span>
+              <span class="post__main--info-time ml-6">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
 
-              <div class="post__main--info-icon ml-6">
+              <div class="post__main--info-icon ml-6" v-if="post.commentCount">
                 <i class="far fa-comment-alt"></i>
-                <span>0</span>
+                <span>{{post.commentCount}}</span>
               </div>
-              <div class="post__main--info-icon ml-6">
+              <div class="post__main--info-icon ml-6" v-if="post.viewCount">
                 <i class="fas fa-eye"></i>
                 <span>{{ post.viewCount }}</span>
               </div>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="post__main--img">
-            <img :src="post.meta.image" alt="post-img" />
+            <img :src="post.image || ''" alt="post-img" />
           </div>
 
           <!-- content -->
@@ -68,7 +68,7 @@
               <div class="post__main--content-main">
                 <!-- post content -->
                 <div class="post__content mb-5">
-                  <div v-html="post.postContent"></div>
+                  <div v-html="post.postContent || ''"></div>
                 </div>
 
                 <div class="post__share">
@@ -160,74 +160,19 @@ export default {
     AdsMain,
     CommentForm,
     CommentItem,
-    CommentChildren,
+    CommentChildren
   },
-  data() {
-    return {
-      postTest: null,
-
-      post: {
-        id: "1",
-        title:
-          "Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư",
-        date: "14-09-2020",
-        author: "Khánh",
-        viewCount: 900,
-        commentCount: 10,
-        meta: {
-          image:
-            "http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg",
-          description:
-            "Thủ tướng yêu cầu có phương án cụ thể cho từng chuyến bay thương mại, tăng dần tần suất chuyến bay đón công dân về nước....",
-        },
-        subcates: [
-          {
-            id: "12",
-            title: "Tin tức",
-            alias: "tin-tuc",
-          },
-        ],
-        postContent:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        tagList: [
-          {
-            id: "tagId",
-            name: "Theme",
-            alias: "theme",
-          },
-        ],
-        comments: [
-          {
-            name: "Tâm",
-            email: "abd@gmail.com",
-            content: "text comment ne",
-            id: 123,
-            reply: [
-              {
-                name: "Huy",
-                email: "abd@gmail.com",
-                content: "text reply comment ne",
-                id: 123,
-                reply: [],
-              },
-            ],
-          },
-        ],
-      },
-    };
-  },
-
-  created() {},
   async asyncData(context) {
     const id = context.route.params.postslug.slice(
       context.route.params.postslug.indexOf("=") + 1
     );
-    // const postContent = await context.store.dispatch("getPostContent", id);
-    // const post = postContent.data.result;
-    // return {
-    //   post,
-    // };
-  },
+    const postContent = await context.store.dispatch("getDetailNew", { id });
+    const post = postContent.data.result;
+    console.log(post)
+    return {
+      post
+    };
+  }
 };
 </script>
 
