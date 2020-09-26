@@ -23,8 +23,8 @@ export default {
       if (e.target === this.$refs.content) {
         this.setActiveSignin(false);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

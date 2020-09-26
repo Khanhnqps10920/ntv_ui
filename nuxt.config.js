@@ -41,7 +41,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/request.js' },
-    { src: '~/plugins/filters.js' }
+    { src: '~/plugins/filters.js' },
+    { src: '~/plugins/vuelidate.js' }
   ],
   /*
    ** Nuxt.js dev-modules

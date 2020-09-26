@@ -42,6 +42,31 @@ body {
   font-weight: 400;
   font-size: 15px;
   color: #fff;
+  transition: 0.2s ease;
+}
+
+.auth-form .form-input.error {
+  margin-bottom: 45px;
+}
+
+.auth-form .form-input.error input {
+  border-color: #f79483;
+}
+
+.auth-form .form-input.error label {
+  color: #f79483;
+}
+
+.auth-form .form-input .error {
+  display: none;
+}
+
+.auth-form .form-input.error .error {
+  text-align: left;
+  margin-top: 10px;
+  color: #f79483;
+  font-size: 12px;
+  display: block;
 }
 
 .auth-form .form-input input {
