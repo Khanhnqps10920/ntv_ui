@@ -3,7 +3,7 @@
     <div class="blocka flex xs:block">
       <div class="grid grid-cols-12 gap-4 flex-grow">
         <!-- main post -->
-        <div class="col-span-8 xs:col-span-12">
+        <div class="col-span-8 xs:col-span-12" v-if="mainNew && mainNewCate">
           <div class="blocka__main">
             <nuxt-link
               :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
@@ -26,10 +26,7 @@
 
             <div class="blocka__main--img">
               <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">
-                <img
-                  :src="mainNew.image"
-                  alt="post-img"
-                />
+                <img :src="mainNew.image" alt="post-img" />
               </nuxt-link>
             </div>
 
@@ -77,8 +74,8 @@ export default {
   },
   data() {
     return {
-      mainNewCate : {}
-    }
+      mainNewCate: ""
+    };
   },
   props: {
     News: {
@@ -87,10 +84,12 @@ export default {
     }
   },
   async mounted() {
-    const data = await this.$store.dispatch("getDetailCategory", {
-      id: this.News[0].categoryId
-    });
-    this.mainNewCate = data.data.result;
+    if (this.News.length) {
+      const data = await this.$store.dispatch("getDetailCategory", {
+        id: this.News[0].categoryId
+      });
+      this.mainNewCate = data.data.result;
+    }
   },
   computed: {
     mainNew() {
