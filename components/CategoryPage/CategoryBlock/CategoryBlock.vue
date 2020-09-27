@@ -8,7 +8,7 @@
 
         <ul class="category__list" v-if="subCates.length">
           <li v-for="(subCate,i) in subCates" :key="i" class="category__list-item">
-            <nuxt-link :to="`/category/${subCates.alias}-id=${subCates.id}`">{{subCates.name}}</nuxt-link>
+            <nuxt-link :to="`/category/${subCate.alias}-id=${subCate.id}`">{{subCate.name}}</nuxt-link>
           </li>
         </ul>
       </div>

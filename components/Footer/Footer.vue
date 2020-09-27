@@ -47,21 +47,21 @@
         <div class="footer__about footer__container-item">
           <h4 class="footer__block-title">Về chúng tôi</h4>
           <ul class="footer__about-sections">
-<!--            <li>-->
-<!--              <a href="#" class="footer__link">Advertise</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" class="footer__link">About</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" class="footer__link">Event</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" class="footer__link">Write for us</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#" class="footer__link">In the press</a>-->
-<!--            </li>-->
+            <li>
+              <a href="#" class="footer__link">Advertise</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">About</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Event</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Write for us</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">In the press</a>
+            </li>
           </ul>
         </div>
 
@@ -69,41 +69,10 @@
         <div class="footer__category footer__container-item">
           <h4 class="footer__block-title">Các chuyên mục</h4>
 
-          <ul class="footer__category-list">
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Thời sự</span>
-                <span class="item-quantity">(6)</span>
-              </nuxt-link>
-            </li>
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Tạp chí</span>
-                <span class="item-quantity">(6)</span>
-              </nuxt-link>
-            </li>
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Nông nghiệp</span>
-                <span class="item-quantity">(6)</span>
-              </nuxt-link>
-            </li>
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Khám phá</span>
-                <span class="item-quantity">(6)</span>
-              </nuxt-link>
-            </li>
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Nông sản việt</span>
-                <span class="item-quantity">(6)</span>
-              </nuxt-link>
-            </li>
-            <li class="footer__category-list-item">
-              <nuxt-link to="/category/thoi-su" class="footer__link">
-                <span>Gương mặt</span>
-                <span class="item-quantity">(6)</span>
+          <ul class="footer__category-list" v-if="categories.length">
+            <li class="footer__category-list-item" v-for="(category,i)  in categories" :key="i">
+              <nuxt-link :to="`/category/${category.alias}-id=${category.id}`" class="footer__link">
+                <span>{{category.name}}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -157,8 +126,16 @@ import Container1440 from "../containers/Container1440.vue";
 
 export default {
   components: {
-    Container1440,
+    Container1440
   },
+  props: {
+    categories: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    }
+  }
 };
 </script>
 

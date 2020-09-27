@@ -26,7 +26,7 @@
       </transition>
     </div>
     <nuxt />
-    <Footer />
+    <Footer :categories="categories" />
     <ScrollTop />
   </div>
 </template>
