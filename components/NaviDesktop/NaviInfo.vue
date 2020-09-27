@@ -18,7 +18,7 @@
 
         <div class="flex-1 text-center">
           <Logo />
-          <div class="text-sm mt-1">Thứ Tư, 16 tháng 9, 2020</div>
+          <div class="text-sm mt-1">{{dateInfo.day}}, {{dateInfo.date}} tháng {{dateInfo.month}} năm {{dateInfo.year}}</div>
         </div>
         <div class="flex-1 text-right self-center">
           <nuxt-link to class="hover:text-hovercolor">
@@ -44,7 +44,6 @@
 </template>
 
 <script>
-// libs
 import { mapState } from "vuex";
 
 import Logo from "@/components/NaviDesktop/Logo";
@@ -55,12 +54,49 @@ export default {
     return {
       searchActive: false,
       metals: null,
+      dateInfo : ''
     };
   },
   components: {
     Container1640,
     Logo,
-    SearchHome,
+    SearchHome
+  },
+  mounted() {
+    let d = new Date();
+    let day;
+    let date = d.getDate();
+    let month = d.getMonth();
+    let year = d.getFullYear();
+    console.log(day);
+    switch (d.getDay()) {
+      case 0:
+        day = "Chủ Nhật";
+        break;
+      case 1:
+        day = "Thứ Hai";
+        break;
+      case 2:
+        day = "Thứ Ba";
+        break;
+      case 3:
+        day = "Thứ Tư";
+        break;
+      case 4:
+        day = "Thứ Năm";
+        break;
+      case 5:
+        day = "Thứ Sáu";
+        break;
+      case 6:
+        day = "Thứ Bảy";
+    }
+    this.dateInfo = {
+      day,
+      date,
+      month : month + 1,
+      year
+    }
   },
 
   computed: {
@@ -68,10 +104,10 @@ export default {
 
     weatherCelsius() {
       return this.weather.main ? this.weather.main.temp - 273.15 : null;
-    },
+    }
   },
 
-  async created() {},
+  async created() {}
 };
 </script>
 
