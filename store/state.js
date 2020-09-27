@@ -14,6 +14,8 @@ export default () => ({
 
   signinModal: false,
 
-  user: null
+  user: null,
+
+  authError: null
 
 })

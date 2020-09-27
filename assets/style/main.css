@@ -57,6 +57,11 @@ body {
   color: #f79483;
 }
 
+.auth-form .main-error {
+  color: #f79483;
+
+}
+
 .auth-form .form-input .error {
   display: none;
 }
@@ -82,8 +87,8 @@ body {
   width: 100%;
 }
 
-.auth-form .form-input input:focus ~ label,
-.auth-form .form-input input:valid ~ label {
+.auth-form .form-input input:focus~label,
+.auth-form .form-input input:valid~label {
   top: -18px;
   font-size: 11px;
   opacity: 0.6;

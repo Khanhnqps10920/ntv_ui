@@ -124,9 +124,9 @@ export default {
         this.categories = res.result;
       },
     });
-  },
 
-  async created() {
+    // try auto login
+
     this.$store.dispatch("tryAutoLogin");
   },
 

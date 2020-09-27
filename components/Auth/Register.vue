@@ -72,6 +72,13 @@
         </div>
       </div>
 
+      <p
+        class="main-error text-md font-bold text-left uppercase"
+        v-if="authError"
+      >
+        {{ authError }}
+      </p>
+
       <button class="form-btn">Đăng Ký</button>
       <p @click="login" class="form-link">Đã có tài khoản? Trở lại đăng nhập</p>
     </form>
@@ -79,7 +86,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 import {
   required,
@@ -102,6 +109,10 @@ export default {
       password: null,
       cfpassword: null,
     };
+  },
+
+  computed: {
+    ...mapState(["authError"]),
   },
 
   validations: {

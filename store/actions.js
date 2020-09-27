@@ -1,7 +1,8 @@
 import {
   get,
   isEmpty,
-  forIn
+  forIn,
+  isBuffer
 } from 'lodash'
 
 export function makeRequestAction({
@@ -245,11 +246,11 @@ export async function getGoldRates({
   try {
     const priceData = await this.$axios.get(
       "https://www.goldapi.io/api/XAU/USD", {
-      headers: {
-        "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
-        "Content-Type": "application/json",
-      },
-    }
+        headers: {
+          "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
+          "Content-Type": "application/json",
+        },
+      }
     );
 
     commit("SET_GOLD_RATES", priceData.data);
@@ -263,7 +264,9 @@ export async function getGoldRates({
 
 // auth
 
-export async function login({ commit }, authData) {
+export async function login({
+  commit
+}, authData) {
   try {
 
     // fetch user
@@ -271,29 +274,50 @@ export async function login({ commit }, authData) {
       email: authData.email,
       password: authData.password
     });
-    const { result } = user.data;
+    const {
+      result
+    } = user.data;
     console.log(result);
     // setlocal storage
     localStorage.setItem('token', result.loginToken);
-    localStorage.setItem('user', JSON.stringify({ ...result }))
+    localStorage.setItem('user', JSON.stringify({
+      ...result
+    }))
 
-    commit("SET_USER", { ...result });
+    // set user to store
+    commit("SET_USER", {
+      ...result
+    });
+
+    // close modal
     commit("setActiveSignin", false);
 
+    // success
+    commit("SET_AUTH_ERROR", null);
 
   } catch (e) {
-    if (e) {
-      console.log(e, e.response)
-      console.log('sai mat khau hoac tai khoan');
+
+    // status 400
+    if (e.response && e.response.status === 400) {
+      commit("SET_AUTH_ERROR",
+        "Sai email hoặc mật khẩu"
+      );
     } else {
-      console.log('lỗi khác')
+      console.log(e)
     }
   }
 
 }
 
-export async function register({ dispatch }, authData) {
-  const { email, name, password } = authData;
+export async function register({
+  dispatch,
+  commit
+}, authData) {
+  const {
+    email,
+    name,
+    password
+  } = authData;
   try {
 
     // register
@@ -303,12 +327,21 @@ export async function register({ dispatch }, authData) {
       password
     });
 
+    // if success
+    commit("SET_AUTH_ERROR",
+      null
+    );
     // try login before register
-    dispatch('login', { email, password });
+    dispatch('login', {
+      email,
+      password
+    });
   } catch (e) {
     console.log(e);
     if (e.response && e.response.status === 400) {
-      console.log('email đã có người sử dụng');
+      commit("SET_AUTH_ERROR",
+        "Email đã có người sử dụng"
+      );
     } else {
       console.log('lỗi khác')
     }
@@ -316,19 +349,45 @@ export async function register({ dispatch }, authData) {
 
 }
 
-export function logout({ commit }) {
+export function logout({
+  commit
+}) {
   commit("SET_USER", null);
 
   localStorage.removeItem('token');
   localStorage.removeItem('userId');
 }
 
-export function tryAutoLogin({ commit }) {
+export function tryAutoLogin({
+  commit
+}) {
   const token = localStorage.getItem('token');
 
   if (!token) return;
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  commit("SET_USER", { ...user });
+  commit("SET_USER", {
+    ...user
+  });
+}
+
+export async function forgetPassword({
+  commit
+}, email) {
+
+  try {
+    const request = await this.$axios.post(`${process.env.BASE_URL}/public/forgotPassword`, {
+      email
+    });
+    console.log(request);
+    if (request.status === 1) {
+      commit("SET_AUTH_ERROR", null);
+    }
+  } catch (e) {
+    if (e.response && e.response.status === 400) {
+      commit("SET_AUTH_ERROR", "Email không chính xác");
+    }
+  }
+
 }

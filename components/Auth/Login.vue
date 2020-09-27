@@ -41,7 +41,12 @@
       >
         Quên mật khẩu?
       </p>
-
+      <p
+        class="main-error text-md mt-4 font-bold text-left uppercase"
+        v-if="authError"
+      >
+        {{ authError }}
+      </p>
       <button class="form-btn">Đăng Nhập</button>
       <p @click="register" class="form-link">Chưa có tài khoản? Đăng ký</p>
     </form>
@@ -49,7 +54,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 import { required, email } from "vuelidate/lib/validators";
 
@@ -67,6 +72,10 @@ export default {
       email: null,
       password: null,
     };
+  },
+
+  computed: {
+    ...mapState(["authError"]),
   },
 
   validations: {
