@@ -9,7 +9,7 @@
           name="email"
           type="text"
           v-model="$v.email.$model"
-          value
+          value 
           required
         />
         <label for="username">Email</label>
