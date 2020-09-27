@@ -13,7 +13,7 @@
         </ul>
       </div>
       <div class="flex-grow ml-4 mt-4">
-        <div class="grid grid-cols-12 gap-4 justify-center">
+        <div class="grid grid-cols-12 gap-4 justify-center" v-if="currentPosts.length">
           <BlockItem
             v-for="(post, i) in currentPosts"
             :post="post"
@@ -51,7 +51,9 @@ export default {
     },
     currentPosts: {
       type: Array,
-      required : true
+      default : () => {
+        return []
+      }
     }
   },
   data() {

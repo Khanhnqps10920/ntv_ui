@@ -1,7 +1,7 @@
 <template>
   <Container1640 class="wrapper">
     <div class="mb-6">
-      <div class="title-bar" style="background:var(--maincolor)">
+      <div class="title-bar" style="background:var(--maincolor)" v-if="mainNew">
         <Container1440>
           <h1
             class="text-white text-6xl sm:text-3xl sm:mt-3 xs:text-4xl xs:mt-3 font-extrabold font-sans mt-5"

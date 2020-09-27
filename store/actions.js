@@ -52,33 +52,12 @@ export function makeRequestAction({
   }
 }
 
-//API Danh sách theo danh mục
-export function getPostInCategory({
-  dispatch
-}, data) {
-  console.log(data, 'data');
-  return dispatch('makeRequestAction', {
-    url: `${process.env.baseAPI}/v1/search/init`,
-    method: 'GET',
-    data,
-  });
-}
-
-//API lấy cái nội dung HomePage
-export function getHomeContent(data) {
-  return axios({
-    url: `${process.env.baseAPI}/public/get_index_json`,
-    method: 'GET',
-    data
-  })
-}
-
-
-
 // getcategories *
 export function getCategories({
   dispatch
-},{...data}) {
+}, {
+  ...data
+}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/category`,
     method: 'GET',
@@ -87,7 +66,12 @@ export function getCategories({
 }
 
 //getTopHotNewsByCategory *
-export function getTopHotNewsByCategory({ dispatch }, {id, ...data} ) {
+export function getTopHotNewsByCategory({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/hotNews/${id}`,
     method: 'GET',
@@ -96,7 +80,12 @@ export function getTopHotNewsByCategory({ dispatch }, {id, ...data} ) {
 }
 
 //getDetailCategory *
-export function getDetailCategory({ dispatch }, {id, ...data} ) {
+export function getDetailCategory({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/category/${id}`,
     method: 'GET',
@@ -105,7 +94,11 @@ export function getDetailCategory({ dispatch }, {id, ...data} ) {
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({ dispatch },{...data}) {
+export function getTopNewsInHomepage({
+  dispatch
+}, {
+  ...data
+}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/homepage`,
     method: 'GET',
@@ -114,13 +107,47 @@ export function getTopNewsInHomepage({ dispatch },{...data}) {
 }
 
 //getLatestNewsCategory *
-export function getLatestNewsCategory({ dispatch }, {...data} ) {
+export function getLatestNewsCategory({
+  dispatch
+}, {
+  ...data
+}) {
   return dispatch('makeRequestAction', {
     url: `${process.env.BASE_URL}/public/hotNews`,
     method: 'GET',
     data
   })
 }
+// getNewsInCategoryPage *
+export function getNewsInCategoryPage({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
+    method: 'GET',
+    data
+  })
+}
+
+
+//  getDetailNew *
+export function getDetailNew({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/news/${id}`,
+    method: 'GET',
+    data
+  })
+}
+
+/*===================*/
 
 // get weather api
 
@@ -145,36 +172,54 @@ export function getCurrentGoldRate({
     data
   })
 }
-getMainNew
 
-export function getMainNew({ dispatch }) {
+export function getMainNew({
+  dispatch
+}) {
   return dispatch('makeRequestAction', {
     url: "https://glados.boo.vn/v1/api/portal/news/830175",
     method: "GET",
   })
 }
 
-export function getDataHomePage({ dispatch }) {
+export function getDataHomePage({
+  dispatch
+}) {
   return dispatch('makeRequestAction', {
     url: "https://glados.boo.vn/v1/api/portal/homepage",
     method: "GET",
   })
 }
 
-export function getPostContent({ dispatch }, id) {
+export function getPostContent({
+  dispatch
+}, id) {
   return dispatch('makeRequestAction', {
     url: `https://glados.boo.vn/v1/api/portal/news/${id}`,
     method: "GET",
   })
 }
 
-export function getPostListByCate({ dispatch }, id) {
+export function getPostListByCate({
+  dispatch
+}, id) {
   return dispatch('makeRequestAction', {
     url: `https://glados.boo.vn/v1/api/portal/category/${id}`,
     method: "GET",
   })
 }
 
+export function login({
+  dispatch
+}, {
+  ...data
+}) {
+  return dispatch('makeRequestAction', {
+    url: `${process.env.BASE_URL}/public/login`,
+    method: "POST",
+    data
+  })
+}
 
 // export function getCategories({ dispatch }) {
 //   return dispatch('makeRequestAction', {
@@ -204,12 +249,13 @@ export function getPostListByCate({ dispatch }, id) {
 
 // custom fetch gold api 
 
-export async function getGoldRates({ commit }) {
+export async function getGoldRates({
+  commit
+}) {
 
   try {
     const priceData = await this.$axios.get(
-      "https://www.goldapi.io/api/XAU/USD",
-      {
+      "https://www.goldapi.io/api/XAU/USD", {
         headers: {
           "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
           "Content-Type": "application/json",

@@ -3,12 +3,15 @@
     <div class="blocka flex xs:block">
       <div class="grid grid-cols-12 gap-4 flex-grow">
         <!-- main post -->
-        <div class="col-span-8 xs:col-span-12">
+        <div class="col-span-8 xs:col-span-12" v-if="mainNew && mainNewCate">
           <div class="blocka__main">
-            <nuxt-link :to="`/category/${mainNewCate.alias}`" class="blocka__main--category">{{mainNewCate.name}}</nuxt-link>
+            <nuxt-link
+              :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
+              class="blocka__main--category"
+            >{{mainNewCate.name}}</nuxt-link>
 
             <h3 class="blocka__main--title">
-              <nuxt-link to="/post/">{{mainNew.title}}</nuxt-link>
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{mainNew.title}}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -22,11 +25,8 @@
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link :to="`/post/${mainNew.alias}`">
-                <img
-                  src="http://nongthonviet.com.vn/dataimages/202009//normal/images1470004_1.png"
-                  alt="post-img"
-                />
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">
+                <img :src="mainNew.image" alt="post-img" />
               </nuxt-link>
             </div>
 
@@ -72,32 +72,28 @@ export default {
     SideBlockItem,
     AdsSide
   },
+  data() {
+    return {
+      mainNewCate: ""
+    };
+  },
   props: {
     News: {
       type: Array,
       required: true
     }
   },
+  async mounted() {
+    if (this.News.length) {
+      const data = await this.$store.dispatch("getDetailCategory", {
+        id: this.News[0].categoryId
+      });
+      this.mainNewCate = data.data.result;
+    }
+  },
   computed: {
     mainNew() {
       return this.News[0];
-    },
-    mainNewCate() {
-      /* (2)
-      return this.$store.dispatch('getDetailCategory', {
-        id : this.News[0].id,
-        nextActions : (res) => {
-          return res.data
-        }
-      })
-      */
-      return {
-        id: "2",
-        name: "Tạp chí",
-        alias: "tap-chi",
-        parentId: "-",
-        subCates: []
-      }; //(1)
     },
     restNew() {
       return this.News.slice(1, 4);

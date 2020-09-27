@@ -51,7 +51,9 @@ export default {
   },
   computed: {
     currentPosts() {
-      return this.allPosts.slice(this.n - 4, this.n);
+      if (this.allPosts.length) {
+        return this.allPosts.slice(this.n - 4, this.n);
+      }
     }
   },
   components: {
@@ -88,13 +90,13 @@ export default {
       // setTimeout(() => {
       //   this.allPosts = postByCategories.result.posts; //(1)
       // }, 2000);
-      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+      this.allPosts = await this.$store.dispatch("getTopHotNewsByCategory", {
         id,
-        nextActions : (res) => {
-          console.log(res.result)
-          this.allPosts = res.result
+        nextActions: res => {
+          console.log(res.result);
+          this.allPosts = res.result;
         }
-      })
+      });
     },
     async hoverSub(id) {
       //dispatch call api post list theo cates
@@ -102,12 +104,12 @@ export default {
       // setTimeout(() => {
       //   this.allPosts = postByCategories.result.posts; //(1)
       // }, 2000);
-      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+      this.allPosts = await this.$store.dispatch("getTopHotNewsByCategory", {
         id,
-        nextActions : (res) => {
-          this.allPosts = res.result
+        nextActions: res => {
+          this.allPosts = res.result;
         }
-      })
+      });
       this.n = 4;
     },
     onScroll() {

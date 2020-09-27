@@ -1,16 +1,14 @@
 <template>
   <div class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height">
-    <div class="bg-blue-300 h-auto relative flex-grow">
-      <nuxt-link to="/category" class="block-item__category absolute">{{"CateName"}}</nuxt-link>
+    <div class="bg-blue-300 h-auto relative flex-grow" v-if="cateInfo && post">
+      <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
       <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link
-          :to="`/post/${post.alias}-id=${post.id}`"
-        >{{post.title}}</nuxt-link>
+        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{post.title}}</nuxt-link>
       </h3>
 
       <div class="block-item__date">
@@ -26,11 +24,27 @@
 
 <script>
 export default {
+  data() {
+    return {
+      cateInfo : {}
+    }
+  },
   props: {
     post: {
       type: Object,
-      required : true
+      default: () => {
+        return {}
+      }
     }
+  },
+  async mounted() {
+    //Get CateInfo (2)
+    const data = await this.$store.dispatch("getDetailCategory", {
+      id: this.post.categoryId,
+      nextActions: res => {
+        this.cateInfo = res.result;
+      }
+    });
   }
 };
 </script>
