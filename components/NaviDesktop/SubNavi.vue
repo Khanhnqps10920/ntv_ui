@@ -3,15 +3,13 @@
     <Container1640>
       <div class="flex text-white text-xs h-8 items-center justify-between">
         <div class="flex items-center">
-          <nuxt-link to class="mr-5 hover:text-hovercolor">Advertise</nuxt-link>
-          <nuxt-link to class="mr-5 hover:text-hovercolor">About</nuxt-link>
-          <nuxt-link to class="mr-5 hover:text-hovercolor">Events</nuxt-link>
-          <nuxt-link to class="mr-5 hover:text-hovercolor">Write for us</nuxt-link>
-          <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
-          <nuxt-link to class="ml-auto hover:text-hovercolor">Sign In / Join</nuxt-link>-->
-          <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link>
+          <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">Advertise</nuxt-link> -->
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Về chúng tôi</nuxt-link>
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Magazine</nuxt-link>
+          <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
+          <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>
-        <a @click="activeSigninModal" class="hover:text-hovercolor cursor-pointer">Sign in / join</a>
+        <a @click="activeSigninModal" class="hover:text-hovercolor cursor-pointer">Đăng nhập / Đăng ký</a>
       </div>
     </Container1640>
   </div>

@@ -48,19 +48,13 @@
           <h4 class="footer__block-title">Về chúng tôi</h4>
           <ul class="footer__about-sections">
             <li>
-              <a href="#" class="footer__link">Advertise</a>
+              <a href="#" class="footer__link">Về chúng tôi</a>
             </li>
             <li>
-              <a href="#" class="footer__link">About</a>
+              <a href="#" class="footer__link">Magazine</a>
             </li>
             <li>
-              <a href="#" class="footer__link">Event</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">Write for us</a>
-            </li>
-            <li>
-              <a href="#" class="footer__link">In the press</a>
+              <a href="#" class="footer__link">Liên hệ</a>
             </li>
           </ul>
         </div>
