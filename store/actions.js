@@ -209,17 +209,6 @@ export function getPostListByCate({
   })
 }
 
-export function login({
-  dispatch
-}, {
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
-    url: `${process.env.BASE_URL}/public/login`,
-    method: "POST",
-    data
-  })
-}
 
 // export function getCategories({ dispatch }) {
 //   return dispatch('makeRequestAction', {
@@ -256,11 +245,11 @@ export async function getGoldRates({
   try {
     const priceData = await this.$axios.get(
       "https://www.goldapi.io/api/XAU/USD", {
-        headers: {
-          "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
-          "Content-Type": "application/json",
-        },
-      }
+      headers: {
+        "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
+        "Content-Type": "application/json",
+      },
+    }
     );
 
     commit("SET_GOLD_RATES", priceData.data);
@@ -269,4 +258,77 @@ export async function getGoldRates({
     console.log(e)
   }
 
+}
+
+
+// auth
+
+export async function login({ commit }, authData) {
+  try {
+
+    // fetch user
+    const user = await this.$axios.post(`${process.env.BASE_URL}/public/login`, {
+      email: authData.email,
+      password: authData.password
+    });
+    const { result } = user.data;
+    console.log(result);
+    // setlocal storage
+    localStorage.setItem('token', result.loginToken);
+    localStorage.setItem('user', JSON.stringify({ ...result }))
+
+    commit("SET_USER", { ...result });
+    commit("setActiveSignin", false);
+
+
+  } catch (e) {
+    if (e) {
+      console.log(e, e.response)
+      console.log('sai mat khau hoac tai khoan');
+    } else {
+      console.log('lỗi khác')
+    }
+  }
+
+}
+
+export async function register({ dispatch }, authData) {
+  const { email, name, password } = authData;
+  try {
+
+    // register
+    await this.$axios.post(`${process.env.BASE_URL}/public/register`, {
+      email,
+      name,
+      password
+    });
+
+    // try login before register
+    dispatch('login', { email, password });
+  } catch (e) {
+    console.log(e);
+    if (e.response && e.response.status === 400) {
+      console.log('email đã có người sử dụng');
+    } else {
+      console.log('lỗi khác')
+    }
+  }
+
+}
+
+export function logout({ commit }) {
+  commit("SET_USER", null);
+
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+}
+
+export function tryAutoLogin({ commit }) {
+  const token = localStorage.getItem('token');
+
+  if (!token) return;
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  commit("SET_USER", { ...user });
 }

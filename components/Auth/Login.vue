@@ -3,13 +3,13 @@
     <h3 class="auth-form__title">ĐĂNG NHẬP</h3>
     <p class="auth-form__panel">Xin chào! Đăng nhập tài khoản của bạn</p>
 
-    <form action class="auth-form">
+    <form @submit.prevent="handleLogin" class="auth-form">
       <div class="form-input" :class="{ error: $v.email.$error }">
         <input
           name="email"
           type="text"
           v-model="$v.email.$model"
-          value 
+          value
           required
         />
         <label for="username">Email</label>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
@@ -75,6 +77,18 @@ export default {
 
     password: {
       required,
+    },
+  },
+
+  methods: {
+    ...mapActions(["login"]),
+    handleLogin() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      } else {
+        this.login({ email: this.email, password: this.password });
+      }
     },
   },
 };
