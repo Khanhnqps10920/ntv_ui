@@ -2,9 +2,21 @@
   <div>
     <AdsBlock class="mt-10" />
 
-    <CategoryBlock class="mt-5" :cateName="meta.category.name"  :subCates="meta.category.subCates" />
+    <CategoryBlock
+      class="mt-5"
+      v-if="meta"
+      :cateName="meta.category.name"
+      :subCates="meta.category.subCates"
+    />
 
-    <MainBlock class="mt-10" :posts="posts"/>
+    <MainBlock
+      @changePage="changePage"
+      class="mt-10"
+      v-if="posts.length"
+      :posts="posts"
+      :totalNews="total"
+      :limit="limit"
+    />
   </div>
 </template>
 
@@ -22,24 +34,44 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock,
-  },
-  async asyncData(context) {
-    const id = context.route.params.slug.slice(
-      context.route.params.slug.indexOf("=") + 1
-    );
-    const data = await context.store.dispatch('getNewsInCategoryPage', {
-      id : id
-    })
-    console.log(data.data.result)
-    return {
-      posts : data.data.result,
-      meta : data.data.meta
-    }
+    MainBlock
   },
   data() {
-    return {};
+    return {
+      skip: 0,
+      limit: 1, //news per page
+      posts: "",
+      meta: "",
+      total: ""
+    };
   },
+  async mounted() {
+    const id = this.$route.params.slug.slice(
+      this.$route.params.slug.indexOf("=") + 1
+    );
+    const data = await this.$store.dispatch("getNewsInCategoryPage", {
+      id: id,
+      urlQuery: { skip: this.skip, limit: this.limit }
+    });
+    this.posts = data.data.result;
+    this.meta = data.data.meta;
+    this.total = data.data.total;
+  },
+  methods: {
+    async changePage(p) {
+      this.skip = this.limit * (p - 1);
+      const id = this.$route.params.slug.slice(
+        this.$route.params.slug.indexOf("=") + 1
+      );
+      const data = await this.$store.dispatch("getNewsInCategoryPage", {
+        id: id,
+        urlQuery: { skip: this.skip, limit: this.limit }
+      });
+      this.posts = data.data.result;
+      this.meta = data.data.meta;
+      this.total = data.data.total;
+    }
+  }
 };
 </script>
 

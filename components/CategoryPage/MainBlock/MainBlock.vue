@@ -3,8 +3,8 @@
     <div class="main-block flex xs:block mb-5">
       <!-- main block -->
       <div class="main-block__main flex-grow">
-        <MainBlockItem  v-for="(post,index) in posts" :key="index" :post="post" :is1240="true" />
-        <Pagination />
+        <MainBlockItem v-for="(post,index) in posts" :key="index" :post="post" :is1240="true" />
+        <Pagination :totalNews="totalNews" :limit="limit" @changePage="changePage" />
       </div>
 
       <!-- right block -->
@@ -37,13 +37,24 @@ export default {
     SideBlockItem,
     MainBlockItem,
     AdsSide,
-    Pagination,
+    Pagination
   },
   props: {
     posts: {
-      type: Array,
+      type: Array
     },
+    totalNews: {
+      type: Number
+    },
+    limit : {
+      type : Number
+    }
   },
+  methods: {
+    changePage(p) {
+      this.$emit('changePage', p)
+    }
+  }
 };
 </script>
 

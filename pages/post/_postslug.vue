@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="post__main--img">
-            <img :src="post.image || ''" alt="post-img" />
+            <img :src="post.meta.image || ''" alt="post-img" />
           </div>
 
           <!-- content -->
@@ -168,7 +168,6 @@ export default {
     );
     const postContent = await context.store.dispatch("getDetailNew", { id });
     const post = postContent.data.result;
-    console.log(post)
     return {
       post
     };
