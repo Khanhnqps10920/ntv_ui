@@ -12,7 +12,7 @@
       </div>
 
       <div class="main-item__info">
-        <h3 class="main-item__info--title">
+        <h3 class="main-item__info--title line-clamp-title">
           <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{post.title}}</nuxt-link>
         </h3>
         <div class="main-item__date">
@@ -20,9 +20,9 @@
             <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
+          <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
         </div>
-        <div class="main-item__text">{{ post.excerpt | titleShort(1000) }}</div>
+        <div class="main-item__text line-clamp-excerpt">{{ post.excerpt }}</div>
       </div>
     </div>
   </div>

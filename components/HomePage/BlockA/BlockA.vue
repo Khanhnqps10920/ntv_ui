@@ -10,7 +10,7 @@
               class="blocka__main--category"
             >{{mainNewCate.name}}</nuxt-link>
 
-            <h3 class="blocka__main--title">
+            <h3 class="blocka__main--title line-clamp-title">
               <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{mainNew.title}}</nuxt-link>
             </h3>
 
@@ -21,7 +21,7 @@
               </span>
               <span
                 class="blocka__main-date-time"
-              >{{mainNew.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
+              >{{mainNew.publishedDate | datetime('DD/MM/YYYY')}}</span>
             </div>
 
             <div class="blocka__main--img">
@@ -30,7 +30,7 @@
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description">{{mainNew.excerpt | titleShort(300)}}</div>
+            <div class="blocka__main-description line-clamp-excerpt">{{mainNew.excerpt}}</div>
           </div>
         </div>
 
@@ -42,17 +42,17 @@
 
       <!-- ads -->
       <div class="blocka-right">
-        <div class="blocka-right__section">
+        <div class="blocka-right__section" v-if="TinNhanh.length">
           <h4 class="section-title">Tin nhanh</h4>
-          <SideBlockItem />
+          <SideBlockItem :post="TinNhanh[0]" />
         </div>
 
         <!-- ads -->
         <AdsSide />
 
-        <div class="blocka-right__section">
+        <div class="blocka-right__section" v-if="ThiTruongTaiChinh.length">
           <h4 class="section-title">Thị trường - tài chính</h4>
-          <SideBlockItem v-for="(item,index) in 3" :key="index" />
+          <SideBlockItem v-for="(post,index) in ThiTruongTaiChinh.slice(0,3)" :post="post" :key="index" />
         </div>
       </div>
     </div>
@@ -80,7 +80,21 @@ export default {
   props: {
     News: {
       type: Array,
-      required: true
+      default: () => {
+        return [];
+      }
+    },
+    TinNhanh: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    },
+    ThiTruongTaiChinh: {
+      type: Array,
+      default: () => {
+        return [];
+      }
     }
   },
   async mounted() {

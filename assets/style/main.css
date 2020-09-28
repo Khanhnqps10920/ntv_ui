@@ -1,5 +1,4 @@
 @import "./reset.css";
-
 :root {
   --maincolor: #027731;
   --hovercolor: #006428;
@@ -176,4 +175,18 @@ body {
   .block-title {
     font-size: 19px;
   }
+}
+
+.line-clamp-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-excerpt {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

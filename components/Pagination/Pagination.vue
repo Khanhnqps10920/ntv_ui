@@ -1,23 +1,50 @@
 <template>
   <div class="pagination">
     <div class="pagination__items">
-      <div class="pagination__items-item active">1</div>
-      <div class="pagination__items-item">2</div>
-      <div class="pagination__items-item">3</div>
-      <div class="pagination__items-item">4</div>
-      <div class="pagination__items-item">
+      <div
+        class="pagination__items-item"
+        :class="current === i+1 ? 'active': ''"
+        v-for="(page,i) in totalPages"
+        :key="i"
+        @click="[current = i + 1, $emit('changePage', current)]"
+      >{{i + 1}}</div>
+      <div class="pagination__items-item"  :class="current === totalPages ? 'disable' : ''" @click="[current += 1, $emit('changePage', current)]">
         <i class="fas fa-angle-right"></i>
       </div>
     </div>
-    <p class="pagination__text">Page 1 of 4</p>
+    <p class="pagination__text">Trang {{current}}/ {{totalPages}}</p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    totalNews: {
+      type: Number
+    },
+    limit: {
+      type: Number
+    }
+  },
+  computed: {
+    totalPages() {
+      console.log(this.totalNews);
+      return Math.ceil(this.totalNews / this.limit);
+    }
+  },
+  data() {
+    return {
+      current: 1,
+    };
+  }
+};
 </script>
 
 <style scoped>
+.disable {
+  color: rgb(219, 219, 219) !important;
+  pointer-events: none;
+}
 .pagination {
   display: flex;
   justify-content: space-between;

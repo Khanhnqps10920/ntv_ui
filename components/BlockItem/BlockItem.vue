@@ -6,17 +6,17 @@
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
-    <h5 class="block-item__title">
+    <h5 class="block-item__title line-clamp-title">
       <nuxt-link
         :to="'/post/' + post.alias + `-id=${post.id}`"
-      >{{post.excerpt | titleShort(70)}}</nuxt-link>
+      >{{post.excerpt}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
         <nuxt-link to="/">Nguyễn Tâm</nuxt-link>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
+      <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
     </div>
   </div>
 </template>
