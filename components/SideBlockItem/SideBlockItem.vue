@@ -1,14 +1,14 @@
 <template>
   <div class="side-item" :class="{'noneImg': noneImg, 'border':isBorder, 'square': isSquare }">
     <div class="side-item__info">
-      <h3 class="side-item__title">
-        <nuxt-link :to="`/post/${item.alias}-id=${item.id}`">{{ item.title }}</nuxt-link>
+      <h3 class="side-item__title line-clamp-title">
+        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{ post.title }}</nuxt-link>
       </h3>
-      <p class="side-item__date">{{ item.date }}</p>
+      <p class="side-item__date">{{ post.publishedDate | datetime('DD/MM/YYYY')}}</p>
     </div>
 
     <div class="side-item__img" v-if="!noneImg">
-      <img :src="item.image" alt />
+      <img :src="post.image" alt />
     </div>
   </div>
 </template>
@@ -31,19 +31,10 @@ export default {
       default: false,
     },
 
-    item: {
+    post: {
       type: Object,
       default: () => {
-        return {
-          id: "914131",
-          alias: "tai-sao-chung-ta-nen-bat-dau-bua-sang-voi-gung-765295",
-          image:
-            "http://nongthonviet.com.vn//dataimages/202009//original/images1470024_gung_2.jpg",
-          title: "Tại sao chúng ta nên bắt đầu bữa sáng với gừng?",
-          date: "15/09/2020",
-          description:
-            "Ăn hoặc uống nước gừng vào buổi sáng sẽ mang lại những lợi ích sức khỏe không ngờ, từ việc giúp giảm cân, nuôi dưỡng một làn da mịn màng đến tăng cường hệ miễn dịch…",
-        };
+        return {}
       },
     },
   },

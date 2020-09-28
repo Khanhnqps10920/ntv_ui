@@ -21,7 +21,7 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
+              <span class="post__main--info-time ml-6">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
 
               <div class="post__main--info-icon ml-6" v-if="post.commentCount">
                 <i class="far fa-comment-alt"></i>

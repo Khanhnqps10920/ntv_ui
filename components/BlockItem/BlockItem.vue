@@ -16,7 +16,7 @@
         <nuxt-link to="/">Nguyễn Tâm</nuxt-link>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
+      <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
     </div>
   </div>
 </template>

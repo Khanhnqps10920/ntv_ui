@@ -4,11 +4,12 @@
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
         <h4 class="block-title">Magazine</h4>
-        <div @click="toMagazine">
+        <div @click="toMagazine" v-if="Magazine.length">
           <SideBlockItem
             style="pointer-events: none"
-            v-for="(item,index) in 5"
+            v-for="(post,index) in Magazine"
             :key="index"
+            :post="post"
             :noneImg="true"
             :isBorder="true"
           />
@@ -34,10 +35,15 @@
 
       <!-- right -->
       <div class="blockb-right xs:mt-4">
-        <div class="blockb-right__block">
-          <h4 class="block-title">Sport</h4>
+        <div class="blockb-right__block" v-if="TheThao.length">
+          <h4 class="block-title">Thể Thao</h4>
 
-          <SideBlockItem v-for="(item,index) in 3" :key="index" :isSquare="true" />
+          <SideBlockItem
+            v-for="(post,index) in TheThao.slice(0,3)"
+            :key="index"
+            :post="post"
+            :isSquare="true"
+          />
 
           <div class="blockb__button small">
             <nuxt-link to="/category/magazine">Xem tất cả</nuxt-link>
@@ -45,11 +51,11 @@
           </div>
         </div>
 
-        <div class="blockb-right__block">
+        <div class="blockb-right__block" v-if="VanHoa.length">
           <AdsSide />
 
-          <h4 class="block-title">Culture</h4>
-          <SideBlockItem v-for="(item,index) in 2" :key="index" :isSquare="true" />
+          <h4 class="block-title">Văn Hóa</h4>
+          <SideBlockItem v-for="(post,index) in VanHoa.slice(0,2)" :post="post" :key="index" :isSquare="true" />
 
           <div class="blockb__button small">
             <nuxt-link to="/category/magazine">Xem tất cả</nuxt-link>
@@ -74,23 +80,41 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem,
+    MainBlockItem
   },
   data() {
     return {
-      items: null,
+      items: null
     };
   },
   props: {
     News: {
-      type: Array,
+      type: Array
     },
+    Magazine: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    },
+    TheThao: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    },
+    VanHoa: {
+      type: Array,
+      default: () => {
+        return [];
+      }
+    }
   },
   methods: {
     toMagazine() {
       window.location.href = "http://magazine.nongthonviet.com.vn/";
-    },
-  },
+    }
+  }
 };
 </script>
 

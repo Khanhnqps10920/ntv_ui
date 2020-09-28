@@ -93,7 +93,6 @@ export default {
       this.allPosts = await this.$store.dispatch("getTopHotNewsByCategory", {
         id,
         nextActions: res => {
-          console.log(res.result);
           this.allPosts = res.result;
         }
       });
