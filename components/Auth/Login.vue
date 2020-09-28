@@ -3,7 +3,7 @@
     <h3 class="auth-form__title">ĐĂNG NHẬP</h3>
     <p class="auth-form__panel">Xin chào! Đăng nhập tài khoản của bạn</p>
 
-    <form action class="auth-form">
+    <form @submit.prevent="handleLogin" class="auth-form">
       <div class="form-input" :class="{ error: $v.email.$error }">
         <input
           name="email"
@@ -41,7 +41,12 @@
       >
         Quên mật khẩu?
       </p>
-
+      <p
+        class="main-error text-md mt-4 font-bold text-left uppercase"
+        v-if="authError"
+      >
+        {{ authError }}
+      </p>
       <button class="form-btn">Đăng Nhập</button>
       <p @click="register" class="form-link">Chưa có tài khoản? Đăng ký</p>
     </form>
@@ -49,6 +54,8 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
@@ -67,6 +74,10 @@ export default {
     };
   },
 
+  computed: {
+    ...mapState(["authError"]),
+  },
+
   validations: {
     email: {
       email,
@@ -75,6 +86,18 @@ export default {
 
     password: {
       required,
+    },
+  },
+
+  methods: {
+    ...mapActions(["login"]),
+    handleLogin() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      } else {
+        this.login({ email: this.email, password: this.password });
+      }
     },
   },
 };

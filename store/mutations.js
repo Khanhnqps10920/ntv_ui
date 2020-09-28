@@ -76,3 +76,11 @@ export const SET_DEFAULTPOSTSONMENU = (state, payload) => {
 export const setPostMenuDesktop = (state, payload) => {
   state.postMenuDesktop = payload
 }
+
+export const SET_USER = (state, payload) => {
+  state.user = payload;
+}
+
+export const SET_AUTH_ERROR = (state, payload) => {
+  state.authError = payload;
+}

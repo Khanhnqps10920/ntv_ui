@@ -12,6 +12,10 @@ export default () => ({
 
   postMenuDesktop: [],
 
-  signinModal: false
+  signinModal: false,
+
+  user: null,
+
+  authError: null
 
 })

@@ -3,7 +3,7 @@
     <h3 class="auth-form__title">ĐĂNG KÝ</h3>
     <p class="auth-form__panel">Xin chào! Đăng ký tài khoản của bạn</p>
 
-    <form class="auth-form">
+    <form @submit.prevent="handleRegister" class="auth-form">
       <div class="form-input" :class="{ error: $v.email.$error }">
         <input
           v-model.trim="$v.email.$model"
@@ -72,13 +72,22 @@
         </div>
       </div>
 
-      <button @click.prevent="handleRegister" class="form-btn">Đăng Ký</button>
+      <p
+        class="main-error text-md font-bold text-left uppercase"
+        v-if="authError"
+      >
+        {{ authError }}
+      </p>
+
+      <button class="form-btn">Đăng Ký</button>
       <p @click="login" class="form-link">Đã có tài khoản? Trở lại đăng nhập</p>
     </form>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+
 import {
   required,
   minLength,
@@ -100,6 +109,10 @@ export default {
       password: null,
       cfpassword: null,
     };
+  },
+
+  computed: {
+    ...mapState(["authError"]),
   },
 
   validations: {
@@ -124,9 +137,18 @@ export default {
   },
 
   methods: {
+    ...mapActions(["register"]),
     handleRegister() {
       this.$v.$touch();
-      console.log(this.$v);
+      if (this.$v.$invalid) {
+        return;
+      } else {
+        this.register({
+          email: this.email,
+          name: this.name,
+          password: this.password,
+        });
+      }
     },
   },
 };

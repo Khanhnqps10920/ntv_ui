@@ -56,14 +56,14 @@ export default {
     Auth,
     Login,
     Register,
-    Forgot
+    Forgot,
   },
   data() {
     return {
       showSearchSideBar: false,
       showSideBar: false,
       categories: [],
-      authComponent: "Login"
+      authComponent: "Login",
     };
   },
 
@@ -81,7 +81,7 @@ export default {
 
           register: () => {
             vm.authComponent = "Register";
-          }
+          },
         };
       }
       // register props
@@ -89,7 +89,7 @@ export default {
         return {
           login: () => {
             vm.authComponent = "Login";
-          }
+          },
         };
       }
 
@@ -98,10 +98,10 @@ export default {
         return {
           login: () => {
             vm.authComponent = "Login";
-          }
+          },
         };
       }
-    }
+    },
   },
   async mounted() {
     // get weather
@@ -109,10 +109,10 @@ export default {
       .dispatch("getCurrentWeather", {
         urlQuery: {
           id: "1566083",
-          appid: "060d473d45f1d22478455e48f344f211"
-        }
+          appid: "060d473d45f1d22478455e48f344f211",
+        },
       })
-      .then(res => {
+      .then((res) => {
         this.$store.commit("SET_WEATHER", res.data);
       });
     // get gold rates
@@ -120,54 +120,49 @@ export default {
 
     //get categories list
     this.$store.dispatch("getCategories", {
-      nextActions: res => {
+      nextActions: (res) => {
         this.categories = res.result;
-      }
+      },
     });
+
+    // try auto login
+
+    this.$store.dispatch("tryAutoLogin");
   },
-
-  // async created() {
-  //   const user = await this.$store.dispatch("login", {
-  //     email: "khuetech01@gmail.com",
-  //     password: "hahaha"
-  //   });
-
-  //   console.log(user);
-  // },
 
   head() {
     return {
       script: [
         {
           src: "https://kit.fontawesome.com/a767a8054c.js",
-          crossorigin: "anonymous"
+          crossorigin: "anonymous",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Gelasio:wght@400;700&family=Source+Sans+Pro:wght@200&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           link:
             "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
 
         {
           link:
             "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap",
-          rel: "stylesheet"
+          rel: "stylesheet",
         },
         {
           async: true,
           defer: true,
           crossorigin: "anonymous",
           src: "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0",
-          nonce: "Ef8u8iSh"
-        }
-      ]
+          nonce: "Ef8u8iSh",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
