@@ -1,17 +1,39 @@
 <template>
-  <nav class="mobile-nav flex h-12 items-center px-5">
-    <div class="flex-1">
-      <i class="mobile-nav__icons fas fa-bars" @click="$emit('openSideBar')"></i>
+  <nav class="mobile-nav flex h-12 items-center justify-between px-5">
+    <div class="">
+      <i
+        class="mobile-nav__icons fas fa-bars"
+        @click="$emit('openSideBar')"
+      ></i>
     </div>
-    <nuxt-link class="flex-1 text-center font-extrabold uppercase font-sans" to="/">Nông Thôn Việt</nuxt-link>
-    <div class="flex-1 text-right">
-      <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>
+    <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/"
+      >Nông Thôn 365</nuxt-link
+    >
+    <div class="">
+      <i
+        class="fas fa-user mr-1 mobile-nav__icons"
+        @click="handleActiveAuth"
+      ></i>
+      <i
+        class="mobile-nav__icons fas fa-search"
+        @click="$emit('openSearchSideBar')"
+      ></i>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
+  computed: {},
+  methods: {
+    ...mapMutations(["setActiveSignin"]),
+
+    handleActiveAuth() {
+      this.setActiveSignin(true);
+    },
+  },
 };
 </script>
 
@@ -29,7 +51,7 @@ export default {
 }
 
 .mobile-nav .mobile-nav__icons {
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 </style>>

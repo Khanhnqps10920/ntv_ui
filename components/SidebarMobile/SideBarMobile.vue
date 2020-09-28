@@ -7,11 +7,13 @@
     <ul class="sidebar-mobile__menu relative">
       <li
         class="sidebar-mobile__menu-item"
-        v-for="(tag,i) in categories"
+        v-for="(tag, i) in categories"
         :key="i"
         @click="$emit('closeSideBar')"
       >
-        <nuxt-link :to="`/category/${tag.alias}-id=${tag.id}`">{{tag.name}}</nuxt-link>
+        <nuxt-link :to="`/category/${tag.alias}-id=${tag.id}`">{{
+          tag.name
+        }}</nuxt-link>
       </li>
     </ul>
   </div>
@@ -53,7 +55,7 @@ export default {
   overflow: hidden;
   z-index: 2000;
   /* background */
-  background-image: url("../../assets/imgs/sidebar-background.jpg");
+  background-image: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-position: center top;
 
@@ -86,12 +88,11 @@ export default {
   z-index: 1001;
 
   /* background */
-  background: rgba(181, 184, 35, 0.301);
-  opacity: 0.98;
+  opacity: 0.8;
   background: linear-gradient(
-    to bottom,
-    rgba(131, 132, 64, 0.24) 0%,
-    rgba(51, 51, 24, 0.185) 100%
+    45deg,
+    rgba(1, 3, 2, 0.9) 0%,
+    rgba(95, 94, 95, 0.9) 100%
   );
 
   /* transition */

@@ -23,8 +23,8 @@ export default {
       if (e.target === this.$refs.content) {
         this.setActiveSignin(false);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -33,7 +33,7 @@ export default {
   z-index: 2000;
   /* display: none; */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 2000; /* Sit on top */
   /* padding-top: 50px; */
   padding-right: 8px;
   padding-left: 8px;
@@ -60,6 +60,7 @@ export default {
   background: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-position: center;
+  overflow: auto;
 }
 
 .auth .auth__content::before {
@@ -94,7 +95,19 @@ export default {
 
 @media (max-width: 768px) {
   .auth {
-    padding-top: 100px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .auth .auth__content {
+    width: 100%;
+    height: 100%;
+    z-index: 10000000000000;
+  }
+
+  .auth .auth__content-slot {
+    padding: 0 10%;
   }
 }
 </style>

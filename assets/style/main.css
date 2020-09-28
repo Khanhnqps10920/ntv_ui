@@ -138,6 +138,27 @@ body {
   text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  .auth-form .form-input {
+    margin-bottom: 20px;
+  }
+
+  .auth-form .form-input label {
+    font-size: 10px;
+  }
+
+  .auth-form .form-input.error {
+    margin-bottom: 30px;
+  }
+
+  .auth-form .form-input input:focus~label,
+  .auth-form .form-input input:valid~label {
+    top: -13px;
+    font-size: 10px;
+    opacity: 0.6;
+  }
+}
+
 @media (max-width: 1018px) and (min-width: 768px) {
   .block-title {
     font-size: 17px;

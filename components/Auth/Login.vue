@@ -35,6 +35,7 @@
           Mật khẩu không được để trống
         </div>
       </div>
+
       <p
         @click="forgot"
         class="text-left text-xs cursor-pointer hover:underline"
@@ -114,4 +115,10 @@ export default {
   font-size: 22px;
   font-weight: bold;
 } */
+
+@media (max-width: 768px) {
+  .auth-form__panel {
+    font-size: 12px;
+  }
+}
 </style>
