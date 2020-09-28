@@ -16,6 +16,7 @@
       :posts="posts"
       :totalNews="total"
       :limit="limit"
+      :TinMoiNhat="TinMoiNhat"
     />
   </div>
 </template>
@@ -44,6 +45,21 @@ export default {
       meta: "",
       total: ""
     };
+  },
+  async asyncData(context) {
+    let TinMoiNhat = []
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+      },
+      nextActions: res => {
+        TinMoiNhat = [...res.result];
+      }
+      //change ID follow admin for BlockAThiTruongTaiChinh
+    });
+    return {
+      TinMoiNhat
+    }
   },
   async mounted() {
     const id = this.$route.params.slug.slice(
