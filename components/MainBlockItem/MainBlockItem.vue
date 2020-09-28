@@ -22,7 +22,7 @@
           </span>
           <span class="main-item__date-time">{{post.publishedDate | x2datetime('DD/MM/YYYY')}}</span>
         </div>
-        <div class="main-item__text">{{ post.excerpt | titleShort(1000) }}</div>
+        <div class="main-item__text line-clamp-excerpt">{{ post.excerpt }}</div>
       </div>
     </div>
   </div>

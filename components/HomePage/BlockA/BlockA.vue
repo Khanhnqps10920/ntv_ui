@@ -10,8 +10,9 @@
               class="blocka__main--category"
             >{{mainNewCate.name}}</nuxt-link>
 
-            <h3 class="blocka__main--title">
-              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{mainNew.title}}</nuxt-link>
+            <h3 class="blocka__main--title line-clamp-title">
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">
+              {{mainNew.title}}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -30,7 +31,7 @@
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description">{{mainNew.excerpt | titleShort(300)}}</div>
+            <div class="blocka__main-description line-clamp-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem totam excepturi quasi saepe sit cupiditate temporibus cumque? Voluptatem reprehenderit earum tenetur consequuntur, quos placeat aut eaque obcaecati modi repellendus ea? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem totam excepturi quasi saepe sit cupiditate temporibus cumque? Voluptatem reprehenderit earum tenetur consequuntur, quos placeat aut eaque obcaecati modi repellendus ea? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem totam excepturi quasi saepe sit cupiditate temporibus cumque? Voluptatem reprehenderit earum tenetur consequuntur, quos placeat aut eaque obcaecati modi repellendus ea? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem totam excepturi quasi saepe sit cupiditate temporibus cumque? Voluptatem reprehenderit earum tenetur consequuntur, quos placeat aut eaque obcaecati modi repellendus ea?</div>
           </div>
         </div>
 
