@@ -12,7 +12,9 @@
           v-model="keyword"
           class="search-sidebar__search-input"
           @keydown.esc="$emit('closeSideBar')"
-          @keypress.enter="[$router.push(`/search/${keyword}`), $emit('closeSideBar')]"
+          @keypress.enter="
+            [$router.push(`/search/${keyword}`), $emit('closeSideBar')]
+          "
         />
       </div>
     </div>
@@ -23,13 +25,13 @@
 export default {
   data() {
     return {
-      keyword : ''
-    }
+      keyword: "",
+    };
   },
   mounted() {
     this.$refs.input.focus();
     this.$refs.searchContainer.classList.add("show");
-  }
+  },
 };
 </script>
 
@@ -55,7 +57,7 @@ export default {
   overflow: auto;
   z-index: 1000;
   /* background */
-  background-image: url("../../assets/imgs/sidebar-background.jpg");
+  background-image: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-position: center top;
 }
@@ -72,12 +74,11 @@ export default {
   z-index: 1001;
 
   /* background */
-  background: rgba(181, 184, 35, 0.301);
-  opacity: 0.98;
+  opacity: 0.8;
   background: linear-gradient(
-    to bottom,
-    rgba(131, 132, 64, 0.24) 0%,
-    rgba(51, 51, 24, 0.185) 100%
+    45deg,
+    rgba(1, 3, 2, 0.9) 0%,
+    rgba(95, 94, 95, 0.9) 100%
   );
 }
 

@@ -8,10 +8,13 @@
             <nuxt-link
               :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
               class="blocka__main--category"
-            >{{mainNewCate.name}}</nuxt-link>
+              >{{ mainNewCate.name }}</nuxt-link
+            >
 
             <h3 class="blocka__main--title line-clamp-title">
-              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{mainNew.title}}</nuxt-link>
+              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{
+                mainNew.title
+              }}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -19,9 +22,9 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
                 <span>-</span>
               </span>
-              <span
-                class="blocka__main-date-time"
-              >{{mainNew.publishedDate | datetime('DD/MM/YYYY')}}</span>
+              <span class="blocka__main-date-time">{{
+                mainNew.publishedDate | datetime("DD/MM/YYYY")
+              }}</span>
             </div>
 
             <div class="blocka__main--img">
@@ -30,13 +33,19 @@
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description line-clamp-excerpt">{{mainNew.excerpt}}</div>
+            <div class="blocka__main-description line-clamp-excerpt">
+              {{ mainNew.excerpt }}
+            </div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem v-for="(post,index) in restNew" :key="index" :post="post" />
+          <BlockItem
+            v-for="(post, index) in restNew"
+            :key="index"
+            :post="post"
+          />
         </div>
       </div>
 
@@ -52,7 +61,11 @@
 
         <div class="blocka-right__section" v-if="ThiTruongTaiChinh.length">
           <h4 class="section-title">Thị trường - tài chính</h4>
-          <SideBlockItem v-for="(post,index) in ThiTruongTaiChinh.slice(0,3)" :post="post" :key="index" />
+          <SideBlockItem
+            v-for="(post, index) in ThiTruongTaiChinh.slice(0, 3)"
+            :post="post"
+            :key="index"
+          />
         </div>
       </div>
     </div>
@@ -70,11 +83,11 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide
+    AdsSide,
   },
   data() {
     return {
-      mainNewCate: ""
+      mainNewCate: "",
     };
   },
   props: {
@@ -82,25 +95,25 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     TinNhanh: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     ThiTruongTaiChinh: {
       type: Array,
       default: () => {
         return [];
-      }
-    }
+      },
+    },
   },
   async mounted() {
     if (this.News.length) {
       const data = await this.$store.dispatch("getDetailCategory", {
-        id: this.News[0].categoryId
+        id: this.News[0].categoryId,
       });
       this.mainNewCate = data.data.result;
     }
@@ -111,8 +124,8 @@ export default {
     },
     restNew() {
       return this.News.slice(1, 4);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -126,7 +139,7 @@ export default {
 }
 
 .blocka {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .section-title {

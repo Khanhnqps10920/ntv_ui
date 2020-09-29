@@ -11,7 +11,7 @@
     >
     <div class="">
       <i
-        class="fas fa-user mr-1 mobile-nav__icons"
+        class="fas fa-user mr-2 mobile-nav__icons"
         @click="handleActiveAuth"
       ></i>
       <i
