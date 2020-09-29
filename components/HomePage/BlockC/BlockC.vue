@@ -6,9 +6,6 @@
           <h1
             class="text-white text-6xl sm:text-3xl sm:mt-3 xs:text-4xl xs:mt-3 font-extrabold font-sans mt-5"
           >Tin Nóng</h1>
-          <p
-            class="text-white mt-4 sm:mt-2 sm:text-sm xs:mt-2 xs:text-sm"
-          >{{mainNew.title}}</p>
         </Container1440>
       </div>
     </div>
