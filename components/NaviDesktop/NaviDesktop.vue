@@ -84,6 +84,7 @@ export default {
       }
     },
     async onHover(subs, id) {
+      console.log(id)
       this.toggleHoverModal = true;
       this.subs = subs;
 
@@ -98,6 +99,7 @@ export default {
       });
     },
     async hoverSub(id) {
+      console.log(id)
       //dispatch call api post list theo cates
 
       // setTimeout(() => {

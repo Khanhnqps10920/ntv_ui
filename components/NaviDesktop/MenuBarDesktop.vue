@@ -12,7 +12,7 @@
             <nuxt-link
               to="/"
               class="logo block md:text-2xl lg:text-2xl uppercase font-sans mr-5"
-            >Nông Thôn Việt</nuxt-link>
+            >Nông Thôn 365</nuxt-link>
           </div>
           <div class="flex">
             <nuxt-link
