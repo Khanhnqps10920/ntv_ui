@@ -4,7 +4,7 @@
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
         <div class="post__main">
-          <div class="post__main--category mb-5"  v-if="post.subCates && post.subCates.length">
+          <div class="post__main--category mb-5" v-if="post.subCates && post.subCates.length">
             <nuxt-link
               v-for="cate in post.subCates"
               :key="cate.id"
@@ -21,7 +21,9 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
+              <span
+                class="post__main--info-time ml-6"
+              >{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
 
               <div class="post__main--info-icon ml-6" v-if="post.commentCount">
                 <i class="far fa-comment-alt"></i>
@@ -47,19 +49,22 @@
           <!-- content -->
           <div class="post__main--content grid grid-cols-12 gap-4 relative mt-6">
             <!-- left side -->
-            <div class="col-span-4 sm:hidden xs:hidden">
+            <div class="col-span-4 sm:hidden xs:hidden" v-if="TinNong && TinNong.length">
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
                   <span>Tin Nóng</span>
                 </p>
-
                 <SideWrapper>
-                  <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
+                  <SideBlockItem
+                    v-for="(post,index) in TinNong"
+                    :post="post"
+                    :key="index"
+                    :isSquare="true"
+                  />
                 </SideWrapper>
-
-                <SideWrapper>
+                <!-- <SideWrapper>
                   <Author />
-                </SideWrapper>
+                </SideWrapper>-->
               </div>
             </div>
 
@@ -96,13 +101,18 @@
             </div>
 
             <!-- comment / side section -->
-            <div class="col-span-4 xs:col-span-12">
+            <div class="col-span-4 xs:col-span-12" v-if="TinKhac && TinKhac.length">
               <p class="block-title">
                 <span>Các tin khác</span>
               </p>
 
               <SideWrapper>
-                <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
+                <SideBlockItem
+                  v-for="(post,index) in TinKhac"
+                  :post="post"
+                  :key="index"
+                  :isSquare="true"
+                />
               </SideWrapper>
             </div>
 
@@ -123,12 +133,12 @@
         <div class="post__side sticky top-fiftyfive">
           <AdsSide />
 
-          <p class="block-title">
+          <p class="block-title" v-if="TinMoi && TinMoi.length">
             <span>Tin mới</span>
           </p>
 
-          <SideWrapper>
-            <SideBlockItem v-for="(item,index) in 5" :key="index" :isSquare="true" />
+          <SideWrapper v-if="TinMoi && TinMoi.length">
+            <SideBlockItem v-for="(post,index) in TinMoi" :post="post" :key="index" :isSquare="true" />
           </SideWrapper>
         </div>
       </div>
@@ -163,13 +173,51 @@ export default {
     CommentChildren
   },
   async asyncData(context) {
+    //Post
     const id = context.route.params.postslug.slice(
       context.route.params.postslug.indexOf("=") + 1
     );
     const postContent = await context.store.dispatch("getDetailNew", { id });
     const post = postContent.data.result;
+    // Tin Nóng
+    let TinNong = [];
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+      },
+      nextActions: res => {
+        TinNong = [...res.result];
+      }
+      //change ID follow admin for BlockAThiTruongTaiChinh
+    });
+    // Tin Mới
+    let TinMoi = [];
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+      },
+      nextActions: res => {
+        TinMoi = [...res.result];
+      }
+      //change ID follow admin for BlockAThiTruongTaiChinh
+    });
+    // Các Tin Khác
+    let TinKhac = [];
+    await context.store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+      },
+      nextActions: res => {
+        TinKhac = [...res.result];
+      }
+      //change ID follow admin for BlockAThiTruongTaiChinh
+    });
+
     return {
-      post
+      post,
+      TinNong,
+      TinMoi,
+      TinKhac
     };
   }
 };

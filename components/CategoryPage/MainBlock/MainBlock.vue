@@ -10,9 +10,9 @@
       <!-- right block -->
       <div class="main-block__right sticky top-fiftyfive xs:static xs:mt-5">
         <div class="main-block__right-block">
-          <h4 class="block-title">Latest News</h4>
+          <h4 class="block-title">Tin Mới Nhất</h4>
 
-          <SideBlockItem v-for="(item,index) in 8" :key="index" :isSquare="true" />
+          <SideBlockItem v-for="(post,index) in TinMoiNhat" :post="post" :key="index" :isSquare="true" />
         </div>
 
         <AdsSide class="mt-5" />
@@ -48,6 +48,12 @@ export default {
     },
     limit : {
       type : Number
+    },
+    TinMoiNhat : {
+      type : Array,
+      default : () => {
+        return []
+      }
     }
   },
   methods: {
