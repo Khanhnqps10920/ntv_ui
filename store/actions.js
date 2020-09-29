@@ -1,165 +1,126 @@
-import {
-  get,
-  isEmpty,
-  forIn,
-  isBuffer
-} from 'lodash'
+import { get, isEmpty, forIn, isBuffer } from "lodash";
 
-export function makeRequestAction({
-  commit,
-  ...rest
-}, payload) {
-
-
+export function makeRequestAction({ commit, ...rest }, payload) {
   // if (!process.client) return;
   try {
-    const {
-      nextActions,
-      errorActions,
-      ...data
-    } = get(payload, 'data', {}) || {};
-    return this._vm.$request.makeRequestAPI({
-      ...payload,
-      data
-    }).then(response => {
-      if (response && response.data) {
-        const responseData = get(response, 'data', null);
-        const status = get(responseData, 'status', null);
-        if (status === 0 && typeof errorActions === 'function') {
-          errorActions(responseData);
-        }
+    const { nextActions, errorActions, ...data } =
+      get(payload, "data", {}) || {};
+    return this._vm.$request
+      .makeRequestAPI({
+        ...payload,
+        data
+      })
+      .then(
+        response => {
+          if (response && response.data) {
+            const responseData = get(response, "data", null);
+            const status = get(responseData, "status", null);
+            if (status === 0 && typeof errorActions === "function") {
+              errorActions(responseData);
+            }
 
-        // normal request
-        if (status === 1 && typeof nextActions === 'function') {
-          nextActions(responseData);
+            // normal request
+            if (status === 1 && typeof nextActions === "function") {
+              nextActions(responseData);
+            }
+          }
+          return response;
+        },
+        error => {
+          if (process.env.NODE_ENV == "development") {
+            console.log("%cerror", "color: red; font-weight: bold;", error);
+            if (get(error, "response.Status", "") === 401) {
+              //place your reentry code
+              console.log("Unauthorized");
+            }
+          }
+          return false;
         }
-      }
-      return response;
-    }, error => {
-      if (process.env.NODE_ENV == 'development') {
-        console.log('%cerror', 'color: red; font-weight: bold;', error);
-        if (get(error, 'response.Status', '') === 401) {
-          //place your reentry code
-          console.log('Unauthorized');
-        }
-      }
-      return false;
-    });
+      );
   } catch (ex) {
-    if (process.env.NODE_ENV == 'development')
-      console.log('%cmakeRequestAction error:', 'color: red; font-weight: bold;', ex)
+    if (process.env.NODE_ENV == "development")
+      console.log(
+        "%cmakeRequestAction error:",
+        "color: red; font-weight: bold;",
+        ex
+      );
     // Handle error
-    return
+    return;
   }
 }
 
 // getcategories *
-export function getCategories({
-  dispatch
-}, {
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getCategories({ dispatch }, { ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/category`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
 //getTopHotNewsByCategory *
-export function getTopHotNewsByCategory({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getTopHotNewsByCategory({ dispatch }, { id, ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/hotNews/${id}`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
 //getDetailCategory *
-export function getDetailCategory({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getDetailCategory({ dispatch }, { id, ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/category/${id}`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({
-  dispatch
-}, {
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getTopNewsInHomepage({ dispatch }, { ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/homepage`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
 //getLatestNewsCategory *
-export function getLatestNewsCategory({
-  dispatch
-}, {
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getLatestNewsCategory({ dispatch }, { ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/hotNews`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 // getNewsInCategoryPage *
-export function getNewsInCategoryPage({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getNewsInCategoryPage({ dispatch }, { id, ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
-
 //  getDetailNew *
-export function getDetailNew({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
-  return dispatch('makeRequestAction', {
+export function getDetailNew({ dispatch }, { id, ...data }) {
+  return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/news/${id}`,
-    method: 'GET',
+    method: "GET",
     data
-  })
+  });
 }
 
 /*===================*/
 
 // get weather api
 
-export function getCurrentWeather({
-  dispatch
-}, data) {
-  return dispatch('makeRequestAction', {
+export function getCurrentWeather({ dispatch }, data) {
+  return dispatch("makeRequestAction", {
     url: "http://api.openweathermap.org/data/2.5/weather",
     method: "GET",
     data
-  })
+  });
 }
 
 // export function getCategories({ dispatch }) {
@@ -168,7 +129,6 @@ export function getCurrentWeather({
 //     method: "GET",
 //   })
 // }
-
 
 // export async function getCurrentWeather({
 //   commit
@@ -187,53 +147,48 @@ export function getCurrentWeather({
 //   }
 // }
 
+// custom fetch gold api
 
-// custom fetch gold api 
-
-export async function getGoldRates({
-  commit
-}) {
-
+export async function getGoldRates({ commit }) {
   try {
     const priceData = await this.$axios.get(
-      "https://www.goldapi.io/api/XAU/USD", {
+      "https://www.goldapi.io/api/XAU/USD",
+      {
         headers: {
           "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
-          "Content-Type": "application/json",
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
 
     commit("SET_GOLD_RATES", priceData.data);
-
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-
 }
-
 
 // auth
 
-export async function login({
-  commit
-}, authData) {
+export async function login({ commit }, authData) {
   try {
-
     // fetch user
-    const user = await this.$axios.post(`${process.env.BASE_URL}/public/login`, {
-      email: authData.email,
-      password: authData.password
-    });
-    const {
-      result
-    } = user.data;
+    const user = await this.$axios.post(
+      `${process.env.BASE_URL}/public/login`,
+      {
+        email: authData.email,
+        password: authData.password
+      }
+    );
+    const { result } = user.data;
     console.log(result);
     // setlocal storage
-    localStorage.setItem('token', result.loginToken);
-    localStorage.setItem('user', JSON.stringify({
-      ...result
-    }))
+    localStorage.setItem("token", result.loginToken);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...result
+      })
+    );
 
     // set user to store
     commit("SET_USER", {
@@ -245,32 +200,19 @@ export async function login({
 
     // success
     commit("SET_AUTH_ERROR", null);
-
   } catch (e) {
-
     // status 400
     if (e.response && e.response.status === 400) {
-      commit("SET_AUTH_ERROR",
-        "Sai email hoặc mật khẩu"
-      );
+      commit("SET_AUTH_ERROR", "Sai email hoặc mật khẩu");
     } else {
-      console.log(e)
+      console.log(e);
     }
   }
-
 }
 
-export async function register({
-  dispatch,
-  commit
-}, authData) {
-  const {
-    email,
-    name,
-    password
-  } = authData;
+export async function register({ dispatch, commit }, authData) {
+  const { email, name, password } = authData;
   try {
-
     // register
     await this.$axios.post(`${process.env.BASE_URL}/public/register`, {
       email,
@@ -279,40 +221,31 @@ export async function register({
     });
 
     // if success
-    commit("SET_AUTH_ERROR",
-      null
-    );
+    commit("SET_AUTH_ERROR", null);
     // try login before register
-    dispatch('login', {
+    dispatch("login", {
       email,
       password
     });
   } catch (e) {
     console.log(e);
     if (e.response && e.response.status === 400) {
-      commit("SET_AUTH_ERROR",
-        "Email đã có người sử dụng"
-      );
+      commit("SET_AUTH_ERROR", "Email đã có người sử dụng");
     } else {
-      console.log('lỗi khác')
+      console.log("lỗi khác");
     }
   }
-
 }
 
-export function logout({
-  commit
-}) {
+export function logout({ commit }) {
   commit("SET_USER", null);
 
-  localStorage.removeItem('token');
-  localStorage.removeItem('userId');
+  localStorage.removeItem("token");
+  localStorage.removeItem("userId");
 }
 
-export function tryAutoLogin({
-  commit
-}) {
-  const token = localStorage.getItem('token');
+export function tryAutoLogin({ commit }) {
+  const token = localStorage.getItem("token");
 
   if (!token) return;
 
@@ -323,14 +256,14 @@ export function tryAutoLogin({
   });
 }
 
-export async function forgetPassword({
-  commit
-}, email) {
-
+export async function forgetPassword({ commit }, email) {
   try {
-    const request = await this.$axios.post(`${process.env.BASE_URL}/public/forgotPassword`, {
-      email
-    });
+    const request = await this.$axios.post(
+      `${process.env.BASE_URL}/public/forgotPassword`,
+      {
+        email
+      }
+    );
     console.log(request);
     if (request.status === 1) {
       commit("SET_AUTH_ERROR", null);
@@ -340,5 +273,4 @@ export async function forgetPassword({
       commit("SET_AUTH_ERROR", "Email không chính xác");
     }
   }
-
 }
