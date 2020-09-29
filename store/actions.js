@@ -174,43 +174,6 @@ export function getCurrentGoldRate({
   })
 }
 
-export function getMainNew({
-  dispatch
-}) {
-  return dispatch('makeRequestAction', {
-    url: "https://glados.boo.vn/v1/api/portal/news/830175",
-    method: "GET",
-  })
-}
-
-export function getDataHomePage({
-  dispatch
-}) {
-  return dispatch('makeRequestAction', {
-    url: "https://glados.boo.vn/v1/api/portal/homepage",
-    method: "GET",
-  })
-}
-
-export function getPostContent({
-  dispatch
-}, id) {
-  return dispatch('makeRequestAction', {
-    url: `https://glados.boo.vn/v1/api/portal/news/${id}`,
-    method: "GET",
-  })
-}
-
-export function getPostListByCate({
-  dispatch
-}, id) {
-  return dispatch('makeRequestAction', {
-    url: `https://glados.boo.vn/v1/api/portal/category/${id}`,
-    method: "GET",
-  })
-}
-
-
 // export function getCategories({ dispatch }) {
 //   return dispatch('makeRequestAction', {
 //     url: `https://glados.boo.vn/v1/api/portal/news/${id}`,

@@ -73,38 +73,22 @@
         </div>
 
         <!-- picks -->
-        <div class="footer__pick footer__container-item">
+        <div class="footer__pick footer__container-item" v-if="NewsFooter.length">
           <h4 class="footer__block-title">Các bài tuyển chọn</h4>
 
           <ul class="footer__pick-list">
-            <li class="footer__pick-item">
+            <li class="footer__pick-item" v-for="(post ,i) in NewsFooter" :key="i">
               <div class="footer__pick-item--information">
                 <nuxt-link
-                  to="/post"
-                  class="footer__pick-item--information-title footer__link"
-                >Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư</nuxt-link>
-                <p class="footer__pick-item--information-time">14-09-2020</p>
+                  :to="`/post/${post.alias}-id=${post.id}`"
+                  class="footer__pick-item--information-title footer__link line-clamp-title"
+                >{{post.title}}</nuxt-link>
+                <p
+                  class="footer__pick-item--information-time"
+                >{{post.publishedDate | datetime('DD-MM-YYYY')}}</p>
               </div>
               <div class="footer__pick-item--img">
-                <img
-                  src="http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg"
-                  alt="pick-img"
-                />
-              </div>
-            </li>
-            <li class="footer__pick-item">
-              <div class="footer__pick-item--information">
-                <nuxt-link
-                  to="/post"
-                  class="footer__pick-item--information-title footer__link"
-                >Chuẩn bị cho cách ly 10.000 người, tăng chuyến bay cho chuyên gia, nhà đầu tư</nuxt-link>
-                <p class="footer__pick-item--information-time">14-09-2020</p>
-              </div>
-              <div class="footer__pick-item--img">
-                <img
-                  src="http://nongthonviet.com.vn/dataimages/202009//original/images1470021_photo_1_15991951422081134227344.jpg"
-                  alt="pick-img"
-                />
+                <img :src="post.image" alt="pick-img" />
               </div>
             </li>
           </ul>
@@ -121,6 +105,22 @@ import Container1440 from "../containers/Container1440.vue";
 export default {
   components: {
     Container1440
+  },
+  data() {
+    return {
+      NewsFooter: []
+    };
+  },
+  async mounted() {
+    await this.$store.dispatch("getLatestNewsCategory", {
+      urlQuery: {
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+      },
+      nextActions: res => {
+        this.NewsFooter = [...res.result].slice(0, 3);
+      }
+      //change ID follow admin for BlockAThiTruongTaiChinh
+    });
   },
   props: {
     categories: {
@@ -140,7 +140,7 @@ export default {
   padding: 30px 0;
 
   /* background */
-  background: url("../../assets/imgs/footer-background.jpg");
+  background: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;
