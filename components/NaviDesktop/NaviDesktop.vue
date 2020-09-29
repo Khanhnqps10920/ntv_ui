@@ -86,26 +86,19 @@ export default {
     async onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
-
-      // setTimeout(() => {
-      //   this.allPosts = postByCategories.result.posts; //(1)
-      // }, 2000);
-      this.allPosts = await this.$store.dispatch("getTopHotNewsByCategory", {
+      await this.$store.dispatch("getNewsInCategoryPage", {
         id,
         nextActions: res => {
           this.allPosts = res.result;
         }
       });
+      this.n = 4;
     },
     async hoverSub(id) {
-      //dispatch call api post list theo cates
-
-      // setTimeout(() => {
-      //   this.allPosts = postByCategories.result.posts; //(1)
-      // }, 2000);
-      this.allPosts = await this.$store.dispatch("getTopHotNewsByCategory", {
+      await this.$store.dispatch("getNewsInCategoryPage", {
         id,
         nextActions: res => {
+          console.log(res.result);
           this.allPosts = res.result;
         }
       });
