@@ -190,3 +190,10 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.line-clamp-excerpt-mobile {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
