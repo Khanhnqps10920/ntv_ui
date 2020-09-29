@@ -47,7 +47,7 @@ export default {
     };
   },
   async asyncData(context) {
-    let TinMoiNhat = []
+    let TinMoiNhat = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
         categoryId: "5f5aee09e6caa34e9b9c774f" //to do
@@ -59,7 +59,7 @@ export default {
     });
     return {
       TinMoiNhat
-    }
+    };
   },
   async mounted() {
     const id = this.$route.params.slug.slice(
@@ -87,6 +87,12 @@ export default {
       this.meta = data.data.meta;
       this.total = data.data.total;
     }
+  },
+  head() {
+    return {
+      titleTemplate: this.meta ? this.meta.category.name : "Nông nghiệp 365",
+      title: this.meta ? this.meta.category.name : "Nông nghiệp 365",
+    };
   }
 };
 </script>

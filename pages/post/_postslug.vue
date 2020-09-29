@@ -38,7 +38,7 @@
             <!-- social -->
             <div class="post__main--social-wrapper xs:mt-6">
               <div class="post__main--info-social">
-                <ShareFacebook />
+                <ShareFacebook :link="link" />
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="post__share">
-                  <ShareFacebook />
+                  <ShareFacebook :link="link" />
                 </div>
 
                 <!-- <div class="post__other mt-5">
@@ -89,7 +89,7 @@
                     <span class="block">Bài viết tiếp theo</span>
                     <nuxt-link to="/post">Áp thấp nhiệt đới giật cấp 8 vào Biển Đông</nuxt-link>
                   </div>
-                </div> -->
+                </div>-->
               </div>
             </div>
 
@@ -138,7 +138,12 @@
           </p>
 
           <SideWrapper v-if="TinMoi && TinMoi.length">
-            <SideBlockItem v-for="(post,index) in TinMoi" :post="post" :key="index" :isSquare="true" />
+            <SideBlockItem
+              v-for="(post,index) in TinMoi"
+              :post="post"
+              :key="index"
+              :isSquare="true"
+            />
           </SideWrapper>
         </div>
       </div>
@@ -171,6 +176,12 @@ export default {
     CommentForm,
     CommentItem,
     CommentChildren
+  },
+  mounted() {
+    this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
+  },
+  data() {
+    return { link: "" };
   },
   async asyncData(context) {
     //Post
@@ -218,6 +229,56 @@ export default {
       TinNong,
       TinMoi,
       TinKhac
+    };
+  },
+  head() {
+    return {
+      titleTemplate: this.post.title,
+      title: this.post.title,
+      meta: [
+        //hiển thị title khi share
+        {
+          hid: "apple-mobile-web-app-title",
+          name: "apple-mobile-web-app-title",
+          content: "Nông Thôn 365"
+        },
+        {
+          hid: "og:site_name",
+          name: "og:site_name",
+          property: "og:site_name",
+          content: "Nông Thôn 365"
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://nongthon365.com.vn${this.$route.fullPath}`
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "article"
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.post.title
+        },
+        {
+          hid: "description",
+          property: "description",
+          content: this.post.meta.excerpt
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.post.meta.excerpt
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.post.meta.image
+        }
+      ]
     };
   }
 };

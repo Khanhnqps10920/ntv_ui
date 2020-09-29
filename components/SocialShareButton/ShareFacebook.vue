@@ -1,18 +1,31 @@
 <template>
   <div
     class="fb-share-button"
-    data-href="https://www.kenh14.vn"
+    :data-href="link"
     data-layout="button"
     data-size="large"
   >
     <button class="loginBtn loginBtn--facebook">
       <a
         target="_blank"
-        :href="`https://www.facebook.com/sharer/sharer.php?u=https://www.kenh14.vn`"
+        :href="`https://www.facebook.com/sharer/sharer.php?u=${link}`"
       >Chia sẻ</a>
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  props : {
+    link : {
+      type : String,
+      default : () => {
+        return 'nongthon365.com.vn' //to do
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .loginBtn {
