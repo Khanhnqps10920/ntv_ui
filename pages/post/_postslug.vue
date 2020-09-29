@@ -80,7 +80,7 @@
                   <ShareFacebook />
                 </div>
 
-                <div class="post__other mt-5">
+                <!-- <div class="post__other mt-5">
                   <div class="post__other-previous">
                     <span class="block">Bài viết trước</span>
                     <nuxt-link to="/post">Dòng vốn FDI - những câu hỏi chưa lời đáp</nuxt-link>
@@ -89,7 +89,7 @@
                     <span class="block">Bài viết tiếp theo</span>
                     <nuxt-link to="/post">Áp thấp nhiệt đới giật cấp 8 vào Biển Đông</nuxt-link>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
 

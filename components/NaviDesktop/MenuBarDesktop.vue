@@ -47,7 +47,6 @@
 <script>
 import Container1640 from "@/components/containers/Container1640";
 import HoverModal from "@/components/NaviDesktop/HoverModal";
-import { postByCategories } from "@/assets/data/data.json"; //fake data (1)
 
 export default {
   data() {
@@ -84,36 +83,26 @@ export default {
         this.n -= 4;
       }
     },
-    hoverSub(id) {
-      /* (2)
-      this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
-          id,
-          nextActions : (res) => {
-            this.allPosts = res.data.result
-          }
-      })
-      */
-      setTimeout(() => {
-        this.allPosts = postByCategories.result.posts; //(1)
-      }, 2000);
-
+    async hoverSub(id) {
+      await this.$store.dispatch("getNewsInCategoryPage", {
+        id,
+        nextActions: res => {
+          this.allPosts = res.result;
+        }
+      });
       this.n = 4;
     },
     async onHoverTag(subs, id) {
       if (subs && subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
-        setTimeout(() => {
-          this.allPosts = postByCategories.result.posts; //(1)
-        }, 2000);
-        /* (2)
-        this.allPosts = await this.$store.dispatch('getTopHotNewsByCategory', {
+        await this.$store.dispatch("getNewsInCategoryPage", {
           id,
-          nextActions : (res) => {
-            this.allPosts = res.data.result
+          nextActions: res => {
+            this.allPosts = res.result;
           }
-        })
-        */
+        });
+        this.n = 4;
       } else {
         this.toggleHoverModal = false;
       }
