@@ -22,7 +22,7 @@
           </span>
           <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
         </div>
-        <div class="main-item__text line-clamp-excerpt">{{ post.excerpt }}</div>
+        <div class="main-item__text" :class="$device.isMobile ? 'line-clamp-excerpt-mobile' : 'line-clamp-excerpt'">{{ post.excerpt }}</div>
       </div>
     </div>
   </div>
