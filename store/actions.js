@@ -162,18 +162,6 @@ export function getCurrentWeather({
   })
 }
 
-// get gold API
-
-export function getCurrentGoldRate({
-  dispatch
-}, data) {
-  return dispatch('makeRequestAction', {
-    url: "https://www.metals-api.com/api/latest",
-    method: "GET",
-    data
-  })
-}
-
 // export function getCategories({ dispatch }) {
 //   return dispatch('makeRequestAction', {
 //     url: `https://glados.boo.vn/v1/api/portal/news/${id}`,

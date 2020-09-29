@@ -6,14 +6,6 @@
           <i class="fas fa-cloud-sun-rain"></i>
           <span class="font-bold">{{weatherCelsius}} &#186;C</span>
           <span>Việt Nam</span>
-
-          <a href="https://goldprice.org/" target="_blank">
-            <i class="fas fa-coins ml-5"></i>
-          </a>
-          <span
-            class="font-bold"
-          >Giá vàng: {{goldRates && goldRates.price ? goldRates.price : "$1,933.52"}}</span>
-          <span></span>
         </div>
 
         <div class="flex-1 text-center">
