@@ -57,7 +57,18 @@
         </div>
 
         <!-- ads -->
-        <AdsSide />
+        <!-- <AdsSide /> -->
+
+        <!-- gold api -->
+        <div class="gold-wrapper">
+          <iframe
+            id="fr33"
+            style="border: none;"
+            src="//tygia.com/api2.php?auto=1&amp;change=0&amp;flag=1&amp;column=2&amp;titlecolor=333333&amp;upcolor=008800&amp;downcolor=aa0000&amp;textcolor=333333&amp;gbcolor=ffffff&amp;title=0&amp;chart=0&amp;gold=1&amp;rate=1&amp;ngoaite=USD,JPY,EUR,GBP,AUD&amp;expand=0&amp;color=B4D0D0&amp;nganhang=VIETCOM&amp;fontsize=80&amp;css=%23SJC_N_ng{display:%20table-row%20!important;}%23wgold{display:none}"
+            width="100%"
+            height="310"
+          ></iframe>
+        </div>
 
         <div class="blocka-right__section" v-if="ThiTruongTaiChinh.length">
           <h4 class="section-title">Thị trường - tài chính</h4>
@@ -83,11 +94,11 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide,
+    AdsSide
   },
   data() {
     return {
-      mainNewCate: "",
+      mainNewCate: ""
     };
   },
   props: {
@@ -95,25 +106,25 @@ export default {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     TinNhanh: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     ThiTruongTaiChinh: {
       type: Array,
       default: () => {
         return [];
-      },
-    },
+      }
+    }
   },
   async mounted() {
     if (this.News.length) {
       const data = await this.$store.dispatch("getDetailCategory", {
-        id: this.News[0].categoryId,
+        id: this.News[0].categoryId
       });
       this.mainNewCate = data.data.result;
     }
@@ -124,8 +135,8 @@ export default {
     },
     restNew() {
       return this.News.slice(1, 4);
-    },
-  },
+    }
+  }
 };
 </script>
 

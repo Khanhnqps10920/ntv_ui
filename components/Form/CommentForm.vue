@@ -1,15 +1,18 @@
 <template>
-  <form class="comment-form mt-5">
+  <form @submit.prevent="handleAddComment" class="comment-form mt-5">
     <textarea
       class="comment-form__area"
       placeholder="Comment:"
       cols="45"
       rows="8"
       aria-required="true"
+      v-model="content"
     ></textarea>
-    <p class="text-red-500 text-xs italic hidden">Please add content.</p>
+    <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.content.$error">
+      Nội dung comment không được để trống.
+    </p>
 
-    <div class="comment-form__inputs my-4">
+    <div class="comment-form__inputs my-4" v-if="!user">
       <div class="name">
         <input
           class="comment-form__input"
@@ -17,8 +20,11 @@
           name="name"
           placeholder="Name*"
           aria-required="true"
+          v-model="name"
         />
-        <p class="text-red-500 text-xs italic hidden">Please Add Name</p>
+        <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.name.$error">
+          Điền tên của bạn để comment
+        </p>
       </div>
       <div class="email">
         <input
@@ -27,19 +33,17 @@
           name="email"
           placeholder="Email*"
           aria-required="true"
+          v-model="email"
         />
-        <p class="text-red-500 text-xs italic hidden">Please Add Email</p>
-      </div>
-      <div class="website">
-        <input class="comment-form__input" type="text" name="email" placeholder="website*" />
+        <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.email.$error">
+          Email không được để trống và phải đúng định dạng
+        </p>
       </div>
     </div>
 
-    <label class="md:w-2/3 block">
-      <input class="mr-2 leading-tight" type="checkbox" />
-      <span
-        class="text-sm"
-      >Save my name, email, and website in this browser for the next time I comment.</span>
+    <label class="md:w-2/3 block" v-if="!user">
+      <input class="mr-2 leading-tight" v-model="save" type="checkbox" />
+      <span class="text-sm">Lưu tên, email cho lần comment sau.</span>
     </label>
 
     <button class="comment-form__btn mt-5" type="submit">Post Comment</button>
@@ -47,7 +51,64 @@
 </template>
 
 <script>
-export default {};
+// libs
+import { required, email } from "vuelidate/lib/validators";
+
+// vuex
+import { mapState } from "vuex";
+
+export default {
+  data() {
+    return {
+      content: null,
+      name: null,
+      email: null,
+      save: false
+    };
+  },
+  computed: {
+    ...mapState(["user"])
+  },
+
+  validations: {
+    name: {
+      required
+    },
+
+    email: {
+      email,
+      required
+    },
+
+    content: {
+      required
+    }
+  },
+
+  methods: {
+    handleAddComment() {
+      this.$v.$touch();
+
+      // check if login in
+      if (this.user) {
+        if (this.$v.content.$error) return;
+
+        console.log(this.user);
+        // post api here
+      } else {
+        if (this.$v.$invalid) return;
+
+        if (this.save) {
+          console.log(this.email, this.name);
+
+          // store in local storage
+        }
+
+        // post api
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -76,7 +137,7 @@ export default {};
   justify-content: space-between;
 }
 .comment-form__inputs > div {
-  width: 32%;
+  width: 48%;
 }
 
 .comment-form label {
