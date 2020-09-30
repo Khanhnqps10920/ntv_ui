@@ -4,12 +4,16 @@
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
         <div class="post__main">
-          <div class="post__main--category mb-5" v-if="post.subCates && post.subCates.length">
+          <div
+            class="post__main--category mb-5"
+            v-if="post.subCates && post.subCates.length"
+          >
             <nuxt-link
               v-for="cate in post.subCates"
               :key="cate.id"
               :to="`/category/${cate.alias}-id=${cate.id}`"
-            >{{ cate.name }}</nuxt-link>
+              >{{ cate.name }}</nuxt-link
+            >
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
 
@@ -21,13 +25,13 @@
                 <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
               </div>
 
-              <span
-                class="post__main--info-time ml-6"
-              >{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
+              <span class="post__main--info-time ml-6">{{
+                post.publishedDate | datetime("DD/MM/YYYY")
+              }}</span>
 
               <div class="post__main--info-icon ml-6" v-if="post.commentCount">
                 <i class="far fa-comment-alt"></i>
-                <span>{{post.commentCount}}</span>
+                <span>{{ post.commentCount }}</span>
               </div>
               <div class="post__main--info-icon ml-6" v-if="post.viewCount">
                 <i class="fas fa-eye"></i>
@@ -47,16 +51,21 @@
           </div>
 
           <!-- content -->
-          <div class="post__main--content grid grid-cols-12 gap-4 relative mt-6">
+          <div
+            class="post__main--content grid grid-cols-12 gap-4 relative mt-6"
+          >
             <!-- left side -->
-            <div class="col-span-4 sm:hidden xs:hidden" v-if="TinNong && TinNong.length">
+            <div
+              class="col-span-4 sm:hidden xs:hidden"
+              v-if="TinNong && TinNong.length"
+            >
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
                   <span>Tin Nóng</span>
                 </p>
                 <SideWrapper>
                   <SideBlockItem
-                    v-for="(post,index) in TinNong"
+                    v-for="(post, index) in TinNong"
                     :post="post"
                     :key="index"
                     :isSquare="true"
@@ -101,14 +110,17 @@
             </div>
 
             <!-- comment / side section -->
-            <div class="col-span-4 xs:col-span-12" v-if="TinKhac && TinKhac.length">
+            <div
+              class="col-span-4 xs:col-span-12"
+              v-if="TinKhac && TinKhac.length"
+            >
               <p class="block-title">
                 <span>Các tin khác</span>
               </p>
 
               <SideWrapper>
                 <SideBlockItem
-                  v-for="(post,index) in TinKhac"
+                  v-for="(post, index) in TinKhac"
                   :post="post"
                   :key="index"
                   :isSquare="true"
@@ -117,8 +129,16 @@
             </div>
 
             <div class="comment-block col-span-8 xs:col-span-12">
-              <CommentItem v-for="comment in post.comments" :key="comment.id" :item="comment">
-                <CommentChildren v-for="rep in comment.reply" :key="rep.id" :item="rep"></CommentChildren>
+              <CommentItem
+                v-for="comment in post.comments"
+                :key="comment.id"
+                :item="comment"
+              >
+                <CommentChildren
+                  v-for="rep in comment.reply"
+                  :key="rep.id"
+                  :item="rep"
+                ></CommentChildren>
               </CommentItem>
 
               <h3 class="comment-block__title">Leave A reply</h3>
@@ -139,7 +159,7 @@
 
           <SideWrapper v-if="TinMoi && TinMoi.length">
             <SideBlockItem
-              v-for="(post,index) in TinMoi"
+              v-for="(post, index) in TinMoi"
               :post="post"
               :key="index"
               :isSquare="true"
@@ -152,6 +172,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 // data
 import Container1440 from "@/components/containers/Container1440.vue";
 import AdsSide from "@/components/Advertisement/AdsSide.vue";
@@ -175,7 +197,7 @@ export default {
     AdsMain,
     CommentForm,
     CommentItem,
-    CommentChildren
+    CommentChildren,
   },
   mounted() {
     this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
@@ -194,41 +216,46 @@ export default {
     let TinNong = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinNong = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Tin Mới
     let TinMoi = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinMoi = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Các Tin Khác
     let TinKhac = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinKhac = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
+
+    const testdata = await axios.get(
+      `http://192.168.1.218:8080/nongthonviet-frontend/public/news/comments/${id}?skip=0&limit=10`
+    );
+    console.log(testdata, "test");
 
     return {
       post,
       TinNong,
       TinMoi,
-      TinKhac
+      TinKhac,
     };
   },
   head() {
@@ -240,47 +267,47 @@ export default {
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: "Nông Thôn 365"
+          content: "Nông Thôn 365",
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: "Nông Thôn 365"
+          content: "Nông Thôn 365",
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://nongthon365.com.vn${this.$route.fullPath}`
+          content: `https://nongthon365.com.vn${this.$route.fullPath}`,
         },
         {
           hid: "og:type",
           property: "og:type",
-          content: "article"
+          content: "article",
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.post.title
+          content: this.post.title,
         },
         {
           hid: "description",
           property: "description",
-          content: this.post.meta.excerpt
+          content: this.post.meta.excerpt,
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.post.meta.excerpt
+          content: this.post.meta.excerpt,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.meta.image
-        }
-      ]
+          content: this.post.meta.image,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

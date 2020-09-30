@@ -2,7 +2,7 @@
   <div class="relative z-10">
     <div
       class="w-full fixed top-0 left-0 bg-white shadow"
-      style="opacity : 95%"
+      style="opacity: 95%"
       @mouseleave="toggleHoverModal = false"
     >
       <Container1640>
@@ -12,17 +12,18 @@
             <nuxt-link
               to="/"
               class="logo block md:text-2xl lg:text-2xl uppercase font-sans mr-5"
-            >Nông Thôn 365</nuxt-link>
+              >Nông Thôn 365</nuxt-link
+            >
           </div>
           <div class="flex">
             <nuxt-link
               :to="`/category/${tag.alias}-id=${tag.id}`"
-              v-for="(tag,i) in menuTags"
+              v-for="(tag, i) in menuTags"
               :key="i"
               class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
             >
               <span @mouseover="onHoverTag(tag.subCates, tag.id)">
-                {{tag.name}}
+                {{ tag.name }}
                 <span v-if="tag.subCates.length">
                   <i class="fas fa-angle-down"></i>
                 </span>
@@ -54,23 +55,23 @@ export default {
       subs: [],
       toggleHoverModal: false,
       allPosts: [],
-      n: 4
+      n: 4,
     };
   },
   components: {
     Container1640,
-    HoverModal
+    HoverModal,
   },
   props: {
     menuTags: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    }
+    },
   },
   methods: {
     next() {
@@ -86,9 +87,9 @@ export default {
     async hoverSub(id) {
       await this.$store.dispatch("getNewsInCategoryPage", {
         id,
-        nextActions: res => {
+        nextActions: (res) => {
           this.allPosts = res.result;
-        }
+        },
       });
       this.n = 4;
     },
@@ -98,15 +99,18 @@ export default {
         this.toggleHoverModal = true;
         await this.$store.dispatch("getNewsInCategoryPage", {
           id,
-          nextActions: res => {
+          nextActions: (res) => {
             this.allPosts = res.result;
-          }
+          },
         });
         this.n = 4;
       } else {
         this.toggleHoverModal = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style>
+</style>

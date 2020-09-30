@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-16 border-gray-200 border-t-2 border-b-2 border-solid flex justify-center items-center"
+    class="tags h-16 border-gray-200 border-t-2 border-b-2 border-solid flex justify-center items-center"
   >
     <nuxt-link
       :to="`/category/${tag.alias}-id=${tag.id}`"
@@ -9,7 +9,7 @@
       class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
     >
       <span @mouseover="onHoverTag(tag.subCates, tag.id)">
-        {{tag.name}}
+        {{ tag.name }}
         <span v-if="tag.subCates.length">
           <i class="fas fa-angle-down"></i>
         </span>
@@ -26,8 +26,8 @@ export default {
   props: {
     menuTags: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     onHoverTag(subs, id) {
@@ -36,12 +36,23 @@ export default {
       } else {
         this.$emit("onLeaveHovered");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+.tags {
+  white-space: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.tags::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: 1018px) and (min-width: 768px) {
   .tag {
     font-size: 9px;

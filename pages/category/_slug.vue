@@ -35,7 +35,7 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock
+    MainBlock,
   },
   data() {
     return {
@@ -43,22 +43,22 @@ export default {
       limit: 1, //news per page
       posts: "",
       meta: "",
-      total: ""
+      total: "",
     };
   },
   async asyncData(context) {
     let TinMoiNhat = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinMoiNhat = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     return {
-      TinMoiNhat
+      TinMoiNhat,
     };
   },
   async mounted() {
@@ -67,12 +67,13 @@ export default {
     );
     const data = await this.$store.dispatch("getNewsInCategoryPage", {
       id: id,
-      urlQuery: { skip: this.skip, limit: this.limit }
+      urlQuery: { skip: this.skip, limit: this.limit },
     });
     this.posts = data.data.result;
     this.meta = data.data.meta;
     this.total = data.data.total;
   },
+
   methods: {
     async changePage(p) {
       this.skip = this.limit * (p - 1);
@@ -81,19 +82,19 @@ export default {
       );
       const data = await this.$store.dispatch("getNewsInCategoryPage", {
         id: id,
-        urlQuery: { skip: this.skip, limit: this.limit }
+        urlQuery: { skip: this.skip, limit: this.limit },
       });
       this.posts = data.data.result;
       this.meta = data.data.meta;
       this.total = data.data.total;
-    }
+    },
   },
   head() {
     return {
       titleTemplate: this.meta ? this.meta.category.name : "Nông nghiệp 365",
       title: this.meta ? this.meta.category.name : "Nông nghiệp 365",
     };
-  }
+  },
 };
 </script>
 
