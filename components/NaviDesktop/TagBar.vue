@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-16 border-gray-200 border-t-2 border-b-2 border-solid flex justify-center items-center"
+    class="hide-scroll h-16 border-gray-200 border-t-2 border-b-2 border-solid flex lg:justify-center items-center sm:whitespace-no-wrap md:whitespace-no-wrap sm:overflow-x-auto md:overflow-x-auto"
   >
     <nuxt-link
       :to="`/category/${tag.alias}-id=${tag.id}`"
@@ -42,6 +42,15 @@ export default {
 </script>
 
 <style scoped>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 @media (max-width: 1018px) and (min-width: 768px) {
   .tag {
     font-size: 9px;
