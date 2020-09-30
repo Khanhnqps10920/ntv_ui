@@ -12,40 +12,6 @@
       Nội dung comment không được để trống.
     </p>
 
-    <div class="comment-form__inputs my-4" v-if="!user">
-      <div class="name">
-        <input
-          class="comment-form__input"
-          type="text"
-          name="name"
-          placeholder="Name*"
-          aria-required="true"
-          v-model="name"
-        />
-        <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.name.$error">
-          Điền tên của bạn để comment
-        </p>
-      </div>
-      <div class="email">
-        <input
-          class="comment-form__input"
-          type="email"
-          name="email"
-          placeholder="Email*"
-          aria-required="true"
-          v-model="email"
-        />
-        <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.email.$error">
-          Email không được để trống và phải đúng định dạng
-        </p>
-      </div>
-    </div>
-
-    <label class="md:w-2/3 block" v-if="!user">
-      <input class="mr-2 leading-tight" v-model="save" type="checkbox" />
-      <span class="text-sm">Lưu tên, email cho lần comment sau.</span>
-    </label>
-
     <button class="comment-form__btn mt-5" type="submit">Post Comment</button>
   </form>
 </template>
@@ -55,59 +21,40 @@
 import { required, email } from "vuelidate/lib/validators";
 
 // vuex
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   data() {
     return {
       content: null,
-      name: null,
-      email: null,
-      save: false
     };
   },
   computed: {
-    ...mapState(["user"])
+    ...mapState(["user"]),
   },
 
   validations: {
-    name: {
-      required
-    },
-
-    email: {
-      email,
-      required
-    },
-
     content: {
-      required
-    }
+      required,
+    },
   },
 
   methods: {
+    ...mapMutations(["setActiveSignin", "SET_AUTH_ERROR"]),
     handleAddComment() {
-      this.$v.$touch();
-
       // check if login in
       if (this.user) {
-        if (this.$v.content.$error) return;
+        this.$v.$touch();
+        this.SET_AUTH_ERROR(null);
 
-        console.log(this.user);
         // post api here
       } else {
-        if (this.$v.$invalid) return;
-
-        if (this.save) {
-          console.log(this.email, this.name);
-
-          // store in local storage
-        }
-
-        // post api
+        // show signin
+        this.setActiveSignin(true);
+        this.SET_AUTH_ERROR("Bạn cần phải đăng nhập trước");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
