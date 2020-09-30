@@ -1,10 +1,22 @@
-import { get, isEmpty, forIn, isBuffer } from "lodash";
+import {
+  get,
+  isEmpty,
+  forIn,
+  isBuffer
+} from "lodash";
 
-export function makeRequestAction({ commit, ...rest }, payload) {
+export function makeRequestAction({
+  commit,
+  ...rest
+}, payload) {
   // if (!process.client) return;
   try {
-    const { nextActions, errorActions, ...data } =
-      get(payload, "data", {}) || {};
+    const {
+      nextActions,
+      errorActions,
+      ...data
+    } =
+    get(payload, "data", {}) || {};
     return this._vm.$request
       .makeRequestAPI({
         ...payload,
@@ -50,7 +62,11 @@ export function makeRequestAction({ commit, ...rest }, payload) {
 }
 
 // getcategories *
-export function getCategories({ dispatch }, { ...data }) {
+export function getCategories({
+  dispatch
+}, {
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/category`,
     method: "GET",
@@ -59,7 +75,12 @@ export function getCategories({ dispatch }, { ...data }) {
 }
 
 //getTopHotNewsByCategory *
-export function getTopHotNewsByCategory({ dispatch }, { id, ...data }) {
+export function getTopHotNewsByCategory({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/hotNews/${id}`,
     method: "GET",
@@ -68,7 +89,12 @@ export function getTopHotNewsByCategory({ dispatch }, { id, ...data }) {
 }
 
 //getDetailCategory *
-export function getDetailCategory({ dispatch }, { id, ...data }) {
+export function getDetailCategory({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/category/${id}`,
     method: "GET",
@@ -77,7 +103,11 @@ export function getDetailCategory({ dispatch }, { id, ...data }) {
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({ dispatch }, { ...data }) {
+export function getTopNewsInHomepage({
+  dispatch
+}, {
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/homepage`,
     method: "GET",
@@ -86,7 +116,11 @@ export function getTopNewsInHomepage({ dispatch }, { ...data }) {
 }
 
 //getLatestNewsCategory *
-export function getLatestNewsCategory({ dispatch }, { ...data }) {
+export function getLatestNewsCategory({
+  dispatch
+}, {
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/hotNews`,
     method: "GET",
@@ -94,7 +128,12 @@ export function getLatestNewsCategory({ dispatch }, { ...data }) {
   });
 }
 // getNewsInCategoryPage *
-export function getNewsInCategoryPage({ dispatch }, { id, ...data }) {
+export function getNewsInCategoryPage({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
     method: "GET",
@@ -103,7 +142,12 @@ export function getNewsInCategoryPage({ dispatch }, { id, ...data }) {
 }
 
 //  getDetailNew *
-export function getDetailNew({ dispatch }, { id, ...data }) {
+export function getDetailNew({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_URL}/public/news/${id}`,
     method: "GET",
@@ -111,11 +155,28 @@ export function getDetailNew({ dispatch }, { id, ...data }) {
   });
 }
 
+// get comment in post
+export function getComments({
+  dispatch
+}, {
+  id,
+  ...data
+}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_URL}/public/news/comments/${id}`,
+    method: "GET",
+    data
+  })
+}
+
+
 /*===================*/
 
 // get weather api
 
-export function getCurrentWeather({ dispatch }, data) {
+export function getCurrentWeather({
+  dispatch
+}, data) {
   return dispatch("makeRequestAction", {
     url: "http://api.openweathermap.org/data/2.5/weather",
     method: "GET",
@@ -149,11 +210,12 @@ export function getCurrentWeather({ dispatch }, data) {
 
 // custom fetch gold api
 
-export async function getGoldRates({ commit }) {
+export async function getGoldRates({
+  commit
+}) {
   try {
     const priceData = await this.$axios.get(
-      "https://www.goldapi.io/api/XAU/USD",
-      {
+      "https://www.goldapi.io/api/XAU/USD", {
         headers: {
           "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
           "Content-Type": "application/json"
@@ -169,17 +231,20 @@ export async function getGoldRates({ commit }) {
 
 // auth
 
-export async function login({ commit }, authData) {
+export async function login({
+  commit
+}, authData) {
   try {
     // fetch user
     const user = await this.$axios.post(
-      `${process.env.BASE_URL}/public/login`,
-      {
+      `${process.env.BASE_URL}/public/login`, {
         email: authData.email,
         password: authData.password
       }
     );
-    const { result } = user.data;
+    const {
+      result
+    } = user.data;
     console.log(result);
     // setlocal storage
     localStorage.setItem("token", result.loginToken);
@@ -210,8 +275,15 @@ export async function login({ commit }, authData) {
   }
 }
 
-export async function register({ dispatch, commit }, authData) {
-  const { email, name, password } = authData;
+export async function register({
+  dispatch,
+  commit
+}, authData) {
+  const {
+    email,
+    name,
+    password
+  } = authData;
   try {
     // register
     await this.$axios.post(`${process.env.BASE_URL}/public/register`, {
@@ -237,14 +309,18 @@ export async function register({ dispatch, commit }, authData) {
   }
 }
 
-export function logout({ commit }) {
+export function logout({
+  commit
+}) {
   commit("SET_USER", null);
 
   localStorage.removeItem("token");
   localStorage.removeItem("userId");
 }
 
-export function tryAutoLogin({ commit }) {
+export function tryAutoLogin({
+  commit
+}) {
   const token = localStorage.getItem("token");
 
   if (!token) return;
@@ -256,11 +332,12 @@ export function tryAutoLogin({ commit }) {
   });
 }
 
-export async function forgetPassword({ commit }, email) {
+export async function forgetPassword({
+  commit
+}, email) {
   try {
     const request = await this.$axios.post(
-      `${process.env.BASE_URL}/public/forgotPassword`,
-      {
+      `${process.env.BASE_URL}/public/forgotPassword`, {
         email
       }
     );

@@ -11,16 +11,16 @@
           <div>
             <nuxt-link
               to="/"
-              class="logo block md:text-2xl lg:text-2xl uppercase font-sans mr-5"
+              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
               >Nông Thôn 365</nuxt-link
             >
           </div>
-          <div class="flex">
+          <div class="flex flex-wrap items-center">
             <nuxt-link
               :to="`/category/${tag.alias}-id=${tag.id}`"
               v-for="(tag, i) in menuTags"
               :key="i"
-              class="mr-5 sm:mr-3 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
+              class="mr-5 sm:mr-3 mt-1 mb-1 font-bold sm:text-xs md:text-xs lg:text-sm hover:text-hovercolor"
             >
               <span @mouseover="onHoverTag(tag.subCates, tag.id)">
                 {{ tag.name }}

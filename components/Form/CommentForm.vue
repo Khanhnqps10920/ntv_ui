@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="handleAddComment" class="comment-form mt-5">
     <textarea
+      ref="commentArea"
       class="comment-form__area"
       placeholder="Comment:"
       cols="45"
@@ -18,6 +19,7 @@
 
 <script>
 // libs
+import Axios from "axios";
 import { required, email } from "vuelidate/lib/validators";
 
 // vuex
@@ -28,6 +30,11 @@ export default {
     return {
       content: null,
     };
+  },
+  props: {
+    postId: {
+      type: String,
+    },
   },
   computed: {
     ...mapState(["user"]),
@@ -44,10 +51,33 @@ export default {
     handleAddComment() {
       // check if login in
       if (this.user) {
+        const { name, email, userId } = this.user;
         this.$v.$touch();
         this.SET_AUTH_ERROR(null);
 
+        // check if invalid
+        if (this.$v.$invalid) {
+          return;
+        }
         // post api here
+
+        const request = Axios.post(
+          `${process.env.BASE_URL}/public/news/postComment/${this.postId}`,
+          {
+            userId,
+            email,
+            name,
+            content: this.content,
+          }
+        );
+
+        request
+          .then((response) => {
+            console.log(response, "response");
+          })
+          .catch((e) => {
+            console.log(e, error);
+          });
       } else {
         // show signin
         this.setActiveSignin(true);
@@ -68,15 +98,16 @@ export default {
   line-height: 21px;
   font-size: 15px;
   outline: none;
+  transition: 0.4s color ease;
 }
 .comment-form__area:focus,
 .comment-form__input:focus {
-  border: 1.5px solid rgb(225, 225, 225);
+  border: 2px solid black;
 }
 
 .comment-form__area:active,
 .comment-form__input:active {
-  border: 1.5px solid rgb(225, 225, 225);
+  border: 2px solid black;
 }
 
 .comment-form__inputs {

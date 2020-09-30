@@ -11,13 +11,18 @@
         <div class="comment__info--wrapper">
           <p class="comment__info--name">{{ item.name }}</p>
 
-          <p class="comment__info--time">September 3, 2020 At 3:08 am</p>
+          <p class="comment__info--time">
+            {{ item.commentedDate | datetime("DD/MM/YYYY") }}
+          </p>
         </div>
         <div class="comment__info--content">
-          <em>Your comment is waiting morderation</em>
-          <p>{{item.content}}.</p>
+          <p>{{ item.content }}.</p>
         </div>
-        <a href="#" class="comment__info--reply">Reply</a>
+        <a
+          @click="() => replyComment(item)"
+          class="comment__info--reply cursor-pointer"
+          >Phản hồi</a
+        >
       </div>
     </div>
 
@@ -34,7 +39,12 @@ export default {
       type: Object,
       required: true,
     },
+    replyComment: {
+      type: Function,
+    },
   },
+
+  methods: {},
 };
 </script>
 

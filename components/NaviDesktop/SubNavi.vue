@@ -11,9 +11,13 @@
           <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>
-        <div v-if="user" class="flex">
-          <p class="hover:text-color cursor-pointer mr-5">(chờ username)</p>
-          <a @click="logout" class="hover:text-hovercolor cursor-pointer"
+        <div v-if="user" class="flex items-center">
+          <p class="hover:text-color cursor-pointer mr-5 text-xs capitalize">
+            {{ user.name }}
+          </p>
+          <a
+            @click="logout"
+            class="hover:text-hovercolor text-xs cursor-pointer"
             >Logout</a
           >
         </div>

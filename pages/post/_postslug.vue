@@ -130,9 +130,10 @@
 
             <div class="comment-block col-span-8 xs:col-span-12">
               <CommentItem
-                v-for="comment in post.comments"
+                v-for="comment in comments"
                 :key="comment.id"
                 :item="comment"
+                :replyComment="handleReplyComment"
               >
                 <CommentChildren
                   v-for="rep in comment.reply"
@@ -141,8 +142,8 @@
                 ></CommentChildren>
               </CommentItem>
 
-              <h3 class="comment-block__title">Leave A reply</h3>
-              <CommentForm />
+              <h3 class="comment-block__title">Bình luận</h3>
+              <CommentForm :postId="id" ref="commentForm" />
             </div>
           </div>
         </div>
@@ -172,8 +173,7 @@
 </template>
 
 <script>
-import axios from "axios";
-
+import Axios from "axios";
 // data
 import Container1440 from "@/components/containers/Container1440.vue";
 import AdsSide from "@/components/Advertisement/AdsSide.vue";
@@ -205,6 +205,13 @@ export default {
   data() {
     return { link: "" };
   },
+  methods: {
+    handleReplyComment(item) {
+      this.$refs.commentForm.$refs.commentArea.focus();
+      // hanle orther case reply
+    },
+  },
+
   async asyncData(context) {
     //Post
     const id = context.route.params.postslug.slice(
@@ -246,16 +253,30 @@ export default {
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
 
-    const testdata = await axios.get(
-      `http://192.168.1.218:8080/nongthonviet-frontend/public/news/comments/${id}?skip=0&limit=10`
-    );
-    console.log(testdata, "test");
+    // comments
+    let comments = [];
+
+    await context.store.dispatch("getComments", {
+      id,
+      urlQuery: {
+        skip: 0,
+        limit: 10,
+      },
+      nextActions: (res) => {
+        comments = [...res.result];
+      },
+      errorAction: (e) => {
+        console.log(e);
+      },
+    });
 
     return {
       post,
       TinNong,
       TinMoi,
       TinKhac,
+      id,
+      comments,
     };
   },
   head() {

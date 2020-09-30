@@ -1,10 +1,17 @@
 <template>
-  <div class="side-item" :class="{'noneImg': noneImg, 'border':isBorder, 'square': isSquare }">
+  <div
+    class="side-item"
+    :class="{ noneImg: noneImg, border: isBorder, square: isSquare }"
+  >
     <div class="side-item__info">
       <h3 class="side-item__title line-clamp-title">
-        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{ post.title }}</nuxt-link>
+        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{
+          post.title
+        }}</nuxt-link>
       </h3>
-      <p class="side-item__date">{{ post.publishedDate | datetime('DD/MM/YYYY')}}</p>
+      <p class="side-item__date">
+        {{ post.publishedDate | datetime("DD/MM/YYYY") }}
+      </p>
     </div>
 
     <div class="side-item__img" v-if="!noneImg">
@@ -34,7 +41,7 @@ export default {
     post: {
       type: Object,
       default: () => {
-        return {}
+        return {};
       },
     },
   },
@@ -64,7 +71,7 @@ export default {
 }
 
 .side-item .side-item__info {
-  width: 70%;
+  width: 75%;
 }
 
 .side-item .side-item__date {
