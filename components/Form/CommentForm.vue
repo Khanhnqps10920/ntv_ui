@@ -28,22 +28,25 @@ import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      content: null,
+      content: null
     };
   },
   props: {
     postId: {
-      type: String,
+      type: String
     },
+    replyData: {
+      type: Object
+    }
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user"])
   },
 
   validations: {
     content: {
-      required,
-    },
+      required
+    }
   },
 
   methods: {
@@ -56,35 +59,64 @@ export default {
         this.SET_AUTH_ERROR(null);
 
         // check if invalid
-        if (this.$v.$invalid) {
+        if (this.$v.$anyError) {
           return;
         }
         // post api here
+        if (this.replyData) {
+          // fetch data
+          const request = Axios.post(
+            `${process.env.BASE_API}/public/news/postReply/${this.replyData.commentId}`,
+            {
+              commentId: this.replyData.commentId,
+              userId,
+              email,
+              name,
+              content: this.content
+            }
+          );
 
-        const request = Axios.post(
-          `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
-          {
-            userId,
-            email,
-            name,
-            content: this.content,
-          }
-        );
+          request
+            .then(response => {
+              this.$emit("refetchReply");
 
-        request
-          .then((response) => {
-            console.log(response, "response");
-          })
-          .catch((e) => {
-            console.log(e, error);
-          });
+              // reset form
+              this.content = null;
+              this.$v.$reset();
+            })
+            .catch(e => {
+              console.log(e, error);
+            });
+        } else {
+          const request = Axios.post(
+            `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
+            {
+              userId,
+              email,
+              name,
+              content: this.content
+            }
+          );
+
+          request
+            .then(response => {
+              this.$emit("refetchComments");
+
+              // reset form
+              this.content = null;
+              this.$v.$reset();
+            })
+            .catch(e => {
+              console.log(e, error);
+            });
+        }
       } else {
         // show signin
         this.setActiveSignin(true);
         this.SET_AUTH_ERROR("Bạn cần phải đăng nhập trước");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

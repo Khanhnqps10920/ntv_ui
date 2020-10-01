@@ -134,16 +134,27 @@
                 :key="comment.id"
                 :item="comment"
                 :replyComment="handleReplyComment"
+                :fetchReply="fetchReply"
+                @setReFetchFail="fetchReply = false"
               >
-                <CommentChildren
-                  v-for="rep in comment.reply"
-                  :key="rep.id"
-                  :item="rep"
-                ></CommentChildren>
               </CommentItem>
 
-              <h3 class="comment-block__title">Bình luận</h3>
-              <CommentForm :postId="id" ref="commentForm" />
+              <h3 class="comment-block__title">
+                Bình luận
+                <span
+                  v-if="isReply"
+                  class="ml-2 text-sm font-thin cursor-pointer capitalize hover:text-hovercolor"
+                  @click="isReply = false"
+                  >Hủy reply</span
+                >
+              </h3>
+              <CommentForm
+                @refetchComments="refetchComments"
+                @refetchReply="refetchReply"
+                :postId="id"
+                :replyData="replyData"
+                ref="commentForm"
+              />
             </div>
           </div>
         </div>
@@ -184,7 +195,6 @@ import Author from "@/components/Author/Author.vue";
 import AdsMain from "@/components/Advertisement/AdsMain.vue";
 import CommentForm from "@/components/Form/CommentForm.vue";
 import CommentItem from "@/components/Comment/CommentItem.vue";
-import CommentChildren from "@/components/Comment/CommentChildren.vue";
 
 export default {
   components: {
@@ -196,20 +206,57 @@ export default {
     Author,
     AdsMain,
     CommentForm,
-    CommentItem,
-    CommentChildren,
+    CommentItem
   },
   mounted() {
     this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
   },
   data() {
-    return { link: "" };
+    return { link: "", isReply: false, replyData: null, fetchReply: false };
   },
   methods: {
     handleReplyComment(item) {
-      this.$refs.commentForm.$refs.commentArea.focus();
+      const commentArea = this.$refs.commentForm.$refs.commentArea;
+      // focus & placeholder
+      commentArea.focus();
+      commentArea.placeholder = `Reply ${item.name}`;
+
       // hanle orther case reply
+      this.isReply = true;
+      this.replyData = { ...item };
     },
+
+    async refetchComments() {
+      try {
+        const data = await this.$store.dispatch("getComments", {
+          id: this.id,
+          urlQuery: {
+            skip: 0,
+            limit: 10
+          }
+        });
+        this.comments = [...data.data.result];
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
+    refetchReply() {
+      this.fetchReply = true;
+    }
+  },
+
+  watch: {
+    // check if reply
+    isReply(newValue, oldValue) {
+      const commentArea = this.$refs.commentForm.$refs.commentArea;
+
+      if (!newValue) {
+        commentArea.blur();
+        commentArea.placeholder = `Comment`;
+        this.replyData = null;
+      }
+    }
   },
 
   async asyncData(context) {
@@ -223,33 +270,33 @@ export default {
     let TinNong = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
       },
-      nextActions: (res) => {
+      nextActions: res => {
         TinNong = [...res.result];
-      },
+      }
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Tin Mới
     let TinMoi = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
       },
-      nextActions: (res) => {
+      nextActions: res => {
         TinMoi = [...res.result];
-      },
+      }
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Các Tin Khác
     let TinKhac = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
       },
-      nextActions: (res) => {
+      nextActions: res => {
         TinKhac = [...res.result];
-      },
+      }
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
 
@@ -260,14 +307,14 @@ export default {
       id,
       urlQuery: {
         skip: 0,
-        limit: 10,
+        limit: 10
       },
-      nextActions: (res) => {
+      nextActions: res => {
         comments = [...res.result];
       },
-      errorAction: (e) => {
+      errorAction: e => {
         console.log(e);
-      },
+      }
     });
 
     return {
@@ -276,7 +323,7 @@ export default {
       TinMoi,
       TinKhac,
       id,
-      comments,
+      comments
     };
   },
   head() {
@@ -288,47 +335,47 @@ export default {
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: "Nông Thôn 365",
+          content: "Nông Thôn 365"
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: "Nông Thôn 365",
+          content: "Nông Thôn 365"
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://nongthon365.com.vn${this.$route.fullPath}`,
+          content: `https://nongthon365.com.vn${this.$route.fullPath}`
         },
         {
           hid: "og:type",
           property: "og:type",
-          content: "article",
+          content: "article"
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.post.title,
+          content: this.post.title
         },
         {
           hid: "description",
           property: "description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.meta.image,
-        },
-      ],
+          content: this.post.meta.image
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

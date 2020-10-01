@@ -27,24 +27,75 @@
     </div>
 
     <div class="comment__children">
-      <slot></slot>
+      <CommentChildren
+        v-for="item in childrenItems"
+        :key="item.id"
+        :item="item"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import CommentChildren from "@/components/Comment/CommentChildren.vue";
+
 export default {
   props: {
     item: {
       type: Object,
-      required: true,
+      required: true
     },
     replyComment: {
-      type: Function,
+      type: Function
     },
+    fetchReply: {
+      type: Boolean,
+      default: false
+    }
   },
 
-  methods: {},
+  components: {
+    CommentChildren
+  },
+
+  data() {
+    return {
+      childrenItems: []
+    };
+  },
+
+  watch: {
+    async fetchReply(value) {
+      if (value) {
+        const comments = await this.$store.dispatch("getReplyComments", {
+          commentId: this.item.commentId,
+          urlQuery: {
+            skip: 0,
+            limit: 10
+          }
+        });
+
+        this.childrenItems = [...comments.data.result];
+        this.$emit("setReFetchFail");
+      }
+    }
+  },
+
+  async created() {
+    try {
+      const comments = await this.$store.dispatch("getReplyComments", {
+        commentId: this.item.commentId,
+        urlQuery: {
+          skip: 0,
+          limit: 10
+        }
+      });
+
+      this.childrenItems = [...comments.data.result];
+    } catch (e) {
+      console.log(e);
+    }
+  }
 };
 </script>
 

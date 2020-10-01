@@ -169,6 +169,19 @@ export function getComments({
   })
 }
 
+// get reply comments
+export function getReplyComments({
+  dispatch
+}, {
+  commentId,
+  ...data
+}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/news/replies/${commentId}`,
+    method: "GET",
+    data
+  })
+}
 
 /*===================*/
 

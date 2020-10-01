@@ -13,10 +13,8 @@
         <p class="comment__info--time">September 3, 2020 At 3:08 am</p>
       </div>
       <div class="comment__info--content">
-        <em>Your comment is waiting morderation</em>
         <p>{{ item.content }}</p>
       </div>
-      <a href="#" class="comment__info--reply">Reply</a>
     </div>
   </div>
 </template>
@@ -26,9 +24,9 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 };
 </script>
 
