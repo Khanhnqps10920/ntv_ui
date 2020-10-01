@@ -86,8 +86,12 @@ export default {
     async onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
-      await this.$store.dispatch("getNewsInCategoryPage", { //getTopHotNewsByCategory for test
-        id,
+      await this.$store.dispatch("getTopHotNewsByCategory", {
+        urlQuery: {
+          categoryId: id,
+          skip: 0,
+          limit: 12
+        },
         nextActions: res => {
           this.allPosts = res.result;
         }
@@ -95,10 +99,13 @@ export default {
       this.n = 4;
     },
     async hoverSub(id) {
-      await this.$store.dispatch("getNewsInCategoryPage", {
-        id,
+      await this.$store.dispatch("getTopHotNewsByCategory", {
+        urlQuery: {
+          categoryId: id,
+          skip: 0,
+          limit: 12
+        },
         nextActions: res => {
-          console.log(res.result);
           this.allPosts = res.result;
         }
       });

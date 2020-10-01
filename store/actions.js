@@ -74,20 +74,6 @@ export function getCategories({
   });
 }
 
-//getTopHotNewsByCategory *
-export function getTopHotNewsByCategory({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
-  return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_API}/public/hotNews/${id}`,
-    method: "GET",
-    data
-  });
-}
-
 //getDetailCategory *
 export function getDetailCategory({
   dispatch
@@ -115,8 +101,8 @@ export function getTopNewsInHomepage({
   });
 }
 
-//getLatestNewsCategory *
-export function getLatestNewsCategory({
+//getTopHotNewsByCategory *
+export function getTopHotNewsByCategory({
   dispatch
 }, {
   ...data
@@ -127,6 +113,7 @@ export function getLatestNewsCategory({
     data
   });
 }
+
 // getNewsInCategoryPage *
 export function getNewsInCategoryPage({
   dispatch
@@ -136,6 +123,19 @@ export function getNewsInCategoryPage({
 }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/newsInCategory/${id}`,
+    method: "GET",
+    data
+  });
+}
+
+//getLatestNewsCategory *
+export function getLatestNewsCategory({
+  dispatch
+}, {
+  ...data
+}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",
     data
   });

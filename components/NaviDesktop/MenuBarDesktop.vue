@@ -12,8 +12,7 @@
             <nuxt-link
               to="/"
               class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
-              >Nông Thôn 365</nuxt-link
-            >
+            >Nông Thôn 365</nuxt-link>
           </div>
           <div class="flex flex-wrap items-center">
             <nuxt-link
@@ -55,23 +54,23 @@ export default {
       subs: [],
       toggleHoverModal: false,
       allPosts: [],
-      n: 4,
+      n: 4
     };
   },
   components: {
     Container1640,
-    HoverModal,
+    HoverModal
   },
   props: {
     menuTags: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
-    },
+    }
   },
   methods: {
     next() {
@@ -85,11 +84,15 @@ export default {
       }
     },
     async hoverSub(id) {
-      await this.$store.dispatch("getNewsInCategoryPage", {
-        id,
-        nextActions: (res) => {
-          this.allPosts = res.result;
+      await this.$store.dispatch("getTopHotNewsByCategory", {
+        urlQuery: {
+          categoryId: id,
+          skip: 0,
+          limit: 12
         },
+        nextActions: res => {
+          this.allPosts = res.result;
+        }
       });
       this.n = 4;
     },
@@ -97,18 +100,22 @@ export default {
       if (subs && subs.length) {
         this.subs = subs;
         this.toggleHoverModal = true;
-        await this.$store.dispatch("getNewsInCategoryPage", {
-          id,
-          nextActions: (res) => {
-            this.allPosts = res.result;
+        await this.$store.dispatch("getTopHotNewsByCategory", {
+          urlQuery: {
+            categoryId: id,
+            skip: 0,
+            limit: 12
           },
+          nextActions: res => {
+            this.allPosts = res.result;
+          }
         });
         this.n = 4;
       } else {
         this.toggleHoverModal = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
