@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       skip: 0,
-      limit: 1, //news per page
+      limit: 3, //news per page
       posts: "",
       meta: "",
       total: "",
