@@ -67,7 +67,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://192.168.1.218:8080/quan8-frontend/public",
+    baseURL: "http://192.168.1.218:8080/nongthonviet-frontend/public",
     header: "Content-Type: application/json"
   },
   /*
@@ -80,7 +80,7 @@ export default {
     extend(config, ctx) { }
   },
   env: {
-    // baseAPI: 'https://api-boo.bazic.vn',
-    BASE_URL: "http://192.168.1.218:8080/nongthonviet-frontend",
+    BASE_URL: process.env.NODE_ENV !== 'production' ? 'https://nongthonviet.com.vn' : 'https://nongthonviet.com.vn',
+    BASE_API: process.env.NODE_ENV !== 'production' ? "http://192.168.1.218:8080/nongthonviet-frontend" : 'http://nongthonviet.ngn.com.vn/api'
   },
 }

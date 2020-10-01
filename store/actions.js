@@ -68,7 +68,7 @@ export function getCategories({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/category`,
+    url: `${process.env.BASE_API}/public/category`,
     method: "GET",
     data
   });
@@ -82,7 +82,7 @@ export function getTopHotNewsByCategory({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/hotNews/${id}`,
+    url: `${process.env.BASE_API}/public/hotNews/${id}`,
     method: "GET",
     data
   });
@@ -96,7 +96,7 @@ export function getDetailCategory({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/category/${id}`,
+    url: `${process.env.BASE_API}/public/category/${id}`,
     method: "GET",
     data
   });
@@ -109,7 +109,7 @@ export function getTopNewsInHomepage({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/homepage`,
+    url: `${process.env.BASE_API}/public/homepage`,
     method: "GET",
     data
   });
@@ -122,7 +122,7 @@ export function getLatestNewsCategory({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/hotNews`,
+    url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",
     data
   });
@@ -135,7 +135,7 @@ export function getNewsInCategoryPage({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/newsInCategory/${id}`,
+    url: `${process.env.BASE_API}/public/newsInCategory/${id}`,
     method: "GET",
     data
   });
@@ -149,7 +149,7 @@ export function getDetailNew({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/news/${id}`,
+    url: `${process.env.BASE_API}/public/news/${id}`,
     method: "GET",
     data
   });
@@ -163,7 +163,7 @@ export function getComments({
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_URL}/public/news/comments/${id}`,
+    url: `${process.env.BASE_API}/public/news/comments/${id}`,
     method: "GET",
     data
   })
@@ -237,7 +237,7 @@ export async function login({
   try {
     // fetch user
     const user = await this.$axios.post(
-      `${process.env.BASE_URL}/public/login`, {
+      `${process.env.BASE_API}/public/login`, {
         email: authData.email,
         password: authData.password
       }
@@ -286,7 +286,7 @@ export async function register({
   } = authData;
   try {
     // register
-    await this.$axios.post(`${process.env.BASE_URL}/public/register`, {
+    await this.$axios.post(`${process.env.BASE_API}/public/register`, {
       email,
       name,
       password
@@ -337,7 +337,7 @@ export async function forgetPassword({
 }, email) {
   try {
     const request = await this.$axios.post(
-      `${process.env.BASE_URL}/public/forgotPassword`, {
+      `${process.env.BASE_API}/public/forgotPassword`, {
         email
       }
     );

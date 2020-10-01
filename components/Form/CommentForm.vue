@@ -62,7 +62,7 @@ export default {
         // post api here
 
         const request = Axios.post(
-          `${process.env.BASE_URL}/public/news/postComment/${this.postId}`,
+          `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
           {
             userId,
             email,

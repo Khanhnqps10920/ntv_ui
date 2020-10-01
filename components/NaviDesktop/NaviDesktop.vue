@@ -86,7 +86,7 @@ export default {
     async onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
-      await this.$store.dispatch("getNewsInCategoryPage", {
+      await this.$store.dispatch("getNewsInCategoryPage", { //getTopHotNewsByCategory for test
         id,
         nextActions: res => {
           this.allPosts = res.result;
