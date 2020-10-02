@@ -10,7 +10,9 @@
       <div class="comment__info--wrapper">
         <p class="comment__info--name">{{ item.name }}</p>
 
-        <p class="comment__info--time">September 3, 2020 At 3:08 am</p>
+        <p class="comment__info--time">
+          {{ item.commentedDate | datetime("DD/MM/YYYY") }}
+        </p>
       </div>
       <div class="comment__info--content">
         <p>{{ item.content }}</p>
@@ -24,9 +26,9 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
