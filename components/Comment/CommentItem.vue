@@ -76,7 +76,7 @@ export default {
         });
 
         this.childrenItems = [...comments.data.result];
-        this.$emit("setReFetchFail");
+        this.$emit("");
       }
     }
   },
