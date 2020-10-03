@@ -138,7 +138,13 @@
                 @setReFetchFail="fetchReply = false"
               >
               </CommentItem>
-
+              <p
+                class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
+                v-if="comments.length < totalComment"
+                @click="fetchMoreComments"
+              >
+                Xem Thêm
+              </p>
               <h3 class="comment-block__title">
                 Bình luận
                 <span
@@ -206,13 +212,19 @@ export default {
     Author,
     AdsMain,
     CommentForm,
-    CommentItem
+    CommentItem,
   },
   mounted() {
     this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
   },
   data() {
-    return { link: "", isReply: false, replyData: null, fetchReply: false };
+    return {
+      link: "",
+      isReply: false,
+      replyData: null,
+      fetchReply: false,
+      limit: 5,
+    };
   },
   methods: {
     handleReplyComment(item) {
@@ -227,13 +239,14 @@ export default {
     },
 
     async refetchComments() {
+      if (this.comments.length === this.limit) this.limit += 5;
       try {
         const data = await this.$store.dispatch("getComments", {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: 10
-          }
+            limit: this.limit,
+          },
         });
         this.comments = [...data.data.result];
       } catch (e) {
@@ -243,7 +256,23 @@ export default {
 
     refetchReply() {
       this.fetchReply = true;
-    }
+    },
+
+    async fetchMoreComments() {
+      this.limit = this.limit + 5;
+      try {
+        const data = await this.$store.dispatch("getComments", {
+          id: this.id,
+          urlQuery: {
+            skip: 0,
+            limit: this.limit,
+          },
+        });
+        this.comments = [...data.data.result];
+      } catch (e) {
+        console.log(e);
+      }
+    },
   },
 
   watch: {
@@ -256,7 +285,7 @@ export default {
         commentArea.placeholder = `Comment`;
         this.replyData = null;
       }
-    }
+    },
   },
 
   async asyncData(context) {
@@ -270,33 +299,33 @@ export default {
     let TinNong = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinNong = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Tin Mới
     let TinMoi = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinMoi = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
     // Các Tin Khác
     let TinKhac = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinKhac = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
 
@@ -307,14 +336,30 @@ export default {
       id,
       urlQuery: {
         skip: 0,
-        limit: 10
+        limit: 5,
       },
-      nextActions: res => {
+      nextActions: (res) => {
         comments = [...res.result];
       },
-      errorAction: e => {
+      errorAction: (e) => {
         console.log(e);
-      }
+      },
+    });
+
+    // total comment
+    let totalComment;
+    await context.store.dispatch("getComments", {
+      id,
+      urlQuery: {
+        skip: 0,
+        limit: 5000000,
+      },
+      nextActions: (res) => {
+        totalComment = res.result.length;
+      },
+      errorAction: (e) => {
+        console.log(e);
+      },
     });
 
     return {
@@ -323,7 +368,8 @@ export default {
       TinMoi,
       TinKhac,
       id,
-      comments
+      comments,
+      totalComment,
     };
   },
   head() {
@@ -335,47 +381,47 @@ export default {
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: "Nông Thôn 365"
+          content: "Nông Thôn 365",
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: "Nông Thôn 365"
+          content: "Nông Thôn 365",
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://nongthon365.com.vn${this.$route.fullPath}`
+          content: `https://nongthon365.com.vn${this.$route.fullPath}`,
         },
         {
           hid: "og:type",
           property: "og:type",
-          content: "article"
+          content: "article",
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.post.title
+          content: this.post.title,
         },
         {
           hid: "description",
           property: "description",
-          content: this.post.meta.excerpt
+          content: this.post.meta.excerpt,
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.post.meta.excerpt
+          content: this.post.meta.excerpt,
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.meta.image
-        }
-      ]
+          content: this.post.meta.image,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

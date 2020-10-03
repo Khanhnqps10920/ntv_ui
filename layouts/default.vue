@@ -77,10 +77,12 @@ export default {
         return {
           forgot: () => {
             vm.authComponent = "Forgot";
+            this.$store.commit("SET_AUTH_ERROR", null);
           },
 
           register: () => {
             vm.authComponent = "Register";
+            this.$store.commit("SET_AUTH_ERROR", null);
           },
         };
       }

@@ -32,6 +32,14 @@
         :key="item.id"
         :item="item"
       />
+
+      <p
+        v-if="childrenItems.length < item.repliesCount"
+        class="cursor-pointer hover:text-hovercolor text-right italic text-xs"
+        @click="handleFetchMoreReplies"
+      >
+        Xem Thêm
+      </p>
     </div>
   </div>
 </template>
@@ -43,42 +51,59 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true
+      required: true,
     },
     replyComment: {
-      type: Function
+      type: Function,
     },
     fetchReply: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   components: {
-    CommentChildren
+    CommentChildren,
   },
 
   data() {
     return {
-      childrenItems: []
+      childrenItems: [],
+      limit: 1,
     };
+  },
+
+  methods: {
+    async handleFetchMoreReplies() {
+      this.limit += 5;
+      const comments = await this.$store.dispatch("getReplyComments", {
+        commentId: this.item.commentId,
+        urlQuery: {
+          skip: 0,
+          limit: this.limit,
+        },
+      });
+
+      this.childrenItems = [...comments.data.result];
+    },
   },
 
   watch: {
     async fetchReply(value) {
       if (value) {
+        if (this.childrenItems.length === this.limit) this.limit += 5;
         const comments = await this.$store.dispatch("getReplyComments", {
           commentId: this.item.commentId,
           urlQuery: {
             skip: 0,
-            limit: 10
-          }
+            limit: this.limit,
+          },
         });
 
         this.childrenItems = [...comments.data.result];
         this.$emit("");
       }
-    }
+    },
   },
 
   async created() {
@@ -87,15 +112,15 @@ export default {
         commentId: this.item.commentId,
         urlQuery: {
           skip: 0,
-          limit: 10
-        }
+          limit: 1,
+        },
       });
 
       this.childrenItems = [...comments.data.result];
     } catch (e) {
       console.log(e);
     }
-  }
+  },
 };
 </script>
 

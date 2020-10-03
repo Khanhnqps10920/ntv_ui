@@ -28,25 +28,25 @@ import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      content: null
+      content: null,
     };
   },
   props: {
     postId: {
-      type: String
+      type: String,
     },
     replyData: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
-    ...mapState(["user"])
+    ...mapState(["user"]),
   },
 
   validations: {
     content: {
-      required
-    }
+      required,
+    },
   },
 
   methods: {
@@ -72,19 +72,19 @@ export default {
               userId,
               email,
               name,
-              content: this.content
+              content: this.content,
             }
           );
 
           request
-            .then(response => {
+            .then((response) => {
               this.$emit("refetchReply");
 
               // reset form
               this.content = null;
               this.$v.$reset();
             })
-            .catch(e => {
+            .catch((e) => {
               console.log(e, error);
             });
         } else {
@@ -94,19 +94,20 @@ export default {
               userId,
               email,
               name,
-              content: this.content
+              content: this.content,
             }
           );
 
           request
-            .then(response => {
+            .then((response) => {
+              console.log("comments", response);
               this.$emit("refetchComments");
 
               // reset form
               this.content = null;
               this.$v.$reset();
             })
-            .catch(e => {
+            .catch((e) => {
               console.log(e, error);
             });
         }
@@ -115,8 +116,8 @@ export default {
         this.setActiveSignin(true);
         this.SET_AUTH_ERROR("Bạn cần phải đăng nhập trước");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
