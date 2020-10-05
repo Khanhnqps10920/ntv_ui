@@ -1,19 +1,29 @@
 <template>
-  <Container1640 class="border-gray-200 border-b-2 border-solid bg-white min-w-full">
+  <Container1640
+    class="border-gray-200 border-b-2 border-solid bg-white min-w-full"
+  >
     <div class="flex">
-      <div style="min-width : 180px" class="border-gray-200 border-r-2 border-solid text-right p-4">
+      <div
+        style="min-width: 180px"
+        class="border-gray-200 border-r-2 border-solid text-right p-4"
+      >
         <ul class="mt-2">
           <li
-            v-for="(sub,i) in subs"
+            v-for="(sub, i) in subs"
             :key="i"
             @click="$router.push(`/category/${sub.alias}-id=${sub.id}`)"
             @mouseover="onHoverSub(sub.id)"
-            class="text-right; pb-3 text-xs font-bold hover:text-hovercolor cursor-pointer"
-          >{{sub.name}}</li>
+            class="text-right; pb-3 text-xs font-bold hover:text-hovercolor capitalize cursor-pointer"
+          >
+            {{ sub.name }}
+          </li>
         </ul>
       </div>
       <div class="flex-grow ml-4 mt-4">
-        <div class="grid grid-cols-12 gap-4 justify-center" v-if="currentPosts.length">
+        <div
+          class="grid grid-cols-12 gap-4 justify-center"
+          v-if="currentPosts.length"
+        >
           <BlockItem
             v-for="(post, i) in currentPosts"
             :post="post"
@@ -42,19 +52,19 @@ import BlockItem from "@/components/BlockItem/BlockItem";
 export default {
   components: {
     Container1640,
-    BlockItem
+    BlockItem,
   },
   props: {
     subs: {
       type: Array,
-      required : true
+      required: true,
     },
     currentPosts: {
       type: Array,
-      default : () => {
-        return []
-      }
-    }
+      default: () => {
+        return [];
+      },
+    },
   },
   data() {
     return {};
@@ -62,7 +72,7 @@ export default {
   methods: {
     onHoverSub(id) {
       this.$emit("hoverSub", id);
-    }
-  }
+    },
+  },
 };
 </script>

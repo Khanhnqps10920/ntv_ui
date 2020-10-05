@@ -3,8 +3,22 @@
     <div class="main-block flex xs:block mb-5">
       <!-- main block -->
       <div class="main-block__main flex-grow">
-        <MainBlockItem v-for="(post,index) in posts" :key="index" :post="post" :is1240="true" />
-        <Pagination :totalNews="totalNews" :limit="limit" @changePage="changePage" />
+        <MainBlockItem
+          v-for="(post, index) in posts"
+          :key="index"
+          :post="post"
+          :is1240="true"
+        />
+        <p class="text-lg bold" v-if="!posts.length">
+          Hiện tại chưa có bài viết nào phù hợp
+        </p>
+
+        <Pagination
+          v-if="totalNews > 0"
+          :totalNews="totalNews"
+          :limit="limit"
+          @changePage="changePage"
+        />
       </div>
 
       <!-- right block -->
@@ -12,7 +26,12 @@
         <div class="main-block__right-block">
           <h4 class="block-title">Tin Mới Nhất</h4>
 
-          <SideBlockItem v-for="(post,index) in TinMoiNhat" :post="post" :key="index" :isSquare="true" />
+          <SideBlockItem
+            v-for="(post, index) in TinMoiNhat"
+            :post="post"
+            :key="index"
+            :isSquare="true"
+          />
         </div>
 
         <AdsSide class="mt-5" />
@@ -37,30 +56,31 @@ export default {
     SideBlockItem,
     MainBlockItem,
     AdsSide,
-    Pagination
+    Pagination,
   },
   props: {
     posts: {
-      type: Array
+      type: Array,
     },
     totalNews: {
-      type: Number
+      type: Number,
+      default: 10,
     },
-    limit : {
-      type : Number
+    limit: {
+      type: Number,
     },
-    TinMoiNhat : {
-      type : Array,
-      default : () => {
-        return []
-      }
-    }
+    TinMoiNhat: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
   },
   methods: {
     changePage(p) {
-      this.$emit('changePage', p)
-    }
-  }
+      this.$emit("changePage", p);
+    },
+  },
 };
 </script>
 

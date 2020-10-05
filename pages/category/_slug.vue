@@ -13,7 +13,6 @@
     <MainBlock
       @changePage="changePage"
       class="mt-10"
-      v-if="posts.length"
       :posts="posts"
       :totalNews="total"
       :limit="limit"
@@ -36,7 +35,7 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock
+    MainBlock,
   },
   data() {
     return {
@@ -44,22 +43,24 @@ export default {
       limit: 10, //news per page
       posts: "",
       meta: "",
-      total: ""
+      total: "",
     };
   },
   async asyncData(context) {
     let TinMoiNhat = [];
     await context.store.dispatch("getLatestNewsCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
       },
-      nextActions: res => {
+      nextActions: (res) => {
         TinMoiNhat = [...res.result];
-      }
+      },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
+
+    console.log(TinMoiNhat);
     return {
-      TinMoiNhat
+      TinMoiNhat,
     };
   },
   async mounted() {
@@ -68,11 +69,12 @@ export default {
     );
     const data = await this.$store.dispatch("getNewsInCategoryPage", {
       id: id,
-      urlQuery: { skip: this.skip, limit: this.limit }
+      urlQuery: { skip: this.skip, limit: this.limit },
     });
     this.posts = data.data.result;
     this.meta = data.data.meta;
     this.total = data.data.total;
+    console.log(this.posts);
   },
 
   methods: {
@@ -83,7 +85,7 @@ export default {
       );
       const data = await this.$store.dispatch("getNewsInCategoryPage", {
         id: id,
-        urlQuery: { skip: this.skip, limit: this.limit }
+        urlQuery: { skip: this.skip, limit: this.limit },
       });
       this.posts = data.data.result;
       this.meta = data.data.meta;
@@ -92,14 +94,14 @@ export default {
         let elmnt = document.getElementById("content");
         elmnt.scrollIntoView();
       }
-    }
+    },
   },
   head() {
     return {
       titleTemplate: this.meta ? this.meta.category.name : "Nông nghiệp 365",
-      title: this.meta ? this.meta.category.name : "Nông nghiệp 365"
+      title: this.meta ? this.meta.category.name : "Nông nghiệp 365",
     };
-  }
+  },
 };
 </script>
 

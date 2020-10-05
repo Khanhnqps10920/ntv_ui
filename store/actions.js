@@ -155,6 +155,17 @@ export function getDetailNew({
   });
 }
 
+// search
+export function searchPosts({
+  dispatch
+}, {id,...data}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/search`,
+    method: "GET",
+    data
+  });
+}
+
 // get comment in post
 export function getComments({
   dispatch

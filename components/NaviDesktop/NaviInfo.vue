@@ -4,13 +4,16 @@
       <div class="flex mt-8 text-xs">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">{{weatherCelsius}} &#186;C</span>
+          <span class="font-bold">{{ weatherCelsius }} &#186;C</span>
           <span>Việt Nam</span>
         </div>
 
         <div class="flex-1 text-center">
           <Logo />
-          <div class="text-sm mt-1">{{dateInfo.day}}, {{dateInfo.date}} tháng {{dateInfo.month}} năm {{dateInfo.year}}</div>
+          <div class="text-sm mt-1">
+            {{ dateInfo.day }}, {{ dateInfo.date }} tháng
+            {{ dateInfo.month }} năm {{ dateInfo.year }}
+          </div>
         </div>
         <div class="flex-1 text-right self-center">
           <nuxt-link to class="hover:text-hovercolor">
@@ -23,7 +26,7 @@
             <i class="fab fa-youtube mr-3"></i>
           </nuxt-link>
           <nuxt-link to class="hover:text-hovercolor">
-            <i class="fas fa-search" @click="searchActive=!searchActive"></i>
+            <i class="fas fa-search" @click="searchActive = !searchActive"></i>
           </nuxt-link>
         </div>
         <transition name="fade-top" appear v-if="searchActive">
@@ -31,7 +34,11 @@
         </transition>
       </div>
     </Container1640>
-    <div class="overlay" v-if="searchActive" @click="searchActive = false"></div>
+    <div
+      class="overlay"
+      v-if="searchActive"
+      @click="searchActive = false"
+    ></div>
   </div>
 </template>
 
@@ -46,13 +53,13 @@ export default {
     return {
       searchActive: false,
       metals: null,
-      dateInfo : ''
+      dateInfo: "",
     };
   },
   components: {
     Container1640,
     Logo,
-    SearchHome
+    SearchHome,
   },
   mounted() {
     let d = new Date();
@@ -60,7 +67,6 @@ export default {
     let date = d.getDate();
     let month = d.getMonth();
     let year = d.getFullYear();
-    console.log(day);
     switch (d.getDay()) {
       case 0:
         day = "Chủ Nhật";
@@ -86,9 +92,9 @@ export default {
     this.dateInfo = {
       day,
       date,
-      month : month + 1,
-      year
-    }
+      month: month + 1,
+      year,
+    };
   },
 
   computed: {
@@ -96,10 +102,10 @@ export default {
 
     weatherCelsius() {
       return this.weather.main ? this.weather.main.temp - 273.15 : null;
-    }
+    },
   },
 
-  async created() {}
+  async created() {},
 };
 </script>
 
