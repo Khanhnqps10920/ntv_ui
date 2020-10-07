@@ -9,6 +9,7 @@
       :TinMoiNhat="TinMoi"
       :posts="posts"
       :limit="limit"
+      :totalNews="total"
     />
   </div>
 </template>
@@ -32,7 +33,6 @@ export default {
       skip: 0,
       limit: 10, //news per page
       posts: [],
-      total: "",
     };
   },
   async asyncData(context) {
@@ -46,8 +46,27 @@ export default {
       },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
+
+    const keyword = context.route.params.search;
+    let total;
+
+    await context.store.dispatch("searchPosts", {
+      urlQuery: {
+        keyword,
+        skip: 0,
+        limit: 700000,
+      },
+      nextActions: (res) => {
+        total = [...res.result].length;
+      },
+
+      errorActions: (e) => {
+        console.log(e);
+      },
+    });
     return {
       TinMoi,
+      total,
     };
   },
 

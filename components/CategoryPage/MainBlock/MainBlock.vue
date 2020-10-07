@@ -64,7 +64,6 @@ export default {
     },
     totalNews: {
       type: Number,
-      default: 10,
     },
     limit: {
       type: Number,
