@@ -7,7 +7,12 @@
           <nuxt-link to class="mr-5 hover:text-hovercolor"
             >Về chúng tôi</nuxt-link
           >
-          <nuxt-link to class="mr-5 hover:text-hovercolor">Magazine</nuxt-link>
+          <a
+            href="http://nongthonviet.com.vn/"
+            target="_blank"
+            class="mr-5 hover:text-hovercolor"
+            >Magazine</a
+          >
           <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>

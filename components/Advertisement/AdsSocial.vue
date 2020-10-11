@@ -1,3 +1,3 @@
 <template>
-   <img src="@/assets/imgs/default.png" alt class="w-full h-full" />
+  <img src="@/assets/imgs/quangcao.jpg" alt class="w-full h-full" />
 </template>
