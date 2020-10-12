@@ -119,7 +119,12 @@ export default {
 /* end main block right */
 
 /* responsive */
-
+@media  (max-width: 768px) {
+   .main-block__main {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+} 
 /* tablet */
 
 @media (max-width: 1018px) and (min-width: 768px) {

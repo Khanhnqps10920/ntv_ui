@@ -61,10 +61,11 @@ export default {
   width: 100%;
   justify-content: center;
   align-items: center;
+  flex-flow:wrap;
 }
 
 .category__list .category__list-item {
-  margin: 0 5px;
+  margin: 5px;
 }
 
 .category__list .category__list-item a {

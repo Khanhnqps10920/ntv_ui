@@ -41,9 +41,9 @@ export default {
     return {
       skip: 0,
       limit: 10, //news per page
-      posts: "",
+      posts: [],
       meta: "",
-      total: "",
+      total: 0,
     };
   },
   async asyncData(context) {
@@ -71,6 +71,8 @@ export default {
       id: id,
       urlQuery: { skip: this.skip, limit: this.limit },
     });
+
+    console.log(data,'data');
     this.posts = data.data.result;
     this.meta = data.data.meta;
     this.total = data.data.total;
