@@ -50,6 +50,8 @@ export default {
     mainNew() {
       return this.News[0];
     },
+
+
     mainNewCate() {
       /* (2)
       return this.$store.dispatch('getDetailCategory', {

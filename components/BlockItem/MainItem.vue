@@ -2,13 +2,13 @@
   <div class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height">
     <div class="bg-blue-300 h-auto relative flex-grow" v-if="cateInfo && post">
       <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
-      <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="block-item__img">
+      <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{post.title}}</nuxt-link>
+        <nuxt-link :to="postLink">{{post.title}}</nuxt-link>
       </h3>
 
       <div class="block-item__date">
@@ -29,6 +29,14 @@ export default {
       cateInfo : {}
     }
   },
+  computed: {
+    postLink() {
+
+      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+
+      return this.post.type === 'longform' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+    }
+  },
   props: {
     post: {
       type: Object,
@@ -36,6 +44,7 @@ export default {
         return {}
       }
     }
+    
   },
   async mounted() {
     //Get CateInfo (2)
