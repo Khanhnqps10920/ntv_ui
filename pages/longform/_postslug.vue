@@ -523,7 +523,7 @@ export default {
     width:100%;
   }
 
-  .post__main--title {
+  .post__main--title { 
     font-size: 24px;
   }
 
