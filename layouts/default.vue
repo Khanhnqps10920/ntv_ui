@@ -15,7 +15,7 @@
       />
       <!-- sidebar menu -->
       <transition name="slide-left">
-        <SideBarMobile v-if="showSideBar" @closeSideBar="showSideBar = false" />
+        <SideBarMobile v-if="showSideBar" :categories="categories" @closeSideBar="showSideBar = false" />
       </transition>
       <!-- sidebar search -->
       <transition name="slide-right">

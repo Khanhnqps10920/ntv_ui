@@ -2,13 +2,13 @@
   <div class="block-item">
     <div class="block-item__img-container relative">
       <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
-      <nuxt-link :to="'/post/' + post.alias + `-id=${post.id}`" class="block-item__img">
+      <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <h5 class="block-item__title line-clamp-title">
       <nuxt-link
-        :to="'/post/' + post.alias + `-id=${post.id}`"
+        :to="postLink"
       >{{post.excerpt}}</nuxt-link>
     </h5>
     <div class="block-item__date">
@@ -28,6 +28,15 @@ export default {
       cateInfo: {},
     };
   },
+
+  computed: {
+    postLink() {
+      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+
+      return this.post.type === 'longform' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+    }
+  },
+
   props: {
     post: {
       type: Object,

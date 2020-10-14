@@ -12,14 +12,14 @@
             >
 
             <h3 class="blocka__main--title line-clamp-title">
-              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">{{
+              <nuxt-link :to="postLink">{{
                 mainNew.title
               }}</nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
               <span class="blocka__main--date-author">
-                <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+                <span>Nguyễn Tâm</span>
                 <span>-</span>
               </span>
               <span class="blocka__main-date-time">{{
@@ -28,7 +28,7 @@
             </div>
 
             <div class="blocka__main--img">
-              <nuxt-link :to="`/post/${mainNew.alias}-id=${mainNew.id}`">
+              <nuxt-link :to="postLink">
                 <img :src="mainNew.image" alt="post-img" />
               </nuxt-link>
             </div>
@@ -132,11 +132,19 @@ export default {
   },
   computed: {
     mainNew() {
+      console.log(this.News[0]);
       return this.News[0];
     },
+    
     restNew() {
       return this.News.slice(1, 4);
     },
+
+    postLink() {
+      if(!this.mainNew.type) return  '/post/' + this.mainNew.alias + `-id=${this.mainNew.id}`;
+
+      return this.mainNew.type === 'longform' ? '/longform/' + this.mainNew.alias + `-id=${this.mainNew.id}` : '/post/' + this.mainNew.alias + `-id=${this.mainNew.id}`
+    }
   },
 };
 </script>

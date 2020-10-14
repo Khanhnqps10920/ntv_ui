@@ -6,14 +6,14 @@
           class="main-item__category"
           :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`"
         >{{cateInfo.name}}</nuxt-link>
-        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`" class="main-item__img-wrapper">
+        <nuxt-link :to="postLink" class="main-item__img-wrapper">
           <img :src="post.image" alt="post-img" />
         </nuxt-link>
       </div>
 
       <div class="main-item__info">
         <h3 class="main-item__info--title line-clamp-title">
-          <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{post.title}}</nuxt-link>
+          <nuxt-link :to="postLink">{{post.title}}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
@@ -46,6 +46,17 @@ export default {
       required: true
     }
   },
+
+  computed: {
+    postLink() {
+      this.post.type = 'longform';
+
+      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+
+      return this.post.type === 'longform' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+    }
+  },
+
   async mounted() {
     //Get CateInfo (2)
     await this.$store.dispatch("getDetailCategory", {

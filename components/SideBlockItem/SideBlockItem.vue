@@ -5,7 +5,7 @@
   >
     <div class="side-item__info">
       <h3 class="side-item__title line-clamp-title">
-        <nuxt-link :to="`/post/${post.alias}-id=${post.id}`">{{
+        <nuxt-link :to="postLink">{{
           post.title
         }}</nuxt-link>
       </h3>
@@ -45,6 +45,16 @@ export default {
       },
     },
   },
+
+  computed: {
+    postLink() {
+      this.post.type = "longform";
+
+      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+
+      return this.post.type === 'longform' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+    }
+  }
 };
 </script>
 
