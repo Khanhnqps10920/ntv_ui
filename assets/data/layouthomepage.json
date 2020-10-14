@@ -1,0 +1,97 @@
+{
+  "_comment": "This is result response for {BaseUrl}/public/layout/homepage - This row just a comment, delete this row when use data",
+  "status": 1,
+  "result": [
+    {
+      "id": 0,
+      "listType": "HotNews",
+      "section": "HomeA_Main",
+      "cateId": null,
+      "title": null
+    },
+    {
+      "id": 1,
+      "listType": "HotNews",
+      "section": "HomeA_Right1",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Tin Nhanh"
+    },
+    {
+      "id": 2,
+      "listType": "HotNews",
+      "section": "HomeA_Right2",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Thị Trường Tài Chính"
+    },
+    {
+      "id": 3,
+      "listType": "Category",
+      "section": "HomeB_Main",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Tin Tức"
+    },
+    {
+      "id": 4,
+      "listType": "HotNews",
+      "section": "HomeB_Left",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Magazine"
+    },
+    {
+      "id": 5,
+      "listType": "HotNews",
+      "section": "HomeB_Right1",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Thể Thao"
+    },
+    {
+      "id": 6,
+      "listType": "HotNews",
+      "section": "HomeB_Right2",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Văn Hóa"
+    },
+    {
+      "id": 7,
+      "listType": "HotNews",
+      "section": "HomeC_Main",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Tin Nóng"
+    },
+    {
+      "id": 8,
+      "listType": "Category",
+      "section": "HomeD_Main",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Tin Tức D"
+    },
+    {
+      "id": 9,
+      "listType": "HotNews",
+      "section": "HomeD_Left",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Magazine D"
+    },
+    {
+      "id": 10,
+      "listType": "HotNews",
+      "section": "HomeD_Right1",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Thể Thao D"
+    },
+    {
+      "id": 11,
+      "listType": "HotNews",
+      "section": "HomeD_Right2",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Văn Hóa D"
+    },
+    {
+      "id": 12,
+      "listType": "HotNews",
+      "section": "HomeE_Main",
+      "cateId": "5f714c4874ab001969f6a051",
+      "title": "Tin Nóng"
+    }
+  ]
+}
