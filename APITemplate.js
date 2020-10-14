@@ -1,3 +1,5 @@
+import { isMainThread } from "worker_threads";
+
 /*
 Danh sách danh mục (tối đa 2 cấp)
 Method : GET
@@ -225,9 +227,54 @@ data = {
   result: [{ id: 1, name: 'About Us', content: 'text html' }]
 }
 
-
 //Ads API Get
 //API số lượng bài viết theo cates
 
 
+/* API Layout
+Method : GET  
+{BaseUrl}/layout/homepage/{position}
+*/
+data = {
+  status: 1,
+  result: [
+    { name: 'Main', posts: ['postslist'] },
+    { name: 'Right1', title: 'Tin Nhanh', posts: ['postslist'], cateAlias: 'tin-nhanh' },
+    { name: 'Right2', title: 'Thị Trường Tài Chính', posts: ['postslist'], cateAlias: 'thi-truong-tai-chinh' }
+  ]
+}
 
+/* API Layout CategoryPage
+Method: GET
+{BaseUrl}/layout/catepage  || detailpage
+*/
+data = {
+  status: 1,
+  result: [
+    { name: 'Tin mới nhất', title: 'Tin Nhanh', posts: ['postslist'], cateAlias: 'tin-nhanh' },
+  ]
+}
+//tương tự với detail page
+
+/*
+API  Advertisement
+Method : GET
+{BaseUrl}/adv/homepage   ||  catepage  ||  detailpage
+*/
+data = {
+  status: 1,
+  result: [
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' },
+    { image: 'linkimage', title: 'quang cao title', link: 'click vao qua trang ads nay' }
+  ]
+}
+// Trả về thêm 1 
+// postList : [{ name: 'Tin mới nhất', title: 'Tin Nhanh', posts: ['postslist'], cateAlias: 'tin-nhanh' }] dynamic theo API category list, detailpost, hoặc thêm 1 APi gọi riêng 2 list đó theo id category id detail bài viết **A Thắng xem qua chỗ này giúp e
+/* Rules : 
+- Số lượng bài viết sẽ tự lấy tối đa theo layout nếu api trả về dài hơn, {position} nào gọi status 0 thì không hiển thị block đó
+*/
