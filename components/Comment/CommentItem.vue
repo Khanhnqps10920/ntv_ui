@@ -118,7 +118,6 @@ export default {
 
       this.childrenItems = [...comments.data.result];
     } catch (e) {
-      console.log(e);
     }
   },
 };

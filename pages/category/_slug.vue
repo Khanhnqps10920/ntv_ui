@@ -57,8 +57,6 @@ export default {
       },
       //change ID follow admin for BlockAThiTruongTaiChinh
     });
-
-    console.log(TinMoiNhat);
     return {
       TinMoiNhat,
     };
@@ -71,12 +69,9 @@ export default {
       id: id,
       urlQuery: { skip: this.skip, limit: this.limit },
     });
-
-    console.log(data,'data');
     this.posts = data.data.result;
     this.meta = data.data.meta;
     this.total = data.data.total;
-    console.log(this.posts);
   },
 
   methods: {

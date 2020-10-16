@@ -194,6 +194,20 @@ export function getReplyComments({
   })
 }
 
+//  getLayout *
+export function getLayout({
+  dispatch
+}, {
+  page,
+  ...data
+}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/layout/${page}`,
+    method: "GET",
+    data
+  });
+}
+
 /*===================*/
 
 // get weather api
