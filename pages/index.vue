@@ -92,48 +92,48 @@ export default {
     let HomeA_Main = [];
     let HomeA_Right1 = [];
     let HomeA_Right2 = [];
-    await context.store.dispatch(apiAction(HomeAMainObj.listType), {
-      urlQuery: {
-        categoryId: HomeAMainObj.cateId,
-        skip: 1,
-        limit: 4
-      },
-      nextActions: res => {
-        HomeA_Main = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeAMainObj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeAMainObj.cateId,
+    //     skip: 1,
+    //     limit: 4
+    //   },
+    //   nextActions: res => {
+    //     HomeA_Main = [...res.result];
+    //   }
+    // });
 
     //HomeA_Right1
     let HomeARight1Obj = layout.find(e => {
       return e.section === "HomeA_Right1";
     });
     const titleHomeA_Right1 = HomeARight1Obj.title;
-    await context.store.dispatch(apiAction(HomeARight1Obj.listType), {
-      urlQuery: {
-        categoryId: HomeARight1Obj.cateId,
-        skip: 0,
-        limit: 1
-      },
-      nextActions: res => {
-        HomeA_Right1 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeARight1Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeARight1Obj.cateId,
+    //     skip: 0,
+    //     limit: 1
+    //   },
+    //   nextActions: res => {
+    //     HomeA_Right1 = [...res.result];
+    //   }
+    // });
 
     //HomeA_Right2
     let HomeARight2Obj = layout.find(e => {
       return e.section === "HomeA_Right2";
     });
     const titleHomeA_Right2 = HomeARight2Obj.title;
-    await context.store.dispatch(apiAction(HomeARight2Obj.listType), {
-      urlQuery: {
-        categoryId: HomeARight1Obj.cateId,
-        skip: 0,
-        limit: 3
-      },
-      nextActions: res => {
-        HomeA_Right2 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeARight2Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeARight1Obj.cateId,
+    //     skip: 0,
+    //     limit: 3
+    //   },
+    //   nextActions: res => {
+    //     HomeA_Right2 = [...res.result];
+    //   }
+    // });
 
     //HomeB_Main
     let HomeB_Main = [];
@@ -146,19 +146,13 @@ export default {
     });
     const titleHomeB_Main = HomeBMainObj.title;
     // await context.store.dispatch(apiAction(HomeBMainObj.listType), {
-    //   id: HomeBMainObj.cateId,
+    //   urlQuery: {
+    //     categoryId: HomeBMainObj.cateId
+    //   },
     //   nextActions: res => {
     //     HomeB_Main = [...res.result];
     //   }
     // });
-    await context.store.dispatch(apiAction(HomeBMainObj.listType), {
-      urlQuery: {
-        categoryId: HomeBMainObj.cateId
-      },
-      nextActions: res => {
-        HomeB_Main = [...res.result];
-      }
-    });
 
     //HomeB_Left
     let HomeBLeftObj = layout.find(e => {
@@ -169,14 +163,14 @@ export default {
       HomeBLeftObj.cateAlias && HomeBLeftObj.cateId
         ? `/category/${HomeBLeftObj.cateAlias}-id=${HomeBLeftObj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeBLeftObj.listType), {
-      urlQuery: {
-        categoryId: HomeBLeftObj.cateId
-      },
-      nextActions: res => {
-        HomeB_Left = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeBLeftObj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeBLeftObj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeB_Left = [...res.result];
+    //   }
+    // });
 
     //HomeB_Right1
     let HomeBRight1Obj = layout.find(e => {
@@ -187,14 +181,14 @@ export default {
       HomeBRight1Obj.cateAlias && HomeBRight1Obj.cateId
         ? `/category/${HomeBRight1Obj.cateAlias}-id=${HomeBRight1Obj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeBRight1Obj.listType), {
-      urlQuery: {
-        categoryId: HomeBRight1Obj.cateId
-      },
-      nextActions: res => {
-        HomeB_Right1 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeBRight1Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeBRight1Obj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeB_Right1 = [...res.result];
+    //   }
+    // });
 
     //HomeB_Right2
     let HomeBRight2Obj = layout.find(e => {
@@ -205,14 +199,14 @@ export default {
       HomeBRight2Obj.cateAlias && HomeBRight2Obj.cateId
         ? `/category/${HomeBRight2Obj.cateAlias}-id=${HomeBRight2Obj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeBRight2Obj.listType), {
-      urlQuery: {
-        categoryId: HomeBRight2Obj.cateId
-      },
-      nextActions: res => {
-        HomeB_Right2 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeBRight2Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeBRight2Obj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeB_Right2 = [...res.result];
+    //   }
+    // });
 
     //HomeC_Main
     let HomeCMainObj = layout.find(e => {
@@ -220,16 +214,16 @@ export default {
     });
     let HomeC_Main = [];
     const titleHomeC_Main = HomeCMainObj.title;
-    await context.store.dispatch(apiAction(HomeCMainObj.listType), {
-      urlQuery: {
-        categoryId: HomeCMainObj.cateId,
-        skip: 0,
-        limit: 5
-      },
-      nextActions: res => {
-        HomeC_Main = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeCMainObj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeCMainObj.cateId,
+    //     skip: 0,
+    //     limit: 5
+    //   },
+    //   nextActions: res => {
+    //     HomeC_Main = [...res.result];
+    //   }
+    // });
 
     //HomeD_Main
     let HomeD_Main = [];
@@ -242,19 +236,13 @@ export default {
     });
     const titleHomeD_Main = HomeDMainObj.title;
     // await context.store.dispatch(apiAction(HomeDMainObj.listType), {
-    //   id: HomeDMainObj.cateId,
+    //   urlQuery: {
+    //     categoryId: HomeDMainObj.cateId
+    //   },
     //   nextActions: res => {
     //     HomeD_Main = [...res.result];
     //   }
     // });
-    await context.store.dispatch(apiAction(HomeDMainObj.listType), {
-      urlQuery: {
-        categoryId: HomeDMainObj.cateId
-      },
-      nextActions: res => {
-        HomeD_Main = [...res.result];
-      }
-    });
 
     //HomeD_Left
     let HomeDLeftObj = layout.find(e => {
@@ -265,14 +253,14 @@ export default {
       HomeDLeftObj.cateAlias && HomeDLeftObj.cateId
         ? `/category/${HomeDLeftObj.cateAlias}-id=${HomeDLeftObj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeDLeftObj.listType), {
-      urlQuery: {
-        categoryId: HomeDLeftObj.cateId
-      },
-      nextActions: res => {
-        HomeD_Left = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeDLeftObj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeDLeftObj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeD_Left = [...res.result];
+    //   }
+    // });
 
     //HomeD_Right1
     let HomeDRight1Obj = layout.find(e => {
@@ -283,14 +271,14 @@ export default {
       HomeDRight1Obj.cateAlias && HomeDRight1Obj.cateId
         ? `/category/${HomeDRight1Obj.cateAlias}-id=${HomeDRight1Obj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeDRight1Obj.listType), {
-      urlQuery: {
-        categoryId: HomeDRight1Obj.cateId
-      },
-      nextActions: res => {
-        HomeD_Right1 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeDRight1Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeDRight1Obj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeD_Right1 = [...res.result];
+    //   }
+    // });
 
     //HomeD_Right2
     let HomeDRight2Obj = layout.find(e => {
@@ -301,14 +289,14 @@ export default {
       HomeDRight2Obj.cateAlias && HomeDRight2Obj.cateId
         ? `/category/${HomeDRight2Obj.cateAlias}-id=${HomeDRight2Obj.cateId}`
         : "/";
-    await context.store.dispatch(apiAction(HomeDRight2Obj.listType), {
-      urlQuery: {
-        categoryId: HomeDRight2Obj.cateId
-      },
-      nextActions: res => {
-        HomeD_Right2 = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeDRight2Obj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeDRight2Obj.cateId
+    //   },
+    //   nextActions: res => {
+    //     HomeD_Right2 = [...res.result];
+    //   }
+    // });
 
     //HomeE_Main
     let HomeEMainObj = layout.find(e => {
@@ -316,16 +304,132 @@ export default {
     });
     let HomeE_Main = [];
     const titleHomeE_Main = HomeEMainObj.title;
-    await context.store.dispatch(apiAction(HomeEMainObj.listType), {
-      urlQuery: {
-        categoryId: HomeEMainObj.cateId,
-        skip: 0,
-        limit: 5
-      },
-      nextActions: res => {
-        HomeE_Main = [...res.result];
-      }
-    });
+    // await context.store.dispatch(apiAction(HomeEMainObj.listType), {
+    //   urlQuery: {
+    //     categoryId: HomeEMainObj.cateId,
+    //     skip: 0,
+    //     limit: 5
+    //   },
+    //   nextActions: res => {
+    //     HomeE_Main = [...res.result];
+    //   }
+    // });
+    await Promise.all([
+      context.store.dispatch(apiAction(HomeAMainObj.listType), {
+        urlQuery: {
+          categoryId: HomeAMainObj.cateId,
+          skip: 1,
+          limit: 4
+        },
+        nextActions: res => {
+          HomeA_Main = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeARight1Obj.listType), {
+        urlQuery: {
+          categoryId: HomeARight1Obj.cateId,
+          skip: 0,
+          limit: 1
+        },
+        nextActions: res => {
+          HomeA_Right1 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeARight2Obj.listType), {
+        urlQuery: {
+          categoryId: HomeARight1Obj.cateId,
+          skip: 0,
+          limit: 3
+        },
+        nextActions: res => {
+          HomeA_Right2 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeBMainObj.listType), {
+        urlQuery: {
+          categoryId: HomeBMainObj.cateId
+        },
+        nextActions: res => {
+          HomeB_Main = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeBLeftObj.listType), {
+        urlQuery: {
+          categoryId: HomeBLeftObj.cateId
+        },
+        nextActions: res => {
+          HomeB_Left = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeBRight1Obj.listType), {
+        urlQuery: {
+          categoryId: HomeBRight1Obj.cateId
+        },
+        nextActions: res => {
+          HomeB_Right1 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeBRight2Obj.listType), {
+        urlQuery: {
+          categoryId: HomeBRight2Obj.cateId
+        },
+        nextActions: res => {
+          HomeB_Right2 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeCMainObj.listType), {
+        urlQuery: {
+          categoryId: HomeCMainObj.cateId,
+          skip: 0,
+          limit: 5
+        },
+        nextActions: res => {
+          HomeC_Main = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeDMainObj.listType), {
+        urlQuery: {
+          categoryId: HomeDMainObj.cateId
+        },
+        nextActions: res => {
+          HomeD_Main = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeDLeftObj.listType), {
+        urlQuery: {
+          categoryId: HomeDLeftObj.cateId
+        },
+        nextActions: res => {
+          HomeD_Left = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeDRight1Obj.listType), {
+        urlQuery: {
+          categoryId: HomeDRight1Obj.cateId
+        },
+        nextActions: res => {
+          HomeD_Right1 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeDRight2Obj.listType), {
+        urlQuery: {
+          categoryId: HomeDRight2Obj.cateId
+        },
+        nextActions: res => {
+          HomeD_Right2 = [...res.result];
+        }
+      }),
+      context.store.dispatch(apiAction(HomeEMainObj.listType), {
+        urlQuery: {
+          categoryId: HomeEMainObj.cateId,
+          skip: 0,
+          limit: 5
+        },
+        nextActions: res => {
+          HomeE_Main = [...res.result];
+        }
+      })
+    ]);
 
     return {
       HomeA_Main,
