@@ -3,7 +3,7 @@
     <div class="blockb flex xs:block">
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
-        <h4 class="block-title">{{titleHomeB_Left}}</h4>
+        <h4 class="block-title">{{title_Left}}</h4>
         <div @click="toMagazine" v-if="Magazine.length">
           <SideBlockItem
             v-for="(post,index) in Magazine"
@@ -15,7 +15,7 @@
         </div>
 
         <div class="blockb__button">
-          <nuxt-link :to="viewAllHomeB_Left">Xem tất cả</nuxt-link>
+          <nuxt-link :to="viewAll_Left">Xem tất cả</nuxt-link>
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -24,7 +24,7 @@
       <div class="flex-grow main-block">
         <div class="mx-4 xs:mx-0">
           <h4 class="main-block__title">
-            <span>{{titleHomeB_Main}}</span>
+            <span>{{title_Main}}</span>
             <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
@@ -35,7 +35,7 @@
       <!-- right -->
       <div class="blockb-right xs:mt-4">
         <div class="blockb-right__block" v-if="TheThao.length">
-          <h4 class="block-title">{{titleHomeB_Right1}}</h4>
+          <h4 class="block-title">{{title_Right1}}</h4>
 
           <SideBlockItem
             v-for="(post,index) in TheThao"
@@ -45,7 +45,7 @@
           />
 
           <div class="blockb__button small">
-            <nuxt-link :to="viewAllHomeB_Right1">Xem tất cả</nuxt-link>
+            <nuxt-link :to="viewAll_Right1">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="blockb-right__block" v-if="VanHoa.length">
           <AdsSide />
 
-          <h4 class="block-title">{{titleHomeB_Right2}}</h4>
+          <h4 class="block-title">{{title_Right2}}</h4>
           <SideBlockItem
             v-for="(post,index) in VanHoa"
             :post="post"
@@ -62,7 +62,7 @@
           />
 
           <div class="blockb__button small">
-            <nuxt-link :to="viewAllHomeB_Right2">Xem tất cả</nuxt-link>
+            <nuxt-link :to="viewAll_Right2">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default {
     News: {
       type: Array
     },
-    titleHomeB_Main: {
+    title_Main: {
       type: String,
       default: "Tin Tức"
     },
@@ -105,11 +105,11 @@ export default {
         return [];
       }
     },
-    titleHomeB_Left: {
+    title_Left: {
       type: String,
       default: "Magazine"
     },
-    viewAllHomeB_Left: {
+    viewAll_Left: {
       type: String,
       default: "/"
     },
@@ -119,11 +119,11 @@ export default {
         return [];
       }
     },
-    titleHomeB_Right1: {
+    title_Right1: {
       type: String,
       default: "Thể Thao"
     },
-    viewAllHomeB_Right1: {
+    viewAll_Right1: {
       type: String,
       default: "/"
     },
@@ -133,11 +133,11 @@ export default {
         return [];
       }
     },
-    titleHomeB_Right2: {
+    title_Right2: {
       type: String,
       default: "Văn Hóa"
     },
-    viewAllHomeB_Right2: {
+    viewAll_Right2: {
       type: String,
       default: "/"
     }

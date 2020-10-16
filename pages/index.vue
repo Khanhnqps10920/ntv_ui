@@ -12,35 +12,35 @@
     <BlockB
       class="mt-10"
       :News="HomeB_Main"
-      :titleHomeB_Main="titleHomeB_Main"
+      :title_Main="titleHomeB_Main"
       :Magazine="HomeB_Left"
-      :titleHomeB_Left="titleHomeB_Left"
-      :viewAllHomeB_Left="viewAllHomeB_Left"
+      :title_Left="titleHomeB_Left"
+      :viewAll_Left="viewAllHomeB_Left"
       :TheThao="HomeB_Right1"
-      :titleHomeB_Right1="titleHomeB_Right1"
-      :viewAllHomeB_Right1="viewAllHomeB_Right1"
+      :title_Right1="titleHomeB_Right1"
+      :viewAll_Right1="viewAllHomeB_Right1"
       :VanHoa="HomeB_Right2"
-      :titleHomeB_Right2="titleHomeB_Right2"
-      :viewAllHomeB_Right2="viewAllHomeB_Right2"
+      :title_Right2="titleHomeB_Right2"
+      :viewAll_Right2="viewAllHomeB_Right2"
     />
-    <BlockC class="mt-10" :News="HomeC_Main" :titleHomeC_Main="titleHomeC_Main" />
+    <BlockC class="mt-10" :News="HomeC_Main" :title_Main="titleHomeC_Main" />
     <AdsHomeMiddle />
     <BlockB
       class="mt-10"
       :News="HomeD_Main"
-      :titleHomeB_Main="titleHomeD_Main"
+      :title_Main="titleHomeD_Main"
       :Magazine="HomeD_Left"
-      :titleHomeB_Left="titleHomeD_Left"
-      :viewAllHomeB_Left="viewAllHomeD_Left"
+      :title_Left="titleHomeD_Left"
+      :viewAll_Left="viewAllHomeD_Left"
       :TheThao="HomeD_Right1"
-      :titleHomeB_Right1="titleHomeD_Right1"
-      :viewAllHomeB_Right1="viewAllHomeD_Right1"
+      :title_Right1="titleHomeD_Right1"
+      :viewAll_Right1="viewAllHomeD_Right1"
       :VanHoa="HomeD_Right2"
-      :titleHomeB_Right2="titleHomeD_Right2"
-      :viewAllHomeB_Right2="viewAllHomeD_Right2"
+      :title_Right2="titleHomeD_Right2"
+      :viewAll_Right2="viewAllHomeD_Right2"
     />
     <AdsHomeMiddle />
-    <BlockC class="mt-10" :News="HomeE_Main" :titleHomeC_Main="titleHomeE_Main" />
+    <BlockC class="mt-10" :News="HomeE_Main" :title_Main="titleHomeE_Main" />
     <AdsHomeBottom />
   </div>
 </template>
@@ -70,7 +70,6 @@ export default {
         layout = res.result;
       }
     });
-    console.log(layout);
     const apiAction = listType => {
       let action = "";
       switch (listType) {
