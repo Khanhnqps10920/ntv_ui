@@ -3,10 +3,9 @@
     <div class="blockb flex xs:block">
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
-        <h4 class="block-title">Magazine</h4>
-        <div @click="toMagazine" v-if="Magazine.length">
+        <h4 class="block-title">{{title_Left}}</h4>
+        <div v-if="Magazine.length">
           <SideBlockItem
-            style="pointer-events: none"
             v-for="(post,index) in Magazine"
             :key="index"
             :post="post"
@@ -16,7 +15,7 @@
         </div>
 
         <div class="blockb__button">
-          <a href="http://magazine.nongthonviet.com.vn/" @click="toMagazine">Xem tất cả</a>
+          <nuxt-link :to="viewAll_Left">Xem tất cả</nuxt-link>
           <i class="fas fa-bars"></i>
         </div>
       </div>
@@ -25,7 +24,7 @@
       <div class="flex-grow main-block">
         <div class="mx-4 xs:mx-0">
           <h4 class="main-block__title">
-            <span>Tin Tức</span>
+            <span>{{title_Main}}</span>
             <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
@@ -36,17 +35,17 @@
       <!-- right -->
       <div class="blockb-right xs:mt-4">
         <div class="blockb-right__block" v-if="TheThao.length">
-          <h4 class="block-title">Thể Thao</h4>
+          <h4 class="block-title">{{title_Right1}}</h4>
 
           <SideBlockItem
-            v-for="(post,index) in TheThao.slice(0,3)"
+            v-for="(post,index) in TheThao"
             :key="index"
             :post="post"
             :isSquare="true"
           />
 
           <div class="blockb__button small">
-            <nuxt-link to="/category/magazine">Xem tất cả</nuxt-link>
+            <nuxt-link :to="viewAll_Right1">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>
@@ -54,11 +53,16 @@
         <div class="blockb-right__block" v-if="VanHoa.length">
           <AdsSide />
 
-          <h4 class="block-title">Văn Hóa</h4>
-          <SideBlockItem v-for="(post,index) in VanHoa.slice(0,2)" :post="post" :key="index" :isSquare="true" />
+          <h4 class="block-title">{{title_Right2}}</h4>
+          <SideBlockItem
+            v-for="(post,index) in VanHoa"
+            :post="post"
+            :key="index"
+            :isSquare="true"
+          />
 
           <div class="blockb__button small">
-            <nuxt-link to="/category/magazine">Xem tất cả</nuxt-link>
+            <nuxt-link :to="viewAll_Right2">Xem tất cả</nuxt-link>
             <i class="fas fa-bars"></i>
           </div>
         </div>
@@ -91,11 +95,23 @@ export default {
     News: {
       type: Array
     },
+    title_Main: {
+      type: String,
+      default: "Tin Tức"
+    },
     Magazine: {
       type: Array,
       default: () => {
         return [];
       }
+    },
+    title_Left: {
+      type: String,
+      default: "Magazine"
+    },
+    viewAll_Left: {
+      type: String,
+      default: "/"
     },
     TheThao: {
       type: Array,
@@ -103,11 +119,27 @@ export default {
         return [];
       }
     },
+    title_Right1: {
+      type: String,
+      default: "Thể Thao"
+    },
+    viewAll_Right1: {
+      type: String,
+      default: "/"
+    },
     VanHoa: {
       type: Array,
       default: () => {
         return [];
       }
+    },
+    title_Right2: {
+      type: String,
+      default: "Văn Hóa"
+    },
+    viewAll_Right2: {
+      type: String,
+      default: "/"
     }
   },
   methods: {

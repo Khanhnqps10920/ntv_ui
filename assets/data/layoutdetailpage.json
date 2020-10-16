@@ -6,7 +6,6 @@
       "id": 13,
       "listType": "HotNews",
       "section": "Detail_Left1",
-      "cateId": null,
       "title": "Tinh Nóng"
     },
     {
@@ -14,14 +13,16 @@
       "listType": "HotNews",
       "section": "Detail_Left2",
       "cateId": "5f714c4874ab001969f6a051",
-      "title": "Các Tin Khác"
+      "title": "Các Tin Khác",
+      "cateAlias": "thoi-su"
     },
     {
       "id": 15,
       "listType": "HotNews",
       "section": "Detail_Right",
       "cateId": "5f714c4874ab001969f6a051",
-      "title": "Tin Mới"
+      "title": "Tin Mới",
+      "cateAlias": "thoi-su"
     }
   ]
 }

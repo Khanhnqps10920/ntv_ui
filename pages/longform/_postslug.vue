@@ -248,7 +248,6 @@ export default {
         });
         this.comments = [...data.data.result];
       } catch (e) {
-        console.log(e);
       }
     },
 
@@ -268,7 +267,6 @@ export default {
         });
         this.comments = [...data.data.result];
       } catch (e) {
-        console.log(e);
       }
     },
   },
@@ -340,7 +338,6 @@ export default {
         comments = [...res.result];
       },
       errorAction: (e) => {
-        console.log(e);
       },
     });
 
@@ -356,7 +353,6 @@ export default {
         totalComment = res.result.length;
       },
       errorAction: (e) => {
-        console.log(e);
       },
     });
 
@@ -558,7 +554,7 @@ export default {
     width:100%;
   }
 
-  .post__main--title {
+  .post__main--title { 
     font-size: 24px;
   }
 

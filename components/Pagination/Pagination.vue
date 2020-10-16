@@ -28,7 +28,6 @@ export default {
   },
   computed: {
     totalPages() {
-      console.log(this.totalNews);
       return Math.ceil(this.totalNews / this.limit);
     }
   },

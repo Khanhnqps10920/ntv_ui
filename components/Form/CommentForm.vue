@@ -85,7 +85,6 @@ export default {
               this.$v.$reset();
             })
             .catch((e) => {
-              console.log(e, error);
             });
         } else {
           const request = Axios.post(
@@ -100,7 +99,6 @@ export default {
 
           request
             .then((response) => {
-              console.log("comments", response);
               this.$emit("refetchComments");
 
               // reset form
@@ -108,7 +106,6 @@ export default {
               this.$v.$reset();
             })
             .catch((e) => {
-              console.log(e, error);
             });
         }
       } else {

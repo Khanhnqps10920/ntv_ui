@@ -61,7 +61,6 @@ export default {
       },
 
       errorActions: (e) => {
-        console.log(e);
       },
     });
     return {
@@ -83,7 +82,6 @@ export default {
         this.posts = [...res.result];
       },
       errorActions: (e) => {
-        console.log(e);
       },
     });
   },

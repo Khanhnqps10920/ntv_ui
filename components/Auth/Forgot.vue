@@ -65,8 +65,6 @@ export default {
       this.$v.$touch();
 
       if (this.$v.$invalid) {
-        console.log("1111");
-
         return;
       }
 
