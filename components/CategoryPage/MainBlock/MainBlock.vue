@@ -68,18 +68,43 @@ export default {
     limit: {
       type: Number,
     },
-    TinMoiNhat: {
-      type: Array,
-      default: () => {
-        return [];
-      },
-    },
+    ads: {
+      type:Object,
+      default: () => ({})
+    }
+    // TinMoiNhat: {
+    //   type: Array,
+    //   default: () => {
+    //     return [];
+    //   },
+    // },
+  },
+  data() { 
+    return {
+      TinMoiNhat: [],
+    }
   },
   methods: {
     changePage(p) {
       this.$emit("changePage", p);
     },
   },
+
+  async created() {
+    await this.$store.dispatch('getTopHotNewsByCategory', {
+      urlQuery: {
+        skip: 1,
+        limit: 4
+      },
+      nextActions: res => {
+        this.TinMoiNhat = [...res.result]
+      }
+    });
+
+  
+  }
+
+
 };
 </script>
 

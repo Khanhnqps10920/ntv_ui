@@ -4,9 +4,9 @@
 
     <CategoryBlock
       class="mt-5"
-      v-if="meta"
-      :cateName="meta.category.name"
-      :subCates="meta.category.subCates"
+      v-if="category"
+      :cateName="category.name"
+      :subCates="category.subCates"
       id="content"
     />
 
@@ -16,7 +16,6 @@
       :posts="posts"
       :totalNews="total"
       :limit="limit"
-      :TinMoiNhat="TinMoiNhat"
     />
   </div>
 </template>
@@ -42,36 +41,36 @@ export default {
       skip: 0,
       limit: 10, //news per page
       posts: [],
-      meta: "",
+      category: null,
       total: 0,
     };
   },
   async asyncData(context) {
-    let TinMoiNhat = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinMoiNhat = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-    return {
-      TinMoiNhat,
-    };
+    // fetch ads
+    // await context.store.dispatch("getAds", {
+    //   page: 'catepage',
+    //   nextActions: res => {
+    //     console.log(res);
+    //   }
+    // })
+
   },
   async mounted() {
     const id = this.$route.params.slug.slice(
       this.$route.params.slug.indexOf("=") + 1
     );
     const data = await this.$store.dispatch("getNewsInCategoryPage", {
-      id: id,
-      urlQuery: { skip: this.skip, limit: this.limit },
+      urlQuery: {categoryId: id, skip: this.skip, limit: this.limit },
     });
     this.posts = data.data.result;
-    this.meta = data.data.meta;
     this.total = data.data.total;
+
+    const categoryData = await this.$store.dispatch('getDetailCategory', {
+      id
+    });
+
+    this.category = {...categoryData.data.result};
+
   },
 
   methods: {
@@ -85,7 +84,7 @@ export default {
         urlQuery: { skip: this.skip, limit: this.limit },
       });
       this.posts = data.data.result;
-      this.meta = data.data.meta;
+      // this.meta = data.data.meta;
       this.total = data.data.total;
       if (window.pageYOffset > 0) {
         let elmnt = document.getElementById("content");

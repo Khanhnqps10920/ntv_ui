@@ -101,14 +101,10 @@
             </div>
 
             <!-- ads main -->
-            <div class="col-span-12">
-              <SideWrapper>
-                <AdsMain />
-              </SideWrapper>
-            </div>
+    
 
             <!-- comment / side section -->
-            <div
+            <!-- <div
               class="col-span-4 xs:col-span-12"
               v-if="TinKhac && TinKhac.length"
             >
@@ -124,9 +120,9 @@
                   :isSquare="true"
                 />
               </SideWrapper>
-            </div>
+            </div> -->
 
-            <div class="comment-block col-span-8 xs:col-span-12">
+            <div class="comment-block col-span-12 xs:col-span-12">
               <CommentItem
                 v-for="comment in comments"
                 :key="comment.id"
@@ -291,40 +287,7 @@ export default {
     );
     const postContent = await context.store.dispatch("getDetailNew", { id });
     const post = postContent.data.result;
-    // Tin Nóng
-    let TinNong = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinNong = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-    // Tin Mới
-    let TinMoi = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinMoi = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-    // Các Tin Khác
-    let TinKhac = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinKhac = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-
+ 
     // comments
     let comments = [];
 
@@ -358,9 +321,7 @@ export default {
 
     return {
       post,
-      TinNong,
-      TinMoi,
-      TinKhac,
+ 
       id,
       comments,
       totalComment,

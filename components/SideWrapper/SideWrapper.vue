@@ -11,10 +11,10 @@ export default {};
 <style scoped>
 .side-wrapper {
   margin-bottom: 30px;
-  padding-top: 19px;
-  padding-right: 19px;
-  padding-bottom: 19px;
-  padding-left: 19px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 0;
+  padding-left: 10px;
   border: 1px solid #eaeaea;
   position: relative;
 }

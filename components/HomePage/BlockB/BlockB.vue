@@ -51,7 +51,7 @@
         </div>
 
         <div class="blockb-right__block" v-if="VanHoa.length">
-          <AdsSide />
+          <AdsSide :ads="ads" />
 
           <h4 class="block-title">{{title_Right2}}</h4>
           <SideBlockItem
@@ -140,6 +140,10 @@ export default {
     viewAll_Right2: {
       type: String,
       default: "/"
+    },
+    ads: {
+      type: Object,
+      default: () => ({})
     }
   },
   methods: {

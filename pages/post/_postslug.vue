@@ -57,15 +57,15 @@
             <!-- left side -->
             <div
               class="col-span-4 sm:hidden xs:hidden"
-              v-if="TinNong && TinNong.length"
+              v-if="leftA && leftA.length"
             >
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
-                  <span>Tin Nóng</span>
+                  <span>{{ Detail_Left1.title }}</span>
                 </p>
                 <SideWrapper>
                   <SideBlockItem
-                    v-for="(post, index) in TinNong"
+                    v-for="(post, index) in leftA"
                     :post="post"
                     :key="index"
                     :isSquare="true"
@@ -105,22 +105,22 @@
             <!-- ads main -->
             <div class="col-span-12">
               <SideWrapper>
-                <AdsMain />
+                <AdsMain :ads="mainAds" />
               </SideWrapper>
             </div>
 
             <!-- comment / side section -->
             <div
               class="col-span-4 xs:col-span-12"
-              v-if="TinKhac && TinKhac.length"
+              v-if="leftB && leftB.length"
             >
               <p class="block-title">
-                <span>Các tin khác</span>
+                <span>{{ Detail_Left2.title }}</span>
               </p>
 
               <SideWrapper>
                 <SideBlockItem
-                  v-for="(post, index) in TinKhac"
+                  v-for="(post, index) in leftB"
                   :post="post"
                   :key="index"
                   :isSquare="true"
@@ -169,15 +169,15 @@
       <!-- side -->
       <div class="col-span-3 xs:col-span-12">
         <div class="post__side sticky top-fiftyfive">
-          <AdsSide />
+          <AdsSide :ads="sideAds" />
 
-          <p class="block-title" v-if="TinMoi && TinMoi.length">
-            <span>Tin mới</span>
+          <p class="block-title" v-if="right && right.length">
+            <span>{{ Detail_Right.title }}</span>
           </p>
 
-          <SideWrapper v-if="TinMoi && TinMoi.length">
+          <SideWrapper v-if="right && right.length">
             <SideBlockItem
-              v-for="(post, index) in TinMoi"
+              v-for="(post, index) in right"
               :post="post"
               :key="index"
               :isSquare="true"
@@ -226,6 +226,17 @@ export default {
       limit: 5,
     };
   },
+
+  computed: {
+    sideAds() {
+      return this.ads.find(el => el.section === 'DetailAds1');
+    },
+
+    mainAds() {
+      return this.ads.find(el => el.section === 'DetailAds2');
+    }
+  },
+
   methods: {
     handleReplyComment(item) {
       const commentArea = this.$refs.commentForm.$refs.commentArea;
@@ -273,6 +284,8 @@ export default {
     },
   },
 
+
+
   watch: {
     // check if reply
     isReply(newValue, oldValue) {
@@ -286,51 +299,90 @@ export default {
     },
   },
 
-  async asyncData(context) {
-    //Post
+  async asyncData(context) {  
     const id = context.route.params.postslug.slice(
       context.route.params.postslug.indexOf("=") + 1
     );
-    const postContent = await context.store.dispatch("getDetailNew", { id });
-    const post = postContent.data.result;
-    // Tin Nóng
-    let TinNong = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinNong = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-    // Tin Mới
-    let TinMoi = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinMoi = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
-    // Các Tin Khác
-    let TinKhac = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinKhac = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
+    // layouts
+    let layouts = [];
+    await context.store.dispatch("getLayout", {
+      page: 'detailpage',
+      nextActions: res => {
+        layouts = [...res.result];
+      }
+    })
 
-    // comments
+
+    // layouts sections
+    const Detail_Left1 = layouts.find(el => el.section === 'Detail_Left1');
+    const Detail_Left2 = layouts.find(el => el.section === 'Detail_Left2');
+    const Detail_Right = layouts.find(el => el.section === 'Detail_Right');
+
+    // api action
+    const apiAction = listType => {
+      let action = "";
+      switch (listType) {
+        case "Category":
+          action = "getNewsInCategoryPage";
+          break;
+        case "HotNews":
+          action = "getTopHotNewsByCategory";
+          break;
+        default:
+          action = "getNewsInCategoryPage";
+      }
+      return action;
+    };
+
+    let leftA = [];
+   
+    let leftB = [];
+  
+    let right = [];
+
     let comments = [];
 
-    await context.store.dispatch("getComments", {
+    let totalComment;
+
+    let ads;
+
+    await Promise.all([
+
+    context.store.dispatch(apiAction(Detail_Left1.listType), {
+      urlQuery: {
+          categoryId: Detail_Left1.cateId,
+          skip: 0,
+          limit: 5
+      },
+      nextActions: (res) => {
+        leftA = [...res.result]
+      }
+    }),
+
+    context.store.dispatch(apiAction(Detail_Left2.listType), {
+      urlQuery: {
+        categoryId: Detail_Left2.cateId,
+        skip: 0,
+        limit: 5
+      },
+      nextActions: (res) => {
+        leftB = [...res.result]
+      }
+    }),
+
+    context.store.dispatch(apiAction(Detail_Right.listType), {
+      urlQuery: {
+        categoryId: Detail_Right.cateId,
+        skip: 0,
+        limit: 5
+      },
+      nextActions: (res) => {
+        right = [...res.result]
+      }
+    }),
+
+     // comments
+    context.store.dispatch("getComments", {
       id,
       urlQuery: {
         skip: 0,
@@ -341,11 +393,10 @@ export default {
       },
       errorAction: (e) => {
       },
-    });
+    }),
 
     // total comment
-    let totalComment;
-    await context.store.dispatch("getComments", {
+    context.store.dispatch("getComments", {
       id,
       urlQuery: {
         skip: 0,
@@ -356,16 +407,48 @@ export default {
       },
       errorAction: (e) => {
       },
+    }),
+
+    context.store.dispatch("getAds", {
+      page: 'detailpage',
+      nextActions: res => {
+        ads = [...res.result]
+
+      }
+    })
+
+    ]);
+    // layouts
+    
+
+
+
+    //Post
+    const postContent = await context.store.dispatch("getDetailNew", 
+    { 
+      id, 
     });
+    const post = postContent.data.result;
+ 
+   
 
     return {
       post,
-      TinNong,
-      TinMoi,
-      TinKhac,
+ 
       id,
       comments,
       totalComment,
+      layouts,
+      ads,
+
+      Detail_Left1,
+      leftA,
+
+      Detail_Left2,
+      leftB,
+
+      Detail_Right,
+      right
     };
   },
   head() {

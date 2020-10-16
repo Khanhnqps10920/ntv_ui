@@ -1,7 +1,11 @@
 <template>
   <Container1440 class="my-12">
     <div class="w-full h-48">
-      <img src="@/assets/imgs/leaf.jpg" class="h-full w-full" alt="" />
+      <img @click="handleAdsClick" v-if="ads.typeMedia === 'image'" :src="ads.media" :alt="ads.title" class="cursor-pointer w-full h-full object-cover" />
+
+      <video  v-if="ads.typeMedia === 'video'" controls autoplay muted>
+       <source :src="ads.media" type="video/mp4" >
+      </video>
     </div>
   </Container1440>
 </template>
@@ -13,12 +17,24 @@ export default {
   components: {
     Container1440,
   },
+  props: {
+    ads: {
+      type:Object,
+      default: () => ({})
+    }
+  },
+
+  methods: {
+    handleAdsClick() {
+      window.location.href = this.ads.link;
+    }
+  }
 };
 </script>
 
 <style scoped>
-img {
+video {
   object-fit: cover;
-  object-position: center;
+  width: 100%;
 }
 </style>

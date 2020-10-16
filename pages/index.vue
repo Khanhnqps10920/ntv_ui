@@ -22,9 +22,10 @@
       :VanHoa="HomeB_Right2"
       :title_Right2="titleHomeB_Right2"
       :viewAll_Right2="viewAllHomeB_Right2"
+      :ads="homeAdsTwo"
     />
     <BlockC class="mt-10" :News="HomeC_Main" :title_Main="titleHomeC_Main" />
-    <AdsHomeMiddle :ads="homeAdsTwo" />
+    <AdsHomeMiddle :ads="homeAdsThree" />
     <BlockB
       class="mt-10"
       :News="HomeD_Main"
@@ -38,10 +39,10 @@
       :VanHoa="HomeD_Right2"
       :title_Right2="titleHomeD_Right2"
       :viewAll_Right2="viewAllHomeD_Right2"
-      :ads="homeAdsThree"
+      :ads="homeAdsFour"
     />
-    <AdsHomeMiddle :ads="homeAdsFour" />
-    <BlockC class="mt-10" :News="HomeE_Main" :ads="homeAdsFive" :title_Main="titleHomeE_Main" />
+    <AdsHomeMiddle  :ads="homeAdsFive"/>
+    <BlockC class="mt-10" :News="HomeE_Main" :title_Main="titleHomeE_Main" />
     <AdsHomeBottom :ads="homeAdsSix" />
   </div>
 </template>
@@ -72,16 +73,16 @@ export default {
       return this.Ads.find(el => el.section === 'HomeAds2')
     },
     homeAdsThree() {
-      return this.Ads.find(el => el.section === 'HomeAds2')
+      return this.Ads.find(el => el.section === 'HomeAds3')
     },
     homeAdsFour() {
-      return this.Ads.find(el => el.section === 'HomeAds2')
+      return this.Ads.find(el => el.section === 'HomeAds4')
     },
     homeAdsFive() {
-      return this.Ads.find(el => el.section === 'HomeAds2')
+      return this.Ads.find(el => el.section === 'HomeAds5')
     },
     homeAdsSix() {
-      return this.Ads.find(el => el.section === 'HomeAds2')
+      return this.Ads.find(el => el.section === 'HomeAds6')
     }
   },
 
@@ -466,7 +467,6 @@ export default {
       })
     ]); 
 
-    console.log(Ads);
 
     return {
       HomeA_Main,
