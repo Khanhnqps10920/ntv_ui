@@ -1,7 +1,8 @@
 <template>
   <Container1440 class="mt-10 mb-5">
+    <div class="post grid grid-cols-12 gap-4 relative">
       <!-- main -->
-      <div class="mx-auto post__wrapper">
+      <div class="col-span-12 post__wrapper xs:col-span-12 xs:mt-6">
         <div class="post__main">
           <div
             class="post__main--category mb-5"
@@ -54,7 +55,25 @@
             class="post__main--content grid grid-cols-12 gap-4 relative mt-6"
           >
             <!-- left side -->
-
+            <!-- <div
+              class="col-span-4 sm:hidden xs:hidden"
+              v-if="TinNong && TinNong.length"
+            >
+              <div class="post__main--content-side sticky top-fiftyfive">
+                <p class="block-title">
+                  <span>Tin Nóng</span>
+                </p>
+                <SideWrapper>
+                  <SideBlockItem
+                    v-for="(post, index) in TinNong"
+                    :post="post"
+                    :key="index"
+                    :isSquare="true"
+                  />
+                </SideWrapper>
+     
+              </div>
+            </div> -->
 
             <!-- right side -->
             <div class="col-span-12 xs:col-span-12 sm:col-span-12">
@@ -89,7 +108,7 @@
             </div>
 
             <!-- comment / side section -->
-            <!-- <div
+            <div
               class="col-span-4 xs:col-span-12"
               v-if="TinKhac && TinKhac.length"
             >
@@ -105,9 +124,9 @@
                   :isSquare="true"
                 />
               </SideWrapper>
-            </div> -->
+            </div>
 
-            <div class="comment-block col-span-12 xs:col-span-12">
+            <div class="comment-block col-span-8 xs:col-span-12">
               <CommentItem
                 v-for="comment in comments"
                 :key="comment.id"
@@ -145,7 +164,26 @@
         </div>
       </div>
 
-  
+      <!-- side -->
+      <!-- <div class="col-span-3 xs:col-span-12">
+        <div class="post__side sticky top-fiftyfive">
+          <AdsSide />
+
+          <p class="block-title" v-if="TinMoi && TinMoi.length">
+            <span>Tin mới</span>
+          </p>
+
+          <SideWrapper v-if="TinMoi && TinMoi.length">
+            <SideBlockItem
+              v-for="(post, index) in TinMoi"
+              :post="post"
+              :key="index"
+              :isSquare="true"
+            />
+          </SideWrapper>
+        </div>
+      </div> -->
+    </div>
   </Container1440>
 </template>
 
@@ -388,12 +426,9 @@ export default {
 <style>
 /* main */
 
-.post {
-  justify-content: center;
-}
-
 .post__wrapper {
-  width:75%;
+  width:80%; 
+  margin:0 auto;
 }
 
 .post__main {
