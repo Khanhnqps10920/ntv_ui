@@ -8,13 +8,14 @@
             <nuxt-link
               :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
               class="blocka__main--category"
-              >{{ mainNewCate.name }}</nuxt-link
-            >
+            >{{ mainNewCate.name }}</nuxt-link>
 
             <h3 class="blocka__main--title line-clamp-title">
-              <nuxt-link :to="postLink">{{
+              <nuxt-link :to="postLink">
+                {{
                 mainNew.title
-              }}</nuxt-link>
+                }}
+              </nuxt-link>
             </h3>
 
             <div class="blocka__main--date">
@@ -22,9 +23,11 @@
                 <span>Nguyễn Tâm</span>
                 <span>-</span>
               </span>
-              <span class="blocka__main-date-time">{{
+              <span class="blocka__main-date-time">
+                {{
                 mainNew.publishedDate | datetime("DD/MM/YYYY")
-              }}</span>
+                }}
+              </span>
             </div>
 
             <div class="blocka__main--img">
@@ -33,26 +36,20 @@
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description line-clamp-excerpt">
-              {{ mainNew.excerpt }}
-            </div>
+            <div class="blocka__main-description line-clamp-excerpt">{{ mainNew.excerpt }}</div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem
-            v-for="(post, index) in restNew"
-            :key="index"
-            :post="post"
-          />
+          <BlockItem v-for="(post, index) in restNew" :key="index" :post="post" />
         </div>
       </div>
 
       <!-- ads -->
       <div class="blocka-right">
         <div class="blocka-right__section" v-if="TinNhanh.length">
-          <h4 class="section-title">Tin nhanh</h4>
+          <h4 class="section-title">{{titleHomeA_Right1}}</h4>
           <SideBlockItem :post="TinNhanh[0]" />
         </div>
 
@@ -95,11 +92,11 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide,
+    AdsSide
   },
   data() {
     return {
-      mainNewCate: "",
+      mainNewCate: ""
     };
   },
   props: {
@@ -107,45 +104,55 @@ export default {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     TinNhanh: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
+    },
+    titleHomeA_Right1: {
+      type: String,
+      default: "Tin Nhanh"
     },
     ThiTruongTaiChinh: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
+    titleHomeA_Right2: {
+      type: String,
+      default: "Thị Trường Tài Chính"
+    }
   },
   async mounted() {
     if (this.News.length) {
       const data = await this.$store.dispatch("getDetailCategory", {
-        id: this.News[0].categoryId,
+        id: this.News[0].categoryId
       });
       this.mainNewCate = data.data.result;
     }
   },
   computed: {
     mainNew() {
-      console.log(this.News[0]);
       return this.News[0];
     },
-    
+
     restNew() {
       return this.News.slice(1, 4);
     },
 
     postLink() {
-      if(!this.mainNew.type) return  '/post/' + this.mainNew.alias + `-id=${this.mainNew.id}`;
+      if (!this.mainNew.type)
+        return "/post/" + this.mainNew.alias + `-id=${this.mainNew.id}`;
 
-      return this.mainNew.type === 'longform' ? '/longform/' + this.mainNew.alias + `-id=${this.mainNew.id}` : '/post/' + this.mainNew.alias + `-id=${this.mainNew.id}`
+      return this.mainNew.type === "longform"
+        ? "/longform/" + this.mainNew.alias + `-id=${this.mainNew.id}`
+        : "/post/" + this.mainNew.alias + `-id=${this.mainNew.id}`;
     }
-  },
+  }
 };
 </script>
 

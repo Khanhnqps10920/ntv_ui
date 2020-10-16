@@ -114,19 +114,32 @@ export function getTopHotNewsByCategory({
   });
 }
 
-// getNewsInCategoryPage *
+//getNewsInCategoryPage *
 export function getNewsInCategoryPage({
   dispatch
 }, {
-  id,
   ...data
 }) {
   return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_API}/public/newsInCategory/${id}`,
+    url: `${process.env.BASE_API}/public/newsInCategory`,
     method: "GET",
     data
   });
 }
+
+// getNewsInCategoryPage *
+// export function getNewsInCategoryPage({
+//   dispatch
+// }, {
+//   id,
+//   ...data
+// }) {
+//   return dispatch("makeRequestAction", {
+//     url: `${process.env.BASE_API}/public/newsInCategory/${id}`,
+//     method: "GET",
+//     data
+//   });
+// }
 
 //getLatestNewsCategory *
 export function getLatestNewsCategory({
@@ -192,6 +205,20 @@ export function getReplyComments({
     method: "GET",
     data
   })
+}
+
+//  getLayout *
+export function getLayout({
+  dispatch
+}, {
+  page,
+  ...data
+}) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/layout/${page}`,
+    method: "GET",
+    data
+  });
 }
 
 /*===================*/
