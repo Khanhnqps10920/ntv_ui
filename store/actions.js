@@ -1,22 +1,10 @@
-import {
-  get,
-  isEmpty,
-  forIn,
-  isBuffer
-} from "lodash";
+import { get, isEmpty, forIn, isBuffer } from "lodash";
 
-export function makeRequestAction({
-  commit,
-  ...rest
-}, payload) {
+export function makeRequestAction({ commit, ...rest }, payload) {
   // if (!process.client) return;
   try {
-    const {
-      nextActions,
-      errorActions,
-      ...data
-    } =
-    get(payload, "data", {}) || {};
+    const { nextActions, errorActions, ...data } =
+      get(payload, "data", {}) || {};
     return this._vm.$request
       .makeRequestAPI({
         ...payload,
@@ -62,11 +50,7 @@ export function makeRequestAction({
 }
 
 // getcategories *
-export function getCategories({
-  dispatch
-}, {
-  ...data
-}) {
+export function getCategories({ dispatch }, { ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/category`,
     method: "GET",
@@ -75,12 +59,7 @@ export function getCategories({
 }
 
 //getDetailCategory *
-export function getDetailCategory({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
+export function getDetailCategory({ dispatch }, { id, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/category/${id}`,
     method: "GET",
@@ -89,11 +68,7 @@ export function getDetailCategory({
 }
 
 //getTopNewsInHomepage *
-export function getTopNewsInHomepage({
-  dispatch
-}, {
-  ...data
-}) {
+export function getTopNewsInHomepage({ dispatch }, { ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/homepage`,
     method: "GET",
@@ -102,11 +77,7 @@ export function getTopNewsInHomepage({
 }
 
 //getTopHotNewsByCategory *
-export function getTopHotNewsByCategory({
-  dispatch
-}, {
-  ...data
-}) {
+export function getTopHotNewsByCategory({ dispatch }, { ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",
@@ -115,11 +86,7 @@ export function getTopHotNewsByCategory({
 }
 
 //getNewsInCategoryPage *
-export function getNewsInCategoryPage({
-  dispatch
-}, {
-  ...data
-}) {
+export function getNewsInCategoryPage({ dispatch }, { ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/newsInCategory`,
     method: "GET",
@@ -142,11 +109,7 @@ export function getNewsInCategoryPage({
 // }
 
 //getLatestNewsCategory *
-export function getLatestNewsCategory({
-  dispatch
-}, {
-  ...data
-}) {
+export function getLatestNewsCategory({ dispatch }, { ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",
@@ -155,12 +118,7 @@ export function getLatestNewsCategory({
 }
 
 //  getDetailNew *
-export function getDetailNew({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
+export function getDetailNew({ dispatch }, { id, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/news/${id}`,
     method: "GET",
@@ -169,9 +127,7 @@ export function getDetailNew({
 }
 
 // search
-export function searchPosts({
-  dispatch
-}, {id,...data}) {
+export function searchPosts({ dispatch }, { id, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/search`,
     method: "GET",
@@ -180,42 +136,36 @@ export function searchPosts({
 }
 
 // get comment in post
-export function getComments({
-  dispatch
-}, {
-  id,
-  ...data
-}) {
+export function getComments({ dispatch }, { id, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/news/comments/${id}`,
     method: "GET",
     data
-  })
+  });
 }
 
 // get reply comments
-export function getReplyComments({
-  dispatch
-}, {
-  commentId,
-  ...data
-}) {
+export function getReplyComments({ dispatch }, { commentId, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/news/replies/${commentId}`,
     method: "GET",
     data
-  })
+  });
 }
 
 //  getLayout *
-export function getLayout({
-  dispatch
-}, {
-  page,
-  ...data
-}) {
+export function getLayout({ dispatch }, { page, ...data }) {
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/layout/${page}`,
+    method: "GET",
+    data
+  });
+}
+
+// get ads by layout
+export function getAds({ dispatch }, { page, ...data }) {
+  return dispatch("makeRequestAction", {
+    url: `${process.env.BASE_API}/public/ads/${page}`,
     method: "GET",
     data
   });
@@ -225,9 +175,7 @@ export function getLayout({
 
 // get weather api
 
-export function getCurrentWeather({
-  dispatch
-}, data) {
+export function getCurrentWeather({ dispatch }, data) {
   return dispatch("makeRequestAction", {
     url: "http://api.openweathermap.org/data/2.5/weather",
     method: "GET",
@@ -261,12 +209,11 @@ export function getCurrentWeather({
 
 // custom fetch gold api
 
-export async function getGoldRates({
-  commit
-}) {
+export async function getGoldRates({ commit }) {
   try {
     const priceData = await this.$axios.get(
-      "https://www.goldapi.io/api/XAU/USD", {
+      "https://www.goldapi.io/api/XAU/USD",
+      {
         headers: {
           "x-access-token": "goldapi-9kd4ukeqvy6ss-io",
           "Content-Type": "application/json"
@@ -282,20 +229,17 @@ export async function getGoldRates({
 
 // auth
 
-export async function login({
-  commit
-}, authData) {
+export async function login({ commit }, authData) {
   try {
     // fetch user
     const user = await this.$axios.post(
-      `${process.env.BASE_API}/public/login`, {
+      `${process.env.BASE_API}/public/login`,
+      {
         email: authData.email,
         password: authData.password
       }
     );
-    const {
-      result
-    } = user.data;
+    const { result } = user.data;
     console.log(result);
     // setlocal storage
     localStorage.setItem("token", result.loginToken);
@@ -326,15 +270,8 @@ export async function login({
   }
 }
 
-export async function register({
-  dispatch,
-  commit
-}, authData) {
-  const {
-    email,
-    name,
-    password
-  } = authData;
+export async function register({ dispatch, commit }, authData) {
+  const { email, name, password } = authData;
   try {
     // register
     await this.$axios.post(`${process.env.BASE_API}/public/register`, {
@@ -360,18 +297,14 @@ export async function register({
   }
 }
 
-export function logout({
-  commit
-}) {
+export function logout({ commit }) {
   commit("SET_USER", null);
 
   localStorage.removeItem("token");
   localStorage.removeItem("userId");
 }
 
-export function tryAutoLogin({
-  commit
-}) {
+export function tryAutoLogin({ commit }) {
   const token = localStorage.getItem("token");
 
   if (!token) return;
@@ -383,12 +316,11 @@ export function tryAutoLogin({
   });
 }
 
-export async function forgetPassword({
-  commit
-}, email) {
+export async function forgetPassword({ commit }, email) {
   try {
     const request = await this.$axios.post(
-      `${process.env.BASE_API}/public/forgotPassword`, {
+      `${process.env.BASE_API}/public/forgotPassword`,
+      {
         email
       }
     );

@@ -8,7 +8,7 @@
       :ThiTruongTaiChinh="HomeA_Right2"
       :titleHomeA_Right2="titleHomeA_Right2"
     />
-    <SocialBlock class="mt-10" />
+    <SocialBlock class="mt-10" :ads="homeAdsOne" />
     <BlockB
       class="mt-10"
       :News="HomeB_Main"
@@ -24,7 +24,7 @@
       :viewAll_Right2="viewAllHomeB_Right2"
     />
     <BlockC class="mt-10" :News="HomeC_Main" :title_Main="titleHomeC_Main" />
-    <AdsHomeMiddle />
+    <AdsHomeMiddle :ads="homeAdsTwo" />
     <BlockB
       class="mt-10"
       :News="HomeD_Main"
@@ -38,10 +38,11 @@
       :VanHoa="HomeD_Right2"
       :title_Right2="titleHomeD_Right2"
       :viewAll_Right2="viewAllHomeD_Right2"
+      :ads="homeAdsThree"
     />
-    <AdsHomeMiddle />
-    <BlockC class="mt-10" :News="HomeE_Main" :title_Main="titleHomeE_Main" />
-    <AdsHomeBottom />
+    <AdsHomeMiddle :ads="homeAdsFour" />
+    <BlockC class="mt-10" :News="HomeE_Main" :ads="homeAdsFive" :title_Main="titleHomeE_Main" />
+    <AdsHomeBottom :ads="homeAdsSix" />
   </div>
 </template>
 
@@ -62,6 +63,28 @@ export default {
     AdsHomeMiddle,
     AdsHomeBottom
   },
+
+  computed: {
+    homeAdsOne() {
+      return this.Ads.find(el => el.section === 'HomeAds1')
+    },
+    homeAdsTwo() {
+      return this.Ads.find(el => el.section === 'HomeAds2')
+    },
+    homeAdsThree() {
+      return this.Ads.find(el => el.section === 'HomeAds2')
+    },
+    homeAdsFour() {
+      return this.Ads.find(el => el.section === 'HomeAds2')
+    },
+    homeAdsFive() {
+      return this.Ads.find(el => el.section === 'HomeAds2')
+    },
+    homeAdsSix() {
+      return this.Ads.find(el => el.section === 'HomeAds2')
+    }
+  },
+
   async asyncData(context) {
     let layout = [];
     await context.store.dispatch("getLayout", {
@@ -314,6 +337,12 @@ export default {
     //     HomeE_Main = [...res.result];
     //   }
     // });
+    
+    //  ========= //
+    // ads
+    
+    let Ads = [];
+    // ========= //
     await Promise.all([
       context.store.dispatch(apiAction(HomeAMainObj.listType), {
         urlQuery: {
@@ -428,8 +457,16 @@ export default {
         nextActions: res => {
           HomeE_Main = [...res.result];
         }
+      }),
+      context.store.dispatch('getAds', {
+        page: "homepage",
+        nextActions: res => {
+          Ads = [...res.result];
+        }
       })
-    ]);
+    ]); 
+
+    console.log(Ads);
 
     return {
       HomeA_Main,
@@ -472,7 +509,9 @@ export default {
       viewAllHomeD_Right2,
 
       HomeE_Main,
-      titleHomeE_Main
+      titleHomeE_Main,
+
+      Ads 
     };
   }
 };

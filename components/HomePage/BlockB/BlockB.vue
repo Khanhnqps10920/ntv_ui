@@ -4,7 +4,7 @@
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
         <h4 class="block-title">{{title_Left}}</h4>
-        <div @click="toMagazine" v-if="Magazine.length">
+        <div v-if="Magazine.length">
           <SideBlockItem
             v-for="(post,index) in Magazine"
             :key="index"
