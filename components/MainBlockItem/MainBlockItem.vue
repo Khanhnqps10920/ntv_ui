@@ -3,6 +3,7 @@
     <div class="main-item__container">
       <div class="main-item__img">
         <nuxt-link
+          v-if="post.categoryName && post.categoryId && post.categoryAlias"
           class="main-item__category"
           :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
         >{{post.categoryName}}</nuxt-link>

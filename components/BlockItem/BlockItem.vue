@@ -1,7 +1,7 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" class="block-item__category absolute">{{post.categoryName}}</nuxt-link>
+      <nuxt-link v-if="post.categoryName && post.categoryAlias && post.categoryId" :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" class="block-item__category absolute">{{post.categoryName}}</nuxt-link>
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>

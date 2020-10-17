@@ -1,7 +1,13 @@
 <template>
   <div class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height">
-    <div class="bg-blue-300 h-auto relative flex-grow" v-if="cateInfo && post">
-      <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
+    <div class="bg-blue-300 h-auto relative flex-grow" v-if="post">
+      <nuxt-link 
+        v-if="post.categoryName && post.categoryId && post.categoryAlias" 
+        :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" 
+        class="block-item__category absolute"
+      >
+      {{post.categoryName}}
+      </nuxt-link>
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
@@ -13,7 +19,7 @@
 
       <div class="block-item__date">
         <span class="block-item__date-author">
-          <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+          <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
           <span>-</span>
         </span>
         <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
@@ -34,7 +40,7 @@ export default {
 
       if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
 
-      return this.post.type === 'longform' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+      return this.post.type === 'LongForm' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
     }
   },
   props: {
@@ -48,12 +54,12 @@ export default {
   },
   async mounted() {
     //Get CateInfo (2)
-    const data = await this.$store.dispatch("getDetailCategory", {
-      id: this.post.categoryId,
-      nextActions: res => {
-        this.cateInfo = res.result;
-      }
-    });
+    // const data = await this.$store.dispatch("getDetailCategory", {
+    //   id: this.post.categoryId,
+    //   nextActions: res => {
+    //     this.cateInfo = res.result;
+    //   }
+    // });
   }
 };
 </script>
