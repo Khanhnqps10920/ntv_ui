@@ -1,15 +1,16 @@
 <template>
   <div>
-    <AdsBlock class="mt-10" />
+    <AdsBlock class="mt-10" :ads="adsA" />
 
-    <SearchBlock class="mt-5" />
+    <SearchBlock class="mt-5" id="content" />
 
     <MainBlock
+      @changePage="changePage"
       class="mt-10"
-      :TinMoiNhat="TinMoi"
       :posts="posts"
       :limit="limit"
       :totalNews="total"
+      :ads="adsB"
     />
   </div>
 </template>
@@ -33,40 +34,36 @@ export default {
       skip: 0,
       limit: 10, //news per page
       posts: [],
+      total: 0,
+      ads: []
     };
   },
-  async asyncData(context) {
-    let TinMoi = [];
-    await context.store.dispatch("getLatestNewsCategory", {
-      urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f", //to do
-      },
-      nextActions: (res) => {
-        TinMoi = [...res.result];
-      },
-      //change ID follow admin for BlockAThiTruongTaiChinh
-    });
 
-    const keyword = context.route.params.search;
-    let total;
+  methods: {
+    async changePage(p) {
+      const keyword = this.$route.params.search;
 
-    await context.store.dispatch("searchPosts", {
-      urlQuery: {
-        keyword,
-        skip: 0,
-        limit: 700000,
-      },
-      nextActions: (res) => {
-        total = [...res.result].length;
-      },
+      this.skip = this.limit * (p - 1);  
+      const data = await this.$store.dispatch("searchPosts", {
+        urlQuery: {         
+          keyword,
+          skip: this.skip, 
+          limit: this.limit 
+        },
+      });
+      this.posts = data.data.result;
+      // this.meta = data.data.meta;
+      this.total = data.data.total;
+      if (window.pageYOffset > 0) {
+        let elmnt = document.getElementById("content");
+        elmnt.scrollIntoView();
+      }
+    },
+  },
 
-      errorActions: (e) => {
-      },
-    });
-    return {
-      TinMoi,
-      total,
-    };
+  computed: {
+    adsA() { return this.ads.find(e => e.section === 'CateAds1')},
+    adsB() { return this.ads.find(e => e.section === 'CateAds2')}
   },
 
   async mounted() {
@@ -79,11 +76,23 @@ export default {
         limit: this.limit,
       },
       nextActions: (res) => {
+      
         this.posts = [...res.result];
+        this.total = res.totalNews
       },
       errorActions: (e) => {
       },
     });
+
+    await this.$store.dispatch("getAds", {
+      page: 'catePage',
+
+      nextActions: res => {
+        this.ads = [...res.result];
+
+      }
+    })
+
   },
 };
 </script>

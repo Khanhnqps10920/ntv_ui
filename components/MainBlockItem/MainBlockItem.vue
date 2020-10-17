@@ -4,8 +4,8 @@
       <div class="main-item__img">
         <nuxt-link
           class="main-item__category"
-          :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`"
-        >{{cateInfo.name}}</nuxt-link>
+          :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
+        >{{post.categoryName}}</nuxt-link>
         <nuxt-link :to="postLink" class="main-item__img-wrapper">
           <img :src="post.image" alt="post-img" />
         </nuxt-link>
@@ -17,7 +17,7 @@
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+            <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
             <span>-</span>
           </span>
           <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>

@@ -1,25 +1,38 @@
 <template>
   <div class="ads-block">
     <div class="ads-block__item">
-      <span class="ads-block__item-title">- Advertisement -</span>
+      <span class="ads-block__item-title">- {{ads.title}} -</span>
 
-      <a href="#" class="ads-block__img">
-        <img
-          src="https://demo.tagdiv.com/newspaper_pulses_pro/wp-content/uploads/2019/12/corhaz-3.jpg"
-          alt="ads"
-        />
-      </a>
+      <div class="w-full h-32">
+  
+        <img class="cursor-pointer w-full h-full object-cover" @click="handleAdsClick" v-if="ads.typeMedia === 'image'" :src="ads.media" :alt="ads.title"  />
+
+        <video v-if="ads.typeMedia === 'video'" controls autoplay muted>
+          <source :src="ads.media" type="video/mp4" >
+        </video>
+
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import AdsSide from "../../Advertisement/AdsSide.vue";
 
 export default {
-  components: {
-    AdsSide,
+
+  props: {
+    ads: {
+      type:Object,
+      default: () => ({})
+    }
   },
+
+  methods: {
+    handleAdsClick() {
+      window.location.href = this.ads.link;
+    }
+  }
+
 };
 </script>
 
@@ -73,5 +86,17 @@ export default {
 
 .ads-block .ads-block__img img {
   width: 100%;
+}
+
+ img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+ video {  
+  object-fit: cover;
+  width: 100%;
+  max-height: 200px;
 }
 </style>

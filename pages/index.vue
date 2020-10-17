@@ -467,7 +467,6 @@ export default {
       })
     ]); 
 
-
     return {
       HomeA_Main,
 

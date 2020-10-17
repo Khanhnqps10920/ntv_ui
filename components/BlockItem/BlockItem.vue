@@ -1,7 +1,7 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link :to="`/category/${cateInfo.alias}-id=${cateInfo.id}`" class="block-item__category absolute">{{cateInfo.name}}</nuxt-link>
+      <nuxt-link :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" class="block-item__category absolute">{{post.categoryName}}</nuxt-link>
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
@@ -13,7 +13,7 @@
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
-        <nuxt-link to="/">Nguyễn Tâm</nuxt-link>
+        <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
         <span>-</span>
       </span>
       <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>

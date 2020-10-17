@@ -34,7 +34,7 @@
           />
         </div>
 
-        <AdsSide class="mt-5" />
+        <AdsSide :ads="ads" class="mt-5" />
       </div>
 
       <!--  -->
@@ -86,6 +86,7 @@ export default {
   },
   methods: {
     changePage(p) {
+      console.log('chanpage');
       this.$emit("changePage", p);
     },
   },

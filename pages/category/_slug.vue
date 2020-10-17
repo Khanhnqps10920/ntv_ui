@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AdsBlock class="mt-10" />
+    <AdsBlock class="mt-10" :ads="adsA" />
 
     <CategoryBlock
       class="mt-5"
@@ -16,6 +16,7 @@
       :posts="posts"
       :totalNews="total"
       :limit="limit"
+      :ads="adsB"
     />
   </div>
 </template>
@@ -43,8 +44,15 @@ export default {
       posts: [],
       category: null,
       total: 0,
+      ads: []
     };
   },
+
+  computed: {
+    adsA() { return this.ads.find(e => e.section === 'CateAds1')},
+    adsB() { return this.ads.find(e => e.section === 'CateAds2')}
+  },
+
   async asyncData(context) {
     // fetch ads
     // await context.store.dispatch("getAds", {
@@ -71,6 +79,15 @@ export default {
 
     this.category = {...categoryData.data.result};
 
+
+    await this.$store.dispatch("getAds", {
+      page: 'catePage',
+
+      nextActions: res => {
+        this.ads = [...res.result];
+
+      }
+    })
   },
 
   methods: {

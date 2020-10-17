@@ -3,12 +3,12 @@
     <div class="blocka flex xs:block">
       <div class="grid grid-cols-12 gap-4 flex-grow">
         <!-- main post -->
-        <div class="col-span-8 xs:col-span-12" v-if="mainNew && mainNewCate">
+        <div class="col-span-8 xs:col-span-12" v-if="mainNew">
           <div class="blocka__main">
             <nuxt-link
-              :to="`/category/${mainNewCate.alias}-id=${mainNewCate.id}`"
+              :to="`/category/${mainNew.categoryAlias}-id=${mainNew.categoryId}`"
               class="blocka__main--category"
-            >{{ mainNewCate.name }}</nuxt-link>
+            >{{ mainNew.categoryName }}</nuxt-link>
 
             <h3 class="blocka__main--title line-clamp-title">
               <nuxt-link :to="postLink">
@@ -20,7 +20,7 @@
 
             <div class="blocka__main--date">
               <span class="blocka__main--date-author">
-                <span>Nguyễn Tâm</span>
+                <span>{{ mainNew.authorName }}</span>
                 <span>-</span>
               </span>
               <span class="blocka__main-date-time">
