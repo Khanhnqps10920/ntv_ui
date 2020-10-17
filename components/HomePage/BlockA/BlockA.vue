@@ -147,8 +147,7 @@ export default {
     postLink() {
       if (!this.mainNew.type)
         return "/post/" + this.mainNew.alias + `-id=${this.mainNew.id}`;
-
-      return this.mainNew.type === "longform"
+      return this.mainNew.type === "LongForm"
         ? "/longform/" + this.mainNew.alias + `-id=${this.mainNew.id}`
         : "/post/" + this.mainNew.alias + `-id=${this.mainNew.id}`;
     }

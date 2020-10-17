@@ -6,13 +6,13 @@
         <div class="post__main">
           <div
             class="post__main--category mb-5"
-            v-if="post.subCates && post.subCates.length"
+            v-if="post.categoryName"
           >
             <nuxt-link
-              v-for="cate in post.subCates"
-              :key="cate.id"
-              :to="`/category/${cate.alias}-id=${cate.id}`"
-              >{{ cate.name }}</nuxt-link
+            
+              :key="post.categoryId"
+              :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
+              >{{ post.categoryName }}</nuxt-link
             >
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
@@ -22,7 +22,7 @@
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
                 <span>Tác giả</span>
-                <nuxt-link to="/author">Nguyễn Tâm</nuxt-link>
+                <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
               </div>
 
               <span class="post__main--info-time ml-6">{{
@@ -287,10 +287,10 @@ export default {
     );
     const postContent = await context.store.dispatch("getDetailNew", { id });
     const post = postContent.data.result;
- 
+    console.log(post);
     // comments
     let comments = [];
-
+    const totalComment = post.commentCount ;
     await context.store.dispatch("getComments", {
       id,
       urlQuery: {
@@ -301,27 +301,12 @@ export default {
         comments = [...res.result];
       },
       errorAction: (e) => {
-      },
-    });
-
-    // total comment
-    let totalComment;
-    await context.store.dispatch("getComments", {
-      id,
-      urlQuery: {
-        skip: 0,
-        limit: 5000000,
-      },
-      nextActions: (res) => {
-        totalComment = res.result.length;
-      },
-      errorAction: (e) => {
+        console.log(e);
       },
     });
 
     return {
       post,
- 
       id,
       comments,
       totalComment,

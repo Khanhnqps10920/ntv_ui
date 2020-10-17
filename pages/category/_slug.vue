@@ -73,6 +73,8 @@ export default {
     this.posts = data.data.result;
     this.total = data.data.total;
 
+    console.log(data);
+
     const categoryData = await this.$store.dispatch('getDetailCategory', {
       id
     });
