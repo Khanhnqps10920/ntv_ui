@@ -69,7 +69,6 @@ export function getDetailCategory({ dispatch }, { id, ...data }) {
 
 //getTopHotNewsByCategory *
 export function getTopHotNewsByCategory({ dispatch }, { ...data }) {
-  console.log('hotnews')
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",

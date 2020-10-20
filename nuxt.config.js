@@ -80,6 +80,7 @@ export default {
     extend(config, ctx) { }
   },
   env: {
+    Webname : 'Nông Nghiệp 365',
     BASE_URL: process.env.NODE_ENV !== 'production' ? 'https://nongthonviet.com.vn' : 'https://nongthonviet.com.vn',
     BASE_API: process.env.NODE_ENV !== 'production' ? 'http://nongthonviet.ngn.com.vn/api' : 'http://nongthonviet.ngn.com.vn/api'
 

@@ -41,10 +41,6 @@ export default {
     return {
       skip: 0,
       limit: 10, //news per page
-      posts: [],
-      category: null,
-      total: 0,
-      ads: []
     };
   },
 
@@ -56,29 +52,35 @@ export default {
       return this.ads.find(e => e.section === "CateAds2");
     }
   },
-  async mounted() {
-    const id = this.$route.params.slug.slice(
-      this.$route.params.slug.indexOf("=") + 1
+  async asyncData(context) {
+    const id = context.route.params.slug.slice(
+      context.route.params.slug.indexOf("=") + 1
     );
-    const data = await this.$store.dispatch("getNewsInCategoryPage", {
-      urlQuery: { categoryId: id, skip: this.skip, limit: this.limit }
+    const data = await context.store.dispatch("getNewsInCategoryPage", {
+      urlQuery: { categoryId: id, skip: context.skip, limit: context.limit }
     });
-    this.posts = data.data.result;
-    this.total = data.data.total;
+    const posts = data.data.result;
+    const total = data.data.total;
 
-    const categoryData = await this.$store.dispatch("getDetailCategory", {
+    const categoryData = await context.store.dispatch("getDetailCategory", {
       id
     });
 
-    this.category = { ...categoryData.data.result };
-
-    await this.$store.dispatch("getAds", {
+    const category = { ...categoryData.data.result };
+    let ads;
+    await context.store.dispatch("getAds", {
       page: "catePage",
 
       nextActions: res => {
-        this.ads = [...res.result];
+        ads = [...res.result];
       }
     });
+    return {
+      posts,
+      category,
+      total,
+      ads,
+    };
   },
 
   methods: {
@@ -101,8 +103,59 @@ export default {
   },
   head() {
     return {
-      titleTemplate: this.meta ? this.meta.category.name : "Nông nghiệp 365",
-      title: this.meta ? this.meta.category.name : "Nông nghiệp 365"
+      titleTemplate: this.category
+        ? this.category.name
+        : process.env.Webname,
+      title: this.category ? this.category.name : process.env.Webname,
+      meta: [
+        {
+          hid: "apple-mobile-web-app-title",
+          name: "apple-mobile-web-app-title",
+          content: process.env.Webname
+        },
+        {
+          hid: "og:site_name",
+          name: "og:site_name",
+          property: "og:site_name",
+          content: process.env.Webname
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          name: "og:url",
+          content: process.env.BASE_URL + this.$route.fullPath
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          name: "og:type",
+          content: "article"
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          name: "og:title",
+          content: this.category.name
+        },
+        {
+          hid: "description",
+          property: "description",
+          name: "description",
+          content: this.category.name
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          name: "og:description",
+          content: this.category.name
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          name: "og:image",
+          content: this.category.name
+        }
+      ]
     };
   }
 };

@@ -386,7 +386,6 @@ export default {
       id
     });
     const post = postContent.data.result;
-
     // total comment
     const totalComment = post.commentCount;
 
@@ -414,22 +413,21 @@ export default {
       titleTemplate: this.post.title,
       title: this.post.title,
       meta: [
-        //hiển thị title khi share
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: "Nông Thôn 365"
+          content: process.env.Webname
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: "Nông Thôn 365"
+          content: process.env.Webname
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://nongthon365.com.vn${this.$route.fullPath}`
+          content: process.env.BASE_URL + this.$route.fullPath
         },
         {
           hid: "og:type",

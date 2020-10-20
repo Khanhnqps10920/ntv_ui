@@ -12,7 +12,7 @@
             <nuxt-link
               to="/"
               class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
-            >Nông Thôn 365</nuxt-link>
+            >{{webname}}</nuxt-link>
           </div>
           <div class="flex flex-wrap items-center">
             <nuxt-link
@@ -70,6 +70,9 @@ export default {
   computed: {
     currentPosts() {
       return this.allPosts.slice(this.n - 4, this.n);
+    },
+    webname() {
+      return process.env.Webname
     }
   },
   methods: {

@@ -4,16 +4,11 @@
       <!-- main -->
       <div class="col-span-12 post__wrapper xs:col-span-12 xs:mt-6">
         <div class="post__main">
-          <div
-            class="post__main--category mb-5"
-            v-if="post.categoryName"
-          >
+          <div class="post__main--category mb-5" v-if="post.categoryName">
             <nuxt-link
-            
               :key="post.categoryId"
               :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
-              >{{ post.categoryName }}</nuxt-link
-            >
+            >{{ post.categoryName }}</nuxt-link>
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
 
@@ -25,9 +20,11 @@
                 <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
               </div>
 
-              <span class="post__main--info-time ml-6">{{
+              <span class="post__main--info-time ml-6">
+                {{
                 post.publishedDate | datetime("DD/MM/YYYY")
-              }}</span>
+                }}
+              </span>
 
               <div class="post__main--info-icon ml-6" v-if="post.commentCount">
                 <i class="far fa-comment-alt"></i>
@@ -51,9 +48,7 @@
           </div>
 
           <!-- content -->
-          <div
-            class="post__main--content grid grid-cols-12 gap-4 relative mt-6"
-          >
+          <div class="post__main--content grid grid-cols-12 gap-4 relative mt-6">
             <!-- left side -->
             <!-- <div
               class="col-span-4 sm:hidden xs:hidden"
@@ -73,7 +68,7 @@
                 </SideWrapper>
      
               </div>
-            </div> -->
+            </div>-->
 
             <!-- right side -->
             <div class="col-span-12 xs:col-span-12 sm:col-span-12">
@@ -101,7 +96,6 @@
             </div>
 
             <!-- ads main -->
-    
 
             <!-- comment / side section -->
             <!-- <div
@@ -120,7 +114,7 @@
                   :isSquare="true"
                 />
               </SideWrapper>
-            </div> -->
+            </div>-->
 
             <div class="comment-block col-span-12 xs:col-span-12">
               <CommentItem
@@ -130,23 +124,19 @@
                 :replyComment="handleReplyComment"
                 :fetchReply="fetchReply"
                 @setReFetchFail="fetchReply = false"
-              >
-              </CommentItem>
+              ></CommentItem>
               <p
                 class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
                 v-if="comments.length < totalComment"
                 @click="fetchMoreComments"
-              >
-                Xem Thêm
-              </p>
+              >Xem Thêm</p>
               <h3 class="comment-block__title">
                 Bình luận
                 <span
                   v-if="isReply"
                   class="ml-2 text-sm font-thin cursor-pointer capitalize hover:text-hovercolor"
                   @click="isReply = false"
-                  >Hủy reply</span
-                >
+                >Hủy reply</span>
               </h3>
               <CommentForm
                 @refetchComments="refetchComments"
@@ -178,7 +168,7 @@
             />
           </SideWrapper>
         </div>
-      </div> -->
+      </div>-->
     </div>
   </Container1440>
 </template>
@@ -206,7 +196,7 @@ export default {
     Author,
     AdsMain,
     CommentForm,
-    CommentItem,
+    CommentItem
   },
   mounted() {
     this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
@@ -217,7 +207,7 @@ export default {
       isReply: false,
       replyData: null,
       fetchReply: false,
-      limit: 5,
+      limit: 5
     };
   },
   methods: {
@@ -239,12 +229,11 @@ export default {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: this.limit,
-          },
+            limit: this.limit
+          }
         });
         this.comments = [...data.data.result];
-      } catch (e) {
-      }
+      } catch (e) {}
     },
 
     refetchReply() {
@@ -258,13 +247,12 @@ export default {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: this.limit,
-          },
+            limit: this.limit
+          }
         });
         this.comments = [...data.data.result];
-      } catch (e) {
-      }
-    },
+      } catch (e) {}
+    }
   },
 
   watch: {
@@ -277,7 +265,7 @@ export default {
         commentArea.placeholder = `Comment`;
         this.replyData = null;
       }
-    },
+    }
   },
 
   async asyncData(context) {
@@ -289,25 +277,24 @@ export default {
     const post = postContent.data.result;
     // comments
     let comments = [];
-    const totalComment = post.commentCount ;
+    const totalComment = post.commentCount;
     await context.store.dispatch("getComments", {
       id,
       urlQuery: {
         skip: 0,
-        limit: 5,
+        limit: 5
       },
-      nextActions: (res) => {
+      nextActions: res => {
         comments = [...res.result];
       },
-      errorAction: (e) => {
-      },
+      errorAction: e => {}
     });
 
     return {
       post,
       id,
       comments,
-      totalComment,
+      totalComment
     };
   },
   head() {
@@ -315,51 +302,50 @@ export default {
       titleTemplate: this.post.title,
       title: this.post.title,
       meta: [
-        //hiển thị title khi share
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: "Nông Thôn 365",
+          content: process.env.Webname
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: "Nông Thôn 365",
+          content: process.env.Webname
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://nongthon365.com.vn${this.$route.fullPath}`,
+          content: process.env.BASE_URL + this.$route.fullPath
         },
         {
           hid: "og:type",
           property: "og:type",
-          content: "article",
+          content: "article"
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.post.title,
+          content: this.post.title
         },
         {
           hid: "description",
           property: "description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.meta.image,
-        },
-      ],
+          content: this.post.meta.image
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 
@@ -367,8 +353,8 @@ export default {
 /* main */
 
 .post__wrapper {
-  width:80%; 
-  margin:0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .post__main {
@@ -495,10 +481,10 @@ export default {
 
 @media (max-width: 767px) {
   .post__wrapper {
-    width:100%;
+    width: 100%;
   }
 
-  .post__main--title { 
+  .post__main--title {
     font-size: 24px;
   }
 

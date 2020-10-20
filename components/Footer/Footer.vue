@@ -5,7 +5,7 @@
         <!-- logo -->
         <div class="footer__logo footer__container-item">
           <!-- logo -->
-          <nuxt-link to="/">Nông nghiệp 365</nuxt-link>
+          <nuxt-link to="/">{{webname}}</nuxt-link>
 
           <!-- description -->
           <p class="footer__logo--description">Trang tin tức về nông nghiệp</p>
@@ -110,6 +110,11 @@ export default {
     return {
       NewsFooter: []
     };
+  },
+  computed: {
+    webname() {
+      return process.env.Webname;
+    }
   },
   async mounted() {
     await this.$store.dispatch("getTopHotNewsByCategory", {
