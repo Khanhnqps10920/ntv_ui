@@ -94,11 +94,6 @@ export default {
     SideBlockItem,
     AdsSide
   },
-  data() {
-    return {
-      mainNewCate: ""
-    };
-  },
   props: {
     News: {
       type: Array,
@@ -125,14 +120,6 @@ export default {
     titleHomeA_Right2: {
       type: String,
       default: "Thị Trường Tài Chính"
-    }
-  },
-  async mounted() {
-    if (this.News.length) {
-      const data = await this.$store.dispatch("getDetailCategory", {
-        id: this.News[0].categoryId
-      });
-      this.mainNewCate = data.data.result;
     }
   },
   computed: {

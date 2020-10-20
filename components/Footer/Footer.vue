@@ -112,14 +112,14 @@ export default {
     };
   },
   async mounted() {
-    await this.$store.dispatch("getLatestNewsCategory", {
+    await this.$store.dispatch("getTopHotNewsByCategory", {
       urlQuery: {
-        categoryId: "5f5aee09e6caa34e9b9c774f" //to do
+        skip: 0,
+        limit: 3
       },
       nextActions: res => {
-        this.NewsFooter = [...res.result].slice(0, 3);
+        this.NewsFooter = [...res.result];
       }
-      //change ID follow admin for BlockAThiTruongTaiChinh
     });
   },
   props: {

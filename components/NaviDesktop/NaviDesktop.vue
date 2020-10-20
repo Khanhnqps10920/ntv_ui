@@ -86,7 +86,6 @@ export default {
     async onHover(subs, id) {
       this.toggleHoverModal = true;
       this.subs = subs;
-      console.log(id)
       await this.$store.dispatch("getTopHotNewsByCategory", {
         urlQuery: {
           categoryId: id,

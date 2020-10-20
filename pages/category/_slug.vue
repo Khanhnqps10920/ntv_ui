@@ -35,7 +35,7 @@ export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock,
+    MainBlock
   },
   data() {
     return {
@@ -49,47 +49,36 @@ export default {
   },
 
   computed: {
-    adsA() { return this.ads.find(e => e.section === 'CateAds1')},
-    adsB() { return this.ads.find(e => e.section === 'CateAds2')}
-  },
-
-  async asyncData(context) {
-    // fetch ads
-    // await context.store.dispatch("getAds", {
-    //   page: 'catepage',
-    //   nextActions: res => {
-    //     console.log(res);
-    //   }
-    // })
-
+    adsA() {
+      return this.ads.find(e => e.section === "CateAds1");
+    },
+    adsB() {
+      return this.ads.find(e => e.section === "CateAds2");
+    }
   },
   async mounted() {
     const id = this.$route.params.slug.slice(
       this.$route.params.slug.indexOf("=") + 1
     );
     const data = await this.$store.dispatch("getNewsInCategoryPage", {
-      urlQuery: {categoryId: id, skip: this.skip, limit: this.limit },
+      urlQuery: { categoryId: id, skip: this.skip, limit: this.limit }
     });
     this.posts = data.data.result;
     this.total = data.data.total;
 
-    console.log(data);
-
-    const categoryData = await this.$store.dispatch('getDetailCategory', {
+    const categoryData = await this.$store.dispatch("getDetailCategory", {
       id
     });
 
-    this.category = {...categoryData.data.result};
-
+    this.category = { ...categoryData.data.result };
 
     await this.$store.dispatch("getAds", {
-      page: 'catePage',
+      page: "catePage",
 
       nextActions: res => {
         this.ads = [...res.result];
-
       }
-    })
+    });
   },
 
   methods: {
@@ -99,8 +88,7 @@ export default {
         this.$route.params.slug.indexOf("=") + 1
       );
       const data = await this.$store.dispatch("getNewsInCategoryPage", {
-        id: id,
-        urlQuery: { skip: this.skip, limit: this.limit },
+        urlQuery: { categoryId: id, skip: this.skip, limit: this.limit }
       });
       this.posts = data.data.result;
       // this.meta = data.data.meta;
@@ -109,39 +97,17 @@ export default {
         let elmnt = document.getElementById("content");
         elmnt.scrollIntoView();
       }
-    },
+    }
   },
   head() {
     return {
       titleTemplate: this.meta ? this.meta.category.name : "Nông nghiệp 365",
-      title: this.meta ? this.meta.category.name : "Nông nghiệp 365",
+      title: this.meta ? this.meta.category.name : "Nông nghiệp 365"
     };
-  },
+  }
 };
 </script>
 
 
 <style>
 </style>
-
-mounted() {
-    var goTopBtn = document.querySelector(".back_to_top");
-    const backToTop = () => {
-      if (window.pageYOffset > 0) {
-        window.scrollBy(0, -80);
-        setTimeout(backToTop, 0);
-      }
-    };
-    const trackScroll = () => {
-      var scrolled = window.pageYOffset;
-      var coords = document.documentElement.clientHeight;
-      if (scrolled > coords) {
-        goTopBtn.classList.add("back_to_top-show");
-      }
-      if (scrolled < coords) {
-        goTopBtn.classList.remove("back_to_top-show");
-      }
-    };
-    window.addEventListener("scroll", trackScroll);
-    goTopBtn.addEventListener("click", backToTop);
-  },

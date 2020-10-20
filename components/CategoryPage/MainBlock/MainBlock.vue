@@ -72,12 +72,6 @@ export default {
       type:Object,
       default: () => ({})
     }
-    // TinMoiNhat: {
-    //   type: Array,
-    //   default: () => {
-    //     return [];
-    //   },
-    // },
   },
   data() { 
     return {
@@ -86,7 +80,6 @@ export default {
   },
   methods: {
     changePage(p) {
-      console.log('chanpage');
       this.$emit("changePage", p);
     },
   },

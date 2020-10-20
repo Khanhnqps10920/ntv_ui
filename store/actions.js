@@ -67,17 +67,9 @@ export function getDetailCategory({ dispatch }, { id, ...data }) {
   });
 }
 
-//getTopNewsInHomepage *
-export function getTopNewsInHomepage({ dispatch }, { ...data }) {
-  return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_API}/public/homepage`,
-    method: "GET",
-    data
-  });
-}
-
 //getTopHotNewsByCategory *
 export function getTopHotNewsByCategory({ dispatch }, { ...data }) {
+  console.log('hotnews')
   return dispatch("makeRequestAction", {
     url: `${process.env.BASE_API}/public/hotNews`,
     method: "GET",
@@ -107,15 +99,6 @@ export function getNewsInCategoryPage({ dispatch }, { ...data }) {
 //     data
 //   });
 // }
-
-//getLatestNewsCategory *
-export function getLatestNewsCategory({ dispatch }, { ...data }) {
-  return dispatch("makeRequestAction", {
-    url: `${process.env.BASE_API}/public/hotNews`,
-    method: "GET",
-    data
-  });
-}
 
 //  getDetailNew *
 export function getDetailNew({ dispatch }, { id, ...data }) {

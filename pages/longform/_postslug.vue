@@ -287,7 +287,6 @@ export default {
     );
     const postContent = await context.store.dispatch("getDetailNew", { id });
     const post = postContent.data.result;
-    console.log(post);
     // comments
     let comments = [];
     const totalComment = post.commentCount ;
@@ -301,7 +300,6 @@ export default {
         comments = [...res.result];
       },
       errorAction: (e) => {
-        console.log(e);
       },
     });
 

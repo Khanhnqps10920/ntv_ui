@@ -1,15 +1,17 @@
 <template>
   <div class="block-item">
     <div class="block-item__img-container relative">
-      <nuxt-link v-if="post.categoryName && post.categoryAlias && post.categoryId" :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" class="block-item__category absolute">{{post.categoryName}}</nuxt-link>
+      <nuxt-link
+        v-if="post.categoryName && post.categoryAlias && post.categoryId"
+        :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
+        class="block-item__category absolute"
+      >{{post.categoryName}}</nuxt-link>
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <h5 class="block-item__title line-clamp-title">
-      <nuxt-link
-        :to="postLink"
-      >{{post.excerpt}}</nuxt-link>
+      <nuxt-link :to="postLink">{{post.excerpt}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
@@ -23,34 +25,22 @@
 
 <script>
 export default {
-  data() {
-    return {
-      cateInfo: {},
-    };
-  },
-
   computed: {
     postLink() {
-      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+      if (!this.post.type)
+        return "/post/" + this.post.alias + `-id=${this.post.id}`;
 
-      return this.post.type === 'LongForm' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
+      return this.post.type === "LongForm"
+        ? "/longform/" + this.post.alias + `-id=${this.post.id}`
+        : "/post/" + this.post.alias + `-id=${this.post.id}`;
     }
   },
 
   props: {
     post: {
       type: Object,
-      required : true
+      required: true
     }
-  },
-  async mounted() {
-    //Get CateInfo (2)
-    const data = await this.$store.dispatch('getDetailCategory', {
-      id : this.post.categoryId,
-      nextActions : (res) => {
-        this.cateInfo = res.result;
-      }
-    })
   }
 };
 </script>
