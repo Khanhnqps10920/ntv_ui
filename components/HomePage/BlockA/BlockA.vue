@@ -5,7 +5,7 @@
         <!-- main post -->
         <div class="col-span-8 xs:col-span-12" v-if="mainNew">
           <div class="blocka__main">
-            <nuxt-link
+            <nuxt-link v-if="mainNew.categoryName && mainNew.categoryAlias && mainNew.categoryId"
               :to="`/category/${mainNew.categoryAlias}-id=${mainNew.categoryId}`"
               class="blocka__main--category"
             >{{ mainNew.categoryName }}</nuxt-link>
