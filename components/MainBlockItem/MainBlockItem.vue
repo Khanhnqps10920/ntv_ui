@@ -58,12 +58,7 @@ export default {
 
   async mounted() {
     //Get CateInfo (2)
-    await this.$store.dispatch("getDetailCategory", {
-      id: this.post.categoryId,
-      nextActions: res => {
-        this.cateInfo = res.result;
-      }
-    });
+  
   }
 };
 </script>
