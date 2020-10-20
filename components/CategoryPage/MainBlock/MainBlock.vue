@@ -10,7 +10,7 @@
           :is1240="true"
         />
         <p class="text-lg bold" v-if="!posts.length">
-          Hiện tại chưa có bài viết nào phù hợp
+          Không có bài viết
         </p>
 
         <Pagination
