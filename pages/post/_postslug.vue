@@ -128,9 +128,10 @@
               ></CommentItem>
               <p
                 class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
-                v-if="comments.length < totalComment"
+                v-if="comments.length < comment.totalComment"
                 @click="fetchMoreComments"
               >Xem Thêm</p>
+
               <h3 class="comment-block__title">
                 Bình luận
                 <span
@@ -386,14 +387,12 @@ export default {
     });
     const post = postContent.data.result;
     // total comment
-    const totalComment = post.commentCount;
 
     return {
       post,
 
       id,
       comments,
-      totalComment,
       layouts,
       ads,
 
