@@ -15,6 +15,7 @@
           @keypress.enter="
             [$router.push(`/search/${keyword}`), $emit('closeSideBar')]
           "
+          @blur="onBlur"
         />
       </div>
     </div>
@@ -25,13 +26,21 @@
 export default {
   data() {
     return {
-      keyword: "",
+      keyword: ""
     };
   },
   mounted() {
     this.$refs.input.focus();
     this.$refs.searchContainer.classList.add("show");
   },
+  methods: {
+    onBlur(e) {
+      if (this.$device.isMobile && e.type === "blur" && this.keyword) {
+        this.$router.push(`/search/${this.keyword}`);
+        this.$emit("closeSideBar");
+      }
+    }
+  }
 };
 </script>
 

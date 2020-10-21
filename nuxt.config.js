@@ -80,10 +80,15 @@ export default {
     extend(config, ctx) { }
   },
   env: {
-    Webname : 'Nông Nghiệp 365',
+    Webname: 'Nông Nghiệp 365',
     BASE_URL: process.env.NODE_ENV !== 'production' ? 'https://nongthonviet.com.vn' : 'https://nongthonviet.com.vn',
     BASE_API: process.env.NODE_ENV !== 'production' ? 'http://nongthonviet.ngn.com.vn/api' : 'http://nongthonviet.ngn.com.vn/api'
 
     // "http://192.168.1.218:8080/nongthonviet-frontend"
   },
+  // server: {
+  //   port: 8000, // default: 3000
+  //   host: '0.0.0.0', // default: localhost,
+  //   timing: false
+  // }
 }

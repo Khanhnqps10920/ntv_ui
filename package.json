@@ -2,7 +2,7 @@
   "name": "nongthonviet.com.vn",
   "version": "1.0.0",
   "description": "Website Nông Thôn Hàng Đầu Việt Nam",
-  "author": "NTT2206",
+  "author": "Nông Thôn Việt",
   "private": true,
   "scripts": {
     "dev": "nuxt",
