@@ -131,7 +131,6 @@
                 v-if="comments.length < totalComment"
                 @click="fetchMoreComments"
               >Xem Thêm</p>
-
               <h3 class="comment-block__title">
                 Bình luận
                 <span

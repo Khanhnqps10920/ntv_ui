@@ -91,6 +91,7 @@ export default {
   watch: {
     async fetchReply(value) {
       if (value) {
+
         if (this.childrenItems.length === this.limit) this.limit += 5;
         const comments = await this.$store.dispatch("getReplyComments", {
           commentId: this.item.commentId,
@@ -101,7 +102,8 @@ export default {
         });
 
         this.childrenItems = [...comments.data.result];
-        this.$emit("");
+
+        this.$emit('setReFetchFail'); 
       }
     },
   },
