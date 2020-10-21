@@ -1,5 +1,5 @@
 <template>
-  <Container1440 class="mt-10 mb-5">
+  <Container1440 class="mb-5 mt-16">
     <div class="post grid grid-cols-12 gap-4 relative">
       <!-- main -->
       <div class="col-span-12 post__wrapper xs:col-span-12 xs:mt-6">
@@ -358,8 +358,6 @@ export default {
 }
 
 .post__main {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 /* category */
@@ -368,13 +366,14 @@ export default {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #000000;
+  background-color: var(--maincolor);
   color: #ffffff;
   transition: 0.4s ease;
 }
 
 .post__main--category a:hover {
   opacity: 0.9;
+  background-color: var(--hovercolor);
 }
 
 /* title */

@@ -1,5 +1,5 @@
 <template>
-  <Container1440 class="mt-10 mb-5">
+  <Container1440 class="mt-16 mb-5">
     <div class="post grid grid-cols-12 gap-4 relative">
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
@@ -463,8 +463,6 @@ export default {
 /* main */
 
 .post__main {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 /* category */
