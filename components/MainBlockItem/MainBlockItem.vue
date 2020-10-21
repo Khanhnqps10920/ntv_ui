@@ -18,7 +18,7 @@
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
+            <a >{{ post.authorName }}</a>
             <span>-</span>
           </span>
           <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
@@ -90,6 +90,10 @@ export default {
   letter-spacing: 1px;
   color: #ffffff;
   font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width:100%;
 }
 
 .main-item .main-item__img-wrapper {

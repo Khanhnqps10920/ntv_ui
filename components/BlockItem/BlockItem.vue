@@ -15,7 +15,7 @@
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
-        <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
+        <a>{{ post.authorName }}</a>
         <span>-</span>
       </span>
       <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>

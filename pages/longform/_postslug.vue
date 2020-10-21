@@ -17,7 +17,7 @@
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
                 <span>Tác giả</span>
-                <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
+                <a>{{ post.authorName }}</a>
               </div>
 
               <span class="post__main--info-time ml-6">
@@ -127,7 +127,7 @@
               ></CommentItem>
               <p
                 class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
-                v-if="comments.length < comments.totalComment"
+                v-if="comments.length < totalComment"
                 @click="fetchMoreComments"
               >Xem Thêm</p>
               <h3 class="comment-block__title">
@@ -233,6 +233,7 @@ export default {
           }
         });
         this.comments = [...data.data.result];
+        this.totalComment = data.data.totalComment;
       } catch (e) {}
     },
 
@@ -251,6 +252,7 @@ export default {
           }
         });
         this.comments = [...data.data.result];
+        this.totalComment = data.data.totalComment
       } catch (e) {}
     }
   },
@@ -277,7 +279,7 @@ export default {
     const post = postContent.data.result;
     // comments
     let comments = [];
-    const totalComment = post.commentCount;
+    let totalComment ;
     await context.store.dispatch("getComments", {
       id,
       urlQuery: {
@@ -286,9 +288,11 @@ export default {
       },
       nextActions: res => {
         comments = [...res.result];
+        totalComment = res.totalComment
       },
       errorAction: e => {}
     });
+
 
     return {
       post,
