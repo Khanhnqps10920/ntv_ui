@@ -3,7 +3,8 @@
     <div class>
       <i class="mobile-nav__icons fas fa-bars" @click="$emit('openSideBar')"></i>
     </div>
-    <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/">{{webname}}</nuxt-link>
+    <!-- <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/">{{webname}}</nuxt-link> -->
+     <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/">Nông Nghiệp 365</nuxt-link>
     <div class>
       <i class="fas fa-user mr-2 mobile-nav__icons" @click="handleActiveAuth"></i>
       <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>

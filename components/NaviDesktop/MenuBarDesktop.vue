@@ -9,10 +9,14 @@
         <div class="flex sm:flex-wrap items-center text-black h-16">
           <!-- <Logo /> -->
           <div>
+            <!-- <nuxt-link
+              to="/"
+              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
+            >{{webname}}</nuxt-link>-->
             <nuxt-link
               to="/"
               class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
-            >{{webname}}</nuxt-link>
+            >Nông Nghiệp 365</nuxt-link>
           </div>
           <div class="flex flex-wrap items-center">
             <nuxt-link
@@ -72,7 +76,7 @@ export default {
       return this.allPosts.slice(this.n - 4, this.n);
     },
     webname() {
-      return process.env.Webname
+      return process.env.Webname;
     }
   },
   methods: {

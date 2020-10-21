@@ -5,7 +5,8 @@
         <!-- logo -->
         <div class="footer__logo footer__container-item">
           <!-- logo -->
-          <nuxt-link to="/">{{webname}}</nuxt-link>
+          <!-- <nuxt-link to="/">{{webname}}</nuxt-link> -->
+          <nuxt-link to="/">Nông Nghiệp 365</nuxt-link>
 
           <!-- description -->
           <p class="footer__logo--description">Trang tin tức về nông nghiệp</p>
