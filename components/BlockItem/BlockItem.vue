@@ -28,7 +28,7 @@ export default {
   computed: {
     postLink() {
       if (!this.post.type)
-        return "/post/" + this.post.alias + `-id=${this.post.id}`;
+        return "/post/" + this.post.alias+ `-id=${this.post.id}`;
 
       return this.post.type === "LongForm"
         ? "/longform/" + this.post.alias + `-id=${this.post.id}`
