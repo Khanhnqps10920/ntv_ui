@@ -474,13 +474,14 @@ export default {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #000000;
+  background-color: var(--maincolor);
   color: #ffffff;
   transition: 0.4s ease;
 }
 
 .post__main--category a:hover {
   opacity: 0.9;
+  background-color: var(--hovercolor);
 }
 
 /* title */
