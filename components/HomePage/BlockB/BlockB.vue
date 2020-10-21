@@ -13,11 +13,12 @@
             :isBorder="true"
           />
         </div>
-
-        <div class="blockb__button">
-          <nuxt-link :to="viewAll_Left">Xem tất cả</nuxt-link>
-          <i class="fas fa-bars"></i>
-        </div>
+        <nuxt-link :to="viewAll_Left">
+          <div class="blockb__button">
+            Xem tất cả
+            <i class="fas fa-bars"></i>
+          </div>
+        </nuxt-link>
       </div>
 
       <!-- main block -->
@@ -43,28 +44,25 @@
             :post="post"
             :isSquare="true"
           />
-
-          <div class="blockb__button small">
-            <nuxt-link :to="viewAll_Right1">Xem tất cả</nuxt-link>
-            <i class="fas fa-bars"></i>
-          </div>
+          <nuxt-link :to="viewAll_Right1">
+            <div class="blockb__button small">
+              Xem tất cả
+              <i class="fas fa-bars"></i>
+            </div>
+          </nuxt-link>
         </div>
 
         <div class="blockb-right__block" v-if="VanHoa.length">
           <AdsSide :ads="ads" />
 
           <h4 class="block-title">{{title_Right2}}</h4>
-          <SideBlockItem
-            v-for="(post,index) in VanHoa"
-            :post="post"
-            :key="index"
-            :isSquare="true"
-          />
-
-          <div class="blockb__button small">
-            <nuxt-link :to="viewAll_Right2">Xem tất cả</nuxt-link>
-            <i class="fas fa-bars"></i>
-          </div>
+          <SideBlockItem v-for="(post,index) in VanHoa" :post="post" :key="index" :isSquare="true" />
+          <nuxt-link :to="viewAll_Right2">
+            <div class="blockb__button small">
+              Xem tất cả
+              <i class="fas fa-bars"></i>
+            </div>
+          </nuxt-link>
         </div>
       </div>
     </div>
