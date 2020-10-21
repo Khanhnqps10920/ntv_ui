@@ -2,7 +2,7 @@
   <div class="ads">
     <img @click="handleAdsClick" v-if="ads.typeMedia === 'image'" :src="ads.media"  class="cursor-pointer w-full h-full object-cover" :alt="ads.title"  />
 
-    <video   v-if="ads.typeMedia === 'video'" controls autoplay muted>
+    <video v-if="ads.typeMedia === 'video'" controls autoplay muted loop>
       <source :src="ads.media" type="video/mp4" >
     </video>
   </div>
