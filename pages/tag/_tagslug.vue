@@ -56,7 +56,6 @@ export default {
 }
 
 .tag-block h1 {
-  font-family: Gelasio;
   font-size: 41px;
   font-weight: 700;
   text-transform: none;

@@ -62,7 +62,6 @@ export default {
 .loginBtn--facebook {
   background-color: #4c69ba;
   background-image: linear-gradient(#4c69ba, #3b55a0);
-  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
   text-shadow: 0 -1px 0 #354c8c;
 }
 .loginBtn--facebook:before {
