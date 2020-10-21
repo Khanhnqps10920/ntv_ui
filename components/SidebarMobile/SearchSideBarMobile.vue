@@ -64,7 +64,7 @@ export default {
   width: 100%;
   min-height: 100%;
   overflow: auto;
-  z-index: 1000;
+  z-index: 10000;
   /* background */
   background-image: url("../../assets/imgs/nongthon.jpg");
   background-size: cover;

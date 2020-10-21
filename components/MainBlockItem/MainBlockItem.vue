@@ -18,7 +18,7 @@
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
+            <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
             <span>-</span>
           </span>
           <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>

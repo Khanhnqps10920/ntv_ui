@@ -3,7 +3,7 @@
     <div class="auth__content">
       <i
         class="close fas fa-times cursor-pointer"
-        @click="setActiveSignin(false)"
+        @click="handleCloseClick"
       ></i>
       <div class="auth__content-slot">
         <slot></slot>
@@ -21,19 +21,24 @@ export default {
 
     handleCloseModal(e) {
       if (e.target === this.$refs.content) {
+        this.$emit('closeAuth');
         this.setActiveSignin(false);
+
       }
     },
+    handleCloseClick() {
+        this.$emit('closeAuth');
+        this.setActiveSignin(false);
+    }
   },
 };
 </script>
 
 <style scoped>
 .auth {
-  z-index: 2000;
   /* display: none; */
   position: fixed; /* Stay in place */
-  z-index: 2000; /* Sit on top */
+  z-index: 10000; /* Sit on top */
   /* padding-top: 50px; */
   padding-right: 8px;
   padding-left: 8px;

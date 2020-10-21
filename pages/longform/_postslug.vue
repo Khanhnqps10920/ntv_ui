@@ -17,7 +17,7 @@
             <div class="post__main--info-wrapper">
               <div class="post__main--info-name">
                 <span>Tác giả</span>
-                <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
+                <nuxt-link to="/">{{ post.authorName }}</nuxt-link>
               </div>
 
               <span class="post__main--info-time ml-6">
@@ -72,7 +72,7 @@
 
             <!-- right side -->
             <div class="col-span-12 xs:col-span-12 sm:col-span-12">
-              <div class="post__main--content-main">
+              <div class="post__main--content-main overflow-hidden">
                 <!-- post content -->
                 <div class="post__content mb-5">
                   <div v-html="post.postContent || ''"></div>

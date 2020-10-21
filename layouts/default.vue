@@ -2,7 +2,7 @@
   <div>
     <div id="fb-root"></div>
     <!-- Auth -->
-    <Auth v-if="signinModal">
+    <Auth v-if="signinModal" v-on:closeAuth="handleCloseAuth">
       <component :is="authComponent" v-bind="authProps"></component>
     </Auth>
     <!--Navi Desktop-->
@@ -65,6 +65,11 @@ export default {
       categories: [],
       authComponent: "Login",
     };
+  },
+  methods: {
+    handleCloseAuth() {
+      this.authComponent = "Login";
+    }
   },
 
   computed: {
