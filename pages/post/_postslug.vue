@@ -1,5 +1,5 @@
 <template>
-  <Container1440 class="mt-10 mb-5">
+  <Container1440 class="mt-16 mb-5">
     <div class="post grid grid-cols-12 gap-4 relative">
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
@@ -128,9 +128,10 @@
               ></CommentItem>
               <p
                 class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
-                v-if="comments.length < totalComment"
+                v-if="comments.length < comment.totalComment"
                 @click="fetchMoreComments"
               >Xem Thêm</p>
+
               <h3 class="comment-block__title">
                 Bình luận
                 <span
@@ -386,14 +387,12 @@ export default {
     });
     const post = postContent.data.result;
     // total comment
-    const totalComment = post.commentCount;
 
     return {
       post,
 
       id,
       comments,
-      totalComment,
       layouts,
       ads,
 
@@ -463,8 +462,6 @@ export default {
 /* main */
 
 .post__main {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 /* category */
@@ -473,13 +470,14 @@ export default {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #000000;
+  background-color: var(--maincolor);
   color: #ffffff;
   transition: 0.4s ease;
 }
 
 .post__main--category a:hover {
   opacity: 0.9;
+  background-color: var(--hovercolor);
 }
 
 /* title */
