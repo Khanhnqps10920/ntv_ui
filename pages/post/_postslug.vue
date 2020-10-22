@@ -476,6 +476,9 @@ export default {
   width: 100% !important;
   max-width: 100% !important;
 }
+.parenthtml h3 {
+  line-height : normal
+}
 /* main */
 
 .post__main {

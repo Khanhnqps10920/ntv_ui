@@ -252,7 +252,7 @@ export default {
           }
         });
         this.comments = [...data.data.result];
-        this.totalComment = data.data.totalComment
+        this.totalComment = data.data.totalComment;
       } catch (e) {}
     }
   },
@@ -279,7 +279,7 @@ export default {
     const post = postContent.data.result;
     // comments
     let comments = [];
-    let totalComment ;
+    let totalComment;
     await context.store.dispatch("getComments", {
       id,
       urlQuery: {
@@ -288,11 +288,10 @@ export default {
       },
       nextActions: res => {
         comments = [...res.result];
-        totalComment = res.totalComment
+        totalComment = res.totalComment;
       },
       errorAction: e => {}
     });
-
 
     return {
       post,
@@ -355,12 +354,15 @@ export default {
 
 <style>
 .parenthtml td img {
-  width : 100% !important;
-  max-width : 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 .parenthtml table {
-  width : 100% !important;
-  max-width : 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.parenthtml h3 {
+  line-height: normal;
 }
 /* main */
 
