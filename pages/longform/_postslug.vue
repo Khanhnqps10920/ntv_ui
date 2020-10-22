@@ -72,10 +72,10 @@
 
             <!-- right side -->
             <div class="col-span-12 xs:col-span-12 sm:col-span-12">
-              <div class="post__main--content-main overflow-hidden">
+              <div class="post__main--content-main">
                 <!-- post content -->
                 <div class="post__content mb-5">
-                  <div v-html="post.postContent || ''"></div>
+                  <div v-html="post.postContent || ''" class="parenthtml"></div>
                 </div>
 
                 <div class="post__share">
@@ -354,6 +354,14 @@ export default {
 </script>
 
 <style>
+.parenthtml td img {
+  width : 100% !important;
+  max-width : 100% !important;
+}
+.parenthtml table {
+  width : 100% !important;
+  max-width : 100% !important;
+}
 /* main */
 
 .post__wrapper {

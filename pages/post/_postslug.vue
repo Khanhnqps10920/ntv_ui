@@ -71,10 +71,10 @@
 
             <!-- right side -->
             <div class="col-span-8 xs:col-span-12 sm:col-span-12">
-              <div class="post__main--content-main overflow-hidden">
+              <div class="post__main--content-main">
                 <!-- post content -->
                 <div class="post__content mb-5">
-                  <div v-html="post.postContent || ''"></div>
+                  <div v-html="post.postContent || ''" class="parenthtml"></div>
                 </div>
 
                 <div class="post__share">
@@ -247,7 +247,6 @@ export default {
         });
         this.comments = [...data.data.result];
         this.totalComment = data.data.totalComment;
-  
       } catch (e) {}
     },
 
@@ -374,11 +373,10 @@ export default {
         nextActions: res => {
           comments = [...res.result];
           console.log(res);
-          totalComment = res.totalComment
+          totalComment = res.totalComment;
         },
         errorAction: e => {}
       }),
-
 
       context.store.dispatch("getAds", {
         page: "detailpage",
@@ -388,7 +386,6 @@ export default {
       })
     ]);
     // layouts
-
 
     //Post
     const postContent = await context.store.dispatch("getDetailNew", {
@@ -471,6 +468,14 @@ export default {
 </script>
 
 <style>
+.parenthtml td img {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.parenthtml table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
 /* main */
 
 .post__main {
