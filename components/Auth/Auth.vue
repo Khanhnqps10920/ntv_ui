@@ -17,18 +17,19 @@ import { mapMutations } from "vuex";
 
 export default {
   methods: {
-    ...mapMutations(["setActiveSignin"]),
+    ...mapMutations(["setActiveSignin", "SET_AUTH_ERROR"]),
 
     handleCloseModal(e) {
       if (e.target === this.$refs.content) {
         this.$emit('closeAuth');
         this.setActiveSignin(false);
-
+        this.SET_AUTH_ERROR(null);
       }
     },
     handleCloseClick() {
         this.$emit('closeAuth');
         this.setActiveSignin(false);
+        this.SET_AUTH_ERROR(null);
     }
   },
 };

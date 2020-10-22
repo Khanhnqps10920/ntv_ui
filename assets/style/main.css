@@ -1,12 +1,22 @@
 @import "./reset.css";
 :root {
   --maincolor: #027731;
+
+  /* --maincolor: red; */
   --hovercolor: #006428;
 }
 
 body {
   font-family: Helvetica, sans-serif !important;
 }
+
+input[type="text"], input[type="text"]:active, input[type="text"]:active {
+  -webkit-appearance: none;
+}
+input[type="search"], input[type="search"]:active, input[type="search"]:active {
+  -webkit-appearance: none;
+}
+
 
 .block-title {
   font-size: 24px;
@@ -74,6 +84,7 @@ body {
 }
 
 .auth-form .form-input input {
+  -webkit-appearance: none;
   position: relative;
   height: 40px;
   margin: 0;
@@ -81,9 +92,17 @@ body {
   font-size: 15px;
   outline: none;
   box-shadow: none;
+  border:none;
   background: transparent;
+  border-top:0;
+  border-right:0;
+  border-left:0;
   border-bottom: 1px solid #e1e1e1;
   width: 100%;
+}
+
+.auth-form .form-input input:focus {
+  border-top:none;
 }
 
 .auth-form .form-input input:focus~label,
@@ -94,11 +113,13 @@ body {
 }
 
 .auth-form .form-input label {
+  -webkit-appearance: none;
   position: absolute;
   left: 0;
   text-transform: uppercase;
   transition: all 0.2s ease;
   pointer-events: none;
+  top:-5px;
 }
 
 .auth-form .form-btn {
