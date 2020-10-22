@@ -81,4 +81,8 @@ export default {
 </script>
 
 <style>
+
+.success {
+  color: var(--maincolor);
+}
 </style>
