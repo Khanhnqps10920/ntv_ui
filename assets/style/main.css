@@ -34,6 +34,7 @@ body {
 }
 
 .auth-form .form-input {
+  -webkit-appearance: none;
   width: 100%;
   display: inline-block;
   position: relative;
@@ -74,6 +75,7 @@ body {
 }
 
 .auth-form .form-input input {
+  -webkit-appearance: none;
   position: relative;
   height: 40px;
   margin: 0;
@@ -88,12 +90,14 @@ body {
 
 .auth-form .form-input input:focus~label,
 .auth-form .form-input input:valid~label {
+  -webkit-appearance: none;
   top: -18px;
   font-size: 11px;
   opacity: 0.6;
 }
 
 .auth-form .form-input label {
+  -webkit-appearance: none;
   position: absolute;
   left: 0;
   text-transform: uppercase;
