@@ -24,16 +24,15 @@
 
           <div class="auth-info absolute" v-if="toggleInfo">
             <a
-              @click="handleLogout"
               class="hover:text-hovercolor text-xs cursor-pointer"
+              @click="handleChangePassword"
+            >Đổi mật khẩu
+            </a>  
+            <a
+              @click="handleLogout"
+              class="hover:text-hovercolor text-xs cursor-pointer mt-3"
             >Logout
             </a >
-
-            <a
-              class="hover:text-hovercolor text-xs cursor-pointer mt-3 "
-              @click="handleForgotPassword"
-            >Đổi mật khẩu
-            </a>
           </div>
         </div>
 
@@ -83,8 +82,10 @@ export default {
       this.toggleInfo = false;
     },
 
-    handleForgotPassword() {
+    handleChangePassword() {
       this.setActiveSignin(true);
+      this.$emit('resetPassword');
+      this.toggleInfo = false;
     }
   },
 };
@@ -94,9 +95,9 @@ export default {
 
   .auth-info {
     z-index:1000;
-    width:100px;
     top:20px;
-    right:60%;
+    right:30px;
+    white-space:nowrap;
     transform: translateX(50%);
     background:black;
     padding:10px;

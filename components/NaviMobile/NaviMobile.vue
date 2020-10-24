@@ -5,10 +5,14 @@
     </div>
     <!-- <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/">{{webname}}</nuxt-link> -->
     <nuxt-link class="text-center font-extrabold uppercase font-sans" to="/">Nông Nghiệp 365</nuxt-link>
-    <div >
-      <p @click="logout" v-if="user" class="inline hover:text-color cursor-pointer mr-5 text-xs capitalize">
-        Logout
+    <div class="relative">
+      <p v-if="user" @click="toggleAuth = !toggleAuth" class="inline hover:text-hovercolor cursor-pointer mr-5 text-xs capitalize">
+        {{user.name}}
       </p>
+      <div v-if="toggleAuth" class="auth-info absolute">
+        <p class="cursor-pointer hover:text-hovercolor text-xs" @click="handleChangePassword">Đổi mật khẩu</p>
+        <p class="cursor-pointer hover:text-hovercolor text-xs mt-3" @click="handleLogout">Logout</p>
+      </div>
       <i class="fas fa-user mr-2 mobile-nav__icons" v-if="!user" @click="handleActiveAuth"></i>
       <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>
     </div>
@@ -25,6 +29,12 @@ export default {
       return process.env.Webname;
     }
   },
+
+  data() {
+    return {
+      toggleAuth: false
+    }
+  },
   methods: {
     ...mapMutations(["setActiveSignin"]),
 
@@ -33,6 +43,15 @@ export default {
 
     handleActiveAuth() {
       this.setActiveSignin(true);
+    },
+    handleLogout() {
+      this.logout();
+      this.toggleAuth = false;
+    },
+    handleChangePassword() {
+      this.toggleAuth = false;
+      this.setActiveSignin(true);
+      this.$emit('resetPassword');
     }
   }
 };
@@ -54,5 +73,16 @@ export default {
 .mobile-nav .mobile-nav__icons {
   font-size: 0.8rem;
   cursor: pointer;
+}
+.auth-info {
+  z-index:1000;
+  top:30px;
+  right:50px;
+  white-space:nowrap;
+  transform: translateX(50%);
+  background:black;
+  padding:10px;
+  text-align: center;
+  color:white;
 }
 </style>>

@@ -3,7 +3,7 @@
     <transition name="fade-slide">
       <MenuBarDesktop v-if="showMenu" :menuTags="categories" />
     </transition>
-    <SubNavi />
+    <SubNavi @resetPassword="handleResetPassword" />
     <NaviInfo />
     <div @mouseleave="toggleHoverModal = false" class="relative">
       <TagBar
@@ -121,6 +121,9 @@ export default {
       if (window.pageYOffset > OFFSET) {
         this.showMenu = true;
       }
+    },
+    handleResetPassword() {
+      this.$emit('resetPassword');
     }
   }
 };

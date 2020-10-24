@@ -6,10 +6,11 @@
       <component :is="authComponent" v-bind="authProps"></component>
     </Auth>
     <!--Navi Desktop-->
-    <NaviDesktop :categories="categories" />
+    <NaviDesktop @resetPassword="handleResetPassword" :categories="categories" />
     <div class="sm:hidden md:hidden lg:hidden">
       <!-- nav mobile -->
       <NaviMobile
+        @resetPassword="handleResetPassword"
         @openSideBar="showSideBar = true"
         @openSearchSideBar="showSearchSideBar = true"
       />
@@ -44,6 +45,7 @@ import Auth from "@/components/Auth/Auth.vue";
 import Login from "@/components/Auth/Login.vue";
 import Register from "@/components/Auth/Register.vue";
 import Forgot from "@/components/Auth/Forgot.vue";
+import ResetPassword from "@/components/Auth/ResetPassword.vue";
 
 export default {
   components: {
@@ -57,7 +59,9 @@ export default {
     Login,
     Register,
     Forgot,
+    ResetPassword
   },
+
   data() {
     return {
       showSearchSideBar: false,
@@ -69,6 +73,9 @@ export default {
   methods: {
     handleCloseAuth() {
       this.authComponent = "Login";
+    },
+    handleResetPassword() {
+      this.authComponent = "ResetPassword";
     }
   },
 
@@ -96,6 +103,7 @@ export default {
         return {
           login: () => {
             vm.authComponent = "Login";
+            this.$store.commit("SET_AUTH_ERROR", null);
           },
         };
       }
@@ -105,6 +113,7 @@ export default {
         return {
           login: () => {
             vm.authComponent = "Login";
+            this.$store.commit("SET_AUTH_ERROR", null);
           },
         };
       }
