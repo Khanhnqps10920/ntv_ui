@@ -1,11 +1,11 @@
 export const getCategory = state => {
-  return state.categories
-}
+  return state.categories;
+};
 
 export const getDefaultPostOnMenu = state => {
-  return state.defaultPostOnMenu
-}
+  return state.defaultPostOnMenu;
+};
 
 export const setPostMenuDesktop = state => {
-  return state.postMenuDesktop
-}
+  return state.postMenuDesktop;
+};
