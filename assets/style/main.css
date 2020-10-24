@@ -1,12 +1,25 @@
 @import "./reset.css";
 :root {
   --maincolor: #027731;
+  /* --maincolor: red; */
   --hovercolor: #006428;
 }
 
 body {
   font-family: Helvetica, sans-serif !important;
 }
+
+input[type="text"], input[type="text"]:active, input[type="text"]:active {
+  border-top:0px;
+  -webkit-appearance: none;
+}
+
+input[type="search"], input[type="search"]:active, input[type="search"]:active {
+  border-top:0px;
+  -webkit-appearance: none;
+}
+
+
 
 .block-title {
   font-size: 24px;
@@ -34,7 +47,6 @@ body {
 }
 
 .auth-form .form-input {
-  -webkit-appearance: none;
   width: 100%;
   display: inline-block;
   position: relative;
@@ -59,7 +71,6 @@ body {
 
 .auth-form .main-error {
   color: #f79483;
-
 }
 
 .auth-form .form-input .error {
@@ -83,14 +94,23 @@ body {
   font-size: 15px;
   outline: none;
   box-shadow: none;
+  border: none;
+  border-radius: 0;
   background: transparent;
+  border-top:solid 1px #75757500 !important;
+  border-right: 0;
+  border-left: 0;
+  border-image: none;
   border-bottom: 1px solid #e1e1e1;
   width: 100%;
 }
 
-.auth-form .form-input input:focus~label,
-.auth-form .form-input input:valid~label {
-  -webkit-appearance: none;
+.auth-form .form-input input:focus {
+  border-top: solid 1px #75757500 !important;
+  border-image: none;
+}
+
+.auth-form .form-input input:focus~label, .auth-form .form-input input:valid~label {
   top: -18px;
   font-size: 11px;
   opacity: 0.6;
@@ -103,6 +123,7 @@ body {
   text-transform: uppercase;
   transition: all 0.2s ease;
   pointer-events: none;
+  top: -5px;
 }
 
 .auth-form .form-btn {
@@ -145,17 +166,13 @@ body {
   .auth-form .form-input {
     margin-bottom: 20px;
   }
-
   .auth-form .form-input label {
     font-size: 10px;
   }
-
   .auth-form .form-input.error {
     margin-bottom: 30px;
   }
-
-  .auth-form .form-input input:focus~label,
-  .auth-form .form-input input:valid~label {
+  .auth-form .form-input input:focus~label, .auth-form .form-input input:valid~label {
     top: -13px;
     font-size: 10px;
     opacity: 0.6;

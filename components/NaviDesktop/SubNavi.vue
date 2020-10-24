@@ -16,15 +16,25 @@
           <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>
-        <div v-if="user" class="flex items-center">
-          <p class="hover:text-color cursor-pointer mr-5 text-xs capitalize">
+        <div v-if="user" class="flex items-center relative">
+          <p @click="toggleInfo = !toggleInfo" class="hover:text-hovercolor cursor-pointer mr-5 text-xs capitalize">
             {{ user.name }}
           </p>
-          <a
-            @click="logout"
-            class="hover:text-hovercolor text-xs cursor-pointer"
-            >Logout</a
-          >
+     
+
+          <div class="auth-info absolute" v-if="toggleInfo">
+            <a
+              @click="handleLogout"
+              class="hover:text-hovercolor text-xs cursor-pointer"
+            >Logout
+            </a >
+
+            <a
+              class="hover:text-hovercolor text-xs cursor-pointer mt-3 "
+              @click="handleForgotPassword"
+            >Đổi mật khẩu
+            </a>
+          </div>
         </div>
 
         <a
@@ -43,6 +53,12 @@ import { mapMutations, mapState, mapActions } from "vuex";
 
 import Container1640 from "@/components/containers/Container1640";
 export default {
+  data(){
+    return {
+      toggleInfo: false
+    }
+  }
+  ,
   components: {
     Container1640,
   },
@@ -60,9 +76,35 @@ export default {
       e.preventDefault();
       this.setActiveSignin(true);
     },
+
+    handleLogout() {
+      this.logout();
+
+      this.toggleInfo = false;
+    },
+
+    handleForgotPassword() {
+      this.setActiveSignin(true);
+    }
   },
 };
 </script>
 
 <style scoped>
+
+  .auth-info {
+    z-index:1000;
+    width:100px;
+    top:20px;
+    right:60%;
+    transform: translateX(50%);
+    background:black;
+    padding:10px;
+    text-align: center;
+  }
+
+  .auth-info a {
+    display:block;
+  }
+
 </style>
