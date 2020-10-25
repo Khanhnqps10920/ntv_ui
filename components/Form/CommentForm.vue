@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleAddComment" class="comment-form mt-5">
+  <form @submit.prevent="handleSubmitComment" class="comment-form mt-5">
     <textarea
       ref="commentArea"
       class="comment-form__area"
@@ -12,6 +12,17 @@
     <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.content.$error">
       Nội dung comment không được để trống.
     </p>
+    <div class="comment-form__inputs mt-3">
+      <div>
+        <input type="text" v-model="name" class="comment-form__input" required placeholder="Your Name: ">
+        <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.name.$error">
+          Tên không được để trống và phải nhiều hơn 6 ký tự
+        </p>
+      </div>
+      <div>
+        <input type="text" v-model="email" class="comment-form__input" placeholder="Your Email: ">
+      </div>
+    </div>
 
     <button class="comment-form__btn mt-5" type="submit">Post Comment</button>
   </form>
@@ -20,7 +31,7 @@
 <script>
 // libs
 import Axios from "axios";
-import { required, email } from "vuelidate/lib/validators";
+import { required, email, minLength } from "vuelidate/lib/validators";
 
 // vuex
 import { mapState, mapMutations } from "vuex";
@@ -29,6 +40,8 @@ export default {
   data() {
     return {
       content: null,
+      name: null,
+      email:null
     };
   },
   props: {
@@ -47,10 +60,23 @@ export default {
     content: {
       required,
     },
+
+    name: {
+      required,
+      minLength: minLength(6)
+    },
+
+    email: {
+      required,
+      email
+    }
   },
 
   methods: {
     ...mapMutations(["setActiveSignin", "SET_AUTH_ERROR"]),
+
+
+    // old comment function
     handleAddComment() {
       // check if login in
       if (this.user) {
@@ -113,7 +139,15 @@ export default {
         this.setActiveSignin(true);
         this.SET_AUTH_ERROR("Bạn cần phải đăng nhập trước");
       }
+
+
     },
+
+    // new comment function
+    handleSubmitComment() {
+      console.log(this.$v);
+      this.$v.$touch();
+    }
   },
 };
 </script>
@@ -145,7 +179,7 @@ export default {
   justify-content: space-between;
 }
 .comment-form__inputs > div {
-  width: 48%;
+  width: 49.5%;
 }
 
 .comment-form label {
@@ -177,7 +211,7 @@ export default {
 
   .comment-form__inputs > div {
     width: 100%;
-    margin: 20px 0;
+    margin:5px 0;
   }
 
   .comment-form__btn {
