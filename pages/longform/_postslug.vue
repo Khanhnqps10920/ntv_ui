@@ -229,7 +229,7 @@ export default {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: this.limit
+            limit: 1000
           }
         });
         this.comments = [...data.data.result];

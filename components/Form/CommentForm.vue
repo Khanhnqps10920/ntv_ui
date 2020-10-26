@@ -16,7 +16,7 @@
       <div>
         <input type="text" v-model="name" class="comment-form__input" placeholder="Your Name: ">
         <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.name.$error">
-          Tên không được để trống và phải nhiều hơn 6 ký tự
+          Tên không được để trống và phải nhiều hơn 4 ký tự
         </p>
       </div>
       <div>
@@ -66,7 +66,7 @@ export default {
 
     name: {
       required,
-      minLength: minLength(6)
+      minLength: minLength(4)
     },
 
     email: {
@@ -156,17 +156,54 @@ export default {
       }
 
       const { name,email,content } = this;
+      const userId = Math.trunc(Math.random()*1000);
 
       // if reply
       if(this.replyData) {
-        console.log('reply');
-        console.log(name,email,content);
+         const request = Axios.post(
+            `${process.env.BASE_API}/public/news/postReply/${this.replyData.commentId}`,
+            {
+              commentId: this.replyData.commentId,
+              userId,
+              email,
+              name,
+              content: this.content,
+            }
+          );
+
+          request
+            .then((response) => {
+              this.$emit("refetchReply");
+
+              // reset form
+              this.content = null;
+              this.$v.$reset();
+            })
+            .catch((e) => {
+            });
       }
       // if comment
       else {
-        console.log('comment');
-        console.log(name,email,content);
-        this.$v.$reset();
+         const request = Axios.post(
+            `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
+            {
+              userId,
+              email,
+              name,
+              content: this.content,
+            }
+          );
+
+          request
+            .then((response) => {
+              this.$emit("refetchComments");
+
+              // reset form
+              this.content = null;
+              this.$v.$reset();
+            })
+            .catch((e) => {
+            });
       }
     }
   },

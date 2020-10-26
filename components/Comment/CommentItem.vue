@@ -97,7 +97,7 @@ export default {
           commentId: this.item.commentId,
           urlQuery: {
             skip: 0,
-            limit: this.limit,
+            limit: 1000,
           },
         });
 

@@ -16,7 +16,9 @@
           <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>
-        <div v-if="user" class="flex items-center relative">
+
+        <!-- users -->
+        <!-- <div v-if="user" class="flex items-center relative">
           <p @click="toggleInfo = !toggleInfo" class="hover:text-hovercolor cursor-pointer mr-5 text-xs capitalize">
             {{ user.name }}
           </p>
@@ -41,7 +43,7 @@
           @click="activeSigninModal"
           class="hover:text-hovercolor cursor-pointer"
           >Đăng nhập / Đăng ký</a
-        >
+        > -->
       </div>
     </Container1640>
   </div>
