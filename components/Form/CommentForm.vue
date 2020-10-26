@@ -14,13 +14,16 @@
     </p>
     <div class="comment-form__inputs mt-3">
       <div>
-        <input type="text" v-model="name" class="comment-form__input" required placeholder="Your Name: ">
+        <input type="text" v-model="name" class="comment-form__input" placeholder="Your Name: ">
         <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.name.$error">
           Tên không được để trống và phải nhiều hơn 6 ký tự
         </p>
       </div>
       <div>
         <input type="text" v-model="email" class="comment-form__input" placeholder="Your Email: ">
+        <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.email.$error">
+          Email không được để trống và phải đúng định dạng
+        </p>
       </div>
     </div>
 
@@ -145,8 +148,26 @@ export default {
 
     // new comment function
     handleSubmitComment() {
-      console.log(this.$v);
       this.$v.$touch();
+
+      // check if valid
+      if(this.$v.$anyError) {
+        return;
+      }
+
+      const { name,email,content } = this;
+
+      // if reply
+      if(this.replyData) {
+        console.log('reply');
+        console.log(name,email,content);
+      }
+      // if comment
+      else {
+        console.log('comment');
+        console.log(name,email,content);
+        this.$v.$reset();
+      }
     }
   },
 };
