@@ -11,11 +11,11 @@
           <div>
             <!-- <nuxt-link
               to="/"
-              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
+              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase mr-5"
             >{{webname}}</nuxt-link>-->
             <nuxt-link
               to="/"
-              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase font-sans mr-5"
+              class="logo block mt-1 md:text-2xl lg:text-2xl uppercase mr-5"
             >Nông Nghiệp 365</nuxt-link>
           </div>
           <div class="flex flex-wrap items-center">

@@ -81,6 +81,7 @@
             <li class="footer__pick-item" v-for="(post ,i) in NewsFooter" :key="i">
               <div class="footer__pick-item--information">
                 <nuxt-link
+                  style="line-height : normal"
                   :to="`/post/${post.alias}-id=${post.id}`"
                   class="footer__pick-item--information-title footer__link line-clamp-title"
                 >{{post.title}}</nuxt-link>
@@ -219,7 +220,7 @@ export default {
 }
 
 .footer__logo--socials li a {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* about */
@@ -234,7 +235,7 @@ export default {
 }
 
 .footer__about .footer__about-sections li {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -251,7 +252,7 @@ export default {
 }
 
 .footer__category .footer__category-list .footer__category-list-item {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -379,7 +380,7 @@ export default {
   }
 
   .footer__block-title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .footer__link {

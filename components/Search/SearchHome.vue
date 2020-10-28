@@ -68,7 +68,7 @@ export default {
   padding: 16px 8px;
   background: var(--maincolor);
   color: #ffffff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
 }
 </style>

@@ -6,7 +6,7 @@
       :to="`/category/${tag.alias}-id=${tag.id}`"
       v-for="(tag, i) in menuTags"
       :key="i"
-      class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md font-sans hover:text-hovercolor"
+      class="tag uppercase px-3 sm:px-2 font-bold sm:text-xs md:text-sm lg:text-md hover:text-hovercolor"
     >
       <span @mouseover="onHoverTag(tag.subCates, tag.id)">
         {{ tag.name }}
@@ -57,12 +57,12 @@ export default {
 }
 @media (max-width: 1018px) and (min-width: 768px) {
   .tag {
-    font-size: 9px;
+    font-size: 8px;
   }
 }
 @media (max-width: 1140px) and (min-width: 1019px) {
   .tag {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 @media (min-width: 1141px) {

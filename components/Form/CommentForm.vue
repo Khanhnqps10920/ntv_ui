@@ -218,7 +218,7 @@ export default {
   border: 1px solid #e1e1e1;
   color: #444;
   line-height: 21px;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   transition: 0.4s color ease;
 }

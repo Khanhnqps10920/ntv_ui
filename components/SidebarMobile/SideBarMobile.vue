@@ -139,7 +139,7 @@ export default {
 .sidebar-mobile__menu .sidebar-mobile__menu-item a {
   display: block;
   padding: 12px 30px 12px 12px;
-  font-size: 21px;
+  font-size: 20px;
   color: white;
   font-weight: 700;
 }

@@ -14,7 +14,7 @@
 
       <div class="main-item__info">
         <h3 class="main-item__info--title line-clamp-title">
-          <nuxt-link :to="postLink">{{post.title}}</nuxt-link>
+          <nuxt-link style="line-height : normal" :to="postLink">{{post.title}}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
@@ -118,7 +118,7 @@ export default {
 .main-item__info .main-item__info--title {
   color: #000000;
 
-  font-size: 23px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
   line-height: 22px;
@@ -129,7 +129,7 @@ export default {
 }
 
 .main-item__info .main-item__date {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-style: italic;
   font-weight: 400;
@@ -141,7 +141,7 @@ export default {
   color: #555555;
   column-count: 1;
   column-gap: 48px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -193,7 +193,7 @@ export default {
   }
 
   .main-item .main-item__info--title {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.1;
   }
 
@@ -234,8 +234,8 @@ export default {
   }
 
   .main-item .main-item__info--title {
-    font-size: 15px;
-    line-height: 1.1;
+    font-size: 16px;
+    line-height: normal;
   }
 
   .main-item .main-item__text {
@@ -256,7 +256,8 @@ export default {
   }
 
   .main-item.bigSize .main-item__info--title {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: normal;
   }
 
   .main-item.main-item.bigSize .main-item__date {

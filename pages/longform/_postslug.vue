@@ -411,7 +411,7 @@ export default {
 
 .post__main--info .post__main--info-wrapper {
   display: flex;
-  font-size: 13px;
+  font-size: 12px;
   font-style: italic;
   color: #444;
 }

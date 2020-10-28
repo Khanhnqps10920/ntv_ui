@@ -180,7 +180,7 @@ export default {
 
 /* title */
 .blocka__main .blocka__main--title {
-  font-size: 21px;
+  font-size: 20px;
   line-height: 1.1;
   font-weight: 700;
   margin: 6px 0 2px;
@@ -192,7 +192,7 @@ export default {
 
 /* date */
 .blocka__main .blocka__main--date {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-style: italic;
   font-weight: 400;
@@ -225,7 +225,7 @@ export default {
   display: block;
   margin-top: 13px;
   color: #555555;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -250,7 +250,7 @@ export default {
   }
 
   .section-title {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 @media (max-width: 1018px) and (min-width: 768px) {
@@ -268,11 +268,11 @@ export default {
 
   /* title */
   .blocka__main .blocka__main--title {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   .section-title {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 @media (max-width: 1140px) and (min-width: 1019px) {
@@ -292,7 +292,7 @@ export default {
   }
 
   .section-title {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 @media (min-width: 1141px) {
@@ -308,7 +308,7 @@ export default {
   }
 
   .section-title {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 </style>
