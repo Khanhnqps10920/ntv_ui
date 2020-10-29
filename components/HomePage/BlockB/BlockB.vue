@@ -170,7 +170,7 @@ export default {
   color: #ffffff;
   text-align: center;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 35px;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -191,7 +191,7 @@ export default {
 }
 
 .main-block__title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
   margin-bottom: 26px;
   line-height: 26px;

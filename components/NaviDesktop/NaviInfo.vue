@@ -4,7 +4,7 @@
       <div class="flex mt-8 text-xs">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">{{ weatherCelsius }} &#186;C</span>
+          <span class="font-bold">{{ String(weatherCelsius).slice(0,5) }} &#186;C</span>
           <span>Việt Nam</span>
         </div>
 

@@ -5,21 +5,28 @@
   --hovercolor: #006428;
 }
 
+@font-face {
+  font-family: Merriweather;
+  src: url('../font/Merriweather/Merriweather-Bold.ttf'), url('../font/Merriweather/Merriweather-Black.ttf'), url('../font/Merriweather/Merriweather-BlackItalic.ttf'), url('../font/Merriweather/Merriweather-BoldItalic.ttf'), url('../font/Merriweather/Merriweather-Italic.ttf'), url('../font/Merriweather/Merriweather-Light.ttf'), url('../font/Merriweather/Merriweather-LightItalic.ttf'), url('../font/Merriweather/Merriweather-Regular.ttf');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Merriweather;
+}
+
 body {
-  font-family: Helvetica, sans-serif !important;
+  font-family: arial, sans-serif !important;
 }
 
 input[type="text"], input[type="text"]:active, input[type="text"]:active {
-  border-top:0px;
+  border-top: 0px;
   -webkit-appearance: none;
 }
 
 input[type="search"], input[type="search"]:active, input[type="search"]:active {
-  border-top:0px;
+  border-top: 0px;
   -webkit-appearance: none;
 }
-
-
 
 .block-title {
   font-size: 24px;
@@ -97,7 +104,7 @@ input[type="search"], input[type="search"]:active, input[type="search"]:active {
   border: none;
   border-radius: 0;
   background: transparent;
-  border-top:solid 1px #75757500 !important;
+  border-top: solid 1px #75757500 !important;
   border-right: 0;
   border-left: 0;
   border-image: none;
@@ -200,7 +207,7 @@ input[type="search"], input[type="search"]:active, input[type="search"]:active {
 
 .line-clamp-title {
   display: -webkit-box !important;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -214,7 +221,7 @@ input[type="search"], input[type="search"]:active, input[type="search"]:active {
 
 .line-clamp-excerpt-mobile {
   display: -webkit-box !important;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

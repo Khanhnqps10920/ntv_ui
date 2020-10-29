@@ -54,7 +54,7 @@ export default {};
 
 .author__name {
   margin: 7px 0 8px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 21px;
   font-weight: 700;
   color: #222;
@@ -67,7 +67,7 @@ export default {};
 
 .author__link {
   margin-bottom: 6px;
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   line-height: 21px;
   color: #444;

@@ -68,7 +68,7 @@ export default {
 .comment__info--time {
   display: inline-block;
 
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1;
   color: #b4b4b4;
   padding-left: 10px;
@@ -89,7 +89,7 @@ export default {
 }
 .comment__info--reply {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   color: #b4b4b4;
   margin-top: 10px;
 }

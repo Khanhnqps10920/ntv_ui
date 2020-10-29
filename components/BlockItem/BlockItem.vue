@@ -11,7 +11,7 @@
       </nuxt-link>
     </div>
     <h5 class="block-item__title line-clamp-title">
-      <nuxt-link :to="postLink">{{post.excerpt}}</nuxt-link>
+      <nuxt-link :to="postLink" style="line-height: normal;">{{post.excerpt}}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
@@ -87,7 +87,7 @@ export default {
 /* title */
 .block-item__title {
   margin-top: 13px;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.1;
   font-weight: 700;
   text-transform: capitalize;
@@ -103,7 +103,7 @@ export default {
 /* date  */
 
 .block-item__date {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-style: italic;
   font-weight: 400;
@@ -113,7 +113,7 @@ export default {
 
 @media (min-width: 767px) {
   .block-item__title {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   /* img */
@@ -151,7 +151,7 @@ export default {
 
   /* title */
   .block-item__title {
-    font-size: 17px;
+    font-size: 14px;
   }
 }
 @media (min-width: 1141px) {
@@ -161,7 +161,7 @@ export default {
 
   /* title */
   .block-item__title {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 </style>

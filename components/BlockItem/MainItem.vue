@@ -106,7 +106,7 @@ export default {
 /* date  */
 
 .block-item__date {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-style: italic;
   font-weight: 400;
@@ -116,7 +116,7 @@ export default {
 
 @media (min-width: 767px) {
   .block-item__title {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   /* img */
@@ -126,7 +126,7 @@ export default {
 }
 @media (max-width: 1018px) and (min-width: 768px) {
   .block-item__title {
-    font-size: 21px;
+    font-size: 20px;
   }
   .block-item {
     padding-bottom: 10px;
@@ -151,7 +151,7 @@ export default {
   }
   /* title */
   .block-item__title {
-    font-size: 21px;
+    font-size: 14px;
   }
 }
 @media (min-width: 1141px) {
@@ -161,7 +161,7 @@ export default {
 
   /* title */
   .block-item__title {
-    font-size: 32px;
+    font-size: 16px;
   }
 }
 </style>

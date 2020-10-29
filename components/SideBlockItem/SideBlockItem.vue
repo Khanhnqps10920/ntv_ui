@@ -5,7 +5,7 @@
   >
     <div class="side-item__info">
       <h3 class="side-item__title line-clamp-title">
-        <nuxt-link :to="postLink">{{
+        <nuxt-link :to="postLink" style="line-height : normal">{{
           post.title
         }}</nuxt-link>
       </h3>
@@ -83,7 +83,7 @@ export default {
 }
 
 .side-item .side-item__date {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   font-style: italic;
   font-weight: 400;
