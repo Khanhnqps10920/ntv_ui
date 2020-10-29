@@ -62,8 +62,8 @@ export default {
   },
 
   computed: {
-    adsA() { return this.ads.find(e => e.section === 'CateAds1')},
-    adsB() { return this.ads.find(e => e.section === 'CateAds2')}
+    adsA() { return this.ads ? this.ads.find(e => e.section === 'CateAds1') : {}},
+    adsB() { return this.ads ? this.ads.find(e => e.section === 'CateAds2') : {}}
   },
 
   async mounted() {

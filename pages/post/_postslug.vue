@@ -215,11 +215,11 @@ export default {
 
   computed: {
     sideAds() {
-      return this.ads.find(el => el.section === "DetailAds1");
+      return this.ads ? this.ads.find(el => el.section === "DetailAds1") : {};
     },
 
     mainAds() {
-      return this.ads.find(el => el.section === "DetailAds2");
+      return this.ads ?  this.ads.find(el => el.section === "DetailAds2") : {};
     }
   },
 

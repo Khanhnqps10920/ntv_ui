@@ -9,8 +9,8 @@
           :post="post"
           :is1240="true"
         />
-        <p class="text-lg bold" v-if="!posts.length">
-          Không có bài viết
+        <p class="text-center text-lg bold" v-if="!posts.length">
+          Chưa cập nhật bài viết phù hợp
         </p>
 
         <Pagination
