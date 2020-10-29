@@ -7,11 +7,25 @@
 
 @font-face {
   font-family: Merriweather;
-  src: url('../font/Merriweather/Merriweather-Bold.ttf'), url('../font/Merriweather/Merriweather-Black.ttf'), url('../font/Merriweather/Merriweather-BlackItalic.ttf'), url('../font/Merriweather/Merriweather-BoldItalic.ttf'), url('../font/Merriweather/Merriweather-Italic.ttf'), url('../font/Merriweather/Merriweather-Light.ttf'), url('../font/Merriweather/Merriweather-LightItalic.ttf'), url('../font/Merriweather/Merriweather-Regular.ttf');
+  src: url('../font/Merriweather/Merriweather-Bold.ttf'),
+   url('../font/Merriweather/Merriweather-Black.ttf'), 
+   url('../font/Merriweather/Merriweather-BlackItalic.ttf'), 
+   url('../font/Merriweather/Merriweather-BoldItalic.ttf'), 
+   url('../font/Merriweather/Merriweather-Italic.ttf'), 
+   url('../font/Merriweather/Merriweather-Light.ttf'), 
+   url('../font/Merriweather/Merriweather-LightItalic.ttf'), 
+   url('../font/Merriweather/Merriweather-Regular.ttf');
+
+}
+
+@font-face {
+  font-family: SourceSerifPro;
+  /* src: url('../font/SourceSerifPro/SourceSerifPro-Black.ttf'), url('../font/SourceSerifPro/SourceSerifPro-BlackItalic.ttf'), url('../font/SourceSerifPro/SourceSerifPro-Bold.ttf'), url('../font/SourceSerifPro/SourceSerifPro-BoldItalic.ttf'), url('../font/SourceSerifPro/SourceSerifPro-ExtraLight.ttf'), url('../font/SourceSerifPro/SourceSerifPro-ExtraLightItalic.ttf'), url('../font/SourceSerifPro/SourceSerifPro-Italic.ttf'), url('../font/SourceSerifPro/SourceSerifPro-Light.ttf'), url('../font/SourceSerifPro/SourceSerifPro-LightItalic.ttf'), url('../font/SourceSerifPro/SourceSerifPro-Regular.ttf'), url('../font/SourceSerifPro/SourceSerifPro-SemiBold.ttf'), url('../font/SourceSerifPro/SourceSerifPro-SemiBoldItalic.ttf'); */
+  src: url('../font/SourceSerifPro/SourceSerifPro-SemiBold.ttf');
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Merriweather;
+  font-family: SourceSerifPro;
 }
 
 body {

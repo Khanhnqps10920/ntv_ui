@@ -372,7 +372,6 @@ export default {
         },
         nextActions: res => {
           comments = [...res.result];
-          console.log(res);
           totalComment = res.totalComment;
         },
         errorAction: e => {}
