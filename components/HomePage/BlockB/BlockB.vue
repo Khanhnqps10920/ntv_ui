@@ -165,7 +165,7 @@ export default {
 }
 
 .blockb .blockb__button {
-  background: #000;
+  background: var(--maincolor);
   width: 100%;
   color: #ffffff;
   text-align: center;

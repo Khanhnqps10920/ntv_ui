@@ -65,7 +65,7 @@ export default {
 }
 
 .category__list .category__list-item {
-  margin: 5px;
+  margin: 5px
 }
 
 .category__list .category__list-item a {
@@ -73,7 +73,7 @@ export default {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #000000;
+  background: var(--maincolor);
   color: #ffffff;
 }
 
