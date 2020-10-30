@@ -1,4 +1,5 @@
 @import "./reset.css";
+
 :root {
   --maincolor: #027731;
   /* --maincolor: red; */
@@ -8,13 +9,13 @@
 @font-face {
   font-family: Merriweather;
   src: url('../font/Merriweather/Merriweather-Bold.ttf'),
-   url('../font/Merriweather/Merriweather-Black.ttf'), 
-   url('../font/Merriweather/Merriweather-BlackItalic.ttf'), 
-   url('../font/Merriweather/Merriweather-BoldItalic.ttf'), 
-   url('../font/Merriweather/Merriweather-Italic.ttf'), 
-   url('../font/Merriweather/Merriweather-Light.ttf'), 
-   url('../font/Merriweather/Merriweather-LightItalic.ttf'), 
-   url('../font/Merriweather/Merriweather-Regular.ttf');
+    url('../font/Merriweather/Merriweather-Black.ttf'),
+    url('../font/Merriweather/Merriweather-BlackItalic.ttf'),
+    url('../font/Merriweather/Merriweather-BoldItalic.ttf'),
+    url('../font/Merriweather/Merriweather-Italic.ttf'),
+    url('../font/Merriweather/Merriweather-Light.ttf'),
+    url('../font/Merriweather/Merriweather-LightItalic.ttf'),
+    url('../font/Merriweather/Merriweather-Regular.ttf');
 
 }
 
@@ -24,7 +25,12 @@
   src: url('../font/SourceSerifPro/SourceSerifPro-SemiBold.ttf');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: SourceSerifPro;
 }
 
@@ -32,12 +38,16 @@ body {
   font-family: arial, sans-serif !important;
 }
 
-input[type="text"], input[type="text"]:active, input[type="text"]:active {
+input[type="text"],
+input[type="text"]:active,
+input[type="text"]:active {
   border-top: 0px;
   -webkit-appearance: none;
 }
 
-input[type="search"], input[type="search"]:active, input[type="search"]:active {
+input[type="search"],
+input[type="search"]:active,
+input[type="search"]:active {
   border-top: 0px;
   -webkit-appearance: none;
 }
@@ -131,7 +141,8 @@ input[type="search"], input[type="search"]:active, input[type="search"]:active {
   border-image: none;
 }
 
-.auth-form .form-input input:focus~label, .auth-form .form-input input:valid~label {
+.auth-form .form-input input:focus~label,
+.auth-form .form-input input:valid~label {
   top: -18px;
   font-size: 11px;
   opacity: 0.6;
@@ -187,13 +198,17 @@ input[type="search"], input[type="search"]:active, input[type="search"]:active {
   .auth-form .form-input {
     margin-bottom: 20px;
   }
+
   .auth-form .form-input label {
     font-size: 10px;
   }
+
   .auth-form .form-input.error {
     margin-bottom: 30px;
   }
-  .auth-form .form-input input:focus~label, .auth-form .form-input input:valid~label {
+
+  .auth-form .form-input input:focus~label,
+  .auth-form .form-input input:valid~label {
     top: -13px;
     font-size: 10px;
     opacity: 0.6;
