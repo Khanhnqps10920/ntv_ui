@@ -1,10 +1,15 @@
 <template>
   <nav class="mobile-nav flex h-12 items-center justify-between px-5">
     <div class>
-      <i class="mobile-nav__icons fas fa-bars" @click="$emit('openSideBar')"></i>
+      <i
+        class="mobile-nav__icons fas fa-bars"
+        @click="$emit('openSideBar')"
+      ></i>
     </div>
     <!-- <nuxt-link class="text-center font-extrabold uppercase" to="/">{{webname}}</nuxt-link> -->
-    <nuxt-link class="text-center font-extrabold uppercase" to="/">Nông Nghiệp 365</nuxt-link>
+    <nuxt-link class="site-title text-center uppercase" to="/"
+      >Nông Nghiệp 365</nuxt-link
+    >
     <div class="relative">
       <!-- <p v-if="user" @click="toggleAuth = !toggleAuth" class="inline hover:text-hovercolor cursor-pointer mr-5 text-xs capitalize">
         {{user.name}}
@@ -14,7 +19,10 @@
         <p class="cursor-pointer hover:text-hovercolor text-xs mt-3" @click="handleLogout">Logout</p>
       </div>
       <i class="fas fa-user mr-2 mobile-nav__icons" v-if="!user" @click="handleActiveAuth"></i> -->
-      <i class="mobile-nav__icons fas fa-search" @click="$emit('openSearchSideBar')"></i>
+      <i
+        class="mobile-nav__icons fas fa-search"
+        @click="$emit('openSearchSideBar')"
+      ></i>
     </div>
   </nav>
 </template>
@@ -24,22 +32,21 @@ import { mapMutations, mapState, mapActions } from "vuex";
 
 export default {
   computed: {
-    ...mapState(['user']),
+    ...mapState(["user"]),
     webname() {
       return process.env.Webname;
-    }
+    },
   },
 
   data() {
     return {
-      toggleAuth: false
-    }
+      toggleAuth: false,
+    };
   },
   methods: {
     ...mapMutations(["setActiveSignin"]),
 
     ...mapActions(["logout"]),
-
 
     handleActiveAuth() {
       this.setActiveSignin(true);
@@ -51,13 +58,18 @@ export default {
     handleChangePassword() {
       this.toggleAuth = false;
       this.setActiveSignin(true);
-      this.$emit('resetPassword');
-    }
-  }
+      this.$emit("resetPassword");
+    },
+  },
 };
 </script>
 
 <style scoped>
+.site-title {
+  /* font-family: Arial, Helvetica, sans-serif !important; */
+  font-weight: bold;
+}
+
 .mobile-nav {
   /* position */
   width: 100%;
@@ -75,14 +87,14 @@ export default {
   cursor: pointer;
 }
 .auth-info {
-  z-index:1000;
-  top:30px;
-  right:50px;
-  white-space:nowrap;
+  z-index: 1000;
+  top: 30px;
+  right: 50px;
+  white-space: nowrap;
   transform: translateX(50%);
-  background:black;
-  padding:10px;
+  background: black;
+  padding: 10px;
   text-align: center;
-  color:white;
+  color: white;
 }
 </style>>
