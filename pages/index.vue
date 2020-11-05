@@ -41,7 +41,7 @@
       :viewAll_Right2="viewAllHomeD_Right2"
       :ads="homeAdsFour"
     />
-    <AdsHomeMiddle  :ads="homeAdsFive"/>
+    <AdsHomeMiddle :ads="homeAdsFive" />
     <BlockC class="mt-10" :News="HomeE_Main" :title_Main="titleHomeE_Main" />
     <AdsHomeBottom :ads="homeAdsSix" />
   </div>
@@ -62,39 +62,39 @@ export default {
     BlockB,
     BlockC,
     AdsHomeMiddle,
-    AdsHomeBottom
+    AdsHomeBottom,
   },
 
   computed: {
     homeAdsOne() {
-      return this.Ads.find(el => el.section === 'HomeAds1')
+      return this.Ads.find((el) => el.section === "HomeAds1");
     },
     homeAdsTwo() {
-      return this.Ads.find(el => el.section === 'HomeAds2')
+      return this.Ads.find((el) => el.section === "HomeAds2");
     },
     homeAdsThree() {
-      return this.Ads.find(el => el.section === 'HomeAds3')
+      return this.Ads.find((el) => el.section === "HomeAds3");
     },
     homeAdsFour() {
-      return this.Ads.find(el => el.section === 'HomeAds4')
+      return this.Ads.find((el) => el.section === "HomeAds4");
     },
     homeAdsFive() {
-      return this.Ads.find(el => el.section === 'HomeAds5')
+      return this.Ads.find((el) => el.section === "HomeAds5");
     },
     homeAdsSix() {
-      return this.Ads.find(el => el.section === 'HomeAds6')
-    }
+      return this.Ads.find((el) => el.section === "HomeAds6");
+    },
   },
 
   async asyncData(context) {
     let layout = [];
     await context.store.dispatch("getLayout", {
       page: "homepage",
-      nextActions: res => {
+      nextActions: (res) => {
         layout = res.result;
-      }
+      },
     });
-    const apiAction = listType => {
+    const apiAction = (listType) => {
       let action = "";
       switch (listType) {
         case "Category":
@@ -110,7 +110,7 @@ export default {
     };
 
     //HomeA_Main
-    let HomeAMainObj = layout.find(e => {
+    let HomeAMainObj = layout.find((e) => {
       return e.section === "HomeA_Main";
     });
     let HomeA_Main = [];
@@ -128,7 +128,7 @@ export default {
     // });
 
     //HomeA_Right1
-    let HomeARight1Obj = layout.find(e => {
+    let HomeARight1Obj = layout.find((e) => {
       return e.section === "HomeA_Right1";
     });
     const titleHomeA_Right1 = HomeARight1Obj.title;
@@ -144,7 +144,7 @@ export default {
     // });
 
     //HomeA_Right2
-    let HomeARight2Obj = layout.find(e => {
+    let HomeARight2Obj = layout.find((e) => {
       return e.section === "HomeA_Right2";
     });
     const titleHomeA_Right2 = HomeARight2Obj.title;
@@ -165,7 +165,7 @@ export default {
     let HomeB_Right1 = [];
     let HomeB_Right2 = [];
 
-    let HomeBMainObj = layout.find(e => {
+    let HomeBMainObj = layout.find((e) => {
       return e.section === "HomeB_Main";
     });
     const titleHomeB_Main = HomeBMainObj.title;
@@ -179,7 +179,7 @@ export default {
     // });
 
     //HomeB_Left
-    let HomeBLeftObj = layout.find(e => {
+    let HomeBLeftObj = layout.find((e) => {
       return e.section === "HomeB_Left";
     });
     const titleHomeB_Left = HomeBLeftObj.title;
@@ -197,7 +197,7 @@ export default {
     // });
 
     //HomeB_Right1
-    let HomeBRight1Obj = layout.find(e => {
+    let HomeBRight1Obj = layout.find((e) => {
       return e.section === "HomeB_Right1";
     });
     const titleHomeB_Right1 = HomeBRight1Obj.title;
@@ -215,7 +215,7 @@ export default {
     // });
 
     //HomeB_Right2
-    let HomeBRight2Obj = layout.find(e => {
+    let HomeBRight2Obj = layout.find((e) => {
       return e.section === "HomeB_Right2";
     });
     const titleHomeB_Right2 = HomeBRight2Obj.title;
@@ -233,7 +233,7 @@ export default {
     // });
 
     //HomeC_Main
-    let HomeCMainObj = layout.find(e => {
+    let HomeCMainObj = layout.find((e) => {
       return e.section === "HomeC_Main";
     });
     let HomeC_Main = [];
@@ -255,7 +255,7 @@ export default {
     let HomeD_Right1 = [];
     let HomeD_Right2 = [];
 
-    let HomeDMainObj = layout.find(e => {
+    let HomeDMainObj = layout.find((e) => {
       return e.section === "HomeD_Main";
     });
     const titleHomeD_Main = HomeDMainObj.title;
@@ -269,7 +269,7 @@ export default {
     // });
 
     //HomeD_Left
-    let HomeDLeftObj = layout.find(e => {
+    let HomeDLeftObj = layout.find((e) => {
       return e.section === "HomeD_Left";
     });
     const titleHomeD_Left = HomeDLeftObj.title;
@@ -287,7 +287,7 @@ export default {
     // });
 
     //HomeD_Right1
-    let HomeDRight1Obj = layout.find(e => {
+    let HomeDRight1Obj = layout.find((e) => {
       return e.section === "HomeD_Right1";
     });
     const titleHomeD_Right1 = HomeDRight1Obj.title;
@@ -305,7 +305,7 @@ export default {
     // });
 
     //HomeD_Right2
-    let HomeDRight2Obj = layout.find(e => {
+    let HomeDRight2Obj = layout.find((e) => {
       return e.section === "HomeD_Right2";
     });
     const titleHomeD_Right2 = HomeDRight2Obj.title;
@@ -323,7 +323,7 @@ export default {
     // });
 
     //HomeE_Main
-    let HomeEMainObj = layout.find(e => {
+    let HomeEMainObj = layout.find((e) => {
       return e.section === "HomeE_Main";
     });
     let HomeE_Main = [];
@@ -338,10 +338,10 @@ export default {
     //     HomeE_Main = [...res.result];
     //   }
     // });
-    
+
     //  ========= //
     // ads
-    
+
     let Ads = [];
     // ========= //
     await Promise.all([
@@ -349,123 +349,123 @@ export default {
         urlQuery: {
           categoryId: HomeAMainObj.cateId,
           skip: 1,
-          limit: 4
+          limit: 4,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeA_Main = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeARight1Obj.listType), {
         urlQuery: {
           categoryId: HomeARight1Obj.cateId,
           skip: 0,
-          limit: 1
+          limit: 1,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeA_Right1 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeARight2Obj.listType), {
         urlQuery: {
           categoryId: HomeARight1Obj.cateId,
           skip: 0,
-          limit: 3
+          limit: 3,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeA_Right2 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeBMainObj.listType), {
         urlQuery: {
-          categoryId: HomeBMainObj.cateId
+          categoryId: HomeBMainObj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeB_Main = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeBLeftObj.listType), {
         urlQuery: {
-          categoryId: HomeBLeftObj.cateId
+          categoryId: HomeBLeftObj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeB_Left = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeBRight1Obj.listType), {
         urlQuery: {
-          categoryId: HomeBRight1Obj.cateId
+          categoryId: HomeBRight1Obj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeB_Right1 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeBRight2Obj.listType), {
         urlQuery: {
-          categoryId: HomeBRight2Obj.cateId
+          categoryId: HomeBRight2Obj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeB_Right2 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeCMainObj.listType), {
         urlQuery: {
           categoryId: HomeCMainObj.cateId,
           skip: 0,
-          limit: 5
+          limit: 5,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeC_Main = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeDMainObj.listType), {
         urlQuery: {
-          categoryId: HomeDMainObj.cateId
+          categoryId: HomeDMainObj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeD_Main = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeDLeftObj.listType), {
         urlQuery: {
-          categoryId: HomeDLeftObj.cateId
+          categoryId: HomeDLeftObj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeD_Left = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeDRight1Obj.listType), {
         urlQuery: {
-          categoryId: HomeDRight1Obj.cateId
+          categoryId: HomeDRight1Obj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeD_Right1 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeDRight2Obj.listType), {
         urlQuery: {
-          categoryId: HomeDRight2Obj.cateId
+          categoryId: HomeDRight2Obj.cateId,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeD_Right2 = [...res.result];
-        }
+        },
       }),
       context.store.dispatch(apiAction(HomeEMainObj.listType), {
         urlQuery: {
           categoryId: HomeEMainObj.cateId,
           skip: 0,
-          limit: 5
+          limit: 5,
         },
-        nextActions: res => {
+        nextActions: (res) => {
           HomeE_Main = [...res.result];
-        }
+        },
       }),
-      context.store.dispatch('getAds', {
+      context.store.dispatch("getAds", {
         page: "homepage",
-        nextActions: res => {
+        nextActions: (res) => {
           Ads = [...res.result];
-        }
-      })
-    ]); 
+        },
+      }),
+    ]);
 
     return {
       HomeA_Main,
@@ -510,9 +510,9 @@ export default {
       HomeE_Main,
       titleHomeE_Main,
 
-      Ads 
+      Ads,
     };
-  }
+  },
 };
 </script>
 
