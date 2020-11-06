@@ -380,7 +380,7 @@ export default {
           categoryId: HomeBMainObj.cateId,
         },
         nextActions: (res) => {
-          HomeB_Main = [...res.result];
+          HomeB_Main = [...res.result].splice(0, 10);
         },
       }),
       context.store.dispatch(apiAction(HomeBLeftObj.listType), {
@@ -388,7 +388,7 @@ export default {
           categoryId: HomeBLeftObj.cateId,
         },
         nextActions: (res) => {
-          HomeB_Left = [...res.result];
+          HomeB_Left = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeBRight1Obj.listType), {
@@ -396,7 +396,7 @@ export default {
           categoryId: HomeBRight1Obj.cateId,
         },
         nextActions: (res) => {
-          HomeB_Right1 = [...res.result];
+          HomeB_Right1 = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeBRight2Obj.listType), {
@@ -404,7 +404,7 @@ export default {
           categoryId: HomeBRight2Obj.cateId,
         },
         nextActions: (res) => {
-          HomeB_Right2 = [...res.result];
+          HomeB_Right2 = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeCMainObj.listType), {
@@ -422,7 +422,7 @@ export default {
           categoryId: HomeDMainObj.cateId,
         },
         nextActions: (res) => {
-          HomeD_Main = [...res.result];
+          HomeD_Main = [...res.result].splice(0, 10);
         },
       }),
       context.store.dispatch(apiAction(HomeDLeftObj.listType), {
@@ -430,7 +430,7 @@ export default {
           categoryId: HomeDLeftObj.cateId,
         },
         nextActions: (res) => {
-          HomeD_Left = [...res.result];
+          HomeD_Left = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeDRight1Obj.listType), {
@@ -438,7 +438,7 @@ export default {
           categoryId: HomeDRight1Obj.cateId,
         },
         nextActions: (res) => {
-          HomeD_Right1 = [...res.result];
+          HomeD_Right1 = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeDRight2Obj.listType), {
@@ -446,7 +446,7 @@ export default {
           categoryId: HomeDRight2Obj.cateId,
         },
         nextActions: (res) => {
-          HomeD_Right2 = [...res.result];
+          HomeD_Right2 = [...res.result].splice(0, 5);
         },
       }),
       context.store.dispatch(apiAction(HomeEMainObj.listType), {
