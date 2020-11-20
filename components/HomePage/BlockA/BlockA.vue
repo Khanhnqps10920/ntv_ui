@@ -5,16 +5,20 @@
         <!-- main post -->
         <div class="col-span-8 xs:col-span-12" v-if="mainNew">
           <div class="blocka__main">
-            <nuxt-link v-if="mainNew.categoryName && mainNew.categoryAlias && mainNew.categoryId"
+            <nuxt-link
+              v-if="
+                mainNew.categoryName &&
+                mainNew.categoryAlias &&
+                mainNew.categoryId
+              "
               :to="`/category/${mainNew.categoryAlias}-id=${mainNew.categoryId}`"
               class="blocka__main--category"
-            >{{ mainNew.categoryName }}</nuxt-link>
+              >{{ mainNew.categoryName }}</nuxt-link
+            >
 
             <h3 class="blocka__main--title line-clamp-title">
               <nuxt-link :to="postLink">
-                {{
-                mainNew.title
-                }}
+                {{ mainNew.title }}
               </nuxt-link>
             </h3>
 
@@ -24,9 +28,7 @@
                 <span>-</span>
               </span>
               <span class="blocka__main-date-time">
-                {{
-                mainNew.publishedDate | datetime("DD/MM/YYYY")
-                }}
+                {{ mainNew.publishedDate | datetime("DD/MM/YYYY") }}
               </span>
             </div>
 
@@ -36,20 +38,26 @@
               </nuxt-link>
             </div>
 
-            <div class="blocka__main-description line-clamp-excerpt">{{ mainNew.excerpt }}</div>
+            <div class="blocka__main-description line-clamp-excerpt">
+              {{ mainNew.excerpt }}
+            </div>
           </div>
         </div>
 
         <!-- other post -->
         <div class="col-span-4 xs:col-span-12 other-post">
-          <BlockItem v-for="(post, index) in restNew" :key="index" :post="post" />
+          <BlockItem
+            v-for="(post, index) in restNew"
+            :key="index"
+            :post="post"
+          />
         </div>
       </div>
 
       <!-- ads -->
       <div class="blocka-right">
         <div class="blocka-right__section" v-if="TinNhanh.length">
-          <h4 class="section-title">{{titleHomeA_Right1}}</h4>
+          <h4 class="section-title">{{ titleHomeA_Right1 }}</h4>
           <SideBlockItem :post="TinNhanh[0]" />
         </div>
 
@@ -92,35 +100,35 @@ export default {
     Container1440,
     BlockItem,
     SideBlockItem,
-    AdsSide
+    AdsSide,
   },
   props: {
     News: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     TinNhanh: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     titleHomeA_Right1: {
       type: String,
-      default: "Tin Nhanh"
+      default: "Tin Nhanh",
     },
     ThiTruongTaiChinh: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     titleHomeA_Right2: {
       type: String,
-      default: "Thị Trường Tài Chính"
-    }
+      default: "Thị Trường Tài Chính",
+    },
   },
   computed: {
     mainNew() {
@@ -137,8 +145,8 @@ export default {
       return this.mainNew.type === "LongForm"
         ? "/longform/" + this.mainNew.alias + `-id=${this.mainNew.id}`
         : "/post/" + this.mainNew.alias + `-id=${this.mainNew.id}`;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -3,10 +3,10 @@
     <div class="blockb flex xs:block">
       <!-- left -->
       <div class="blockb-left xs:static sticky top-fiftyfive">
-        <h4 class="block-title">{{title_Left}}</h4>
+        <h4 class="block-title">{{ title_Left }}</h4>
         <div v-if="Magazine.length">
           <SideBlockItem
-            v-for="(post,index) in Magazine"
+            v-for="(post, index) in Magazine"
             :key="index"
             :post="post"
             :noneImg="true"
@@ -25,21 +25,25 @@
       <div class="flex-grow main-block">
         <div class="mx-4 xs:mx-0">
           <h4 class="main-block__title">
-            <span>{{title_Main}}</span>
+            <span>{{ title_Main }}</span>
             <div class="main-block__title-sub">Mới nhất</div>
           </h4>
 
-          <MainBlockItem v-for="(post,index) in News" :key="index" :post="post" />
+          <MainBlockItem
+            v-for="(post, index) in newsFilter"
+            :key="index"
+            :post="post"
+          />
         </div>
       </div>
 
       <!-- right -->
       <div class="blockb-right xs:mt-4">
         <div class="blockb-right__block" v-if="TheThao.length">
-          <h4 class="block-title">{{title_Right1}}</h4>
+          <h4 class="block-title">{{ title_Right1 }}</h4>
 
           <SideBlockItem
-            v-for="(post,index) in TheThao"
+            v-for="(post, index) in TheThao"
             :key="index"
             :post="post"
             :isSquare="true"
@@ -55,8 +59,13 @@
         <div class="blockb-right__block" v-if="VanHoa.length">
           <AdsSide :ads="ads" />
 
-          <h4 class="block-title">{{title_Right2}}</h4>
-          <SideBlockItem v-for="(post,index) in VanHoa" :post="post" :key="index" :isSquare="true" />
+          <h4 class="block-title">{{ title_Right2 }}</h4>
+          <SideBlockItem
+            v-for="(post, index) in VanHoa"
+            :post="post"
+            :key="index"
+            :isSquare="true"
+          />
           <nuxt-link :to="viewAll_Right2">
             <div class="blockb__button small">
               Xem tất cả
@@ -82,73 +91,79 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem
+    MainBlockItem,
   },
   data() {
     return {
-      items: null
+      items: null,
     };
   },
   props: {
     News: {
-      type: Array
+      type: Array,
     },
     title_Main: {
       type: String,
-      default: "Tin Tức"
+      default: "Tin Tức",
     },
     Magazine: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     title_Left: {
       type: String,
-      default: "Magazine"
+      default: "Magazine",
     },
     viewAll_Left: {
       type: String,
-      default: "/"
+      default: "/",
     },
     TheThao: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     title_Right1: {
       type: String,
-      default: "Thể Thao"
+      default: "Thể Thao",
     },
     viewAll_Right1: {
       type: String,
-      default: "/"
+      default: "/",
     },
     VanHoa: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     title_Right2: {
       type: String,
-      default: "Văn Hóa"
+      default: "Văn Hóa",
     },
     viewAll_Right2: {
       type: String,
-      default: "/"
+      default: "/",
     },
     ads: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
+  },
+
+  computed: {
+    newsFilter() {
+      return this.News.splice(0, 5);
+    },
   },
   methods: {
     toMagazine() {
       window.location.href = "http://magazine.nongthonviet.com.vn/";
-    }
-  }
+    },
+  },
 };
 </script>
 

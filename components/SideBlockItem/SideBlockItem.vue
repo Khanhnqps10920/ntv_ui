@@ -5,7 +5,7 @@
   >
     <div class="side-item__info">
       <h3 class="side-item__title line-clamp-title">
-        <nuxt-link :to="postLink" style="line-height : normal">{{
+        <nuxt-link :to="postLink" style="line-height: normal">{{
           post.title
         }}</nuxt-link>
       </h3>
@@ -47,12 +47,15 @@ export default {
   },
 
   computed: {
-    postLink() {  
-      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+    postLink() {
+      if (!this.post.type)
+        return "/post/" + this.post.alias + `-id=${this.post.id}`;
 
-      return this.post.type === 'LongForm' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
-    }
-  }
+      return this.post.type === "LongForm"
+        ? "/longform/" + this.post.alias + `-id=${this.post.id}`
+        : "/post/" + this.post.alias + `-id=${this.post.id}`;
+    },
+  },
 };
 </script>
 

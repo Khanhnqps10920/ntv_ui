@@ -5,20 +5,25 @@
         v-if="post.categoryName && post.categoryAlias && post.categoryId"
         :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
         class="block-item__category absolute"
-      >{{post.categoryName}}</nuxt-link>
+        >{{ post.categoryName }}</nuxt-link
+      >
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
       </nuxt-link>
     </div>
     <h5 class="block-item__title line-clamp-title">
-      <nuxt-link :to="postLink" style="line-height: normal;">{{post.excerpt}}</nuxt-link>
+      <nuxt-link :to="postLink" style="line-height: normal">{{
+        post.title
+      }}</nuxt-link>
     </h5>
     <div class="block-item__date">
       <span class="block-item__date-author">
         <a>{{ post.authorName }}</a>
         <span>-</span>
       </span>
-      <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
+      <span class="block-item__date-time">{{
+        post.publishedDate | datetime("DD/MM/YYYY")
+      }}</span>
     </div>
   </div>
 </template>
@@ -28,20 +33,20 @@ export default {
   computed: {
     postLink() {
       if (!this.post.type)
-        return "/post/" + this.post.alias+ `-id=${this.post.id}`;
+        return "/post/" + this.post.alias + `-id=${this.post.id}`;
 
       return this.post.type === "LongForm"
         ? "/longform/" + this.post.alias + `-id=${this.post.id}`
         : "/post/" + this.post.alias + `-id=${this.post.id}`;
-    }
+    },
   },
 
   props: {
     post: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -70,6 +75,7 @@ export default {
 .block-item__img-container {
   width: 100%;
   height: 175px;
+  max-height: 250px;
 }
 
 .block-item__img {

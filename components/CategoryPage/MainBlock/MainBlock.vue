@@ -69,14 +69,14 @@ export default {
       type: Number,
     },
     ads: {
-      type:Object,
-      default: () => ({})
-    }
+      type: Object,
+      default: () => ({}),
+    },
   },
-  data() { 
+  data() {
     return {
       TinMoiNhat: [],
-    }
+    };
   },
   methods: {
     changePage(p) {
@@ -85,20 +85,16 @@ export default {
   },
 
   async created() {
-    await this.$store.dispatch('getTopHotNewsByCategory', {
+    await this.$store.dispatch("getTopHotNewsByCategory", {
       urlQuery: {
         skip: 1,
-        limit: 4
+        limit: 4,
       },
-      nextActions: res => {
-        this.TinMoiNhat = [...res.result]
-      }
+      nextActions: (res) => {
+        this.TinMoiNhat = [...res.result];
+      },
     });
-
-  
-  }
-
-
+  },
 };
 </script>
 
@@ -138,12 +134,12 @@ export default {
 /* end main block right */
 
 /* responsive */
-@media  (max-width: 768px) {
-   .main-block__main {
+@media (max-width: 768px) {
+  .main-block__main {
     padding-right: 14px;
     padding-left: 14px;
   }
-} 
+}
 /* tablet */
 
 @media (max-width: 1018px) and (min-width: 768px) {

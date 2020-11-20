@@ -1,12 +1,14 @@
 <template>
-  <div class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height">
+  <div
+    class="xs:col-span-12 sm:col-span-6 col-span-5 flex flex-col main-height"
+  >
     <div class="bg-blue-300 h-auto relative flex-grow" v-if="post">
-      <nuxt-link 
-        v-if="post.categoryName && post.categoryId && post.categoryAlias" 
-        :to="`/category/${post.categoryAlias}-id=${post.categoryId}`" 
+      <nuxt-link
+        v-if="post.categoryName && post.categoryId && post.categoryAlias"
+        :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
         class="block-item__category absolute"
       >
-      {{post.categoryName}}
+        {{ post.categoryName }}
       </nuxt-link>
       <nuxt-link :to="postLink" class="block-item__img">
         <img :src="post.image" alt="post-img" />
@@ -14,7 +16,7 @@
     </div>
     <div>
       <h3 class="block-item__title">
-        <nuxt-link :to="postLink">{{post.title}}</nuxt-link>
+        <nuxt-link :to="postLink">{{ post.title }}</nuxt-link>
       </h3>
 
       <div class="block-item__date">
@@ -22,7 +24,9 @@
           <nuxt-link to="/author">{{ post.authorName }}</nuxt-link>
           <span>-</span>
         </span>
-        <span class="block-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
+        <span class="block-item__date-time">{{
+          post.publishedDate | datetime("DD/MM/YYYY")
+        }}</span>
       </div>
     </div>
   </div>
@@ -32,25 +36,26 @@
 export default {
   data() {
     return {
-      cateInfo : {}
-    }
+      cateInfo: {},
+    };
   },
   computed: {
     postLink() {
+      if (!this.post.type)
+        return "/post/" + this.post.alias + `-id=${this.post.id}`;
 
-      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
-
-      return this.post.type === 'LongForm' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
-    }
+      return this.post.type === "LongForm"
+        ? "/longform/" + this.post.alias + `-id=${this.post.id}`
+        : "/post/" + this.post.alias + `-id=${this.post.id}`;
+    },
   },
   props: {
     post: {
       type: Object,
       default: () => {
-        return {}
-      }
-    }
-    
+        return {};
+      },
+    },
   },
 };
 </script>

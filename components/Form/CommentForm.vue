@@ -3,24 +3,34 @@
     <textarea
       ref="commentArea"
       class="comment-form__area"
-      placeholder="Comment:"
+      placeholder="Bình Luận:"
       cols="45"
       rows="8"
       aria-required="true"
       v-model="content"
     ></textarea>
     <p class="text-red-500 text-xs italic ml-1 mt-1" v-if="$v.content.$error">
-      Nội dung comment không được để trống.
+      Nội dung bình luận không được để trống.
     </p>
     <div class="comment-form__inputs mt-3">
       <div>
-        <input type="text" v-model="name" class="comment-form__input" placeholder="Your Name: ">
+        <input
+          type="text"
+          v-model="name"
+          class="comment-form__input"
+          placeholder="Tên của bạn: "
+        />
         <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.name.$error">
           Tên không được để trống và phải nhiều hơn 4 ký tự
         </p>
       </div>
       <div>
-        <input type="text" v-model="email" class="comment-form__input" placeholder="Your Email: ">
+        <input
+          type="text"
+          v-model="email"
+          class="comment-form__input"
+          placeholder="Email: "
+        />
         <p class="text-red-500 text-xs italic ml-1 mt-3" v-if="$v.email.$error">
           Email không được để trống và phải đúng định dạng
         </p>
@@ -44,7 +54,7 @@ export default {
     return {
       content: null,
       name: null,
-      email:null
+      email: null,
     };
   },
   props: {
@@ -66,18 +76,17 @@ export default {
 
     name: {
       required,
-      minLength: minLength(4)
+      minLength: minLength(4),
     },
 
     email: {
       required,
-      email
-    }
+      email,
+    },
   },
 
   methods: {
     ...mapMutations(["setActiveSignin", "SET_AUTH_ERROR"]),
-
 
     // old comment function
     handleAddComment() {
@@ -113,8 +122,7 @@ export default {
               this.content = null;
               this.$v.$reset();
             })
-            .catch((e) => {
-            });
+            .catch((e) => {});
         } else {
           const request = Axios.post(
             `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
@@ -134,16 +142,13 @@ export default {
               this.content = null;
               this.$v.$reset();
             })
-            .catch((e) => {
-            });
+            .catch((e) => {});
         }
       } else {
         // show signin
         this.setActiveSignin(true);
         this.SET_AUTH_ERROR("Bạn cần phải đăng nhập trước");
       }
-
-
     },
 
     // new comment function
@@ -151,61 +156,59 @@ export default {
       this.$v.$touch();
 
       // check if valid
-      if(this.$v.$anyError) {
+      if (this.$v.$anyError) {
         return;
       }
 
-      const { name,email,content } = this;
-      const userId = Math.trunc(Math.random()*1000);
+      const { name, email, content } = this;
+      const userId = Math.trunc(Math.random() * 1000);
 
       // if reply
-      if(this.replyData) {
-         const request = Axios.post(
-            `${process.env.BASE_API}/public/news/postReply/${this.replyData.commentId}`,
-            {
-              commentId: this.replyData.commentId,
-              userId,
-              email,
-              name,
-              content: this.content,
-            }
-          );
+      if (this.replyData) {
+        const request = Axios.post(
+          `${process.env.BASE_API}/public/news/postReply/${this.replyData.commentId}`,
+          {
+            commentId: this.replyData.commentId,
+            userId,
+            email,
+            name,
+            content: this.content,
+          }
+        );
 
-          request
-            .then((response) => {
-              this.$emit("refetchReply");
+        request
+          .then((response) => {
+            this.$emit("refetchReply");
 
-              // reset form
-              this.content = null;
-              this.$v.$reset();
-            })
-            .catch((e) => {
-            });
+            // reset form
+            this.content = null;
+            this.$v.$reset();
+          })
+          .catch((e) => {});
       }
       // if comment
       else {
-         const request = Axios.post(
-            `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
-            {
-              userId,
-              email,
-              name,
-              content: this.content,
-            }
-          );
+        const request = Axios.post(
+          `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
+          {
+            userId,
+            email,
+            name,
+            content: this.content,
+          }
+        );
 
-          request
-            .then((response) => {
-              this.$emit("refetchComments");
+        request
+          .then((response) => {
+            this.$emit("refetchComments");
 
-              // reset form
-              this.content = null;
-              this.$v.$reset();
-            })
-            .catch((e) => {
-            });
+            // reset form
+            this.content = null;
+            this.$v.$reset();
+          })
+          .catch((e) => {});
       }
-    }
+    },
   },
 };
 </script>
@@ -269,7 +272,7 @@ export default {
 
   .comment-form__inputs > div {
     width: 100%;
-    margin:5px 0;
+    margin: 5px 0;
   }
 
   .comment-form__btn {

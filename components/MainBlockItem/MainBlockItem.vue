@@ -1,12 +1,13 @@
 <template>
-  <div class="main-item" :class="{bigSize: is1240}">
+  <div class="main-item" :class="{ bigSize: is1240 }">
     <div class="main-item__container">
       <div class="main-item__img">
         <nuxt-link
           v-if="post.categoryName && post.categoryId && post.categoryAlias"
           class="main-item__category"
           :to="`/category/${post.categoryAlias}-id=${post.categoryId}`"
-        >{{post.categoryName}}</nuxt-link>
+          >{{ post.categoryName }}</nuxt-link
+        >
         <nuxt-link :to="postLink" class="main-item__img-wrapper">
           <img :src="post.image" alt="post-img" />
         </nuxt-link>
@@ -14,16 +15,29 @@
 
       <div class="main-item__info">
         <h3 class="main-item__info--title line-clamp-title">
-          <nuxt-link style="line-height : normal" :to="postLink">{{post.title}}</nuxt-link>
+          <nuxt-link style="line-height: normal" :to="postLink">{{
+            post.title
+          }}</nuxt-link>
         </h3>
         <div class="main-item__date">
           <span class="main-item__date-author">
-            <a >{{ post.authorName }}</a>
+            <a>{{ post.authorName }}</a>
             <span>-</span>
           </span>
-          <span class="main-item__date-time">{{post.publishedDate | datetime('DD/MM/YYYY')}}</span>
+          <span class="main-item__date-time">{{
+            post.publishedDate | datetime("DD/MM/YYYY")
+          }}</span>
         </div>
-        <div class="main-item__text" :class="$device.isMobile ? 'line-clamp-excerpt-mobile' : 'line-clamp-excerpt'">{{ post.excerpt }}</div>
+        <div
+          class="main-item__text"
+          :class="
+            $device.isMobile
+              ? 'line-clamp-excerpt-mobile'
+              : 'line-clamp-excerpt'
+          "
+        >
+          {{ post.excerpt }}
+        </div>
       </div>
     </div>
   </div>
@@ -33,33 +47,35 @@
 export default {
   data() {
     return {
-      cateInfo: {}
+      cateInfo: {},
     };
   },
   props: {
     is1240: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     post: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
     postLink() {
-      if(!this.post.type) return  '/post/' + this.post.alias + `-id=${this.post.id}`;
+      if (!this.post.type)
+        return "/post/" + this.post.alias + `-id=${this.post.id}`;
 
-      return this.post.type === 'LongForm' ? '/longform/' + this.post.alias + `-id=${this.post.id}` : '/post/' + this.post.alias + `-id=${this.post.id}`
-    }
+      return this.post.type === "LongForm"
+        ? "/longform/" + this.post.alias + `-id=${this.post.id}`
+        : "/post/" + this.post.alias + `-id=${this.post.id}`;
+    },
   },
 
   async mounted() {
     //Get CateInfo (2)
-  
-  }
+  },
 };
 </script>
 
@@ -78,6 +94,7 @@ export default {
 .main-item .main-item__img {
   width: 40%;
   position: relative;
+  max-height: 250px;
 }
 
 .main-item .main-item__category {
@@ -93,20 +110,22 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width:100%;
+  max-width: 100%;
 }
 
 .main-item .main-item__img-wrapper {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 .main-item .main-item__img-wrapper img {
   width: 100%;
-  height: auto;
+
   object-fit: cover;
   object-position: center;
-  height: 100%;
+  min-height: 150px;
+  max-height: 250px;
 }
 
 .main-item .main-item__info {
