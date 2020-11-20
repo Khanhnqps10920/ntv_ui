@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmitComment" class="comment-form mt-5">
+  <form @submit.prevent="handleSubmitComment" class="comment-form mt-5 mb-14">
     <textarea
       ref="commentArea"
       class="comment-form__area"
@@ -54,35 +54,35 @@ export default {
     return {
       content: null,
       name: null,
-      email: null,
+      email: null
     };
   },
   props: {
     postId: {
-      type: String,
+      type: String
     },
     replyData: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user"])
   },
 
   validations: {
     content: {
-      required,
+      required
     },
 
     name: {
       required,
-      minLength: minLength(4),
+      minLength: minLength(4)
     },
 
     email: {
       required,
-      email,
-    },
+      email
+    }
   },
 
   methods: {
@@ -110,19 +110,19 @@ export default {
               userId,
               email,
               name,
-              content: this.content,
+              content: this.content
             }
           );
 
           request
-            .then((response) => {
+            .then(response => {
               this.$emit("refetchReply");
 
               // reset form
               this.content = null;
               this.$v.$reset();
             })
-            .catch((e) => {});
+            .catch(e => {});
         } else {
           const request = Axios.post(
             `${process.env.BASE_API}/public/news/postComment/${this.postId}`,
@@ -130,19 +130,19 @@ export default {
               userId,
               email,
               name,
-              content: this.content,
+              content: this.content
             }
           );
 
           request
-            .then((response) => {
+            .then(response => {
               this.$emit("refetchComments");
 
               // reset form
               this.content = null;
               this.$v.$reset();
             })
-            .catch((e) => {});
+            .catch(e => {});
         }
       } else {
         // show signin
@@ -172,19 +172,19 @@ export default {
             userId,
             email,
             name,
-            content: this.content,
+            content: this.content
           }
         );
 
         request
-          .then((response) => {
+          .then(response => {
             this.$emit("refetchReply");
 
             // reset form
             this.content = null;
             this.$v.$reset();
           })
-          .catch((e) => {});
+          .catch(e => {});
       }
       // if comment
       else {
@@ -194,26 +194,30 @@ export default {
             userId,
             email,
             name,
-            content: this.content,
+            content: this.content
           }
         );
 
         request
-          .then((response) => {
+          .then(response => {
             this.$emit("refetchComments");
 
             // reset form
             this.content = null;
             this.$v.$reset();
           })
-          .catch((e) => {});
+          .catch(e => {});
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
+.comment-form {
+  margin-bottom: 50px;
+}
+
 .comment-form__area,
 .comment-form__input {
   width: 100%;

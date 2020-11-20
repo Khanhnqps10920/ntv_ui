@@ -1,29 +1,43 @@
 <template>
   <div class="ads-block">
     <div class="ads-block__item">
-      <span class="ads-block__item-title">- {{ads.title}} -</span>
+      <span class="ads-block__item-title">- {{ ads.title }} -</span>
 
       <div class="w-full h-32">
-  
-        <img class="cursor-pointer w-full h-full object-cover" @click="handleAdsClick" v-if="ads.typeMedia === 'image'" :src="ads.media" :alt="ads.title"  />
+        <img
+          class="cursor-pointer w-full h-full object-cover"
+          @click="handleAdsClick"
+          v-if="ads.typeMedia === 'image'"
+          :src="ads.media"
+          :alt="ads.title"
+        />
 
-        <video v-if="ads.typeMedia === 'video'" controls playsinline autoplay muted loop>
-          <source :src="ads.media" type="video/mp4" >
+        <video
+          v-if="ads.typeMedia === 'video'"
+          controls
+          playsinline
+          autoplay
+          muted
+          loop
+        >
+          <source :src="ads.media" type="video/mp4" />
         </video>
-
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-
   props: {
     ads: {
-      type:Object,
-      default: () => ({})
+      type: Object,
+      default: () => ({
+        typeMedia: "image",
+        media: require(`~/assets/imgs/leaf.jpg`),
+        title: "default img",
+        link: "/"
+      })
     }
   },
 
@@ -32,7 +46,6 @@ export default {
       window.location.href = this.ads.link;
     }
   }
-
 };
 </script>
 
@@ -88,13 +101,13 @@ export default {
   width: 100%;
 }
 
- img {
+img {
   width: 100%;
   object-fit: cover;
   object-position: center;
 }
 
- video {  
+video {
   object-fit: cover;
   width: 100%;
   max-height: 200px;

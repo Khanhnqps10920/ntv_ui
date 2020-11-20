@@ -29,6 +29,7 @@
           <SideBlockItem
             v-for="(post, index) in TinMoiNhat"
             :post="post"
+            :class="{ 'mb-0': index === TinMoiNhat.length - 1 }"
             :key="index"
             :isSquare="true"
           />
@@ -56,45 +57,45 @@ export default {
     SideBlockItem,
     MainBlockItem,
     AdsSide,
-    Pagination,
+    Pagination
   },
   props: {
     posts: {
-      type: Array,
+      type: Array
     },
     totalNews: {
-      type: Number,
+      type: Number
     },
     limit: {
-      type: Number,
+      type: Number
     },
     ads: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   data() {
     return {
-      TinMoiNhat: [],
+      TinMoiNhat: []
     };
   },
   methods: {
     changePage(p) {
       this.$emit("changePage", p);
-    },
+    }
   },
 
   async created() {
     await this.$store.dispatch("getTopHotNewsByCategory", {
       urlQuery: {
         skip: 1,
-        limit: 4,
+        limit: 4
       },
-      nextActions: (res) => {
+      nextActions: res => {
         this.TinMoiNhat = [...res.result];
-      },
+      }
     });
-  },
+  }
 };
 </script>
 

@@ -25,25 +25,25 @@ export default {
   props: {
     noneImg: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     isBorder: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     isSquare: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     post: {
       type: Object,
       default: () => {
         return {};
-      },
-    },
+      }
+    }
   },
 
   computed: {
@@ -54,8 +54,8 @@ export default {
       return this.post.type === "LongForm"
         ? "/longform/" + this.post.alias + `-id=${this.post.id}`
         : "/post/" + this.post.alias + `-id=${this.post.id}`;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -66,6 +66,11 @@ export default {
   align-items: center;
   padding-bottom: 16px;
   margin-bottom: 20px;
+}
+
+.side-item.mb-0 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .side-item.border {

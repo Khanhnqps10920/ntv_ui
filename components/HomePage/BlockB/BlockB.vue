@@ -30,7 +30,7 @@
           </h4>
 
           <MainBlockItem
-            v-for="(post, index) in newsFilter"
+            v-for="(post, index) in news"
             :key="index"
             :post="post"
           />
@@ -91,79 +91,83 @@ export default {
     Container1440,
     SideBlockItem,
     AdsSide,
-    MainBlockItem,
+    MainBlockItem
   },
   data() {
     return {
-      items: null,
+      items: null
     };
   },
   props: {
     News: {
-      type: Array,
+      type: Array
     },
     title_Main: {
       type: String,
-      default: "Tin Tức",
+      default: "Tin Tức"
     },
     Magazine: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     title_Left: {
       type: String,
-      default: "Magazine",
+      default: "Magazine"
     },
     viewAll_Left: {
       type: String,
-      default: "/",
+      default: "/"
     },
     TheThao: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     title_Right1: {
       type: String,
-      default: "Thể Thao",
+      default: "Thể Thao"
     },
     viewAll_Right1: {
       type: String,
-      default: "/",
+      default: "/"
     },
     VanHoa: {
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     title_Right2: {
       type: String,
-      default: "Văn Hóa",
+      default: "Văn Hóa"
     },
     viewAll_Right2: {
       type: String,
-      default: "/",
+      default: "/"
     },
     ads: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
 
   computed: {
-    newsFilter() {
-      return this.News.splice(0, 5);
-    },
+    news() {
+      if (this.News) {
+        return this.News.filter((item, index) => index < 5);
+      }
+
+      return [];
+    }
   },
   methods: {
     toMagazine() {
       window.location.href = "http://magazine.nongthonviet.com.vn/";
-    },
-  },
+    }
+  }
 };
 </script>
 

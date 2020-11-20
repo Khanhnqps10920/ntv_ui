@@ -47,19 +47,19 @@
 export default {
   data() {
     return {
-      cateInfo: {},
+      cateInfo: {}
     };
   },
   props: {
     is1240: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     post: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
 
   computed: {
@@ -70,12 +70,12 @@ export default {
       return this.post.type === "LongForm"
         ? "/longform/" + this.post.alias + `-id=${this.post.id}`
         : "/post/" + this.post.alias + `-id=${this.post.id}`;
-    },
+    }
   },
 
   async mounted() {
     //Get CateInfo (2)
-  },
+  }
 };
 </script>
 
@@ -88,7 +88,7 @@ export default {
 .main-item .main-item__container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .main-item .main-item__img {
@@ -99,6 +99,7 @@ export default {
 
 .main-item .main-item__category {
   position: absolute;
+  z-index: 2;
   bottom: 0;
   padding: 3px 4px 2px;
   background-color: var(--maincolor);
@@ -126,6 +127,7 @@ export default {
   object-position: center;
   min-height: 150px;
   max-height: 250px;
+  height: 100%;
 }
 
 .main-item .main-item__info {
@@ -249,7 +251,7 @@ export default {
 /* desktop */
 @media (max-width: 1140px) and (min-width: 1019px) {
   .main-item .main-item__container {
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .main-item .main-item__info--title {

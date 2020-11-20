@@ -30,17 +30,19 @@ import { mapGetters } from "vuex";
 import AdsBlock from "../../components/CategoryPage/AdsBlock/AdsBlock.vue";
 import CategoryBlock from "../../components/CategoryPage/CategoryBlock/CategoryBlock.vue";
 import MainBlock from "../../components/CategoryPage/MainBlock/MainBlock.vue";
+import Crumbs from "../../components/Crumbs/Crumbs.vue";
 
 export default {
   components: {
     AdsBlock,
     CategoryBlock,
-    MainBlock
+    MainBlock,
+    Crumbs
   },
   data() {
     return {
       skip: 0,
-      limit: 10, //news per page
+      limit: 10 //news per page
     };
   },
 
@@ -79,7 +81,7 @@ export default {
       posts,
       category,
       total,
-      ads,
+      ads
     };
   },
 
@@ -101,11 +103,13 @@ export default {
       }
     }
   },
+
+  created() {
+    console.log(this.$route);
+  },
   head() {
     return {
-      titleTemplate: this.category
-        ? this.category.name
-        : process.env.Webname,
+      titleTemplate: this.category ? this.category.name : process.env.Webname,
       title: this.category ? this.category.name : process.env.Webname,
       meta: [
         {
@@ -161,6 +165,4 @@ export default {
 };
 </script>
 
-
-<style>
-</style>
+<style></style>

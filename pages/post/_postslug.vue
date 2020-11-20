@@ -4,11 +4,12 @@
       <!-- main -->
       <div class="col-span-9 xs:col-span-12 xs:mt-6">
         <div class="post__main">
-          <div class="post__main--category mb-5" v-if="post.categoryName ">
+          <div class="post__main--category mb-5" v-if="post.categoryName">
             <nuxt-link
               :key="post.categoryId"
               :to="`/category/${post.categoryName}-id=${post.categoryId}`"
-            >{{ post.categoryName }}</nuxt-link>
+              >{{ post.categoryName }}</nuxt-link
+            >
           </div>
           <h1 class="post__main--title">{{ post.title }}</h1>
 
@@ -21,9 +22,7 @@
               </div>
 
               <span class="post__main--info-time ml-6">
-                {{
-                post.publishedDate | datetime("DD/MM/YYYY")
-                }}
+                {{ post.publishedDate | datetime("DD/MM/YYYY") }}
               </span>
 
               <div class="post__main--info-icon ml-6" v-if="post.commentCount">
@@ -48,9 +47,14 @@
           </div>
 
           <!-- content -->
-          <div class="post__main--content grid grid-cols-12 gap-4 relative mt-6">
+          <div
+            class="post__main--content grid grid-cols-12 gap-4 relative mt-6"
+          >
             <!-- left side -->
-            <div class="col-span-4 sm:hidden xs:hidden" v-if="leftA && leftA.length">
+            <div
+              class="col-span-4 sm:hidden xs:hidden"
+              v-if="leftA && leftA.length"
+            >
               <div class="post__main--content-side sticky top-fiftyfive">
                 <p class="block-title">
                   <span>{{ Detail_Left1.title }}</span>
@@ -118,6 +122,22 @@
             </div>
 
             <div class="comment-block col-span-8 xs:col-span-12">
+              <h3 class="comment-block__title">
+                Bình luận
+                <span
+                  v-if="isReply"
+                  class="ml-2 text-sm font-thin cursor-pointer capitalize hover:text-hovercolor"
+                  @click="isReply = false"
+                  >Hủy reply</span
+                >
+              </h3>
+              <CommentForm
+                @refetchComments="refetchComments"
+                @refetchReply="refetchReply"
+                :postId="id"
+                :replyData="replyData"
+                ref="commentForm"
+              />
               <CommentItem
                 v-for="comment in comments"
                 :key="comment.id"
@@ -130,23 +150,9 @@
                 class="cursor-pointer hover:text-hovercolor mb-4 text-center text-sm"
                 v-if="comments.length < totalComment"
                 @click="fetchMoreComments"
-              >Xem Thêm</p>
-
-              <h3 class="comment-block__title">
-                Bình luận
-                <span
-                  v-if="isReply"
-                  class="ml-2 text-sm font-thin cursor-pointer capitalize hover:text-hovercolor"
-                  @click="isReply = false"
-                >Hủy reply</span>
-              </h3>
-              <CommentForm
-                @refetchComments="refetchComments"
-                @refetchReply="refetchReply"
-                :postId="id"
-                :replyData="replyData"
-                ref="commentForm"
-              />
+              >
+                Xem Thêm
+              </p>
             </div>
           </div>
         </div>
@@ -219,7 +225,7 @@ export default {
     },
 
     mainAds() {
-      return this.ads ?  this.ads.find(el => el.section === "DetailAds2") : {};
+      return this.ads ? this.ads.find(el => el.section === "DetailAds2") : {};
     }
   },
 
@@ -476,7 +482,7 @@ export default {
   max-width: 100% !important;
 }
 .parenthtml h3 {
-  line-height : normal
+  line-height: normal;
 }
 /* main */
 
