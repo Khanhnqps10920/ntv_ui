@@ -8,7 +8,7 @@
       :ThiTruongTaiChinh="HomeA_Right2"
       :titleHomeA_Right2="titleHomeA_Right2"
     />
-    <SocialBlock class="mt-10" :ads="homeAdsOne" />
+    <SocialBlock class="mt-7" :ads="homeAdsOne" />
     <BlockB
       class="mt-10"
       :News="HomeB_Main"

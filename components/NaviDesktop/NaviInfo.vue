@@ -4,7 +4,9 @@
       <div class="flex mt-8 text-xs">
         <div class="flex-1 text-left self-center">
           <i class="fas fa-cloud-sun-rain"></i>
-          <span class="font-bold">{{ String(weatherCelsius).slice(0,5) }} &#186;C</span>
+          <span class="font-bold"
+            >{{ String(weatherCelsius).slice(0, 5) }} &#186;C</span
+          >
           <span>Việt Nam</span>
         </div>
 
@@ -16,18 +18,18 @@
           </div>
         </div>
         <div class="flex-1 text-right self-center">
-          <nuxt-link to class="hover:text-hovercolor">
+          <a class="hover:text-hovercolor cursor-pointer">
             <i class="fab fa-facebook-f mr-3"></i>
-          </nuxt-link>
-          <nuxt-link to class="hover:text-hovercolor">
+          </a>
+          <a class="hover:text-hovercolor cursor-pointer">
             <i class="fab fa-twitter mr-3"></i>
-          </nuxt-link>
-          <nuxt-link to class="hover:text-hovercolor">
+          </a>
+          <a class="hover:text-hovercolor cursor-pointer">
             <i class="fab fa-youtube mr-3"></i>
-          </nuxt-link>
-          <nuxt-link to class="hover:text-hovercolor">
+          </a>
+          <a class="hover:text-hovercolor cursor-pointer">
             <i class="fas fa-search" @click="searchActive = !searchActive"></i>
-          </nuxt-link>
+          </a>
         </div>
         <transition name="fade-top" appear v-if="searchActive">
           <SearchHome @closeSearch="searchActive = false" />

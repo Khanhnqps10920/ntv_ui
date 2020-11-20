@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Crumbs class="container mt-8" :links="links" />
     <AdsBlock class="mt-10" :ads="adsA" />
 
     <SearchBlock class="mt-5" id="content" />
@@ -22,12 +23,14 @@ import AdsBlock from "../../components/CategoryPage/AdsBlock/AdsBlock.vue";
 import MainBlock from "../../components/CategoryPage/MainBlock/MainBlock.vue";
 import SearchBlock from "../../components/Search/SearchBlock.vue";
 import { postByCategories } from "@/assets/data/data.json";
+import Crumbs from "../../components/Crumbs/Crumbs.vue";
 
 export default {
   components: {
     AdsBlock,
     MainBlock,
     SearchBlock,
+    Crumbs,
   },
   data() {
     return {
@@ -35,7 +38,8 @@ export default {
       limit: 10, //news per page
       posts: [],
       total: 0,
-      ads: []
+      ads: [],
+      links: [],
     };
   },
 
@@ -43,12 +47,12 @@ export default {
     async changePage(p) {
       const keyword = this.$route.params.search;
 
-      this.skip = this.limit * (p - 1);  
+      this.skip = this.limit * (p - 1);
       const data = await this.$store.dispatch("searchPosts", {
-        urlQuery: {         
+        urlQuery: {
           keyword,
-          skip: this.skip, 
-          limit: this.limit 
+          skip: this.skip,
+          limit: this.limit,
         },
       });
       this.posts = data.data.result;
@@ -62,8 +66,12 @@ export default {
   },
 
   computed: {
-    adsA() { return this.ads ? this.ads.find(e => e.section === 'CateAds1') : {}},
-    adsB() { return this.ads ? this.ads.find(e => e.section === 'CateAds2') : {}}
+    adsA() {
+      return this.ads ? this.ads.find((e) => e.section === "CateAds1") : {};
+    },
+    adsB() {
+      return this.ads ? this.ads.find((e) => e.section === "CateAds2") : {};
+    },
   },
 
   async mounted() {
@@ -76,23 +84,26 @@ export default {
         limit: this.limit,
       },
       nextActions: (res) => {
-      
         this.posts = [...res.result];
-        this.total = res.totalNews
+        this.total = res.totalNews;
       },
-      errorActions: (e) => {
-      },
+      errorActions: (e) => {},
     });
 
     await this.$store.dispatch("getAds", {
-      page: 'catePage',
+      page: "catePage",
 
-      nextActions: res => {
+      nextActions: (res) => {
         this.ads = [...res.result];
-
-      }
-    })
-
+      },
+    });
+    this.links = [
+      {
+        name: "Tìm Kiếm",
+        to: this.$route.path,
+        last: true,
+      },
+    ];
   },
 };
 </script>

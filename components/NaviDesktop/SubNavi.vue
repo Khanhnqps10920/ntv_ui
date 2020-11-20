@@ -4,16 +4,18 @@
       <div class="flex text-white text-xs h-8 items-center justify-between">
         <div class="flex items-center">
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">Advertise</nuxt-link> -->
-          <nuxt-link to class="mr-5 hover:text-hovercolor"
+          <!-- <nuxt-link to="/" class="mr-5 hover:text-hovercolor"
             >Về chúng tôi</nuxt-link
-          >
+          > -->
           <a
             href="http://nongthonviet.com.vn/"
             target="_blank"
             class="mr-5 hover:text-hovercolor"
             >Magazine</a
           >
-          <nuxt-link to class="mr-5 hover:text-hovercolor">Liên hệ</nuxt-link>
+          <!-- <nuxt-link to="/" class="mr-5 hover:text-hovercolor"
+            >Liên hệ</nuxt-link
+          > -->
           <!-- <nuxt-link to class="mr-5 hover:text-hovercolor">In the press</nuxt-link> -->
         </div>
 
@@ -54,12 +56,11 @@ import { mapMutations, mapState, mapActions } from "vuex";
 
 import Container1640 from "@/components/containers/Container1640";
 export default {
-  data(){
+  data() {
     return {
-      toggleInfo: false
-    }
-  }
-  ,
+      toggleInfo: false,
+    };
+  },
   components: {
     Container1640,
   },
@@ -86,28 +87,26 @@ export default {
 
     handleChangePassword() {
       this.setActiveSignin(true);
-      this.$emit('resetPassword');
+      this.$emit("resetPassword");
       this.toggleInfo = false;
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
+.auth-info {
+  z-index: 1000;
+  top: 20px;
+  right: 30px;
+  white-space: nowrap;
+  transform: translateX(50%);
+  background: black;
+  padding: 10px;
+  text-align: center;
+}
 
-  .auth-info {
-    z-index:1000;
-    top:20px;
-    right:30px;
-    white-space:nowrap;
-    transform: translateX(50%);
-    background:black;
-    padding:10px;
-    text-align: center;
-  }
-
-  .auth-info a {
-    display:block;
-  }
-
+.auth-info a {
+  display: block;
+}
 </style>
