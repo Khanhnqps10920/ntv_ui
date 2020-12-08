@@ -25,3 +25,4 @@ $ npm run generate
 ```
 Commands and Deployment : https://nuxtjs.org/guide/commands/
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+# ntv_ui
