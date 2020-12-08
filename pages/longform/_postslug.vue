@@ -205,7 +205,7 @@ export default {
     Author,
     AdsMain,
     CommentForm,
-    CommentItem,
+    CommentItem
   },
   mounted() {
     this.link = `https://nongthon365.com.vn${this.$route.fullPath}`; //to do
@@ -216,7 +216,7 @@ export default {
       isReply: false,
       replyData: null,
       fetchReply: false,
-      limit: 5,
+      limit: 5
     };
   },
   methods: {
@@ -238,8 +238,8 @@ export default {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: 1000,
-          },
+            limit: 1000
+          }
         });
         this.comments = [...data.data.result];
         this.totalComment = data.data.totalComment;
@@ -257,13 +257,13 @@ export default {
           id: this.id,
           urlQuery: {
             skip: 0,
-            limit: this.limit,
-          },
+            limit: this.limit
+          }
         });
         this.comments = [...data.data.result];
         this.totalComment = data.data.totalComment;
       } catch (e) {}
-    },
+    }
   },
 
   watch: {
@@ -276,7 +276,7 @@ export default {
         commentArea.placeholder = `Comment`;
         this.replyData = null;
       }
-    },
+    }
   },
 
   async asyncData(context) {
@@ -293,26 +293,42 @@ export default {
       id,
       urlQuery: {
         skip: 0,
-        limit: 5,
+        limit: 5
       },
-      nextActions: (res) => {
+      nextActions: res => {
         comments = [...res.result];
         totalComment = res.totalComment;
       },
-      errorAction: (e) => {},
+      errorAction: e => {}
     });
+    console.log("context", context.$options);
 
+    // truncate
+    const truncate = function(str, length = 1000) {
+      if (typeof str === "string") {
+        const truncate = (str, max, suffix) =>
+          str.length < max
+            ? str
+            : `${str.substr(
+                0,
+                str.substr(0, max - suffix.length).lastIndexOf(" ")
+              )}${suffix}`;
+        return truncate(str, length, "...");
+      } else {
+        return;
+      }
+    };
     const links = [
       {
         name: post.categoryName,
         to: `/category/${post.categoryAlias}-id=${post.categoryId}`,
-        last: false,
+        last: false
       },
       {
-        name: "Nội dung bài viết",
+        name: truncate(post.title, 20),
         to: context.route.path,
-        last: true,
-      },
+        last: true
+      }
     ];
 
     return {
@@ -320,7 +336,7 @@ export default {
       post,
       id,
       comments,
-      totalComment,
+      totalComment
     };
   },
   head() {
@@ -331,47 +347,47 @@ export default {
         {
           hid: "apple-mobile-web-app-title",
           name: "apple-mobile-web-app-title",
-          content: process.env.Webname,
+          content: process.env.Webname
         },
         {
           hid: "og:site_name",
           name: "og:site_name",
           property: "og:site_name",
-          content: process.env.Webname,
+          content: process.env.Webname
         },
         {
           hid: "og:url",
           property: "og:url",
-          content: process.env.BASE_URL + this.$route.fullPath,
+          content: process.env.BASE_URL + this.$route.fullPath
         },
         {
           hid: "og:type",
           property: "og:type",
-          content: "article",
+          content: "article"
         },
         {
           hid: "og:title",
           property: "og:title",
-          content: this.post.title,
+          content: this.post.title
         },
         {
           hid: "description",
           property: "description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.post.meta.excerpt,
+          content: this.post.meta.excerpt
         },
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.meta.image,
-        },
-      ],
+          content: this.post.meta.image
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 
